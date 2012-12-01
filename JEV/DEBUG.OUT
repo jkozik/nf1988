@@ -1,0 +1,164 @@
+MFCDLL Initializing!
+F='NF'
+Entering CEnv::Init()
+Leaving CEnv::Init()
+a CEnv at $2417140C 
+F='NF'
+YEAR='94'
+Start Up Directory='C:\NF\JEV'
+Journal Entry Directory='\NF\94'
+
+Entering CChartList::Test()
+a CChart at $A2F0FB0 
+Account: 101 Description: Gary-Wheaton Checking Old: 101 Summary: 0
+
+Leaving CChartList::Test()
+
+Entering CJEList::Test()
+Entering LoadIn()
+LoadIn(): InputRecord='0102,-801,-4632.26;802,822.87;803,397.47;804,136.47;805,-34.22;117,1000.00;233,563.33;807,-563.33;808,32.49;134,416.66;809,-416.66;101-
+'
+LoadIn(): InputRecord='0102,-811,-5036.66;812,936.10;813,428.11;814,151.10;234,559.53;817,-559.53;117,500.00;818,3.69;101-
+'
+LoadIn(): InputRecord='0102,-611,1244.01;423,130.00;141,385.03;101-
+'
+LoadIn(): InputRecord='0102,-616,157.15;101-,Naperville
+'
+LoadIn(): InputRecord='0102,-715,23.45;101-
+'
+LoadIn(): InputRecord='0102,-714,53.76;101-,YMCA - Family Upgd, Gym/Swim
+'
+LoadIn(): InputRecord='0102,-774,17.77;101-,Village Stationers
+'
+LoadIn(): InputRecord='0101,-262,1158.65;257-,AIM-CHTRX
+'
+LoadIn(): InputRecord='0101,-262,1124.65;258-,AIM-CSTGX
+'
+LoadIn(): InputRecord='0101,-262,110101,-26215.54;259-,AIM-WEINX
+'
+Convert: Invalid Journal Entry Input Record:
+0101,-262,110101,-26215.54;259-,AIM-WEINX
+LoadIn(): InputRecord='0102,-631,9.65;105-
+'
+LoadIn(): InputRecord='0102,-724,198.70;105-,Golden Eagle for WES, Jr
+'
+LoadIn(): InputRecord='0102,-631,30.86;105-
+'
+LoadIn(): InputRecord='0102,-105,300.00;101-
+'
+LoadIn(): InputRecord='0102,-632,44.30;304-,Mario Tricoci - makeup
+'
+LoadIn(): InputRecord='0102,-104,50.00;101-,ATM
+'
+LoadIn(): InputRecord='0102,-104,90.00;101-,ATM
+'
+LoadIn(): InputRecord='0102,-621,13.50;323-
+'
+LoadIn(): InputRecord='0102,-791,42.54;304-,Books and Bytes - Windows
+'
+LoadIn(): InputRecord='0107,-444,363.59;117-,IL-941 IL State Withhold Taxes
+'
+LoadIn(): InputRecord='0107,-442,393.85;443,215.45;443,50.39;682,265.84;117-,Form 942 4Q91
+'
+LoadIn(): InputRecord='0107,-443,0.02;682-,FICA Rounding error
+'
+LoadIn(): InputRecord='0107,-682,107.73;117-,IDES 4Q91
+'
+LoadIn(): InputRecord='0107,-682,560107,-682,5601.00;117-,IRS
+'
+Convert: Invalid Journal Entry Input Record:
+0107,-682,560107,-682,5601.00;117-,IRS
+LoadIn(): InputRecord='0103,-711,11.00;304-,Olive Garden
+'
+LoadIn(): InputRecord='0103,-204,1845.71;117-,DOSTECH - 386/33 PC
+'
+LoadIn(): InputRecord='0103,-775,9.00;104-,Borics
+'
+LoadIn(): InputRecord='0104,-653,8.99;104-,Walgreens - EAK Cough Medine
+'
+LoadIn(): InputRecord='0103,-731,35.70;304-,7th Generation - light bulb
+'
+LoadIn(): InputRecord='0103,-702,60.00;704,23.00;740,55.66;304-,Lands End - brief case, clothe
+'
+LoadIn(): InputRecord='0102,-746,29.95;101-,D. Stafford - Launch Software
+'
+LoadIn(): InputRecord='0103,-631,54.62;101-
+'
+LoadIn(): InputRecord='0104,-651,28.00;101-,Dr Gus
+'
+LoadIn(): InputRecord='0106,-681,275.00;442,-30.87;443,-17.05;444,-7.67;445,-3.99;101-,MET
+'
+LoadIn(): InputRecord='0104,-631,45.44;101-
+'
+LoadIn(): InputRecord='0106,-631,53.29;101-
+'
+LoadIn(): InputRecord='01010101010101006,-631,22.24;101-,Walgreens - formula
+'
+LoadIn(): InputRecord='0103,-731,14.34;101-,Ace - furnace filter
+'
+LoadIn(): InputRecord='0108,-631,40.45;101-,JC
+'
+LoadIn(): InputRecord='0108,-631,26.53;101-
+'
+LoadIn(): InputRecord='0109,-651,28.00;101-,Dr Martine - MEK
+'
+LoadIn(): InputRecord='0110,-313,144.89;101-,313
+'
+LoadIn(): InputRecord='0109,-653,9.90;101-,Walgreens
+'
+LoadIn(): InputRecord='0110,-304,510.36;101-,304
+'
+LoadIn(): InputRecord='0110,-616,87.98;101-,NiGas
+'
+LoadIn(): InputRecord='0110,-704,99.67;101-
+'
+LoadIn(): InputRecord='0111,-631,128.17;101-
+'
+LoadIn(): InputRecord='0111,-616,39.35;101-,IBT
+'
+LoadIn(): InputRecord='0106,-822,-4.82;101-
+'
+LoadIn(): InputRecord='0101,-304,31.30;101-,Baker's Sq - mischarged to 304
+'
+LoadIn(): InputRecord='0101,-304,26.69;101-,Baker's Sq - mischarged to 304
+'
+LoadIn(): InputRecord='0112,-616,27.18;101-,IBT
+'
+LoadIn(): InputRecord='0112,0112,0112,0112,0-793,24.80;101-,Daily Herald
+'
+Convert: Invalid Journal Entry Input Record:
+0112,0112,0112,0112,0-793,24.80;101-,Daily Herald
+LoadIn(): InputRecord='0112,-131,471.00;117-,deduct 78.50 from 131 into 623
+'
+LoadIn(): InputRecord='0113,-681,275.00;442,-30.87;443,-17.05;444,-7.67;445,-3.99;101-,MET
+'
+LoadIn(): InputRecord='0112,-623,78.50;131-
+'
+LoadIn(): InputRecord='0113,-770,100.00;117-,Phi Kappa Sigma - Ken Coleman
+'
+LoadIn(): InputRecord='0113,-770,50.00;117-,Phi Kappa Sigma - Chapter
+'
+LoadIn(): InputRecord='0114,-776,6.50;104-,photos
+'
+LoadIn(): InputRecord='0104,-776,5.50;104-,photos
+'
+LoadIn(): InputRecord='0107,-621,14.20;323-
+'
+LoadIn(): InputRecord='0115,-621,13.80;323-
+'
+LoadIn(): InputRecord='0114,-732,45.00;101-,Energy serivces - humidifier
+'
+LoadIn(): InputRecord='0114,-631,45.46;101-
+'
+LoadIn(): InputRecord='0115,-631,54.90;101-,JC
+'
+LoadIn(): InputRecord='0115,-631,41.34;101-
+'
+LoadIn(): InputRecord='0118,-631,40.30;0118,-631,40.3101-,Walgreens - formula, etc
+'
+Convert: Invalid Journal Entry Input Record:
+0118,-631,40.30;0118,-631,40.3101-,Walgreens - formula, etc
+Jev Windows Application: File afxmem.cpp, Line 363, Assertion Failed!
+DLL's AfxAbort called
+ - calling app provided AbortProc
+AfxAbort called

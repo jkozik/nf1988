@@ -1,0 +1,471 @@
+#include "curses.h"
+#include <string.h>
+#include <ctype.h>
+#ifndef turboc
+#include <search.h>
+#include <direct.h>
+#include <sys/types.h>
+#else
+#include <dir.h>
+#endif
+#include <stdlib.h>
+#include <sys/stat.h>
+
+#include "GLdefs.h"
+#include "GLstruct.h"
+#include "GLextern.h"
+
+#include "JSdefs.h"
+#include "JSstruct.h"
+#include "JSextern.h"
+
+/* Global Definitions */
+WINDOW *menuline,*body,*prompt,*message,*chartbord,*charttext;
+menu state;
+struct JSfilerec JSfiletab[MAXJEFILE];
+struct bufinfo b1;
+struct bufinfo prevb1;
+struct JSlnedrec JSlnedtab;
+int JSrecend;
+jebool JSpregluptodate;
+
+
+int pc_uptype(int);
+
+void
+main(argc,argv) 
+int argc;
+char *argv[];
+{
+	CHTYPE ch;
+	CHTYPE attr;
+	menu ostate;
+
+/* Setup GL environment */
+(void) GLenvsetup();
+JSpregluptodate=GLuptodate();
+GDanal = (GDLIST *)NULL;
+GDglrpt = (GDLIST *)NULL;
+GDaarpt = (GDLIST *)NULL;
+
+JMheadon = JEFALSE;
+JMlinespage = 88;
+strcpy(JMpsetup,"\\x0F\\x1B\\x30");
+
+/* Read in chart of accounts file into array, charttab.
+** This array will be queried to validate account numbers.
+*/
+(void)CHload();
+
+/*
+** Initialize curses environment
+*/
+if (ERR == initscr() ) {
+	fprintf(stderr, "JSedit: cannot initialize curses\n");
+	JEinthand();
+}
+/* Update the screen directly */
+/*
+**pc_uptype((int)T_CGA);
+*/
+pc_uptype((int)T_EGA);
+/* Function key translation */
+keypad(stdscr, TRUE);
+/* let the program echo characters */
+noecho();
+/* do not return after linefeed */
+nonl();
+
+/*
+** Create and initialize windows
+*/
+/*
+** Initialize menuline window
+*/
+menuline=newwin(1,COLS,0,0);
+if (menuline == NULL) {
+	fprintf(stderr, "JSedit: cannot open 'menuline'\n");
+	JEinthand();
+}
+leaveok(menuline,TRUE);
+wattrset(menuline, A_COLOR(A_BRIGHTWHITE,A_BLUE) );
+wclear(menuline);
+
+/*
+** Initialize body window
+*/
+body = newwin(LINES-2,COLS,1,0);
+if (body == NULL) {
+	fprintf(stderr,"JSedit: cannot open 'body'\n");
+	JEinthand();
+}
+leaveok(body,TRUE);
+scrollok(body,TRUE);
+wattrset(body, A_COLOR(A_GREEN,A_BLACK) );
+wclear(body);
+
+/*
+** Initialize prompt window
+*/
+prompt=newwin(3,35,LINES-6,22);
+if (prompt == NULL) {
+	fprintf(stderr,"JSedit: cannot open 'prompt'\n");
+	JEinthand();
+}
+leaveok(prompt,TRUE);
+wclear(prompt);
+
+/*
+** Initialize message window
+*/
+message = newwin(1,COLS,LINES-1,0);
+if (message == NULL) {
+	fprintf(stderr,"JSedit: cannot open 'message'\n");
+	JEinthand();
+}
+leaveok(message,TRUE);
+wclear(message);
+
+/*
+** Initialize chart help windows:
+** 1. chartbord - Main window used for border only
+** 2. charttext - Subwindow of chartbord; used for text.
+*/
+chartbord = newwin(14,27,5,50);
+if (chartbord == NULL) {
+	fprintf(stderr,"JSedit: cannot open 'chartbord'\n");
+	JEinthand();
+}
+leaveok(chartbord,TRUE);
+scrollok(chartbord,TRUE);
+wattrset(chartbord, A_COLOR(A_BRIGHTWHITE,A_RED) );
+wclear(chartbord);
+attr=A_COLOR(A_BRIGHTWHITE,A_RED);
+box(chartbord,attr|D_VERT,attr|D_HOR);
+mvwaddstr(chartbord,0,5,"Chart of Accounts");
+
+charttext = newwin(12,25,6,51);
+if (charttext == NULL) {
+	fprintf(stderr,"JSedit: cannot open 'charttext'\n");
+	JEinthand();
+}
+leaveok(charttext,TRUE);
+scrollok(charttext,TRUE);
+wattrset(charttext, A_COLOR(A_BRIGHTWHITE,A_RED) );
+wclear(charttext);
+
+wrefresh(stdscr);
+
+
+/*
+** Display initial menu
+*/
+ostate=quit;
+state=start;
+strcpy(b1.filename,"");
+strcpy(b1.filetmp,"");
+b1.fileopened=JEFALSE;
+b1.filechgd=JEFALSE;
+
+/*
+** argv[1] holds the default file name.
+** load the file. go into the editor.
+*/
+if (argc == 2){
+	strcpy(b1.filename,argv[1]);
+	strcpy(b1.filetmp,argv[1]);
+	JSdspmenu(edit,&b1);
+	if (JMload(&b1) == JESUCCESS) {
+		state=edit;
+	} 
+}
+
+while( state!=quit ) {
+
+	if (ostate != state) {
+		JSdspmenu(state,&b1);
+		if (b1.fileopened == JETRUE && b1.filechgd == JETRUE && ostate == edit && state != editz) {
+			JMsave("jtmp",b1.JShead);
+		}
+		if (b1.fileopened == JETRUE && ostate == start && state == edit) {
+			b1.JStopptr = JMposcur(b1.JScurptr,b1.JStopptr);
+		}
+		if (JSpregluptodate == JEFALSE && ostate==start && state==report) {
+			JMmsg("WARNING: pregl needs to be run");
+		}
+
+		ostate = state;
+		strcpy(b1.filetmp,b1.filename);
+	}
+
+	wrefresh(body);
+	ch=getch();
+	switch(state) {
+	case start:
+		state = JMstart(ch,&b1);
+		break;
+
+	case report:
+		state = JMreport(ch);
+		break;
+
+	case repset:
+		state = JMsettings(ch);
+		break;
+
+	case analrd:
+	case glrptrd:
+	case aarptrd:
+		state = JMreprd(ch);
+		break;
+
+	case analdisp:
+	case glrptdisp:
+	case aarptdisp:
+		state = JMrepdisp(ch);
+		break;
+
+	case file:
+		state = JMfile(ch,&b1);
+		break;
+
+	case edit:
+		state = JMedit(ch,&b1);
+/*
+		break;
+
+   case quikadtl:
+*/
+      if (state==quikadtl) {
+         /* run pregl if needed */
+         if (JSpregluptodate == JEFALSE) {
+            JMpregl();
+            JSpregluptodate = JETRUE;
+            JMmsg("");
+         }
+
+         /* run analdtl */
+         JManaldtl(curcracct);
+         if (GDanal != (GDLIST *)NULL) {
+         GDunload(GDanal);
+         GDanal = (GDLIST *)NULL;
+         }
+         JMmsg("Displaying...");
+         GDanal = GDdefine();
+         if (GDanal == (GDLIST *)NULL) {
+            JMmsg("Display: out of memory");
+            state=analrd;
+         } else if (GDload(GDanal,"anal.out") == JEFAIL) {
+            JMmsg("Display: anal.out not found");
+            state=analrd;
+         } else {
+            GDend(GDanal);
+            JMmsg("");
+            state=analdisp;
+         }
+      }
+      break;
+
+
+	case editz:
+		if (ch != 'Z') {
+			beep();
+			state = edit;
+		} else {
+			/* save current file */
+			if (b1.fileopened == JETRUE) {
+				JMsave(b1.filename,b1.JShead);
+			}
+			/* Close curses */
+			endwin();
+			/* Restore working directory */
+			chdir(cwdstr);
+			exit(1);
+		}
+		break;
+	default:
+		fprintf(stderr,"JSedit: unknown state\n");
+		JMmsg("JSedit: unknown state");
+		JEinthand();
+		break;
+	}
+}
+/* Close curses */
+endwin();
+/* Restore working directory */
+chdir(cwdstr);
+} /* end of main */
+menu
+JMstart(inp_ch,actbuf)
+CHTYPE inp_ch;
+struct bufinfo *actbuf;
+{
+	CHTYPE ch;
+	char prmtstr[40];
+
+	switch(inp_ch) {
+	case 'q':
+	case 'Q':
+		if (actbuf->fileopened && actbuf->filechgd) {
+			/* Prompt: "Save filename? [(y)/n]"*/
+			sprintf(prmtstr,"Save %s? [(y)/n]",actbuf->filename);
+			ch = wprmtch(prompt,prmtstr);
+			switch(ch){
+			case 'n':
+			case 'N':
+				break;
+	
+			default:
+				/* Prompt: Save: filename-'...' */
+				wprmtfld(prompt,"Save: Enter Filename-",actbuf->filetmp);
+				if (actbuf->filetmp[0] == KEY_ESC) {
+					wclear(prompt);
+					wrefresh(prompt);
+					touchwin(body);
+					wrefresh(body);
+					return(start);
+				} 
+				strcpy(actbuf->filename,actbuf->filetmp);
+				JMsave(actbuf->filename,actbuf->JShead);
+				actbuf->filechgd=JEFALSE;
+				break;
+			}
+		
+		} /* end if (filechgd) */
+
+		ch = wprmtch(prompt,"Quit: Press Y to Confirm.");
+		if (ch == (CHTYPE)'y')
+			return(quit);
+		else {
+			wclear(prompt);
+			wrefresh(prompt);
+			touchwin(body);
+			wrefresh(body);
+			return(state);
+		}
+		/*break;*/
+
+	case 'f':
+	case 'F':
+		return(file);
+		/*break;*/
+
+	case 'r':
+	case 'R':
+		return(report);
+		/*break;*/
+
+	case 'e':
+	case 'E':
+		return(edit);
+		/*break;*/
+
+	default:
+		beep();
+		break;
+	}
+	return(state);
+}
+
+void
+JSdspmenu(state,actbuf)
+menu state;
+struct bufinfo *actbuf;
+{
+	wclear(menuline);
+	switch (state) {
+	case start:
+		mvwaddstr(menuline,0,0,"Edit Reports Quit");
+		break;
+
+	case file:
+		mvwaddstr(menuline,0,0,"New Load Save");
+		break;
+
+	case lnedit:
+		mvwaddstr(menuline,0,0,"Line Edit Mode, ESC-Exit");
+		break;
+	
+	case report:
+		mvwaddstr(menuline,0,0,"Pregl Settings Analdtl Glrpt aaRpt");
+		break;
+
+	case repset:
+		mvwaddstr(menuline,0,0,"Headings Lines");
+		break;
+
+
+	case analrd:
+		mvwaddstr(menuline,0,0,"Run Display");
+		break;
+
+	case analdisp:
+		mvwaddstr(menuline,0,0,"Search Account");
+		break;
+
+	case glrptrd:
+		mvwaddstr(menuline,0,0,"Run Display");
+		break;
+
+	case glrptdisp:
+		mvwaddstr(menuline,0,0,"Search Account");
+		break;
+
+	case aarptrd:
+		mvwaddstr(menuline,0,0,"Run Display");
+		break;
+
+	case aarptdisp:
+		mvwaddstr(menuline,0,0,"Search Account");
+		break;
+
+
+	case editz:
+	case edit:
+		mvwaddstr(menuline,0,0,"File Append Insert Change Delete Search Yank Put Undo");
+		if (actbuf->filename[0] != '\0') {
+			wmove(menuline,0,60);
+         wprintw(menuline,"File-%-2.2s\\%-2.2s Cnt-%-3d",year,actbuf->filename,b1.JSrec_cnt);
+		}
+		break;
+
+	}
+	wrefresh(menuline);
+}
+
+void
+JSnotyet(func)
+char *func;
+{
+	wclear(message);
+	mvwaddstr(message,0,0,"The Function ");
+	wstandout(message);
+	waddstr(message,func);
+	wstandend(message);
+	waddstr(message," Not Implemented Yet.");
+	wrefresh(message);
+}
+
+void
+JMprtbody(text)
+char *text;
+{
+	/*
+	** Display text in the body window:
+	** middle 20 lines of screen.
+	*/
+	waddstr(body,text);
+	wrefresh(body);
+}
+void
+JMmsg(text)
+char *text;
+{
+	/*
+	** Display text in the message window:
+	** bottom line of screen.
+	*/
+	wclear(message);
+	waddstr(message,text);
+	wrefresh(message);
+}

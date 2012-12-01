@@ -1,0 +1,770 @@
+#include "glt.h"
+#include "je.h"
+#include "stdlib.h"
+#include "iostream.h"
+#include "iomanip.h"
+#include "direct.h"
+#ifdef _DEBUG
+#undef THIS_FILE
+static char BASED_CODE THIS_FILE[] = __FILE__ ;
+#endif
+
+// glt.cpp : Defines the class behaviors for CGlTran, CGltList
+
+IMPLEMENT_DYNAMIC( CGlTran, CObject );
+IMPLEMENT_DYNAMIC( CGltArray, CObArray );
+IMPLEMENT_DYNAMIC( GltAllMonths, CObject );
+
+//////////////////////////////////////////////////////////////////
+// CGlTran::CGlTran
+// Copy Constructor for CGlTran class
+//
+CGlTran::CGlTran( const CGlTran& a )
+{
+    ASSERT_VALID( this );
+    ASSERT_VALID( &a );
+
+    m_mmdd = a.m_mmdd;
+    m_CrAcct = a.m_CrAcct;
+    m_CrAmt = a.m_CrAmt;
+    m_Desc = a.m_Desc;
+}
+
+///////////////////////////////////////////////////////////////////
+// CChart::CChart
+// Memberwise Constructor for CChart
+//
+CGlTran::CGlTran( const char* pszMMDD, const char* pszAcct, const char* pszAmt, const char* pszDesc )
+{
+    ASSERT_VALID( this );
+
+    m_mmdd = pszMMDD;
+    m_CrAcct = pszAcct;
+    m_CrAmt = pszAmt;
+    m_Desc = pszDesc;
+}
+////////////////////////////////////////////////////////////////////////////
+// Set Operators for mmdd, CrAcct, CrAmt, Desc
+//
+BOOL
+CGlTran::SetMmdd( const char* pszMMDD )
+{
+    ASSERT_VALID( this );
+    return m_mmdd.Set( pszMMDD );
+}
+BOOL
+CGlTran::SetCrAcct( const char* pszCrAcct )
+{
+    ASSERT_VALID( this );
+    if( m_CrAcct.Set( pszCrAcct ) && m_CrAcct.GetLength() == SZACCT ) {
+	return TRUE;
+    } else {
+	return FALSE;
+    }
+}
+BOOL
+CGlTran::SetCrAmt( const char* pszCrAmt )
+{
+    ASSERT_VALID( this );
+    return m_CrAmt.Set( pszCrAmt );
+}
+BOOL
+CGlTran::SetCrAmt( const long lAmt )
+{
+    ASSERT_VALID( this );
+    return m_CrAmt.Set( lAmt );
+}
+BOOL
+CGlTran::SetDesc( const char* pszDesc )
+{
+    ASSERT_VALID( this );
+    return m_Desc.Set( pszDesc );
+}
+////////////////////////////////////////////////////////////////////////////
+// Get Operators for mmdd, CrAcct, CrAmt, Desc
+//
+const Cmmdd&
+CGlTran::GetMmdd() const
+{
+    ASSERT_VALID( this );
+    return m_mmdd;
+}
+const CAcct&
+CGlTran::GetCrAcct() const
+{
+    ASSERT_VALID( this );
+    return m_CrAcct;
+}
+
+const CAmt&
+CGlTran::GetCrAmt() const
+{
+    ASSERT_VALID( this );
+    return m_CrAmt;
+}
+
+const CDesc&
+CGlTran::GetDesc() const
+{
+    ASSERT_VALID( this );
+    return m_Desc;
+}
+
+////////////////////////////////////////////////////////////////////
+// CGlTran::operator=
+// Overloaded operator= to perform assignments
+//
+CGlTran& CGlTran::operator=( const CGlTran& b )
+{
+    ASSERT_VALID( this );
+    ASSERT_VALID( &b );
+
+    m_mmdd = b.m_mmdd;
+    m_CrAcct = b.m_CrAcct;
+    m_CrAmt = b.m_CrAmt;
+    m_Desc = b.m_Desc;
+
+    return( *this );
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// CGlTran::operator CString() const
+// Convert GlTran record to following format
+// MMDD,XXX,999.99[,XXX...X]
+//
+CGlTran::operator CString() const
+{
+    if( GetDesc().GetLength() != 0 ) {
+	return	GetMmdd()+","+GetCrAcct()+","+GetCrAmt().Get()+","+GetDesc() ;
+    }else{
+	return	GetMmdd()+","+GetCrAcct()+","+GetCrAmt().Get() ;
+    }
+}
+
+///////////////////////////////////////////////////////////////////////
+// CGlTran::Dump
+// Write the contents of the object
+//
+#ifdef _DEBUG
+void CGlTran::Dump( CDumpContext& dc ) const
+{
+    ASSERT_VALID( this );
+
+    CObject::Dump( dc );
+
+    afxDump << "\n"
+	<< "Date: " << GetMmdd()
+	<< " Account: " << GetCrAcct()
+	<< " Amount: " << GetCrAmt().Get()
+	<< " Description: \""  << GetDesc() << "\""
+	<< "\n" ;
+
+}
+////////////////////////////////////////////////////////////////////////////////
+// CGlTran::AssertValid
+// Asserts if invalid CGlTran fields detected
+//
+void CGlTran::AssertValid() const
+{
+    CObject::AssertValid();
+    ASSERT( this->IsKindOf( RUNTIME_CLASS( CGlTran ) ));
+    //if( m_mmdd != "" ) ASSERT( m_mmdd.Valid() );
+    //if( m_CrAcct != "" ) ASSERT( m_CrAcct.Valid() );
+    //if( m_Desc != "" ) ASSERT( m_Desc.Valid() );
+
+}
+/////////////////////////////////////////////////////////////////////////
+// Test Class CGlTran
+//
+BOOL
+CGlTran::Test()
+{
+    TRACE( "\nEntering CGlTran::Test()\n");
+
+    CMemoryState point, endpoint, diff;
+    point.Checkpoint();
+
+    {
+
+    CGlTran  glt("0101","101","99.99","XXX...X");
+    ASSERT( glt.GetMmdd() == "0101" );
+    ASSERT( glt.GetCrAcct() == "101" );
+    ASSERT( glt.GetCrAmt() == 9999 );
+    ASSERT( glt.GetCrAmt().Get() == "99.99" );
+    ASSERT( glt.GetDesc() == "XXX...X" );
+    ASSERT( (CString) glt == "0101,101,99.99,XXX...X" );
+    afxDump << "\n" << glt;
+
+    CGlTran glt2;
+    int i = glt2.Convert("0101,101,99.99");
+    afxDump << "\n" << glt2 << "\n" << (CString) glt2 << "\n" ;
+    ASSERT( (CString) glt2 == "0101,101,99.99" );
+    goto endTest;
+endTest: ;
+    TRACE( "\nLeaving CGlTran::Test()\n");
+    }
+    endpoint.Checkpoint();
+    if( diff.Difference( point, endpoint ) ) {
+	afxDump << "\n";
+	diff.DumpStatistics();
+	diff.DumpAllObjectsSince();
+    }
+    return TRUE;
+}
+#endif
+
+///////////////////////////////////////////////////////////////////
+// CGltArray
+//
+
+
+////////////////////////////////////////////////////////////////////
+// CGltArray::Close
+// This will delete the objects in the list
+//
+void CGltArray::Close()
+{
+    ASSERT_VALID( this );
+
+    for( int i = GetSize()-1; i>=0; i-- ) {
+	delete GetAt( i );
+    }
+    RemoveAll();
+
+}
+
+///////////////////////////////////////////////////////////////////
+// CGltArray::Open
+// This reads in records from the file YY\??.pgl
+//
+BOOL CGltArray::Open(const char* pszFileName)
+{
+
+    const int SZLINE = 80;
+    char InputRecord[SZLINE+1];
+    CGlTran c;
+    BOOL bGOOD_INPUT;
+
+    int rec_cnt = 0;
+    if( pszFileName ) {
+	m_FileName = pszFileName;
+    }
+
+    CStdioFile f( m_FileName, CFile::modeRead );
+
+    while ( f.ReadString( InputRecord, SZLINE ) )
+    {
+	bGOOD_INPUT = c.Convert( InputRecord );
+	if( bGOOD_INPUT  ) {
+	    Add( new CGlTran( c ) );
+	    rec_cnt++;
+	}
+
+    }
+    f.Close();
+
+    return TRUE;
+
+}
+
+///////////////////////////////////////////////////////////////////////
+// CGlTran::Convert
+// Create CGlTran with input record string; Return NULL if invalid
+//
+BOOL CGlTran::Convert( const char* pszGlTranFileRecord )
+{
+    ASSERT_VALID( this );
+    BOOL match, done;
+    int field, sidx, oldsidx, slen;
+
+    CString s = CString( pszGlTranFileRecord );
+    slen = s.GetLength();
+    done = FALSE;
+    sidx = oldsidx = 0;
+    SetDesc( "" );
+    for( field=0; done == FALSE; field++ )
+    {
+	match = FALSE;
+	switch( field )
+	{
+	case 0: /* date - MMDD,   */
+	    match = SetMmdd( (s.Mid( sidx )).SpanExcluding(","));
+	    oldsidx = sidx;
+	    sidx += GetMmdd().GetLength() + 1;
+	    break;
+
+	case 1: /* account no. -  XXX, */
+	    match = SetCrAcct( (s.Mid( sidx )).SpanExcluding(","));
+	    oldsidx = sidx;
+	    sidx += GetCrAcct().GetLength() + 1;
+	    break;
+
+	case 3: /* description - XX...X, or XX...X\n */
+	    match = SetDesc( (s.Mid( sidx )).SpanExcluding("\n") );
+	    oldsidx = sidx;
+	    sidx += GetDesc().GetLength() + 1;
+	    if ( sidx-1 >= slen || s[sidx-1] == '\n' ) done = TRUE;
+	    break;
+
+	case 2: /*Amount - 999.99 followed by , or \n */
+	    match = SetCrAmt( (s.Mid( sidx )).SpanExcluding(",\n") );
+	    oldsidx = sidx;
+	    sidx += m_CrAmt.Get().GetLength() + 1;
+	    if( sidx-1 >= slen || s[sidx-1] == '\n') done = TRUE;
+	    break;
+
+
+	} // switch
+	if( match == FALSE ) {
+	    cerr << pszGlTranFileRecord
+		 << "Invalid General Ledger Record, sidx=" << oldsidx <<"\n";
+	    done = TRUE;
+	}
+    } // for
+    return match;
+} // function
+
+
+///////////////////////////////////////////////////////////////////////////
+// CGltArray::Save
+// Write CGltArray to file
+//
+BOOL
+CGltArray::Save( const char* pszFileName )
+{
+    if( pszFileName ) m_FileName = pszFileName;
+    CStdioFile f( m_FileName, CFile::modeWrite | CFile::modeCreate |
+			      CFile::typeText);
+
+    CGlTran* gltp;
+    for( int i=0; i < GetSize(); i++ ) {
+	//gltp = (CGlTran*) GetAt(i);
+	gltp = GetAtGlt( i );
+	f.WriteString( ((CString) *gltp) + "\n" );
+    }
+    f.Close();
+    return TRUE;
+}
+///////////////////////////////////////////////////////////////////
+// CGltArray::CGltArray
+// Constructor/Destructor
+//
+CGltArray::CGltArray()
+{
+
+}
+CGltArray::CGltArray( const CGltArray& glt )
+{
+    ASSERT_VALID( this );
+    m_FileName = glt.m_FileName;
+    SetSize( glt.GetSize() );
+    for(int i = 0; i < glt.GetSize(); i++ ) {
+	//SetAt(i, new CGlTran( * (CGlTran*) glt.GetAt(i) ) );
+	SetAt(i, new CGlTran( *  glt.GetAtGlt(i) ) );
+    }
+}
+CGltArray::~CGltArray()
+{
+    CGltArray::Close();
+}
+////////////////////////////////////////////////////////////////////////////////////
+// CGltArray::operator=
+// Assignment operator
+//
+CGltArray& CGltArray::operator=( const CGltArray& glt )
+{
+    m_FileName = glt.m_FileName;
+    SetSize( glt.GetSize() );
+    for(int i = 0; i < glt.GetSize(); i++ ) {
+	// SetAt(i, new CGlTran( * (CGlTran*) glt.GetAt(i) ) );
+	SetAt(i, new CGlTran( * glt.GetAtGlt(i) ) );
+    }
+    return *this;
+}
+//////////////////////////////////////////////////////////////////////////
+// CGltArray::GetAtGlt(i)
+// Return CGlTran* pointer to the ith CGltArray entry
+// Calls CObArray::GetAt() type safely!
+//
+CGlTran*
+CGltArray::GetAtGlt( int nIndex ) const
+{
+    return (CGlTran *) GetAt( nIndex );
+}
+
+///////////////////////////////////////////////////////////////////////////
+// CGltArray::SortbyAcctMmdd
+// Sort the Array by CAcct and Cmmdd using qsort
+//
+#include "search.h"
+void
+CGltArray::SortbyAcctMmdd()
+{
+    typedef int (*sortFn)(const void*, const void*);
+    //char** arrbase = &this[0];
+    CObject** arrbase = m_pData;
+    qsort( m_pData /*arrbase*/, GetSize(), sizeof( CObject* ), (sortFn)CmpAcctMmdd );
+}
+extern "C" {
+int
+CmpAcctMmdd(CGlTran** a1, CGlTran** a2)
+{
+
+    //CGlTran *s1 = *a1, *s2 = *a2;
+    int cmp_acct, cmp_date;
+
+    cmp_acct = (*a1)->GetCrAcct().Compare( (*a2)->GetCrAcct() );
+    if( cmp_acct ) return cmp_acct;
+
+    cmp_date = (*a1)->GetMmdd().Compare( (*a2)->GetMmdd() );
+    if( cmp_date ) return cmp_date;
+
+    if( *a1 < *a2 )
+	return( -1 );
+    else if( *a1 > *a2 )
+	return( 1 );
+    else
+	return( 0 );
+    TRACE("\nLeaving GltArray::CmpAcctMmdd()\n");
+}
+}
+#if _DEBUG
+/////////////////////////////////////////////////////////////////////////
+// Test Class CGltArray
+//
+static BOOL
+CGltArray::Test()
+{
+    TRACE( "\nEntering CGltArray::Test()\n");
+
+    CMemoryState point, endpoint, diff;
+    point.Checkpoint();
+
+    {
+    CGltArray gltar,gltar2,gltar3;
+    gltar.Add( new CGlTran("0101","801","99.99","XXX...X"));
+    gltar.Add( new CGlTran("0102","101","99.99","XXX...X"));
+    afxDump.SetDepth( 1 );
+    //afxDump << "\n" << gltar;
+    gltar2 = gltar;
+    //afxDump << "\n" << gltar2;
+
+    ASSERT( gltar.GetSize() ==2 && gltar2.GetSize() == 2 );
+
+    gltar2.SortbyAcctMmdd();
+    //afxDump << "\n" << gltar2;
+
+    gltar3.Open( "c:\\nf\\92\\01.pgl" );
+    //afxDump << "\n" << gltar3;
+    gltar3.Save( "c:\\nf\\92\\01.tst" );
+    gltar3.SortbyAcctMmdd();
+    gltar3.Save( "c:\\nf\\92\\01.srt" );
+    gltar.Close();
+    gltar2.Close();
+    gltar3.Close();
+
+    TRACE( "\nLeaving CGltArray::Test()\n");
+    return TRUE;
+
+    CGlTran  glt("0101","101","99.99","XXX...X");
+    ASSERT( glt.GetMmdd() == "0101" );
+    ASSERT( glt.GetCrAcct() == "101" );
+    ASSERT( glt.GetCrAmt() == 9999 );
+    ASSERT( glt.GetCrAmt().Get() == "99.99" );
+    ASSERT( glt.GetDesc() == "XXX...X" );
+    ASSERT( (CString) glt == "0101,101,99.99,XXX...X" );
+    afxDump << "\n" << glt;
+
+    CGlTran glt2;
+    int i = glt2.Convert("0101,101,99.99");
+    afxDump << "\n" << glt2 << "\n" << (CString) glt2 << "\n" ;
+    ASSERT( (CString) glt2 == "0101,101,99.99" );
+    TRACE( "\nLeaving CGltArray::Test()\n");
+    goto endTest;
+endTest: ;
+    }
+    endpoint.Checkpoint();
+    if( diff.Difference( point, endpoint ) ) {
+	afxDump << "\n";
+	diff.DumpStatistics();
+	diff.DumpAllObjectsSince();
+    }
+    return TRUE;
+}
+#endif
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+// GltAllMonths
+//////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////////////////////////////
+// GltAllMonths::
+// Constructors
+//
+GltAllMonths::GltAllMonths( eSortKey SortKey )
+{
+    m_SortKey = SortKey;
+
+
+}
+
+GltAllMonths::~GltAllMonths()
+{
+    Close();
+
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// GltAllMonths::Open, Close
+//
+BOOL
+GltAllMonths::Open()
+{
+    char InputRecord[SZGLTLINE+1];
+    CGlTran glt;
+    GltFileDesc *gltfdp;
+    CStdioFile sglf;
+
+
+    if(! m_GltFdList.IsEmpty()	)
+	Close();
+
+    CString FileMM, FilePGL, FileSGL, FileXGL;
+    CFileStatus sMM, sPGL, sSGL;
+    BOOL bPGL_Exists, bSGL_Exists;
+    CJEList je;
+    CGltArray *gltp;
+
+    gltfdp = NULL;
+    for( int monidx=0; monidx<MONTHS; monidx++ ) {
+	if( gltfdp == NULL ) gltfdp = (GltFileDesc*) new GltFileDesc;
+	FileMM = ((CString) months[monidx]);
+	afxDump << "FileMM: " << FileMM << "\n";
+	if( ! CFile::GetStatus( FileMM, sMM) ) continue;
+
+	FilePGL = FileMM + ".pgl";
+	bPGL_Exists = CFile::GetStatus( FilePGL, sPGL );
+	FileSGL = FileMM + ".sgl";
+	bSGL_Exists = CFile::GetStatus( FileSGL, sSGL );
+
+	if( bPGL_Exists && sMM.m_mtime>sPGL.m_mtime || !bSGL_Exists
+						    || !bPGL_Exists ) {
+
+	    afxDump << "Creating: " << FilePGL << ", " << FileSGL << "\n";
+	    je.Open(FileMM);	    // Get Journal Entry File
+	    gltp = je;		    // Convert it to Glt Format
+	    gltp->Save( FilePGL );  // Save as ??.pgl
+	    gltp->SortbyAcctMmdd(); // Sort by Acct and Date
+	    gltp->Save( FileSGL );  // Save as ??.sgl
+	    gltp->Close();
+	    je.Close();
+	    delete gltp;
+	}
+
+	if( m_SortKey == SortByAcctMonth ) FileXGL = FileSGL;
+	else if( m_SortKey == SortByMonthAcct ) FileXGL = FilePGL;
+	else ASSERT( FALSE );
+
+	if( gltfdp->fd.Open( FileXGL, CFile::modeRead )) {
+	    if( gltfdp->fd.ReadString( InputRecord, SZGLTLINE ) &&
+		glt.Convert( InputRecord )) {
+		gltfdp->glt = glt;
+		afxDump << (CString) glt << "\n";
+		gltfdp->FileName = months[monidx];
+		AddToSortedGltList( gltfdp );
+		gltfdp = NULL;
+	    } // if ReadString
+	} // Open
+    } // for
+    delete gltfdp;
+    return TRUE;
+
+}
+
+void
+GltAllMonths::Close()
+{
+
+    POSITION pos = m_GltFdList.GetHeadPosition();
+    GltFileDesc *gltfdp;
+
+    while( pos != NULL ) {
+	gltfdp = GetNextGltFd(pos );
+	gltfdp->fd.Close();
+	delete gltfdp;
+    }
+    m_GltFdList.RemoveAll();
+
+}
+//////////////////////////////////////////////////////////////////////////////
+// GltAllMonths::AddToSortedGltList
+// The argument is a file descriptor for a Sorted General Ledger
+// Transaction file (e.g. 01.sgl).  The descriptor also points
+// to the the current record.  The argument is inserted into a
+// CPrtList that is sorted by CAcct and FileName.
+//
+void
+GltAllMonths::AddToSortedGltList( GltFileDesc* gltfdp)
+{
+
+    CString InpKey, GltListKey, GltListKey2;
+
+    if( m_SortKey == SortByAcctMonth ) {
+	InpKey = gltfdp->glt.GetCrAcct() + gltfdp->FileName;
+    } else if( m_SortKey == SortByMonthAcct ) {
+	InpKey = gltfdp->FileName + gltfdp->glt.GetCrAcct();
+    } else {
+	ASSERT( FALSE );
+    }
+
+    POSITION pos = m_GltFdList.GetHeadPosition();
+    while( pos != NULL ) {
+	GltListKey = GetAtGltFd( pos ) -> glt.GetCrAcct();
+	GltListKey2 = GetAtGltFd( pos ) -> FileName;
+	if( m_SortKey == SortByAcctMonth ) {
+	    GltListKey = GltListKey + GltListKey2;
+
+	} else if( m_SortKey == SortByMonthAcct ) {
+	    GltListKey = GltListKey2 + GltListKey;
+
+	} else {
+	    ASSERT( FALSE );
+	}
+	if( InpKey < GltListKey ) {
+	    m_GltFdList.InsertBefore( pos, gltfdp );
+	    return;
+	}
+	GetNextGltFd( pos );
+    } // while
+    m_GltFdList.AddTail( gltfdp );
+    return;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// CGltTran GltAllMonths::GetNextGlt
+// Read the next General Ledger Transaction record next in
+// the CAcct, FileName collating sequence.  The next record
+// is stored at the head of the m_GltFdList linked list.
+// This routine returns a copy of that record and reads the
+// next record from that file and re-inserts the result into
+// the linked list.
+CGlTran
+GltAllMonths::GetNextGlt()
+{
+
+    CGlTran glt;
+    GltFileDesc* gltfdp;
+
+    if( m_GltFdList.IsEmpty() ) return glt;
+
+    char InputRecord[SZGLTLINE+1];
+    POSITION pos = m_GltFdList.GetHeadPosition();
+    gltfdp = GetAtGltFd( pos );
+    glt = gltfdp -> glt; // Get Next GltTran Record, at head of list
+    m_GltFdList.RemoveAt( pos );
+
+    // Read next record from gltfdp->fd file
+    if( gltfdp->fd.ReadString( InputRecord, SZGLTLINE ) ) {
+	gltfdp->glt.Convert( InputRecord );  // Convert to CGltTran
+	AddToSortedGltList( gltfdp );
+    } else {
+	// No more records in file, deallocate memory
+	gltfdp->fd.Close();
+
+	delete gltfdp;
+    }
+    return glt;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// GltAllMonths::GetAtGltFd and GetNextGltFd
+// Type safe functions for reading GltFileDesc* from CPtrList objects
+//
+struct GltAllMonths::GltFileDesc*
+GltAllMonths::GetAtGltFd( POSITION rpos )
+{
+    return (struct GltFileDesc*) m_GltFdList.GetAt( rpos );
+}
+struct GltAllMonths::GltFileDesc*
+GltAllMonths::GetNextGltFd( POSITION& rpos ) const
+{
+    return (struct GltFileDesc*) m_GltFdList.GetNext( rpos );
+}
+
+#ifdef _DEBUG
+//////////////////////////////////////////////////////////////////////////////
+// GltAllMonths::Dump()
+//
+void
+GltAllMonths::Dump( CDumpContext& dc ) const
+{
+    ASSERT_VALID( this );
+
+    CObject::Dump( dc );
+    GltFileDesc* gltfdp;
+    afxDump << "\n" ;
+
+    POSITION pos = m_GltFdList.GetHeadPosition();
+    while( pos != NULL ) {
+	gltfdp = GetNextGltFd( pos );
+	afxDump << gltfdp->FileName << ": " << (CString) gltfdp->glt << "\n";
+    }
+}
+void
+GltAllMonths::AssertValid() const
+{
+    CObject::AssertValid();
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// GltAllMonths::Test()
+//
+static BOOL
+GltAllMonths::Test()
+{
+
+    TRACE( "\nEntering GltAllMonths::Test()\n");
+    char cwd[_MAX_PATH+1];
+    CMemoryState point, endpoint, diff;
+    point.Checkpoint();
+
+    {
+    TRY {
+	GltAllMonths GltAll( SortByMonthAcct );
+	CGlTran glt;
+	char cwd[_MAX_PATH+1];
+
+	TRACE("Open()\n");
+	_getcwd( cwd, _MAX_PATH );
+	_chdir( "c:\\nf\\92" );
+
+	GltAll.Open();
+	afxDump.SetDepth( 1 );
+	afxDump << GltAll;
+
+	while( (glt = GltAll.GetNextGlt()).GetCrAcct() != "" ) {
+	    afxDump << (CString) glt << "\n";
+	}
+	TRACE("Close()\n");
+	GltAll.Close();
+    } CATCH( CFileException, e ) {
+	afxDump << "GltAllMonths Exception " << e->m_cause << "\n";
+    } END_CATCH
+
+    goto endTest;
+endTest: ;
+    _chdir( cwd );
+    TRACE( "\nLeaving GltAllMonths::Test()\n");
+    }
+    endpoint.Checkpoint();
+    if( diff.Difference( point, endpoint ) ) {
+	afxDump << "\n";
+	diff.DumpStatistics();
+	diff.DumpAllObjectsSince();
+    }
+    return TRUE;
+}
+#endif

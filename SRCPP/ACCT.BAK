@@ -1,0 +1,35 @@
+#ifndef __ACCT_H_
+#define __ACCT_H_
+
+#ifdef _DOS
+#include <afx.h>
+#else
+#include <afxwin.h>
+#endif
+#include <afxcoll.h>
+
+const int SZACCT = 3;
+
+///////////////////////////////////////////////////////////////////////
+// class CAcct:
+// Represents a three digit account number, the key to chart of
+// accounts files.
+// Format [1-8][0-9][0-9a-z] 1-3 digits valid in chart file
+//			     3 digits only in Journal Entry files
+
+class CAcct : public  CString
+{
+
+public:
+// Construction
+    CAcct();
+    ~CAcct();
+    CAcct( const char* pszAcct );
+
+// Attributes
+    BOOL Set( const char* pszAcct );
+    BOOL Valid();
+    const CString& Get();
+
+};  // CAcct
+#endif // __ACCT_H_

@@ -1,0 +1,1309 @@
+Stack Allocation = 20480 bytes
+
+ JEV
+
+ Start     Length     Name                   Class
+ 0001:0000 00000H     STDAFX_TEXT            CODE
+ 0001:0000 003A7H     JEV_TEXT               CODE
+ 0001:03A8 00306H     MAINFRM_TEXT           CODE
+ 0001:06AE 00244H     JEVDOC_TEXT            CODE
+ 0001:08F2 00320H     JEVVIEW_TEXT           CODE
+ 0001:0C12 005C6H     ENV_TEXT               CODE
+ 0001:11D8 01E32H     _TEXT                  CODE
+ 0001:300A 00000H     AFX_MSVC_TEXT          CODE
+ 0001:300A 003C3H     AFX_AUX_TEXT           CODE
+ 0001:33CE 00000H     AFX_COLL1_TEXT         CODE
+ 0001:33CE 00669H     AFX_DEBUG1_TEXT        CODE
+ 0001:3A38 01914H     AFX_CORE1_TEXT         CODE
+ 0001:5350 00532H     COMDAT_SEG1            CODE
+ 0002:0000 00010H     NULL                   BEGDATA
+ 0002:0010 000C0H     AFX_NULL               BEGDATA
+ 0002:00D0 0047AH     _DATA                  DATA
+ 0002:054A 00000H     XIFCB                  DATA
+ 0002:054A 00018H     XIFU                   DATA
+ 0002:0562 00004H     XIFL                   DATA
+ 0002:0566 00000H     XIFM                   DATA
+ 0002:0566 00000H     XIFCE                  DATA
+ 0002:0566 0000EH     CDATA                  DATA
+ 0002:0574 00000H     XIFB                   DATA
+ 0002:0574 00000H     XIF                    DATA
+ 0002:0574 00000H     XIFE                   DATA
+ 0002:0574 00000H     XIB                    DATA
+ 0002:0574 00000H     XI                     DATA
+ 0002:0574 00000H     XIE                    DATA
+ 0002:0574 00000H     XPB                    DATA
+ 0002:0574 00004H     XP                     DATA
+ 0002:0578 00000H     XPE                    DATA
+ 0002:0578 00000H     XCB                    DATA
+ 0002:0578 00000H     XC                     DATA
+ 0002:0578 00000H     XCE                    DATA
+ 0002:0578 00000H     XCFB                   DATA
+ 0002:0578 00000H     XCFCRT                 DATA
+ 0002:0578 00000H     XCF                    DATA
+ 0002:0578 00000H     XCFE                   DATA
+ 0002:0578 00000H     DBDATA                 DATA
+ 0002:0578 000E4H     IOB                    DATA
+ 0002:065C 00000H     IOBX                   DATA
+ 0002:065C 0000CH     IOBE                   DATA
+ 0002:0668 000E4H     IOB2                   DATA
+ 0002:074C 00000H     IOB2X                  DATA
+ 0002:074C 0000CH     IOB2E                  DATA
+ 0002:0758 00002H     CONST                  CONST
+ 0002:075A 00008H     HDR                    MSG
+ 0002:0762 00163H     MSG                    MSG
+ 0002:08C5 00015H     PAD                    MSG
+ 0002:08DA 00001H     EPAD                   MSG
+ 0002:08DC 000EAH     _BSS                   BSS
+ 0002:09C6 00000H     XOB                    BSS
+ 0002:09C6 00088H     XO                     BSS
+ 0002:0A4E 00000H     XOE                    BSS
+ 0002:0A4E 00000H     XOFB                   BSS
+ 0002:0A4E 00000H     XOF                    BSS
+ 0002:0A4E 00000H     XOFE                   BSS
+
+ Origin   Group
+ 0002:0   DGROUP
+
+ Address   Export                  Alias
+
+ 0001:18E0 ___ExportedStub         ___ExportedStub
+
+  Address         Publics by Name
+
+ 0000:0000  Imp  ??0AFX_CLASSINIT@@RAC@PEUCRuntimeClass@@@Z (MFC250D.256)
+ 0001:0262       ??0CAboutDlg@@REC@XZ
+ 0000:0000  Imp  ??0CDialog@@REC@IPEVCWnd@@@Z (MFC250D.282)
+ 0000:0000  Imp  ??0CDocument@@REC@XZ (MFC250D.286)
+ 0000:0000  Imp  ??0CDumpContext@@REC@PEVCFile@@@Z (MFC250D.288)
+ 0000:0000  Imp  ??0CEditView@@REC@XZ (MFC250D.291)
+ 0001:0C5E       ??0CEnv@@REC@XZ
+ 0001:0068       ??0CJevApp@@REC@XZ
+ 0001:0798       ??0CJevDoc@@JEC@XZ
+ 0001:09F2       ??0CJevView@@JEC@XZ
+ 0001:0464       ??0CMainFrame@@REC@XZ
+ 0000:0000  Imp  ??0CMDIFrameWnd@@REC@XZ (MFC250D.308)
+ 0001:4660       ??0CMemoryState@@REC@XZ
+ 0000:0000  Imp  ??0CMultiDocTemplate@@REC@IPEUCRuntimeClass@@00@Z (MFC250D.320)
+ 0000:0000  Imp  ??0CObject@@JEC@XZ   (MFC250D.324)
+ 0000:0000  Imp  ??0CStatusBar@@REC@XZ (MFC250D.362)
+ 0000:0000  Imp  ??0CString@@REC@XZ   (MFC250D.371)
+ 0000:0000  Imp  ??0CToolBar@@REC@XZ  (MFC250D.383)
+ 0000:0000  Imp  ??0CWinApp@@REC@PFD@Z (MFC250D.389)
+ 0001:5218       ??1AFX_EXITDUMP@@REC@XZ
+ 0001:537A       ??1CAboutDlg@@VEC@XZ
+ 0000:0000  Imp  ??1CDialog@@VEC@XZ   (MFC250D.412)
+ 0000:0000  Imp  ??1CDocument@@VEC@XZ (MFC250D.415)
+ 0000:0000  Imp  ??1CEditView@@VEC@XZ (MFC250D.418)
+ 0001:0F5C       ??1CEnv@@VEC@XZ
+ 0000:0000  Imp  ??1CFrameWnd@@VEC@XZ (MFC250D.427)
+ 0001:5350       ??1CJevApp@@VEC@XZ
+ 0001:07D6       ??1CJevDoc@@VEC@XZ
+ 0001:0A30       ??1CJevView@@VEC@XZ
+ 0001:04C6       ??1CMainFrame@@VEC@XZ
+ 0001:5530       ??1CMDIFrameWnd@@VEC@XZ
+ 0000:0000  Imp  ??1CObject@@VEC@XZ   (MFC250D.448)
+ 0000:0000  Imp  ??1CStatusBar@@VEC@XZ (MFC250D.467)
+ 0000:0000  Imp  ??1CString@@REC@XZ   (MFC250D.469)
+ 0000:0000  Imp  ??1CToolBar@@VEC@XZ  (MFC250D.472)
+ 0000:0000  Imp  ??1CWinApp@@VEC@XZ   (MFC250D.477)
+ 0001:3A44       ??2@ZAPEXI@Z
+ 0001:3AD2       ??2@ZAPEXIPFDH@Z
+ 0001:3BB8       ??2CObject@@TAPEXI@Z
+ 0000:0000  Imp  ??2CObject@@TAPEXIPEX@Z (MFC250D.482)
+ 0001:3C46       ??2CObject@@TAPEXIPFDH@Z
+ 0001:3B62       ??3@ZAXPEX@Z
+ 0001:3CD6       ??3CObject@@TAXPEX@Z
+ 0000:0000  Imp  ??4CString@@RECAFV0@AFV0@@Z (MFC250D.488)
+ 0000:0000  Imp  ??4CString@@RECAFV0@PFD@Z (MFC250D.490)
+ 0000:0000  Imp  ??6@ZCAEVCDumpContext@@AEV0@AFVCString@@@Z (MFC250D.526)
+ 0000:0000  Imp  ??6CDumpContext@@RECAEV0@PFD@Z (MFC250D.546)
+ 0000:0000  Imp  ??6CDumpContext@@RECAEV0@PFVCObject@@@Z (MFC250D.547)
+ 0000:0000  Imp  ??BCString@@RFAPFDXZ (MFC250D.589)
+ 0000:0000  Imp  ??H@ZC?EVCString@@AFV0@0@Z (MFC250D.599)
+ 0000:0000  Imp  ??H@ZC?EVCString@@AFV0@PFD@Z (MFC250D.601)
+ 0000:0000  Imp  ??H@ZC?EVCString@@PFDAFV0@@Z (MFC250D.603)
+ 0001:53A4       ??_7CAboutDlg@@6F@
+ 0001:586E       ??_7CEnv@@6F@
+ 0001:5424       ??_7CJevApp@@6F@
+ 0001:569A       ??_7CJevDoc@@6F@
+ 0001:575A       ??_7CJevView@@6F@
+ 0001:555A       ??_7CMainFrame@@6F@
+ 0001:54E4       ??_GCAboutDlg@@VECPEXI@Z
+ 0001:5822       ??_GCEnv@@VECPEXI@Z
+ 0001:5498       ??_GCJevApp@@VECPEXI@Z
+ 0001:564E       ??_GCJevDoc@@VECPEXI@Z
+ 0001:570E       ??_GCJevView@@VECPEXI@Z
+ 0001:5602       ??_GCMainFrame@@VECPEXI@Z
+ 0000:0000  Imp  ?ActivateFrame@CFrameWnd@@VECXH@Z (MFC250D.652)
+ 0000:0000  Imp  ?AddDocTemplate@CWinApp@@RECXPEVCDocTemplate@@@Z (MFC250D.662)
+ 0000:0000  Imp  ?AddToRecentFileList@CWinApp@@VECXPFD@Z (MFC250D.682)
+ 0000:0000  Imp  ?AfxAbort@@ZCXXZ     (MFC250D.686)
+ 0001:434C       ?AfxCheckMemory@@ZCHXZ
+ 0001:4E52       ?AfxDoForAllObjects@@ZCXP7AXPEVCObject@@PEX@Z1@Z
+ 0002:0994       ?afxDump@@3AEVCDumpContext@@E
+ 0000:0000  Imp  ?AfxGetApp@@ZCPEVCWinApp@@XZ (MFC250D.697)
+ 0002:0322       ?afxIgnoreAssertCount@@3HA
+ 0001:4566       ?AfxIsMemoryBlock@@ZCHPFXIPEJ@Z
+ 0001:51A8       ?AfxNewHandler@@ZAHI@Z
+ 0001:3D4E       ?AfxSetAllocHook@@ZCP7CHIHJ@ZP7CHIHJ@Z@Z
+ 0001:3E28       ?AfxSetAllocStop@@ZCXJ@Z
+ 0000:0000  Imp  ?AfxThrowMemoryException@@ZCXXZ (MFC250D.723)
+ 0000:0000  Imp  ?AssertValid@CDialog@@VFCXXZ (MFC250D.750)
+ 0000:0000  Imp  ?AssertValid@CDocument@@VFCXXZ (MFC250D.753)
+ 0000:0000  Imp  ?AssertValid@CEditView@@VFCXXZ (MFC250D.755)
+ 0001:1050       ?AssertValid@CEnv@@VFCXXZ
+ 0001:0880       ?AssertValid@CJevDoc@@VFCXXZ
+ 0001:0B46       ?AssertValid@CJevView@@VFCXXZ
+ 0001:063C       ?AssertValid@CMainFrame@@VFCXXZ
+ 0000:0000  Imp  ?AssertValid@CMDIFrameWnd@@VFCXXZ (MFC250D.761)
+ 0000:0000  Imp  ?AssertValid@CObject@@VFCXXZ (MFC250D.775)
+ 0000:0000  Imp  ?AssertValid@CWinApp@@VFCXXZ (MFC250D.791)
+ 0000:0000  Imp  ?CalcWindowRect@CEditView@@NECXPEUtagRECT@@I@Z (MFC250D.813)
+ 0000:0000  Imp  ?CalcWindowRect@CWnd@@VECXPEUtagRECT@@I@Z (MFC250D.816)
+ 0000:0000  Imp  ?CanCloseFrame@CDocument@@VECHPEVCFrameWnd@@@Z (MFC250D.819)
+ 0001:48E4       ?Checkpoint@CMemoryState@@RECXXZ
+ 0000:0000  Imp  ?classCDocument@CDocument@@2UCRuntimeClass@@E (MFC250D.2875)
+ 0000:0000  Imp  ?classCEditView@CEditView@@2UCRuntimeClass@@E (MFC250D.2878)
+ 0002:0176       ?classCEnv@CEnv@@2UCRuntimeClass@@A
+ 0002:013E       ?classCJevDoc@CJevDoc@@2UCRuntimeClass@@A
+ 0002:015A       ?classCJevView@CJevView@@2UCRuntimeClass@@A
+ 0002:00EA       ?classCMainFrame@CMainFrame@@2UCRuntimeClass@@A
+ 0000:0000  Imp  ?classCMDIChildWnd@CMDIChildWnd@@2UCRuntimeClass@@E (MFC250D.2891)
+ 0000:0000  Imp  ?classCMDIFrameWnd@CMDIFrameWnd@@2UCRuntimeClass@@E (MFC250D.2892)
+ 0000:0000  Imp  ?classCObject@CObject@@2UCRuntimeClass@@E (MFC250D.2908)
+ 0001:06C4       ?Construct@CJevDoc@@TCXPEX@Z
+ 0001:0908       ?Construct@CJevView@@TCXPEX@Z
+ 0000:0000  Imp  ?Create@CStatusBar@@RECHPEVCWnd@@KI@Z (MFC250D.906)
+ 0000:0000  Imp  ?Create@CToolBar@@RECHPEVCWnd@@KI@Z (MFC250D.907)
+ 0000:0000  Imp  ?Create@CWnd@@VECHPFD0KAFUtagRECT@@PEV1@IPEUCCreateContext@@@Z (MFC250D.909)
+ 0000:0000  Imp  ?CreateClient@CMDIFrameWnd@@VECHPEUtagCREATESTRUCT@@PEVCMenu@@@Z (MFC250D.915)
+ 0000:0000  Imp  ?DefWindowProc@CMDIFrameWnd@@NECJIIJ@Z (MFC250D.1002)
+ 0000:0000  Imp  ?DefWindowProc@CWnd@@NECJIIJ@Z (MFC250D.1004)
+ 0000:0000  Imp  ?DelayUpdateFrameMenu@CMDIFrameWnd@@VECXPBUHMENU__@@@Z (MFC250D.1011)
+ 0000:0000  Imp  ?DeleteContents@CDocument@@VECXXZ (MFC250D.1014)
+ 0000:0000  Imp  ?DeleteContents@CEditView@@VECXXZ (MFC250D.1015)
+ 0000:0000  Imp  ?DestroyWindow@CWnd@@VECHXZ (MFC250D.1031)
+ 0001:4694       ?Difference@CMemoryState@@RECHAFU1@0@Z
+ 0001:02A6       ?DoDataExchange@CAboutDlg@@NECXPEVCDataExchange@@@Z
+ 0000:0000  Imp  ?DoDataExchange@CWnd@@NECXPEVCDataExchange@@@Z (MFC250D.1044)
+ 0000:0000  Imp  ?DoMessageBox@CWinApp@@VECHPFDII@Z (MFC250D.1046)
+ 0000:0000  Imp  ?DoModal@CDialog@@VECHXZ (MFC250D.1048)
+ 0000:0000  Imp  ?DoWaitCursor@CWinApp@@VECXH@Z (MFC250D.1063)
+ 0000:0000  Imp  ?Dump@CDialog@@VFCXAEVCDumpContext@@@Z (MFC250D.1094)
+ 0000:0000  Imp  ?Dump@CDocument@@VFCXAEVCDumpContext@@@Z (MFC250D.1097)
+ 0000:0000  Imp  ?Dump@CEditView@@VFCXAEVCDumpContext@@@Z (MFC250D.1099)
+ 0001:10A8       ?Dump@CEnv@@VFCXAEVCDumpContext@@@Z
+ 0001:08AA       ?Dump@CJevDoc@@VFCXAEVCDumpContext@@@Z
+ 0001:0B70       ?Dump@CJevView@@VFCXAEVCDumpContext@@@Z
+ 0001:0666       ?Dump@CMainFrame@@VFCXAEVCDumpContext@@@Z
+ 0000:0000  Imp  ?Dump@CMDIFrameWnd@@VFCXAEVCDumpContext@@@Z (MFC250D.1111)
+ 0000:0000  Imp  ?Dump@CObject@@VFCXAEVCDumpContext@@@Z (MFC250D.1125)
+ 0000:0000  Imp  ?Dump@CWinApp@@VFCXAEVCDumpContext@@@Z (MFC250D.1144)
+ 0001:4A8A       ?DumpAllObjectsSince@CMemoryState@@RFCXXZ
+ 0001:4820       ?DumpStatistics@CMemoryState@@RFCXXZ
+ 0000:0000  Imp  ?EnableVBX@CWinApp@@JECXXZ (MFC250D.1172)
+ 0000:0000  Imp  ?ExitHelpMode@CFrameWnd@@VECXXZ (MFC250D.1192)
+ 0000:0000  Imp  ?ExitInstance@CWinApp@@VECHXZ (MFC250D.1193)
+ 0000:0000  Imp  ?GetActiveDocument@CFrameWnd@@VECPEVCDocument@@XZ (MFC250D.1262)
+ 0000:0000  Imp  ?GetActiveFrame@CMDIFrameWnd@@VECPEVCFrameWnd@@XZ (MFC250D.1264)
+ 0000:0000  Imp  ?GetBuffer@CString@@RECPEDH@Z (MFC250D.1297)
+ 0000:0000  Imp  ?GetDefaultAccel@CDocument@@VECPBUHACCEL__@@XZ (MFC250D.1346)
+ 0000:0000  Imp  ?GetDefaultMenu@CDocument@@VECPBUHMENU__@@XZ (MFC250D.1347)
+ 0000:0000  Imp  ?GetDepth@CDumpContext@@RFCHXZ (MFC250D.1349)
+ 0000:0000  Imp  ?GetDispatchMap@CCmdTarget@@NFCPEUAFX_DISPMAP@@XZ (MFC250D.1358)
+ 0001:0BA0       ?GetDocument@CJevView@@RECPEVCJevDoc@@XZ
+ 0000:0000  Imp  ?GetFirstViewPosition@CDocument@@VFCPEXXZ (MFC250D.1383)
+ 0000:0000  Imp  ?GetInterfaceHook@CCmdTarget@@VECPEUIUnknown@@PFX@Z (MFC250D.1422)
+ 0000:0000  Imp  ?GetInterfaceMap@CCmdTarget@@NFCPEUAFX_INTERFACEMAP@@XZ (MFC250D.1423)
+ 0000:0000  Imp  ?GetMainWnd@CWinApp@@VECPEVCWnd@@XZ (MFC250D.1447)
+ 0000:0000  Imp  ?GetMessageBar@CFrameWnd@@VECPEVCWnd@@XZ (MFC250D.1455)
+ 0001:02D6       ?GetMessageMap@CAboutDlg@@NFCPEUAFX_MSGMAP@@XZ
+ 0001:0012       ?GetMessageMap@CJevApp@@NFCPEUAFX_MSGMAP@@XZ
+ 0001:076A       ?GetMessageMap@CJevDoc@@NFCPEUAFX_MSGMAP@@XZ
+ 0001:09B0       ?GetMessageMap@CJevView@@NFCPEUAFX_MSGMAP@@XZ
+ 0001:0410       ?GetMessageMap@CMainFrame@@NFCPEUAFX_MSGMAP@@XZ
+ 0000:0000  Imp  ?GetNextView@CDocument@@VFCPEVCView@@AEPEX@Z (MFC250D.1504)
+ 0000:0000  Imp  ?GetRuntimeClass@CDialog@@VFCPEUCRuntimeClass@@XZ (MFC250D.1576)
+ 0001:0C3A       ?GetRuntimeClass@CEnv@@VFCPEUCRuntimeClass@@XZ
+ 0001:0746       ?GetRuntimeClass@CJevDoc@@VFCPEUCRuntimeClass@@XZ
+ 0001:098C       ?GetRuntimeClass@CJevView@@VFCPEUCRuntimeClass@@XZ
+ 0001:03EC       ?GetRuntimeClass@CMainFrame@@VFCPEUCRuntimeClass@@XZ
+ 0000:0000  Imp  ?GetRuntimeClass@CWinApp@@VFCPEUCRuntimeClass@@XZ (MFC250D.1638)
+ 0000:0000  Imp  ?GetScrollBarCtrl@CView@@VFCPEVCScrollBar@@H@Z (MFC250D.1646)
+ 0000:0000  Imp  ?GetScrollBarCtrl@CWnd@@VFCPEVCScrollBar@@H@Z (MFC250D.1647)
+ 0000:0000  Imp  ?GetSuperWndProcAddr@CDialog@@VECPEP7CJPBUHWND__@@IIJ@ZXZ (MFC250D.1694)
+ 0000:0000  Imp  ?GetSuperWndProcAddr@CEditView@@NECPEP7CJPBUHWND__@@IIJ@ZXZ (MFC250D.1697)
+ 0000:0000  Imp  ?GetSuperWndProcAddr@CWnd@@NECPEP7CJPBUHWND__@@IIJ@ZXZ (MFC250D.1703)
+ 0000:0000  Imp  ?GetWindowMenuPopup@CMDIFrameWnd@@VECPBUHMENU__@@PBU2@@Z (MFC250D.1757)
+ 0001:0CE4       ?Init@CEnv@@RECXXZ
+ 0000:0000  Imp  ?InitApplication@CWinApp@@VECHXZ (MFC250D.1793)
+ 0001:00CA       ?InitInstance@CJevApp@@VECHXZ
+ 0000:0000  Imp  ?IsFrameWnd@CFrameWnd@@VFCHXZ (MFC250D.1854)
+ 0000:0000  Imp  ?IsFrameWnd@CWnd@@VFCHXZ (MFC250D.1855)
+ 0000:0000  Imp  ?IsKindOf@CObject@@RFCHPFUCRuntimeClass@@@Z (MFC250D.1858)
+ 0000:0000  Imp  ?IsSelected@CView@@VFCHPFVCObject@@@Z (MFC250D.1865)
+ 0000:0000  Imp  ?IsStoring@CArchive@@RFCHXZ (MFC250D.1867)
+ 0000:0000  Imp  ?LoadBitmap@CToolBar@@RECHI@Z (MFC250D.1894)
+ 0000:0000  Imp  ?LoadFrame@CMDIFrameWnd@@VECHIKPEVCWnd@@PEUCCreateContext@@@Z (MFC250D.1901)
+ 0000:0000  Imp  ?LoadStdProfileSettings@CWinApp@@JECXXZ (MFC250D.1915)
+ 0002:00E2       ?messageMap@CAboutDlg@@1UAFX_MSGMAP@@A
+ 0000:0000  Imp  ?messageMap@CDialog@@1UAFX_MSGMAP@@E (MFC250D.2946)
+ 0000:0000  Imp  ?messageMap@CDocument@@1UAFX_MSGMAP@@E (MFC250D.2947)
+ 0000:0000  Imp  ?messageMap@CEditView@@1UAFX_MSGMAP@@E (MFC250D.2948)
+ 0002:00D0       ?messageMap@CJevApp@@1UAFX_MSGMAP@@A
+ 0002:0152       ?messageMap@CJevDoc@@1UAFX_MSGMAP@@A
+ 0002:016E       ?messageMap@CJevView@@1UAFX_MSGMAP@@A
+ 0002:00FE       ?messageMap@CMainFrame@@1UAFX_MSGMAP@@A
+ 0000:0000  Imp  ?messageMap@CMDIFrameWnd@@1UAFX_MSGMAP@@E (MFC250D.2952)
+ 0000:0000  Imp  ?messageMap@CWinApp@@1UAFX_MSGMAP@@E (MFC250D.2961)
+ 0000:0000  Imp  ?NegotiateBorderSpace@CFrameWnd@@VECHIPEUtagRECT@@@Z (MFC250D.1973)
+ 0000:0000  Imp  ?OnActivateFrame@CView@@NECXIPEVCFrameWnd@@@Z (MFC250D.2007)
+ 0000:0000  Imp  ?OnActivateView@CView@@NECXHPEV1@0@Z (MFC250D.2010)
+ 0001:0304       ?OnAppAbout@CJevApp@@RECXXZ
+ 0000:0000  Imp  ?OnBeginPrinting@CEditView@@NECXPEVCDC@@PEUCPrintInfo@@@Z (MFC250D.2014)
+ 0001:0ADA       ?OnBeginPrinting@CJevView@@NECXPEVCDC@@PEUCPrintInfo@@@Z
+ 0000:0000  Imp  ?OnCancel@CDialog@@NECXXZ (MFC250D.2017)
+ 0000:0000  Imp  ?OnChangedViewList@CDocument@@VECXXZ (MFC250D.2027)
+ 0000:0000  Imp  ?OnChildNotify@CWnd@@NECHIIJPEJ@Z (MFC250D.2035)
+ 0000:0000  Imp  ?OnCloseDocument@CDocument@@VECXXZ (MFC250D.2038)
+ 0000:0000  Imp  ?OnCmdMsg@CCmdTarget@@VECHIHPEXPEUAFX_CMDHANDLERINFO@@@Z (MFC250D.2039)
+ 0000:0000  Imp  ?OnCmdMsg@CDialog@@VECHIHPEXPEUAFX_CMDHANDLERINFO@@@Z (MFC250D.2040)
+ 0000:0000  Imp  ?OnCmdMsg@CDocument@@VECHIHPEXPEUAFX_CMDHANDLERINFO@@@Z (MFC250D.2041)
+ 0000:0000  Imp  ?OnCmdMsg@CMDIFrameWnd@@VECHIHPEXPEUAFX_CMDHANDLERINFO@@@Z (MFC250D.2043)
+ 0000:0000  Imp  ?OnCmdMsg@CView@@NECHIHPEXPEUAFX_CMDHANDLERINFO@@@Z (MFC250D.2044)
+ 0000:0000  Imp  ?OnCommand@CMDIFrameWnd@@NECHIJ@Z (MFC250D.2047)
+ 0000:0000  Imp  ?OnCommand@CWnd@@NECHIJ@Z (MFC250D.2048)
+ 0000:0000  Imp  ?OnCreate@CFrameWnd@@JECHPEUtagCREATESTRUCT@@@Z (MFC250D.2058)
+ 0001:0522       ?OnCreate@CMainFrame@@JECHPEUtagCREATESTRUCT@@@Z
+ 0000:0000  Imp  ?OnCreateAggregates@CCmdTarget@@VECHXZ (MFC250D.2063)
+ 0000:0000  Imp  ?OnCreateClient@CMDIFrameWnd@@VECHPEUtagCREATESTRUCT@@PEUCCreateContext@@@Z (MFC250D.2065)
+ 0000:0000  Imp  ?OnDDECommand@CWinApp@@VECHPED@Z (MFC250D.2071)
+ 0000:0000  Imp  ?OnDragEnter@CView@@VECKPEVCOleDataObject@@KVCPoint@@@Z (MFC250D.2084)
+ 0000:0000  Imp  ?OnDragLeave@CView@@VECXXZ (MFC250D.2085)
+ 0000:0000  Imp  ?OnDragOver@CView@@VECKPEVCOleDataObject@@KVCPoint@@@Z (MFC250D.2086)
+ 0001:0A68       ?OnDraw@CJevView@@VECXPEVCDC@@@Z
+ 0000:0000  Imp  ?OnDrop@CView@@VECHPEVCOleDataObject@@KVCPoint@@@Z (MFC250D.2093)
+ 0000:0000  Imp  ?OnEndPrinting@CEditView@@NECXPEVCDC@@PEUCPrintInfo@@@Z (MFC250D.2109)
+ 0001:0B10       ?OnEndPrinting@CJevView@@NECXPEVCDC@@PEUCPrintInfo@@@Z
+ 0000:0000  Imp  ?OnEndPrintPreview@CView@@NECXPEVCDC@@PEUCPrintInfo@@UtagPOINT@@PEVCPreviewView@@@Z (MFC250D.2108)
+ 0000:0000  Imp  ?OnFileNew@CWinApp@@JECXXZ (MFC250D.2120)
+ 0000:0000  Imp  ?OnFileOpen@CWinApp@@JECXXZ (MFC250D.2121)
+ 0000:0000  Imp  ?OnFilePrint@CView@@JECXXZ (MFC250D.2122)
+ 0000:0000  Imp  ?OnFilePrintPreview@CView@@JECXXZ (MFC250D.2123)
+ 0000:0000  Imp  ?OnFilePrintSetup@CWinApp@@JECXXZ (MFC250D.2124)
+ 0000:0000  Imp  ?OnFinalRelease@CCmdTarget@@VECXXZ (MFC250D.2127)
+ 0000:0000  Imp  ?OnFinalRelease@CDocument@@VECXXZ (MFC250D.2128)
+ 0000:0000  Imp  ?OnFinalRelease@CWnd@@VECXXZ (MFC250D.2129)
+ 0000:0000  Imp  ?OnFindNext@CEditView@@NECXPFDHH@Z (MFC250D.2130)
+ 0000:0000  Imp  ?OnIdle@CDocument@@VECXXZ (MFC250D.2157)
+ 0000:0000  Imp  ?OnIdle@CWinApp@@VECHJ@Z (MFC250D.2158)
+ 0000:0000  Imp  ?OnInitDialog@CDialog@@VECHXZ (MFC250D.2162)
+ 0000:0000  Imp  ?OnInitialUpdate@CView@@VECXXZ (MFC250D.2168)
+ 0000:0000  Imp  ?OnNewDocument@CDocument@@VECHXZ (MFC250D.2217)
+ 0001:080E       ?OnNewDocument@CJevDoc@@NECHXZ
+ 0000:0000  Imp  ?OnOK@CDialog@@NECXXZ (MFC250D.2222)
+ 0000:0000  Imp  ?OnOpenDocument@CDocument@@VECHPFD@Z (MFC250D.2227)
+ 0000:0000  Imp  ?OnPrepareDC@CEditView@@VECXPEVCDC@@PEUCPrintInfo@@@Z (MFC250D.2238)
+ 0000:0000  Imp  ?OnPreparePrinting@CEditView@@NECHPEUCPrintInfo@@@Z (MFC250D.2242)
+ 0001:0AAA       ?OnPreparePrinting@CJevView@@NECHPEUCPrintInfo@@@Z
+ 0000:0000  Imp  ?OnPrint@CEditView@@NECXPEVCDC@@PEUCPrintInfo@@@Z (MFC250D.2247)
+ 0000:0000  Imp  ?OnReplaceAll@CEditView@@NECXPFD0H@Z (MFC250D.2260)
+ 0000:0000  Imp  ?OnReplaceSel@CEditView@@NECXPFDHH0@Z (MFC250D.2261)
+ 0000:0000  Imp  ?OnSaveDocument@CDocument@@VECHPFD@Z (MFC250D.2262)
+ 0000:0000  Imp  ?OnScroll@CView@@VECHIIH@Z (MFC250D.2264)
+ 0000:0000  Imp  ?OnScrollBy@CView@@VECHVCSize@@H@Z (MFC250D.2266)
+ 0000:0000  Imp  ?OnSetFont@CDialog@@VECXPEVCFont@@@Z (MFC250D.2274)
+ 0000:0000  Imp  ?OnSetPreviewMode@CFrameWnd@@VECXHPEUCPrintPreviewState@@@Z (MFC250D.2278)
+ 0000:0000  Imp  ?OnTextNotFound@CEditView@@NECXPFD@Z (MFC250D.2303)
+ 0000:0000  Imp  ?OnUpdate@CView@@NECXPEV1@JPEVCObject@@@Z (MFC250D.2306)
+ 0000:0000  Imp  ?OnUpdateFrameMenu@CMDIFrameWnd@@VECXPBUHMENU__@@@Z (MFC250D.2314)
+ 0000:0000  Imp  ?OnUpdateFrameTitle@CMDIFrameWnd@@VECXH@Z (MFC250D.2317)
+ 0000:0000  Imp  ?OpenDocumentFile@CWinApp@@VECPEVCDocument@@PFD@Z (MFC250D.2353)
+ 0001:5320       ?pbData@CBlockHeader@@RECPEEXZ
+ 0000:0000  Imp  ?PostNcDestroy@CFrameWnd@@NECXXZ (MFC250D.2374)
+ 0000:0000  Imp  ?PostNcDestroy@CView@@NECXXZ (MFC250D.2376)
+ 0000:0000  Imp  ?PostNcDestroy@CWnd@@NECXXZ (MFC250D.2377)
+ 0000:0000  Imp  ?PreCloseFrame@CDocument@@VECXPEVCFrameWnd@@@Z (MFC250D.2378)
+ 0000:0000  Imp  ?PreCreateWindow@CEditView@@NECHAEUtagCREATESTRUCT@@@Z (MFC250D.2379)
+ 0000:0000  Imp  ?PreCreateWindow@CMDIFrameWnd@@VECHAEUtagCREATESTRUCT@@@Z (MFC250D.2382)
+ 0000:0000  Imp  ?PreCreateWindow@CWnd@@VECHAEUtagCREATESTRUCT@@@Z (MFC250D.2384)
+ 0000:0000  Imp  ?PreTranslateMessage@CDialog@@VECHPEUtagMSG@@@Z (MFC250D.2387)
+ 0000:0000  Imp  ?PreTranslateMessage@CMDIFrameWnd@@VECHPEUtagMSG@@@Z (MFC250D.2391)
+ 0000:0000  Imp  ?PreTranslateMessage@CWinApp@@VECHPEUtagMSG@@@Z (MFC250D.2392)
+ 0000:0000  Imp  ?PreTranslateMessage@CWnd@@VECHPEUtagMSG@@@Z (MFC250D.2393)
+ 0000:0000  Imp  ?ProcessMessageFilter@CWinApp@@VECHHPEUtagMSG@@@Z (MFC250D.2406)
+ 0000:0000  Imp  ?ProcessWndProcException@CWinApp@@VECJPEVCException@@PFUtagMSG@@@Z (MFC250D.2407)
+ 0000:0000  Imp  ?RecalcLayout@CFrameWnd@@VECXH@Z (MFC250D.2427)
+ 0000:0000  Imp  ?ReleaseBuffer@CString@@RECXH@Z (MFC250D.2440)
+ 0000:0000  Imp  ?ReportSaveLoadException@CDocument@@VECXPFDPEVCException@@HI@Z (MFC250D.2497)
+ 0000:0000  Imp  ?Run@CWinApp@@VECHXZ (MFC250D.2511)
+ 0000:0000  Imp  ?SaveAllModified@CWinApp@@VECHXZ (MFC250D.2516)
+ 0000:0000  Imp  ?SaveModified@CDocument@@VECHXZ (MFC250D.2520)
+ 0000:0000  Imp  ?Serialize@CEditView@@VECXAEVCArchive@@@Z (MFC250D.2563)
+ 0001:084A       ?Serialize@CJevDoc@@VECXAEVCArchive@@@Z
+ 0000:0000  Imp  ?Serialize@CObject@@VECXAEVCArchive@@@Z (MFC250D.2569)
+ 0000:0000  Imp  ?SetButtons@CToolBar@@RECHPFIH@Z (MFC250D.2616)
+ 0000:0000  Imp  ?SetDepth@CDumpContext@@RECXH@Z (MFC250D.2636)
+ 0000:0000  Imp  ?SetDialogBkColor@CWinApp@@JECXKK@Z (MFC250D.2637)
+ 0000:0000  Imp  ?SetIndicators@CStatusBar@@RECHPFIH@Z (MFC250D.2653)
+ 0000:0000  Imp  ?SetPathName@CDocument@@VECXPFDH@Z (MFC250D.2683)
+ 0000:0000  Imp  ?SetTitle@CDocument@@VECXPFD@Z (MFC250D.2744)
+ 0000:0000  Imp  ?ShowWindow@CWnd@@RECHH@Z (MFC250D.2771)
+ 0001:101A       ?Terminate@CEnv@@TAXXZ
+ 0002:08DC       ?theApp@@3VCJevApp@@A
+ 0000:0000  Imp  ?UpdateWindow@CWnd@@RECXXZ (MFC250D.2822)
+ 0000:0000  Imp  ?WindowProc@CWnd@@NECJIIJ@Z (MFC250D.2831)
+ 0000:0000  Imp  ?WinHelp@CWinApp@@VECXKI@Z (MFC250D.2827)
+ 0000:0000  Imp  ?WinHelp@CWnd@@VECXKI@Z (MFC250D.2828)
+ 0001:3D2C       ?_AfxDefaultAllocHook@@ZCHIHJ@Z
+ 0002:0998       ?_afxDump@@3VCDumpContext@@A
+ 0000:0000  Imp  ?_AfxGetSafeOwner@@ZCPBUHWND__@@PEVCWnd@@@Z (MFC250D.2845)
+ 0001:3DC8       ?_AfxTestAllocStop@@ZCHIHJ@Z
+ 0001:11E8       ?_ForceLinkage@CWinApp@@VECXXZ
+ 0001:02FA       ?_messageEntries@CAboutDlg@@0QEUAFX_MSGMAP_ENTRY@@E
+ 0001:0036       ?_messageEntries@CJevApp@@0QEUAFX_MSGMAP_ENTRY@@E
+ 0001:078E       ?_messageEntries@CJevDoc@@0QEUAFX_MSGMAP_ENTRY@@E
+ 0001:09D4       ?_messageEntries@CJevView@@0QEUAFX_MSGMAP_ENTRY@@E
+ 0001:0434       ?_messageEntries@CMainFrame@@0QEUAFX_MSGMAP_ENTRY@@E
+ 0001:280E       ?_set_fnew_handler@@ZAP7AHI@ZP7AHI@Z@Z
+ 0001:2838       ?_set_new_handler@@ZAP7AHI@ZP7AHI@Z@Z
+ 0001:3398       AFXAPPABORT
+ 0001:4F02       AFXAPPALLOC
+ 0001:5066       AFXAPPFREE
+ 0001:5116       AFXAPPREALLOC
+ 0001:50E8       AFXAPPSETNEWHANDLER
+ 0001:341A       AFXASSERTFAILEDLINE
+ 0000:0000  Imp  AFXASSERTVALIDOBJECT (MFC250D.2972)
+ 0001:3068       AFXDIAGNOSTICINIT
+ 0001:3168       AFXDUMP
+ 0000:0000  Imp  AFXISVALIDADDRESS    (MFC250D.2973)
+ 0001:3D8E       AFXSTOP
+ 0001:32BC       AFXTRACEV
+ 0000:0000  Imp  AFXWINMAIN           (MFC250D.2976)
+ 0000:0000  Imp  AFXWINTERM           (MFC250D.2977)
+ 0000:0000  Imp  DOS3CALL             (KERNEL.102)
+ 0000:0000  Imp  FATALAPPEXIT         (KERNEL.137)
+ 0000:0000  Imp  FATALEXIT            (KERNEL.1)
+ 0000:0000  Imp  GETDOSENVIRONMENT    (KERNEL.131)
+ 0000:0000  Imp  GETMODULEFILENAME    (KERNEL.49)
+ 0000:0000  Imp  GETPRIVATEPROFILEINT (KERNEL.127)
+ 0000:0000  Imp  GETVERSION           (KERNEL.3)
+ 0000:0000  Imp  GLOBALALLOC          (KERNEL.15)
+ 0000:0000  Imp  GLOBALLOCK           (KERNEL.18)
+ 0000:0000  Imp  GLOBALREALLOC        (KERNEL.16)
+ 0000:0000  Imp  GLOBALSIZE           (KERNEL.20)
+ 0000:0000  Imp  INITAPP              (USER.5)
+ 0000:0000  Imp  INITTASK             (KERNEL.91)
+ 0000:0000  Imp  LOCKSEGMENT          (KERNEL.23)
+ 0000:0000  Imp  MESSAGEBOX           (USER.1)
+ 0000:0000  Imp  OUTPUTDEBUGSTRING    (KERNEL.115)
+ 0000:0008  Abs  pAtomTable
+ 0000:0006  Abs  pLocalHeap
+ 0000:000E  Abs  pStackBot
+ 0000:000C  Abs  pStackMin
+ 0000:000A  Abs  pStackTop
+ 0002:0004       rsrvptrs
+ 0000:0000  Imp  WAITEVENT            (KERNEL.30)
+ 0001:30FC       WINMAIN
+ 0001:294C       _abort
+ 0002:032A       _afxMemDF
+ 0001:319A       _AfxTrace
+ 0000:0000  Imp  _AFXVBAPIENTRY       (MFC250D.2978)
+ 0002:0410       _aseghi
+ 0002:040E       _aseglo
+ 0001:2FD8       _atexit
+ 0002:08DC       _edata
+ 0002:0A4E       _end
+ 0002:0432       _errno
+ 0001:13C1       _exit
+ 0001:18F4       _fclose
+ 0001:1B8A       _fflush
+ 0001:296E       _getenv
+ 0001:2C12       _memcpy
+ 0001:2C70       _memset
+ 0001:2F82       _remove
+ 0001:2A4A       _sprintf
+ 0002:0402       _STKHQQ
+ 0001:284A       _strcat
+ 0001:289E       _strcpy
+ 0001:28DA       _strlen
+ 0001:28F4       _strncmp
+ 0001:2AB8       _vsprintf
+ 0000:0000  Imp  _wsprintf            (USER.420)
+ 0002:0488       __aaltstkovr
+ 0001:2D1C       __access
+ 0002:0416       __acfinfo
+ 0000:9876  Abs  __acrtmsg
+ 0000:9876  Abs  __acrtused
+ 0000:D6D6  Abs  __aDBdoswp
+ 0002:0484       __adbgmsg
+ 0000:D6D6  Abs  __aDBused
+ 0001:14E6       __aFchkstk
+ 0000:0000  Imp  __AHINCR             (KERNEL.114)
+ 0002:0424       __aintdiv
+ 0002:0522       __amblksiz
+ 0001:178E       __amsg_exit
+ 0001:14C6       __aNchkstk
+ 0002:0544       __asizeC
+ 0002:0545       __asizeD
+ 0001:11F4       __astart
+ 0001:13DE       __cexit
+ 0002:0524       __cfltcvt_tab
+ 0002:04A8       __cflush
+ 0001:2D62       __chdir
+ 0001:2DF2       __chdrive
+ 0002:0481       __child
+ 0001:14E6       __chkstk
+ 0001:12DE       __cinit
+ 0001:1784       __cintDIV
+ 0001:21EC       __close
+ 0001:2CB8       __cltoasub
+ 0002:040C       __cmdShow
+ 0001:2B24       __commit
+ 0002:0441       __cpumode
+ 0001:145F       __ctermsub
+ 0001:2CC5       __cxtoa
+ 0001:13EF       __c_exit
+ 0002:0442       __doserrno
+ 0001:1872       __dosret0
+ 0001:1891       __dosretax
+ 0001:187F       __dosreturn
+ 0001:2FA8       __dos_commit
+ 0002:08DC       __edata
+ 0002:0A4E       __end
+ 0001:19F6       __endstdio
+ 0002:0478       __environ
+ 0001:13CF       __exit
+ 0002:0483       __exitflag
+ 0002:0428       __fac
+ 0001:2A0A       __fcloseall
+ 0001:24C6       __ffree
+ 0001:149C       __FF_MSGBANNER
+ 0002:0514       __fheap
+ 0001:276B       __findlast
+ 0001:1A0C       __flsbuf
+ 0001:1BE6       __flush
+ 0001:1C66       __flushall
+ 0001:24E7       __fmalloc
+ 0002:0568       __fpinit
+ 0000:9876  Abs  __fptaskdata
+ 0001:14C0       __fptrap
+ 0001:1B06       __freebuf
+ 0001:1B3E       __getbuf
+ 0001:2E3C       __getcwd
+ 0001:2E5A       __getdcwd
+ 0001:18D0       __GetDGROUP
+ 0001:2DC8       __getdrive
+ 0001:2674       __growseg
+ 0002:0406       __hInstance
+ 0002:0404       __hPrevInstance
+ 0001:2705       __incseg
+ 0001:258E       __initseg
+ 0001:2B94       __intdosx
+ 0002:0578       __iob
+ 0002:0668       __iob2
+ 0001:2930       __itoa
+ 0002:04AA       __lastiob
+ 0001:25C2       __linkseg
+ 0002:0408       __lpszCmdLine
+ 0001:2224       __lseek
+ 0002:050E       __lseekchk
+ 0001:18A3       __maperror
+ 0001:2D54       __mkdir
+ 0001:1844       __myalloc
+ 0001:278C       __newseg
+ 0002:0444       __nfile
+ 0001:17D0       __NMSG_TEXT
+ 0001:1807       __NMSG_WRITE
+ 0001:12AB       __nomain
+ 0001:2FE0       __onexit
+ 0002:0442       __oserr
+ 0002:044A       __osfile
+ 0002:043D       __osmajor
+ 0002:043C       __osminor
+ 0002:0440       __osmode
+ 0002:043C       __osver
+ 0002:043E       __osversion
+ 0001:1CF6       __output
+ 0002:047C       __pgmptr
+ 0002:0510       __pnhFarHeap
+ 0002:0438       __psp
+ 0002:0436       __pspadr
+ 0001:2FD1       __QWINClose
+ 0001:2FD1       __QWINExit
+ 0001:2FD1       __QWINGetBuffSize
+ 0001:2FD1       __QWINGetFocus
+ 0001:2FD1       __QWINGetSize
+ 0001:2FD1       __QWINInit
+ 0001:2FD1       __QWINIsQWINin
+ 0001:2FD1       __QWINMenuClick
+ 0001:2FD1       __QWINOpen
+ 0001:2FD1       __QWINRead
+ 0001:2FD1       __QWINSetAboutString
+ 0001:2FD1       __QWINSetBuffSize
+ 0001:2FD1       __QWINSetFocus
+ 0001:2FD1       __QWINSetSize
+ 0001:2FD1       __QWINTerm
+ 0002:0546       __qwinused
+ 0001:2FD1       __QWINWrite
+ 0001:2FD1       __QWINYield
+ 0001:2D88       __rmdir
+ 0001:25F8       __searchseg
+ 0001:1520       __setargv
+ 0001:16CA       __setenvp
+ 0002:0542       __sigintoff
+ 0002:0540       __sigintseg
+ 0000:0001  Abs  __sizec
+ 0000:0001  Abs  __sized
+ 0001:24B2       __stackavail
+ 0001:12B2       __stubmain
+ 0002:0434       __umaskval
+ 0001:2F82       __unlink
+ 0001:2FD1       __wabout
+ 0001:2FCC       __wcexit
+ 0001:2FCC       __wcinit
+ 0001:2FD1       __wclose
+ 0002:0446       __wfile
+ 0001:11EA       __wflags
+ 0001:2FD1       __wgetfocus
+ 0001:2FD1       __wgetscreenbuf
+ 0001:2FD1       __wgetsize
+ 0000:0000  Imp  __WINFLAGS           (KERNEL.178)
+ 0002:043B       __winmajor
+ 0002:043A       __winminor
+ 0002:043A       __winver
+ 0000:0000  Abs  __wiobused
+ 0001:2FD1       __wmenuclick
+ 0002:0448       __wnfile
+ 0001:2FD1       __wopen
+ 0001:2FD1       __wread
+ 0001:22F8       __write
+ 0001:2FD1       __wsetfocus
+ 0001:2FD1       __wsetscreenbuf
+ 0001:2FD1       __wsetsize
+ 0002:045E       __wsfile
+ 0001:2FD1       __wterm
+ 0001:2FD1       __wwrite
+ 0002:0414       ___aDBrterr
+ 0002:0412       ___aDBswpflg
+ 0002:0472       ___argc
+ 0002:0474       ___argv
+ 0001:18E0       ___ExportedStub
+
+  Address         Publics by Value
+
+ 0000:0000  Imp  ?GetNextView@CDocument@@VFCPEVCView@@AEPEX@Z (MFC250D.1504)
+ 0000:0000  Imp  ?PostNcDestroy@CView@@NECXXZ (MFC250D.2376)
+ 0000:0000  Imp  ??6CDumpContext@@RECAEV0@PFVCObject@@@Z (MFC250D.547)
+ 0000:0000  Imp  ?classCDocument@CDocument@@2UCRuntimeClass@@E (MFC250D.2875)
+ 0000:0000  Imp  ?DoMessageBox@CWinApp@@VECHPFDII@Z (MFC250D.1046)
+ 0000:0000  Imp  ?IsSelected@CView@@VFCHPFVCObject@@@Z (MFC250D.1865)
+ 0000:0000  Imp  ?OnCmdMsg@CDialog@@VECHIHPEXPEUAFX_CMDHANDLERINFO@@@Z (MFC250D.2040)
+ 0000:0000  Imp  ?DefWindowProc@CMDIFrameWnd@@NECJIIJ@Z (MFC250D.1002)
+ 0000:0000  Imp  GETMODULEFILENAME    (KERNEL.49)
+ 0000:0000  Imp  ?Create@CStatusBar@@RECHPEVCWnd@@KI@Z (MFC250D.906)
+ 0000:0000  Imp  ??0CWinApp@@REC@PFD@Z (MFC250D.389)
+ 0000:0000  Imp  ?OnChangedViewList@CDocument@@VECXXZ (MFC250D.2027)
+ 0000:0000  Imp  ?CreateClient@CMDIFrameWnd@@VECHPEUtagCREATESTRUCT@@PEVCMenu@@@Z (MFC250D.915)
+ 0000:0000  Imp  ??1CFrameWnd@@VEC@XZ (MFC250D.427)
+ 0000:0000  Imp  ?WindowProc@CWnd@@NECJIIJ@Z (MFC250D.2831)
+ 0000:0000  Imp  ?OnIdle@CWinApp@@VECHJ@Z (MFC250D.2158)
+ 0000:0000  Imp  ?CalcWindowRect@CWnd@@VECXPEUtagRECT@@I@Z (MFC250D.816)
+ 0000:0000  Imp  AFXASSERTVALIDOBJECT (MFC250D.2972)
+ 0000:0000  Imp  ?PreCreateWindow@CWnd@@VECHAEUtagCREATESTRUCT@@@Z (MFC250D.2384)
+ 0000:0000  Imp  ?OnSetPreviewMode@CFrameWnd@@VECXHPEUCPrintPreviewState@@@Z (MFC250D.2278)
+ 0000:0000  Imp  ?classCObject@CObject@@2UCRuntimeClass@@E (MFC250D.2908)
+ 0000:0000  Imp  ??4CString@@RECAFV0@PFD@Z (MFC250D.490)
+ 0000:0000  Imp  ?PreTranslateMessage@CWinApp@@VECHPEUtagMSG@@@Z (MFC250D.2392)
+ 0000:0000  Imp  ?AssertValid@CMDIFrameWnd@@VFCXXZ (MFC250D.761)
+ 0000:0000  Imp  ?DeleteContents@CEditView@@VECXXZ (MFC250D.1015)
+ 0000:0000  Imp  ?messageMap@CMDIFrameWnd@@1UAFX_MSGMAP@@E (MFC250D.2952)
+ 0000:0000  Imp  ?PreTranslateMessage@CDialog@@VECHPEUtagMSG@@@Z (MFC250D.2387)
+ 0000:0000  Imp  ?OnUpdateFrameTitle@CMDIFrameWnd@@VECXH@Z (MFC250D.2317)
+ 0000:0000  Imp  FATALEXIT            (KERNEL.1)
+ 0000:0000  Imp  ??2CObject@@TAPEXIPEX@Z (MFC250D.482)
+ 0000:0000  Imp  ?OnDrop@CView@@VECHPEVCOleDataObject@@KVCPoint@@@Z (MFC250D.2093)
+ 0000:0000  Imp  ?GetDefaultMenu@CDocument@@VECPBUHMENU__@@XZ (MFC250D.1347)
+ 0000:0000  Imp  ?GetInterfaceMap@CCmdTarget@@NFCPEUAFX_INTERFACEMAP@@XZ (MFC250D.1423)
+ 0000:0000  Imp  ?LoadStdProfileSettings@CWinApp@@JECXXZ (MFC250D.1915)
+ 0000:0000  Imp  ?InitApplication@CWinApp@@VECHXZ (MFC250D.1793)
+ 0000:0000  Imp  ?OnBeginPrinting@CEditView@@NECXPEVCDC@@PEUCPrintInfo@@@Z (MFC250D.2014)
+ 0000:0000  Imp  ?OnCreateAggregates@CCmdTarget@@VECHXZ (MFC250D.2063)
+ 0000:0000  Imp  ??1CEditView@@VEC@XZ (MFC250D.418)
+ 0000:0000  Imp  ?messageMap@CEditView@@1UAFX_MSGMAP@@E (MFC250D.2948)
+ 0000:0000  Imp  ??0CEditView@@REC@XZ (MFC250D.291)
+ 0000:0000  Imp  ?UpdateWindow@CWnd@@RECXXZ (MFC250D.2822)
+ 0000:0000  Imp  DOS3CALL             (KERNEL.102)
+ 0000:0000  Imp  ??0CObject@@JEC@XZ   (MFC250D.324)
+ 0000:0000  Imp  ?SaveAllModified@CWinApp@@VECHXZ (MFC250D.2516)
+ 0000:0000  Imp  ??BCString@@RFAPFDXZ (MFC250D.589)
+ 0000:0000  Imp  ?OnUpdateFrameMenu@CMDIFrameWnd@@VECXPBUHMENU__@@@Z (MFC250D.2314)
+ 0000:0000  Imp  ?GetDispatchMap@CCmdTarget@@NFCPEUAFX_DISPMAP@@XZ (MFC250D.1358)
+ 0000:0000  Imp  ?RecalcLayout@CFrameWnd@@VECXH@Z (MFC250D.2427)
+ 0000:0000  Imp  ?SetPathName@CDocument@@VECXPFDH@Z (MFC250D.2683)
+ 0000:0000  Imp  ?LoadBitmap@CToolBar@@RECHI@Z (MFC250D.1894)
+ 0000:0000  Imp  ?PreTranslateMessage@CWnd@@VECHPEUtagMSG@@@Z (MFC250D.2393)
+ 0000:0000  Imp  ?Serialize@CEditView@@VECXAEVCArchive@@@Z (MFC250D.2563)
+ 0000:0000  Imp  ?messageMap@CWinApp@@1UAFX_MSGMAP@@E (MFC250D.2961)
+ 0000:0000  Imp  FATALAPPEXIT         (KERNEL.137)
+ 0000:0000  Imp  __WINFLAGS           (KERNEL.178)
+ 0000:0000  Imp  ??H@ZC?EVCString@@AFV0@PFD@Z (MFC250D.601)
+ 0000:0000  Imp  ?OnTextNotFound@CEditView@@NECXPFD@Z (MFC250D.2303)
+ 0000:0000  Imp  ?AssertValid@CDialog@@VFCXXZ (MFC250D.750)
+ 0000:0000  Imp  GETPRIVATEPROFILEINT (KERNEL.127)
+ 0000:0000  Imp  ??4CString@@RECAFV0@AFV0@@Z (MFC250D.488)
+ 0000:0000  Imp  ?PreCreateWindow@CEditView@@NECHAEUtagCREATESTRUCT@@@Z (MFC250D.2379)
+ 0000:0000  Imp  ??1CStatusBar@@VEC@XZ (MFC250D.467)
+ 0000:0000  Imp  ??0CStatusBar@@REC@XZ (MFC250D.362)
+ 0000:0000  Imp  ?OnFindNext@CEditView@@NECXPFDHH@Z (MFC250D.2130)
+ 0000:0000  Imp  ?ExitInstance@CWinApp@@VECHXZ (MFC250D.1193)
+ 0000:0000  Imp  _AFXVBAPIENTRY       (MFC250D.2978)
+ 0000:0000  Imp  ?classCEditView@CEditView@@2UCRuntimeClass@@E (MFC250D.2878)
+ 0000:0000  Imp  ?DelayUpdateFrameMenu@CMDIFrameWnd@@VECXPBUHMENU__@@@Z (MFC250D.1011)
+ 0000:0000  Imp  ?OnFinalRelease@CDocument@@VECXXZ (MFC250D.2128)
+ 0000:0000  Imp  ?AssertValid@CDocument@@VFCXXZ (MFC250D.753)
+ 0000:0000  Imp  ?OnActivateFrame@CView@@NECXIPEVCFrameWnd@@@Z (MFC250D.2007)
+ 0000:0000  Imp  ??6@ZCAEVCDumpContext@@AEV0@AFVCString@@@Z (MFC250D.526)
+ 0000:0000  Imp  ?AfxAbort@@ZCXXZ     (MFC250D.686)
+ 0000:0000  Imp  ?Dump@CMDIFrameWnd@@VFCXAEVCDumpContext@@@Z (MFC250D.1111)
+ 0000:0000  Imp  ?ExitHelpMode@CFrameWnd@@VECXXZ (MFC250D.1192)
+ 0000:0000  Imp  ?AssertValid@CWinApp@@VFCXXZ (MFC250D.791)
+ 0000:0000  Imp  INITAPP              (USER.5)
+ 0000:0000  Imp  ??0CMDIFrameWnd@@REC@XZ (MFC250D.308)
+ 0000:0000  Imp  ?DoModal@CDialog@@VECHXZ (MFC250D.1048)
+ 0000:0000  Imp  ?SetButtons@CToolBar@@RECHPFIH@Z (MFC250D.2616)
+ 0000:0000  Imp  ??0CDumpContext@@REC@PEVCFile@@@Z (MFC250D.288)
+ 0000:0000  Imp  ??1CWinApp@@VEC@XZ   (MFC250D.477)
+ 0000:0000  Imp  LOCKSEGMENT          (KERNEL.23)
+ 0000:0000  Imp  ?OnEndPrintPreview@CView@@NECXPEVCDC@@PEUCPrintInfo@@UtagPOINT@@PEVCPreviewView@@@Z (MFC250D.2108)
+ 0000:0000  Imp  ?OnCmdMsg@CView@@NECHIHPEXPEUAFX_CMDHANDLERINFO@@@Z (MFC250D.2044)
+ 0000:0000  Imp  ?OnCreate@CFrameWnd@@JECHPEUtagCREATESTRUCT@@@Z (MFC250D.2058)
+ 0000:0000  Imp  ?OnInitDialog@CDialog@@VECHXZ (MFC250D.2162)
+ 0000:0000  Imp  ?PreTranslateMessage@CMDIFrameWnd@@VECHPEUtagMSG@@@Z (MFC250D.2391)
+ 0000:0000  Imp  ?IsFrameWnd@CFrameWnd@@VFCHXZ (MFC250D.1854)
+ 0000:0000  Imp  ?OnCloseDocument@CDocument@@VECXXZ (MFC250D.2038)
+ 0000:0000  Imp  ?SetTitle@CDocument@@VECXPFD@Z (MFC250D.2744)
+ 0000:0000  Imp  ?IsFrameWnd@CWnd@@VFCHXZ (MFC250D.1855)
+ 0000:0000  Imp  __AHINCR             (KERNEL.114)
+ 0000:0000  Imp  ?GetMainWnd@CWinApp@@VECPEVCWnd@@XZ (MFC250D.1447)
+ 0000:0000  Imp  ??6CDumpContext@@RECAEV0@PFD@Z (MFC250D.546)
+ 0000:0000  Imp  ?Dump@CDialog@@VFCXAEVCDumpContext@@@Z (MFC250D.1094)
+ 0000:0000  Imp  ?OnUpdate@CView@@NECXPEV1@JPEVCObject@@@Z (MFC250D.2306)
+ 0000:0000  Imp  ?AddToRecentFileList@CWinApp@@VECXPFD@Z (MFC250D.682)
+ 0000:0000  Imp  AFXWINTERM           (MFC250D.2977)
+ 0000:0000  Imp  ?AssertValid@CEditView@@VFCXXZ (MFC250D.755)
+ 0000:0000  Imp  GLOBALLOCK           (KERNEL.18)
+ 0000:0000  Imp  ?GetMessageBar@CFrameWnd@@VECPEVCWnd@@XZ (MFC250D.1455)
+ 0000:0000  Imp  ?OnSetFont@CDialog@@VECXPEVCFont@@@Z (MFC250D.2274)
+ 0000:0000  Imp  ?WinHelp@CWinApp@@VECXKI@Z (MFC250D.2827)
+ 0000:0000  Imp  ?Serialize@CObject@@VECXAEVCArchive@@@Z (MFC250D.2569)
+ 0000:0000  Imp  ?classCMDIChildWnd@CMDIChildWnd@@2UCRuntimeClass@@E (MFC250D.2891)
+ 0000:0000  Imp  ?PreCreateWindow@CMDIFrameWnd@@VECHAEUtagCREATESTRUCT@@@Z (MFC250D.2382)
+ 0000:0000  Imp  ?OnScroll@CView@@VECHIIH@Z (MFC250D.2264)
+ 0000:0000  Imp  ?GetInterfaceHook@CCmdTarget@@VECPEUIUnknown@@PFX@Z (MFC250D.1422)
+ 0000:0000  Imp  ?OnOpenDocument@CDocument@@VECHPFD@Z (MFC250D.2227)
+ 0000:0000  Imp  ?Dump@CDocument@@VFCXAEVCDumpContext@@@Z (MFC250D.1097)
+ 0000:0000  Imp  ?OnDragLeave@CView@@VECXXZ (MFC250D.2085)
+ 0000:0000  Imp  ??0CDocument@@REC@XZ (MFC250D.286)
+ 0000:0000  Imp  ?OnActivateView@CView@@NECXHPEV1@0@Z (MFC250D.2010)
+ 0000:0000  Imp  ?OnPrepareDC@CEditView@@VECXPEVCDC@@PEUCPrintInfo@@@Z (MFC250D.2238)
+ 0000:0000  Imp  ?IsStoring@CArchive@@RFCHXZ (MFC250D.1867)
+ 0000:0000  Imp  ?OpenDocumentFile@CWinApp@@VECPEVCDocument@@PFD@Z (MFC250D.2353)
+ 0000:0000  Imp  ?OnScrollBy@CView@@VECHVCSize@@H@Z (MFC250D.2266)
+ 0000:0000  Imp  ?OnPreparePrinting@CEditView@@NECHPEUCPrintInfo@@@Z (MFC250D.2242)
+ 0000:0000  Imp  ?CanCloseFrame@CDocument@@VECHPEVCFrameWnd@@@Z (MFC250D.819)
+ 0000:0000  Imp  _wsprintf            (USER.420)
+ 0000:0000  Imp  ??1CDocument@@VEC@XZ (MFC250D.415)
+ 0000:0000  Imp  ?Dump@CObject@@VFCXAEVCDumpContext@@@Z (MFC250D.1125)
+ 0000:0000  Imp  ?IsKindOf@CObject@@RFCHPFUCRuntimeClass@@@Z (MFC250D.1858)
+ 0000:0000  Imp  ?GetDepth@CDumpContext@@RFCHXZ (MFC250D.1349)
+ 0000:0000  Imp  ?GetSuperWndProcAddr@CDialog@@VECPEP7CJPBUHWND__@@IIJ@ZXZ (MFC250D.1694)
+ 0000:0000  Imp  ?GetSuperWndProcAddr@CWnd@@NECPEP7CJPBUHWND__@@IIJ@ZXZ (MFC250D.1703)
+ 0000:0000  Imp  ?OnDragEnter@CView@@VECKPEVCOleDataObject@@KVCPoint@@@Z (MFC250D.2084)
+ 0000:0000  Imp  WAITEVENT            (KERNEL.30)
+ 0000:0000  Imp  ?OnFinalRelease@CCmdTarget@@VECXXZ (MFC250D.2127)
+ 0000:0000  Imp  ?OnInitialUpdate@CView@@VECXXZ (MFC250D.2168)
+ 0000:0000  Imp  ?OnChildNotify@CWnd@@NECHIIJPEJ@Z (MFC250D.2035)
+ 0000:0000  Imp  ??H@ZC?EVCString@@AFV0@0@Z (MFC250D.599)
+ 0000:0000  Imp  ?DestroyWindow@CWnd@@VECHXZ (MFC250D.1031)
+ 0000:0000  Imp  GLOBALALLOC          (KERNEL.15)
+ 0000:0000  Imp  ?OnDDECommand@CWinApp@@VECHPED@Z (MFC250D.2071)
+ 0000:0000  Imp  ?Create@CWnd@@VECHPFD0KAFUtagRECT@@PEV1@IPEUCCreateContext@@@Z (MFC250D.909)
+ 0000:0000  Imp  MESSAGEBOX           (USER.1)
+ 0000:0000  Imp  ?OnCmdMsg@CDocument@@VECHIHPEXPEUAFX_CMDHANDLERINFO@@@Z (MFC250D.2041)
+ 0000:0000  Imp  ?DeleteContents@CDocument@@VECXXZ (MFC250D.1014)
+ 0000:0000  Imp  ?classCMDIFrameWnd@CMDIFrameWnd@@2UCRuntimeClass@@E (MFC250D.2892)
+ 0000:0000  Imp  ??0CDialog@@REC@IPEVCWnd@@@Z (MFC250D.282)
+ 0000:0000  Imp  ?OnIdle@CDocument@@VECXXZ (MFC250D.2157)
+ 0000:0000  Imp  ?LoadFrame@CMDIFrameWnd@@VECHIKPEVCWnd@@PEUCCreateContext@@@Z (MFC250D.1901)
+ 0000:0000  Imp  ?OnCommand@CWnd@@NECHIJ@Z (MFC250D.2048)
+ 0000:0000  Imp  ?GetActiveDocument@CFrameWnd@@VECPEVCDocument@@XZ (MFC250D.1262)
+ 0000:0000  Imp  ?OnReplaceSel@CEditView@@NECXPFDHH0@Z (MFC250D.2261)
+ 0000:0000  Imp  ?OnFinalRelease@CWnd@@VECXXZ (MFC250D.2129)
+ 0000:0000  Imp  ?GetActiveFrame@CMDIFrameWnd@@VECPEVCFrameWnd@@XZ (MFC250D.1264)
+ 0000:0000  Imp  OUTPUTDEBUGSTRING    (KERNEL.115)
+ 0000:0000  Imp  ?ReleaseBuffer@CString@@RECXH@Z (MFC250D.2440)
+ 0000:0000  Imp  ?AfxThrowMemoryException@@ZCXXZ (MFC250D.723)
+ 0000:0000  Imp  ?messageMap@CDocument@@1UAFX_MSGMAP@@E (MFC250D.2947)
+ 0000:0000  Imp  ??0CString@@REC@XZ   (MFC250D.371)
+ 0000:0000  Imp  ?CalcWindowRect@CEditView@@NECXPEUtagRECT@@I@Z (MFC250D.813)
+ 0000:0000  Imp  ?OnCmdMsg@CMDIFrameWnd@@VECHIHPEXPEUAFX_CMDHANDLERINFO@@@Z (MFC250D.2043)
+ 0000:0000  Imp  ?_AfxGetSafeOwner@@ZCPBUHWND__@@PEVCWnd@@@Z (MFC250D.2845)
+ 0000:0000  Imp  GLOBALREALLOC        (KERNEL.16)
+ 0000:0000  Imp  ?OnCancel@CDialog@@NECXXZ (MFC250D.2017)
+ 0000:0000  Imp  ?AfxGetApp@@ZCPEVCWinApp@@XZ (MFC250D.697)
+ 0000:0000  Imp  ?GetFirstViewPosition@CDocument@@VFCPEXXZ (MFC250D.1383)
+ 0000:0000  Imp  AFXWINMAIN           (MFC250D.2976)
+ 0000:0000  Imp  ?PostNcDestroy@CWnd@@NECXXZ (MFC250D.2377)
+ 0000:0000  Imp  ??1CString@@REC@XZ   (MFC250D.469)
+ 0000:0000  Imp  ?Run@CWinApp@@VECHXZ (MFC250D.2511)
+ 0000:0000  Imp  INITTASK             (KERNEL.91)
+ 0000:0000  Imp  ?Dump@CEditView@@VFCXAEVCDumpContext@@@Z (MFC250D.1099)
+ 0000:0000  Imp  ?DoWaitCursor@CWinApp@@VECXH@Z (MFC250D.1063)
+ 0000:0000  Imp  ?OnFilePrintSetup@CWinApp@@JECXXZ (MFC250D.2124)
+ 0000:0000  Imp  ??0CToolBar@@REC@XZ  (MFC250D.383)
+ 0000:0000  Imp  ?OnFileOpen@CWinApp@@JECXXZ (MFC250D.2121)
+ 0000:0000  Imp  ?SetDepth@CDumpContext@@RECXH@Z (MFC250D.2636)
+ 0000:0000  Imp  GETVERSION           (KERNEL.3)
+ 0000:0000  Imp  GETDOSENVIRONMENT    (KERNEL.131)
+ 0000:0000  Imp  ?OnCommand@CMDIFrameWnd@@NECHIJ@Z (MFC250D.2047)
+ 0000:0000  Imp  ?SetDialogBkColor@CWinApp@@JECXKK@Z (MFC250D.2637)
+ 0000:0000  Imp  GLOBALSIZE           (KERNEL.20)
+ 0000:0000  Imp  ?OnFilePrintPreview@CView@@JECXXZ (MFC250D.2123)
+ 0000:0000  Imp  ?GetWindowMenuPopup@CMDIFrameWnd@@VECPBUHMENU__@@PBU2@@Z (MFC250D.1757)
+ 0000:0000  Imp  ?PreCloseFrame@CDocument@@VECXPEVCFrameWnd@@@Z (MFC250D.2378)
+ 0000:0000  Imp  ?OnOK@CDialog@@NECXXZ (MFC250D.2222)
+ 0000:0000  Imp  ?EnableVBX@CWinApp@@JECXXZ (MFC250D.1172)
+ 0000:0000  Imp  ?OnSaveDocument@CDocument@@VECHPFD@Z (MFC250D.2262)
+ 0000:0000  Imp  ?GetBuffer@CString@@RECPEDH@Z (MFC250D.1297)
+ 0000:0000  Imp  ?SaveModified@CDocument@@VECHXZ (MFC250D.2520)
+ 0000:0000  Imp  ?AddDocTemplate@CWinApp@@RECXPEVCDocTemplate@@@Z (MFC250D.662)
+ 0000:0000  Imp  ?OnCmdMsg@CCmdTarget@@VECHIHPEXPEUAFX_CMDHANDLERINFO@@@Z (MFC250D.2039)
+ 0000:0000  Imp  ?Create@CToolBar@@RECHPEVCWnd@@KI@Z (MFC250D.907)
+ 0000:0000  Imp  ?DefWindowProc@CWnd@@NECJIIJ@Z (MFC250D.1004)
+ 0000:0000  Imp  ??1CToolBar@@VEC@XZ  (MFC250D.472)
+ 0000:0000  Imp  ?AssertValid@CObject@@VFCXXZ (MFC250D.775)
+ 0000:0000  Imp  ?GetRuntimeClass@CWinApp@@VFCPEUCRuntimeClass@@XZ (MFC250D.1638)
+ 0000:0000  Imp  ?GetRuntimeClass@CDialog@@VFCPEUCRuntimeClass@@XZ (MFC250D.1576)
+ 0000:0000  Imp  AFXISVALIDADDRESS    (MFC250D.2973)
+ 0000:0000  Imp  ??0AFX_CLASSINIT@@RAC@PEUCRuntimeClass@@@Z (MFC250D.256)
+ 0000:0000  Imp  ?GetScrollBarCtrl@CView@@VFCPEVCScrollBar@@H@Z (MFC250D.1646)
+ 0000:0000  Imp  ?ActivateFrame@CFrameWnd@@VECXH@Z (MFC250D.652)
+ 0000:0000  Imp  ?PostNcDestroy@CFrameWnd@@NECXXZ (MFC250D.2374)
+ 0000:0000  Imp  ?ProcessMessageFilter@CWinApp@@VECHHPEUtagMSG@@@Z (MFC250D.2406)
+ 0000:0000  Imp  ?GetDefaultAccel@CDocument@@VECPBUHACCEL__@@XZ (MFC250D.1346)
+ 0000:0000  Imp  ?OnFilePrint@CView@@JECXXZ (MFC250D.2122)
+ 0000:0000  Imp  ?OnDragOver@CView@@VECKPEVCOleDataObject@@KVCPoint@@@Z (MFC250D.2086)
+ 0000:0000  Imp  ?OnNewDocument@CDocument@@VECHXZ (MFC250D.2217)
+ 0000:0000  Imp  ?OnReplaceAll@CEditView@@NECXPFD0H@Z (MFC250D.2260)
+ 0000:0000  Imp  ?OnPrint@CEditView@@NECXPEVCDC@@PEUCPrintInfo@@@Z (MFC250D.2247)
+ 0000:0000  Imp  ?GetScrollBarCtrl@CWnd@@VFCPEVCScrollBar@@H@Z (MFC250D.1647)
+ 0000:0000  Imp  ?ShowWindow@CWnd@@RECHH@Z (MFC250D.2771)
+ 0000:0000  Imp  ??H@ZC?EVCString@@PFDAFV0@@Z (MFC250D.603)
+ 0000:0000  Imp  ?DoDataExchange@CWnd@@NECXPEVCDataExchange@@@Z (MFC250D.1044)
+ 0000:0000  Imp  ??1CObject@@VEC@XZ   (MFC250D.448)
+ 0000:0000  Imp  ??0CMultiDocTemplate@@REC@IPEUCRuntimeClass@@00@Z (MFC250D.320)
+ 0000:0000  Imp  ?SetIndicators@CStatusBar@@RECHPFIH@Z (MFC250D.2653)
+ 0000:0000  Imp  ?Dump@CWinApp@@VFCXAEVCDumpContext@@@Z (MFC250D.1144)
+ 0000:0000  Imp  ?GetSuperWndProcAddr@CEditView@@NECPEP7CJPBUHWND__@@IIJ@ZXZ (MFC250D.1697)
+ 0000:0000  Imp  ?messageMap@CDialog@@1UAFX_MSGMAP@@E (MFC250D.2946)
+ 0000:0000  Imp  ?OnFileNew@CWinApp@@JECXXZ (MFC250D.2120)
+ 0000:0000  Imp  ?NegotiateBorderSpace@CFrameWnd@@VECHIPEUtagRECT@@@Z (MFC250D.1973)
+ 0000:0000  Imp  ?OnEndPrinting@CEditView@@NECXPEVCDC@@PEUCPrintInfo@@@Z (MFC250D.2109)
+ 0000:0000  Imp  ?OnCreateClient@CMDIFrameWnd@@VECHPEUtagCREATESTRUCT@@PEUCCreateContext@@@Z (MFC250D.2065)
+ 0000:0000  Imp  ?ProcessWndProcException@CWinApp@@VECJPEVCException@@PFUtagMSG@@@Z (MFC250D.2407)
+ 0000:0000  Imp  ?ReportSaveLoadException@CDocument@@VECXPFDPEVCException@@HI@Z (MFC250D.2497)
+ 0000:0000  Imp  ?WinHelp@CWnd@@VECXKI@Z (MFC250D.2828)
+ 0000:0000  Abs  __wiobused
+ 0000:0000  Imp  ??1CDialog@@VEC@XZ   (MFC250D.412)
+ 0000:0001  Abs  __sized
+ 0000:0001  Abs  __sizec
+ 0000:0006  Abs  pLocalHeap
+ 0000:0008  Abs  pAtomTable
+ 0000:000A  Abs  pStackTop
+ 0000:000C  Abs  pStackMin
+ 0000:000E  Abs  pStackBot
+ 0000:9876  Abs  __acrtused
+ 0000:9876  Abs  __acrtmsg
+ 0000:9876  Abs  __fptaskdata
+ 0000:D6D6  Abs  __aDBdoswp
+ 0000:D6D6  Abs  __aDBused
+ 0001:0012       ?GetMessageMap@CJevApp@@NFCPEUAFX_MSGMAP@@XZ
+ 0001:0036       ?_messageEntries@CJevApp@@0QEUAFX_MSGMAP_ENTRY@@E
+ 0001:0068       ??0CJevApp@@REC@XZ
+ 0001:00CA       ?InitInstance@CJevApp@@VECHXZ
+ 0001:0262       ??0CAboutDlg@@REC@XZ
+ 0001:02A6       ?DoDataExchange@CAboutDlg@@NECXPEVCDataExchange@@@Z
+ 0001:02D6       ?GetMessageMap@CAboutDlg@@NFCPEUAFX_MSGMAP@@XZ
+ 0001:02FA       ?_messageEntries@CAboutDlg@@0QEUAFX_MSGMAP_ENTRY@@E
+ 0001:0304       ?OnAppAbout@CJevApp@@RECXXZ
+ 0001:03EC       ?GetRuntimeClass@CMainFrame@@VFCPEUCRuntimeClass@@XZ
+ 0001:0410       ?GetMessageMap@CMainFrame@@NFCPEUAFX_MSGMAP@@XZ
+ 0001:0434       ?_messageEntries@CMainFrame@@0QEUAFX_MSGMAP_ENTRY@@E
+ 0001:0464       ??0CMainFrame@@REC@XZ
+ 0001:04C6       ??1CMainFrame@@VEC@XZ
+ 0001:0522       ?OnCreate@CMainFrame@@JECHPEUtagCREATESTRUCT@@@Z
+ 0001:063C       ?AssertValid@CMainFrame@@VFCXXZ
+ 0001:0666       ?Dump@CMainFrame@@VFCXAEVCDumpContext@@@Z
+ 0001:06C4       ?Construct@CJevDoc@@TCXPEX@Z
+ 0001:0746       ?GetRuntimeClass@CJevDoc@@VFCPEUCRuntimeClass@@XZ
+ 0001:076A       ?GetMessageMap@CJevDoc@@NFCPEUAFX_MSGMAP@@XZ
+ 0001:078E       ?_messageEntries@CJevDoc@@0QEUAFX_MSGMAP_ENTRY@@E
+ 0001:0798       ??0CJevDoc@@JEC@XZ
+ 0001:07D6       ??1CJevDoc@@VEC@XZ
+ 0001:080E       ?OnNewDocument@CJevDoc@@NECHXZ
+ 0001:084A       ?Serialize@CJevDoc@@VECXAEVCArchive@@@Z
+ 0001:0880       ?AssertValid@CJevDoc@@VFCXXZ
+ 0001:08AA       ?Dump@CJevDoc@@VFCXAEVCDumpContext@@@Z
+ 0001:0908       ?Construct@CJevView@@TCXPEX@Z
+ 0001:098C       ?GetRuntimeClass@CJevView@@VFCPEUCRuntimeClass@@XZ
+ 0001:09B0       ?GetMessageMap@CJevView@@NFCPEUAFX_MSGMAP@@XZ
+ 0001:09D4       ?_messageEntries@CJevView@@0QEUAFX_MSGMAP_ENTRY@@E
+ 0001:09F2       ??0CJevView@@JEC@XZ
+ 0001:0A30       ??1CJevView@@VEC@XZ
+ 0001:0A68       ?OnDraw@CJevView@@VECXPEVCDC@@@Z
+ 0001:0AAA       ?OnPreparePrinting@CJevView@@NECHPEUCPrintInfo@@@Z
+ 0001:0ADA       ?OnBeginPrinting@CJevView@@NECXPEVCDC@@PEUCPrintInfo@@@Z
+ 0001:0B10       ?OnEndPrinting@CJevView@@NECXPEVCDC@@PEUCPrintInfo@@@Z
+ 0001:0B46       ?AssertValid@CJevView@@VFCXXZ
+ 0001:0B70       ?Dump@CJevView@@VFCXAEVCDumpContext@@@Z
+ 0001:0BA0       ?GetDocument@CJevView@@RECPEVCJevDoc@@XZ
+ 0001:0C3A       ?GetRuntimeClass@CEnv@@VFCPEUCRuntimeClass@@XZ
+ 0001:0C5E       ??0CEnv@@REC@XZ
+ 0001:0CE4       ?Init@CEnv@@RECXXZ
+ 0001:0F5C       ??1CEnv@@VEC@XZ
+ 0001:101A       ?Terminate@CEnv@@TAXXZ
+ 0001:1050       ?AssertValid@CEnv@@VFCXXZ
+ 0001:10A8       ?Dump@CEnv@@VFCXAEVCDumpContext@@@Z
+ 0001:11E8       ?_ForceLinkage@CWinApp@@VECXXZ
+ 0001:11EA       __wflags
+ 0001:11F4       __astart
+ 0001:12AB       __nomain
+ 0001:12B2       __stubmain
+ 0001:12DE       __cinit
+ 0001:13C1       _exit
+ 0001:13CF       __exit
+ 0001:13DE       __cexit
+ 0001:13EF       __c_exit
+ 0001:145F       __ctermsub
+ 0001:149C       __FF_MSGBANNER
+ 0001:14C0       __fptrap
+ 0001:14C6       __aNchkstk
+ 0001:14E6       __chkstk
+ 0001:14E6       __aFchkstk
+ 0001:1520       __setargv
+ 0001:16CA       __setenvp
+ 0001:1784       __cintDIV
+ 0001:178E       __amsg_exit
+ 0001:17D0       __NMSG_TEXT
+ 0001:1807       __NMSG_WRITE
+ 0001:1844       __myalloc
+ 0001:1872       __dosret0
+ 0001:187F       __dosreturn
+ 0001:1891       __dosretax
+ 0001:18A3       __maperror
+ 0001:18D0       __GetDGROUP
+ 0001:18E0       ___ExportedStub
+ 0001:18F4       _fclose
+ 0001:19F6       __endstdio
+ 0001:1A0C       __flsbuf
+ 0001:1B06       __freebuf
+ 0001:1B3E       __getbuf
+ 0001:1B8A       _fflush
+ 0001:1BE6       __flush
+ 0001:1C66       __flushall
+ 0001:1CF6       __output
+ 0001:21EC       __close
+ 0001:2224       __lseek
+ 0001:22F8       __write
+ 0001:24B2       __stackavail
+ 0001:24C6       __ffree
+ 0001:24E7       __fmalloc
+ 0001:258E       __initseg
+ 0001:25C2       __linkseg
+ 0001:25F8       __searchseg
+ 0001:2674       __growseg
+ 0001:2705       __incseg
+ 0001:276B       __findlast
+ 0001:278C       __newseg
+ 0001:280E       ?_set_fnew_handler@@ZAP7AHI@ZP7AHI@Z@Z
+ 0001:2838       ?_set_new_handler@@ZAP7AHI@ZP7AHI@Z@Z
+ 0001:284A       _strcat
+ 0001:289E       _strcpy
+ 0001:28DA       _strlen
+ 0001:28F4       _strncmp
+ 0001:2930       __itoa
+ 0001:294C       _abort
+ 0001:296E       _getenv
+ 0001:2A0A       __fcloseall
+ 0001:2A4A       _sprintf
+ 0001:2AB8       _vsprintf
+ 0001:2B24       __commit
+ 0001:2B94       __intdosx
+ 0001:2C12       _memcpy
+ 0001:2C70       _memset
+ 0001:2CB8       __cltoasub
+ 0001:2CC5       __cxtoa
+ 0001:2D1C       __access
+ 0001:2D54       __mkdir
+ 0001:2D62       __chdir
+ 0001:2D88       __rmdir
+ 0001:2DC8       __getdrive
+ 0001:2DF2       __chdrive
+ 0001:2E3C       __getcwd
+ 0001:2E5A       __getdcwd
+ 0001:2F82       _remove
+ 0001:2F82       __unlink
+ 0001:2FA8       __dos_commit
+ 0001:2FCC       __wcinit
+ 0001:2FCC       __wcexit
+ 0001:2FD1       __wclose
+ 0001:2FD1       __QWINYield
+ 0001:2FD1       __QWINGetSize
+ 0001:2FD1       __QWINSetSize
+ 0001:2FD1       __QWINExit
+ 0001:2FD1       __QWINClose
+ 0001:2FD1       __QWINOpen
+ 0001:2FD1       __QWINInit
+ 0001:2FD1       __wopen
+ 0001:2FD1       __wmenuclick
+ 0001:2FD1       __QWINRead
+ 0001:2FD1       __wwrite
+ 0001:2FD1       __wabout
+ 0001:2FD1       __QWINSetFocus
+ 0001:2FD1       __wread
+ 0001:2FD1       __QWINGetFocus
+ 0001:2FD1       __QWINIsQWINin
+ 0001:2FD1       __QWINSetBuffSize
+ 0001:2FD1       __wsetsize
+ 0001:2FD1       __wgetfocus
+ 0001:2FD1       __wterm
+ 0001:2FD1       __wsetscreenbuf
+ 0001:2FD1       __wgetsize
+ 0001:2FD1       __wsetfocus
+ 0001:2FD1       __QWINGetBuffSize
+ 0001:2FD1       __wgetscreenbuf
+ 0001:2FD1       __QWINWrite
+ 0001:2FD1       __QWINTerm
+ 0001:2FD1       __QWINMenuClick
+ 0001:2FD1       __QWINSetAboutString
+ 0001:2FD8       _atexit
+ 0001:2FE0       __onexit
+ 0001:3068       AFXDIAGNOSTICINIT
+ 0001:30FC       WINMAIN
+ 0001:3168       AFXDUMP
+ 0001:319A       _AfxTrace
+ 0001:32BC       AFXTRACEV
+ 0001:3398       AFXAPPABORT
+ 0001:341A       AFXASSERTFAILEDLINE
+ 0001:3A44       ??2@ZAPEXI@Z
+ 0001:3AD2       ??2@ZAPEXIPFDH@Z
+ 0001:3B62       ??3@ZAXPEX@Z
+ 0001:3BB8       ??2CObject@@TAPEXI@Z
+ 0001:3C46       ??2CObject@@TAPEXIPFDH@Z
+ 0001:3CD6       ??3CObject@@TAXPEX@Z
+ 0001:3D2C       ?_AfxDefaultAllocHook@@ZCHIHJ@Z
+ 0001:3D4E       ?AfxSetAllocHook@@ZCP7CHIHJ@ZP7CHIHJ@Z@Z
+ 0001:3D8E       AFXSTOP
+ 0001:3DC8       ?_AfxTestAllocStop@@ZCHIHJ@Z
+ 0001:3E28       ?AfxSetAllocStop@@ZCXJ@Z
+ 0001:434C       ?AfxCheckMemory@@ZCHXZ
+ 0001:4566       ?AfxIsMemoryBlock@@ZCHPFXIPEJ@Z
+ 0001:4660       ??0CMemoryState@@REC@XZ
+ 0001:4694       ?Difference@CMemoryState@@RECHAFU1@0@Z
+ 0001:4820       ?DumpStatistics@CMemoryState@@RFCXXZ
+ 0001:48E4       ?Checkpoint@CMemoryState@@RECXXZ
+ 0001:4A8A       ?DumpAllObjectsSince@CMemoryState@@RFCXXZ
+ 0001:4E52       ?AfxDoForAllObjects@@ZCXP7AXPEVCObject@@PEX@Z1@Z
+ 0001:4F02       AFXAPPALLOC
+ 0001:5066       AFXAPPFREE
+ 0001:50E8       AFXAPPSETNEWHANDLER
+ 0001:5116       AFXAPPREALLOC
+ 0001:51A8       ?AfxNewHandler@@ZAHI@Z
+ 0001:5218       ??1AFX_EXITDUMP@@REC@XZ
+ 0001:5320       ?pbData@CBlockHeader@@RECPEEXZ
+ 0001:5350       ??1CJevApp@@VEC@XZ
+ 0001:537A       ??1CAboutDlg@@VEC@XZ
+ 0001:53A4       ??_7CAboutDlg@@6F@
+ 0001:5424       ??_7CJevApp@@6F@
+ 0001:5498       ??_GCJevApp@@VECPEXI@Z
+ 0001:54E4       ??_GCAboutDlg@@VECPEXI@Z
+ 0001:5530       ??1CMDIFrameWnd@@VEC@XZ
+ 0001:555A       ??_7CMainFrame@@6F@
+ 0001:5602       ??_GCMainFrame@@VECPEXI@Z
+ 0001:564E       ??_GCJevDoc@@VECPEXI@Z
+ 0001:569A       ??_7CJevDoc@@6F@
+ 0001:570E       ??_GCJevView@@VECPEXI@Z
+ 0001:575A       ??_7CJevView@@6F@
+ 0001:5822       ??_GCEnv@@VECPEXI@Z
+ 0001:586E       ??_7CEnv@@6F@
+ 0002:0004       rsrvptrs
+ 0002:00D0       ?messageMap@CJevApp@@1UAFX_MSGMAP@@A
+ 0002:00E2       ?messageMap@CAboutDlg@@1UAFX_MSGMAP@@A
+ 0002:00EA       ?classCMainFrame@CMainFrame@@2UCRuntimeClass@@A
+ 0002:00FE       ?messageMap@CMainFrame@@1UAFX_MSGMAP@@A
+ 0002:013E       ?classCJevDoc@CJevDoc@@2UCRuntimeClass@@A
+ 0002:0152       ?messageMap@CJevDoc@@1UAFX_MSGMAP@@A
+ 0002:015A       ?classCJevView@CJevView@@2UCRuntimeClass@@A
+ 0002:016E       ?messageMap@CJevView@@1UAFX_MSGMAP@@A
+ 0002:0176       ?classCEnv@CEnv@@2UCRuntimeClass@@A
+ 0002:0322       ?afxIgnoreAssertCount@@3HA
+ 0002:032A       _afxMemDF
+ 0002:0402       _STKHQQ
+ 0002:0404       __hPrevInstance
+ 0002:0406       __hInstance
+ 0002:0408       __lpszCmdLine
+ 0002:040C       __cmdShow
+ 0002:040E       _aseglo
+ 0002:0410       _aseghi
+ 0002:0412       ___aDBswpflg
+ 0002:0414       ___aDBrterr
+ 0002:0416       __acfinfo
+ 0002:0424       __aintdiv
+ 0002:0428       __fac
+ 0002:0432       _errno
+ 0002:0434       __umaskval
+ 0002:0436       __pspadr
+ 0002:0438       __psp
+ 0002:043A       __winver
+ 0002:043A       __winminor
+ 0002:043B       __winmajor
+ 0002:043C       __osver
+ 0002:043C       __osminor
+ 0002:043D       __osmajor
+ 0002:043E       __osversion
+ 0002:0440       __osmode
+ 0002:0441       __cpumode
+ 0002:0442       __oserr
+ 0002:0442       __doserrno
+ 0002:0444       __nfile
+ 0002:0446       __wfile
+ 0002:0448       __wnfile
+ 0002:044A       __osfile
+ 0002:045E       __wsfile
+ 0002:0472       ___argc
+ 0002:0474       ___argv
+ 0002:0478       __environ
+ 0002:047C       __pgmptr
+ 0002:0481       __child
+ 0002:0483       __exitflag
+ 0002:0484       __adbgmsg
+ 0002:0488       __aaltstkovr
+ 0002:04A8       __cflush
+ 0002:04AA       __lastiob
+ 0002:050E       __lseekchk
+ 0002:0510       __pnhFarHeap
+ 0002:0514       __fheap
+ 0002:0522       __amblksiz
+ 0002:0524       __cfltcvt_tab
+ 0002:0540       __sigintseg
+ 0002:0542       __sigintoff
+ 0002:0544       __asizeC
+ 0002:0545       __asizeD
+ 0002:0546       __qwinused
+ 0002:0568       __fpinit
+ 0002:0578       __iob
+ 0002:0668       __iob2
+ 0002:08DC       _edata
+ 0002:08DC       ?theApp@@3VCJevApp@@A
+ 0002:08DC       __edata
+ 0002:0994       ?afxDump@@3AEVCDumpContext@@E
+ 0002:0998       ?_afxDump@@3VCDumpContext@@A
+ 0002:0A4E       __end
+ 0002:0A4E       _end
+
+Line numbers for JEV.OBJ(c:\nf\jev\jev.cpp) segment JEV_TEXT
+
+    20 0001:0012     0 0001:0035    37 0001:0068    41 0001:0097
+     0 0001:00a9    46 0001:00aa     0 0001:00c8    52 0001:00ca
+    58 0001:00dc    59 0001:00f1    60 0001:00fc    62 0001:0107
+    63 0001:0124    73 0001:0144    74 0001:0192    77 0001:01a3
+    78 0001:01dc    79 0001:0200    80 0001:0206    83 0001:0217
+    85 0001:0222    91 0001:0235    92 0001:0247    94 0001:0252
+    95 0001:0258     0 0001:0261   120 0001:0262   123 0001:0293
+     0 0001:02a5   126 0001:02a6   127 0001:02b8   130 0001:02c9
+     0 0001:02d5   132 0001:02d6     0 0001:02f9   140 0001:0304
+   141 0001:0316   142 0001:0322   143 0001:032e     0 0001:0346
+   154 0001:0348     0 0001:0366
+
+Line numbers for MAINFRM.OBJ(c:\nf\jev\mainfrm.cpp) segment MAINFRM_TEXT
+
+    17 0001:03ca     0 0001:03eb    19 0001:0410     0 0001:0433
+    58 0001:0464    60 0001:04b3     0 0001:04c5    63 0001:04c6
+    64 0001:04e6     0 0001:0521    67 0001:0522    68 0001:0534
+    69 0001:054d    74 0001:0553    76 0001:05b8    77 0001:05c7
+    82 0001:05cd    84 0001:0616    85 0001:0625    88 0001:062b
+    89 0001:0631     0 0001:063a    96 0001:063c    97 0001:064e
+    98 0001:0659     0 0001:0665   101 0001:0666   102 0001:0678
+   103 0001:0689     0 0001:0695   109 0001:0696     0 0001:06ad
+
+Line numbers for JEVDOC.OBJ(c:\nf\jev\jevdoc.cpp) segment JEVDOC_TEXT
+
+    17 0001:06c4     0 0001:071a    19 0001:076a     0 0001:078d
+    30 0001:0798    32 0001:07c3     0 0001:07d5    35 0001:07d6
+    36 0001:07f6     0 0001:080d    39 0001:080e    40 0001:0820
+    41 0001:0833    46 0001:0839    47 0001:083f     0 0001:0848
+    53 0001:084a    54 0001:085c    58 0001:086f    62 0001:0872
+     0 0001:087e    69 0001:0880    70 0001:0892    71 0001:089d
+     0 0001:08a9    74 0001:08aa    75 0001:08bc    76 0001:08cd
+     0 0001:08d9    81 0001:08da     0 0001:08f1
+
+Line numbers for JEVVIEW.OBJ(c:\nf\jev\jevview.cpp) segment JEVVIEW_TEXT
+
+    18 0001:0908     0 0001:095e    20 0001:09b0     0 0001:09d3
+    34 0001:09f2    36 0001:0a1d     0 0001:0a2f    39 0001:0a30
+    40 0001:0a50     0 0001:0a67    46 0001:0a68    47 0001:0a7a
+    48 0001:0a8b    51 0001:0a9c     0 0001:0aa8    57 0001:0aaa
+    59 0001:0abc    60 0001:0ad0     0 0001:0ad9    63 0001:0ada
+    65 0001:0aec    66 0001:0b03     0 0001:0b0f    69 0001:0b10
+    71 0001:0b22    72 0001:0b39     0 0001:0b45    79 0001:0b46
+    80 0001:0b58    81 0001:0b63     0 0001:0b6f    84 0001:0b70
+    85 0001:0b82    86 0001:0b93     0 0001:0b9f    89 0001:0ba0
+    90 0001:0bb2    91 0001:0be2    92 0001:0bf0     0 0001:0bf9
+    97 0001:0bfa     0 0001:0c11
+
+Line numbers for ENV.OBJ(c:\nf\jev\env.cpp) segment ENV_TEXT
+
+    19 0001:0c18     0 0001:0c39    24 0001:0c5e    25 0001:0cd1
+     0 0001:0ce3    31 0001:0ce4    34 0001:0cf6    35 0001:0d13
+    38 0001:0d22    39 0001:0d44    46 0001:0d58    47 0001:0d6f
+    48 0001:0d8f    49 0001:0db2    52 0001:0dd5    55 0001:0e2a
+    56 0001:0eb8    57 0001:0edf    58 0001:0f0d    62 0001:0f12
+    63 0001:0f2b    64 0001:0f3a    67 0001:0f3f    68 0001:0f4e
+     0 0001:0f5a    70 0001:0f5c    71 0001:0f7c    72 0001:0f8b
+    73 0001:0faa    74 0001:0fb9     0 0001:1018    81 0001:101a
+    83 0001:102c    84 0001:103b    85 0001:1045     0 0001:104f
+    91 0001:1050    92 0001:1062    93 0001:106d    95 0001:109b
+     0 0001:10a7   102 0001:10a8   103 0001:10ba   105 0001:10ce
+   111 0001:10df   113 0001:11b3     0 0001:11bf   115 0001:11c0
+     0 0001:11d7
+
+Line numbers for d:\lang\msvc\mfc\lib\mfc250d.lib(afxdll.asm) segment _TEXT
+
+    42 0001:11e8
+
+Line numbers for d:\lang\msvc\mfc\lib\mfc250d.lib(dumpinit.cpp) segment AFX_AUX_TEXT
+
+    38 0001:3038    41 0001:3053     0 0001:3066    44 0001:3068
+    47 0001:307a    49 0001:30b4    53 0001:30ee    54 0001:30f4
+     0 0001:30fb    64 0001:30fc    66 0001:310e    70 0001:312f
+    71 0001:3146     0 0001:314f    75 0001:3150     0 0001:3167
+
+Line numbers for d:\lang\msvc\mfc\lib\mfc250d.lib(dumpout.cpp) segment AFX_AUX_TEXT
+
+    36 0001:3168    37 0001:317a    38 0001:318d     0 0001:3199
+    45 0001:319a    47 0001:31ac    48 0001:31cd    65 0001:31d0
+    69 0001:31de    71 0001:31f0    72 0001:3214    75 0001:3234
+    76 0001:326f    79 0001:329b    80 0001:32b0     0 0001:32ba
+    93 0001:32bc    97 0001:32ce    98 0001:32ee   100 0001:330e
+   101 0001:3349   102 0001:3375   103 0001:338a     0 0001:3396
+
+Line numbers for d:\lang\msvc\mfc\lib\mfc250d.lib(afxasert.cpp) segment AFX_DEBUG1_TEXT
+
+    32 0001:341a    34 0001:342c    36 0001:3436    37 0001:343b
+    50 0001:343e    55 0001:3459    57 0001:349f    60 0001:34c0
+    61 0001:34cd    62 0001:34d9    63 0001:34e4    67 0001:34f0
+    68 0001:3514    70 0001:351e    72 0001:3521    76 0001:352e
+    78 0001:352f    93 0001:3532    94 0001:3537     0 0001:3543
+
+Line numbers for d:\lang\msvc\mfc\lib\mfc250d.lib(afxmem.cpp) segment AFX_CORE1_TEXT
+
+    41 0001:3a44    43 0001:3a56    44 0001:3a64    46 0001:3a84
+    48 0001:3a98    50 0001:3aaa    51 0001:3abb    54 0001:3ac0
+    55 0001:3ac9     0 0001:3ad0    58 0001:3ad2    60 0001:3ae4
+    61 0001:3af2    63 0001:3b12    65 0001:3b29    67 0001:3b3b
+    68 0001:3b4c    71 0001:3b51    72 0001:3b5a     0 0001:3b61
+    75 0001:3b62    77 0001:3b74    78 0001:3b82    80 0001:3ba2
+    81 0001:3bad     0 0001:3bb7    84 0001:3bb8    86 0001:3bca
+    87 0001:3bd8    89 0001:3bf8    91 0001:3c0c    93 0001:3c1e
+    94 0001:3c2f    97 0001:3c34    98 0001:3c3d     0 0001:3c44
+   102 0001:3c46   104 0001:3c58   105 0001:3c66   107 0001:3c86
+   109 0001:3c9d   111 0001:3caf   112 0001:3cc0   115 0001:3cc5
+   116 0001:3cce     0 0001:3cd5   119 0001:3cd6   121 0001:3ce8
+   122 0001:3cf6   124 0001:3d16   125 0001:3d21     0 0001:3d2b
+   137 0001:3d2c     0 0001:3d4d   142 0001:3d4e   143 0001:3d60
+   144 0001:3d6d   145 0001:3d7a   146 0001:3d83     0 0001:3d8c
+   166 0001:3d8e   168 0001:3da0   169 0001:3dae   170 0001:3daf
+   171 0001:3dbd     0 0001:3dc7   176 0001:3dc8   177 0001:3dda
+   179 0001:3df1   180 0001:3e05   184 0001:3e0a   185 0001:3e1d
+     0 0001:3e26   189 0001:3e28   190 0001:3e3a   191 0001:3e4e
+   193 0001:3e60   194 0001:3e6d     0 0001:3e79   276 0001:3ea8
+   277 0001:3eb5   280 0001:3ed2   282 0001:3f13   283 0001:3f2a
+   286 0001:3f2b   288 0001:3f43   290 0001:3f5a   293 0001:3f63
+   294 0001:3f71   297 0001:3f7f   299 0001:3f88   300 0001:3f99
+   301 0001:3fa7   305 0001:3fac   306 0001:3fba   308 0001:3fc8
+   309 0001:3fe6   312 0001:3ff4   314 0001:4009   315 0001:401b
+   317 0001:4024   318 0001:4038   320 0001:404a   321 0001:405b
+   322 0001:406a   323 0001:407b   324 0001:4085   325 0001:408f
+   326 0001:40a8   329 0001:40b9   330 0001:40d3   333 0001:40f2
+   336 0001:410d   337 0001:411a   338 0001:4128     0 0001:412d
+   344 0001:412e   345 0001:413b   346 0001:414d   348 0001:4150
+   350 0001:415e   351 0001:416c   354 0001:416f   362 0001:4180
+   366 0001:41b2   368 0001:41c4   371 0001:41cd   374 0001:41db
+   375 0001:41f1   377 0001:420a   379 0001:4221   381 0001:4239
+   383 0001:423c   384 0001:4268   389 0001:4279   390 0001:4295
+   392 0001:42a3   395 0001:42a6   397 0001:42c5     0 0001:42cd
+   400 0001:42ce   401 0001:42e0   402 0001:42e5   404 0001:42f4
+   406 0001:430c   408 0001:4335   410 0001:433a   411 0001:433d
+   412 0001:4343     0 0001:434a   417 0001:434c   418 0001:435e
+   419 0001:436c   421 0001:4372   425 0001:4377   427 0001:43a9
+   430 0001:43ae   431 0001:43c8   432 0001:43e7   433 0001:43ea
+   436 0001:43f4   438 0001:4416   440 0001:4437   444 0001:443c
+   446 0001:4467   448 0001:4488   453 0001:448d   455 0001:44c1
+   457 0001:44dc   460 0001:44e1   464 0001:44ea   465 0001:4501
+   468 0001:4527   471 0001:454f   473 0001:4554   474 0001:4557
+   475 0001:455d     0 0001:4564   482 0001:4566   483 0001:4578
+   486 0001:4586   487 0001:4598   488 0001:45a6   492 0001:45b9
+   498 0001:45ca   500 0001:4622   501 0001:4634   502 0001:4649
+   505 0001:464f   506 0001:4655     0 0001:465e   512 0001:4660
+   513 0001:4672   514 0001:4680     0 0001:4692   519 0001:4694
+   520 0001:46a6   521 0001:46ab   523 0001:46b3   524 0001:470a
+   527 0001:4761   528 0001:47bc   529 0001:47c1   530 0001:47ce
+   531 0001:47ef   533 0001:4810   534 0001:4816     0 0001:481f
+   538 0001:4820   539 0001:4832   541 0001:483a   543 0001:4897
+   545 0001:48a4   546 0001:48bd   547 0001:48d6     0 0001:48e2
+   551 0001:48e4   552 0001:48f6   553 0001:4904   555 0001:4907
+   556 0001:4918   557 0001:4920   560 0001:4971   562 0001:49a3
+   566 0001:49ba   568 0001:49d7   569 0001:4a06   571 0001:4a3f
+   573 0001:4a42   575 0001:4a56   577 0001:4a59   578 0001:4a6b
+   579 0001:4a7d     0 0001:4a89   586 0001:4a8a   587 0001:4a9c
+   589 0001:4aaa   590 0001:4ab8   595 0001:4abb   596 0001:4ac9
+   599 0001:4ad9   600 0001:4ae6   604 0001:4b21   608 0001:4b38
+   610 0001:4b48   612 0001:4b5b   613 0001:4b74   615 0001:4b8b
+   616 0001:4ba7   617 0001:4bc5   618 0001:4bc8   619 0001:4bf1
+   625 0001:4c06   634 0001:4c56   635 0001:4c81   637 0001:4c96
+   640 0001:4cae   641 0001:4cc3   643 0001:4cd7   648 0001:4cda
+   649 0001:4d24   652 0001:4d39   654 0001:4d49   655 0001:4d62
+   657 0001:4d79   658 0001:4d95   659 0001:4db3   660 0001:4db6
+   661 0001:4ddf   665 0001:4df4   666 0001:4e1f   668 0001:4e34
+   669 0001:4e37   670 0001:4e45     0 0001:4e51   677 0001:4e52
+   678 0001:4e64   679 0001:4e72   682 0001:4e75   684 0001:4ea7
+   688 0001:4ebe   690 0001:4ece   691 0001:4edf   693 0001:4ef1
+   694 0001:4ef4     0 0001:4f00   708 0001:4f02   710 0001:4f14
+   712 0001:4f29   717 0001:4f37   719 0001:4f62   720 0001:4f83
+   721 0001:4f91   722 0001:4f94   724 0001:4fa2   727 0001:4fa5
+   730 0001:4fc6   731 0001:500f   734 0001:5012   739 0001:505b
+     0 0001:5064   743 0001:5066   745 0001:5078   747 0001:508d
+   752 0001:509b   753 0001:50bc   754 0001:50ca   755 0001:50cd
+   760 0001:50db     0 0001:50e7   764 0001:50e8   765 0001:50fa
+   766 0001:510b     0 0001:5114   770 0001:5116   773 0001:5128
+   774 0001:5136   777 0001:5148   778 0001:5159   779 0001:518a
+   781 0001:5195   785 0001:519e     0 0001:51a7   788 0001:51a8
+   791 0001:51ba   792 0001:51bf   793 0001:51c5     0 0001:51cc
+   797 0001:51ce   798 0001:51e0   799 0001:51ee   800 0001:51f4
+     0 0001:51fb   802 0001:51fc     0 0001:5216   821 0001:5218
+   823 0001:522a   824 0001:5236   827 0001:5242   830 0001:5266
+   831 0001:5274   832 0001:5283   833 0001:528f   835 0001:529b
+     0 0001:52a7   839 0001:52a8     0 0001:52ba   849 0001:52bc
+     0 0001:52da   266 0001:5320     0 0001:534b
+
+Line numbers for d:\lang\msvc\mfc\lib\mfc250d.lib(afxabort.cpp) segment AFX_AUX_TEXT
+
+    27 0001:3398    28 0001:33aa    30 0001:33b8    32 0001:33bd
+    33 0001:33c2     0 0001:33cc
+
+Program entry point at 0001:11f4
+
+Segments		  57
+Groups		      1
+Bytes in symbol table  67402

@@ -1,0 +1,497 @@
+
+ Start  Stop   Length Name                   Class
+ 00000H 00334H 00335H JEPREGL_TEXT           CODE
+ 00336H 00838H 00503H CHVALID_TEXT           CODE
+ 0083AH 0138CH 00B53H JEVALINP_TEXT          CODE
+ 0138EH 01802H 00475H JEGLSORT_TEXT          CODE
+ 01804H 01BA3H 003A0H GLENV_TEXT             CODE
+ 01BA4H 04FABH 03408H _TEXT                  CODE
+ 04FB0H 04FB1H 00002H EMULATOR_TEXT          CODE
+ 04FB2H 04FB2H 00000H C_ETEXT                ENDCODE
+ 04FC0H 04FC0H 00000H EMULATOR_DATA          FAR_DATA
+ 04FC0H 09C18H 04C59H FAR_BSS                FAR_BSS
+ 09C20H 09C61H 00042H NULL                   BEGDATA
+ 09C62H 0A9E1H 00D80H _DATA                  DATA
+ 0A9E2H 0A9E3H 00002H XIQC                   DATA
+ 0A9E4H 0A9EFH 0000CH DBDATA                 DATA
+ 0A9F0H 0A9FDH 0000EH CDATA                  DATA
+ 0A9FEH 0A9FEH 00000H XIFB                   DATA
+ 0A9FEH 0A9FEH 00000H XIF                    DATA
+ 0A9FEH 0A9FEH 00000H XIFE                   DATA
+ 0A9FEH 0A9FEH 00000H XIB                    DATA
+ 0A9FEH 0A9FEH 00000H XI                     DATA
+ 0A9FEH 0A9FEH 00000H XIE                    DATA
+ 0A9FEH 0A9FEH 00000H XPB                    DATA
+ 0A9FEH 0AA01H 00004H XP                     DATA
+ 0AA02H 0AA02H 00000H XPE                    DATA
+ 0AA02H 0AA02H 00000H XCB                    DATA
+ 0AA02H 0AA02H 00000H XC                     DATA
+ 0AA02H 0AA02H 00000H XCE                    DATA
+ 0AA02H 0AA02H 00000H XCFB                   DATA
+ 0AA02H 0AA02H 00000H XCFCRT                 DATA
+ 0AA02H 0AA02H 00000H XCF                    DATA
+ 0AA02H 0AA02H 00000H XCFE                   DATA
+ 0AA02H 0AA02H 00000H XIFCB                  DATA
+ 0AA02H 0AA02H 00000H XIFU                   DATA
+ 0AA02H 0AA02H 00000H XIFL                   DATA
+ 0AA02H 0AA02H 00000H XIFM                   DATA
+ 0AA02H 0AA02H 00000H XIFCE                  DATA
+ 0AA02H 0AA0FH 0000EH CONST                  CONST
+ 0AA10H 0AA17H 00008H HDR                    MSG
+ 0AA18H 0AAEDH 000D6H MSG                    MSG
+ 0AAEEH 0AAEFH 00002H PAD                    MSG
+ 0AAF0H 0AAF0H 00001H EPAD                   MSG
+ 0AAF2H 0AAF3H 00002H _BSS                   BSS
+ 0AAF4H 0AAF4H 00000H XOB                    BSS
+ 0AAF4H 0AAF4H 00000H XO                     BSS
+ 0AAF4H 0AAF4H 00000H XOE                    BSS
+ 0AAF4H 0AAF4H 00000H XOFB                   BSS
+ 0AAF4H 0AAF4H 00000H XOF                    BSS
+ 0AAF4H 0AAF4H 00000H XOFE                   BSS
+ 0AB00H 0AB00H 00000H c_common               BSS
+ 0AB00H 0B2FFH 00800H STACK                  STACK
+
+ Origin   Group
+ 09C2:0   DGROUP
+
+  Address         Publics by Name
+
+ 01BA:084A       _abs
+ 01BA:337E       _atol
+ 01BA:0858       _bsearch
+ 04FC:07DA       _charttab
+ 0033:0006       _CHload
+ 0033:04BC       _CHlookup
+ 04FC:07D8       _chrec_cnt
+ 0033:042C       _CHvalid
+ 04FC:4C3A       _cwdstr
+ 09C2:0ED2       _edata
+ 09C2:0EE0       _end
+ 09C2:073C       _errno
+ 01BA:01E9       _exit
+ 01BA:02C0       _fclose
+ 01BA:1ACC       _fflush
+ 01BA:06DE       _fgets
+ 01BA:03C2       _fopen
+ 01BA:03DE       _fprintf
+ 01BA:0758       _fputs
+ 04FC:0000       _froot
+ 01BA:165C       _fwrite
+ 0083:0862       _getacct
+ 0083:0950       _getamt
+ 0083:0794       _getdesc
+ 01BA:059C       _getenv
+ 0083:06A8       _getjdate
+ 0180:0004       _GLenvsetup
+ 0138:03BC       _JEglscmp
+ 0138:000E       _JEglsort
+ 0000:0060       _JEinpchk
+ 0180:0358       _JEinthand
+ 0083:000A       _JEvalinp
+ 0000:0000       _main
+ 01BA:31D0       _memcpy
+ 09C2:06B4       _months
+ 01BA:0632       _perror
+ 01BA:041E       _printf
+ 01BA:096C       _qsort
+ 04FC:0008       _recptr
+ 01BA:1192       _remove
+ 01BA:0B88       _signal
+ 09C2:077C       _STKHQQ
+ 01BA:0462       _strcat
+ 01BA:07BA       _strchr
+ 01BA:04F2       _strcmp
+ 01BA:04B6       _strcpy
+ 01BA:051C       _strlen
+ 01BA:0560       _strncmp
+ 01BA:0536       _strncpy
+ 01BA:07EC       _strpbrk
+ 01BA:255C       _strrchr
+ 04FC:4C36       _totamt
+ 04FC:0004       _year
+ 09C2:0778       __aaltstkovr
+ 01BA:0D16       __access
+ 09C2:0720       __acfinfo
+ 0000:9876  Abs  __acrtmsg
+ 0000:9876  Abs  __acrtused
+ 0000:D6D6  Abs  __aDBdoswp
+ 09C2:0AA0       __adbgmsg
+ 09C2:0702       __aexit_rtn
+ 01BA:029C       __aFchkstk
+ 01BA:11A2       __aFldiv
+ 01BA:123C       __aFlmul
+ 01BA:126E       __aFlrem
+ 01BA:123C       __aFulmul
+ 0000:1000  Abs  __AHINCR
+ 0000:000C  Abs  __AHSHIFT
+ 09C2:072E       __aintdiv
+ 09C2:0D32       __amblksiz
+ 01BA:00F2       __amsg_exit
+ 09C2:0042       __anullsize
+ 09C2:071A       __aseghi
+ 09C2:071C       __aseglo
+ 09C2:0704       __asizds
+ 09C2:0B4E       __asizeC
+ 09C2:0B4F       __asizeD
+ 01BA:0014       __astart
+ 09C2:0700       __atopsp
+ 01BA:33B6       __catox
+ 01BA:01F8       __cexit
+ 09C2:0B2E       __cfltcvt_tab
+ 09C2:0D20       __cflush
+ 01BA:0D3F       __chdir
+ 01BA:2598       __chdrive
+ 09C2:076F       __child
+ 01BA:029C       __chkstk
+ 01BA:0120       __cinit
+ 01BA:00E3       __cintDIV
+ 01BA:2160       __close
+ 01BA:322E       __cltoasub
+ 01BA:2F34       __commit
+ 09C2:0D22       __commode
+ 09C2:0747       __cpumode
+ 09C2:0A6E       __csigtab0
+ 01BA:0270       __ctermsub
+ 09C2:0966       __ctype
+ 09C2:0966       __ctype_
+ 01BA:2C65       __cXENIXtoDOSmode
+ 01BA:323B       __cxtoa
+ 01BA:0202       __c_exit
+ 01BA:011E       __dataseg
+ 09C2:0D70       __daylight
+ 09C2:0D4E       __days
+ 09C2:0748       __doserrno
+ 01BA:1604       __dosret0
+ 01BA:1619       __dosretax
+ 01BA:160C       __dosreturn
+ 09C2:0744       __dosvermajor
+ 09C2:0745       __dosverminor
+ 01BA:33A8       __dos_commit
+ 01BA:2903       __dos_findfirst
+ 01BA:28F8       __dos_findnext
+ 01BA:241E       __dtoxtime
+ 09C2:0ED2       __edata
+ 04FB:0000       __EmDataSeg
+ 09C2:0EE0       __end
+ 01BA:295C       __endstdio
+ 09C2:0766       __environ
+ 01BA:01F0       __exit
+ 09C2:0777       __exitflag
+ 09C2:0732       __fac
+ 01BA:165A       __farstub
+ 01BA:3382       __fcloseall
+ 09C2:071E       __fDosExt
+ 01BA:22F4       __ffree
+ 01BA:130E       __FF_MSGBANNER
+ 09C2:0D24       __fheap
+ 01BA:17F4       __filbuf
+ 01BA:2ED0       __findlast
+ 01BA:2972       __flsbuf
+ 01BA:1B24       __flush
+ 01BA:1BA4       __flushall
+ 01BA:2307       __fmalloc
+ 09C2:0DBE       __fmode
+ 09C2:0DD2       __fpinit
+ 01BA:1330       __fptrap
+ 01BA:1890       __freebuf
+ 01BA:038E       __fsopen
+ 01BA:1A85       __ftbuf
+ 01BA:25B4       __fullpath
+ 01BA:2A5E       __getbuf
+ 01BA:0D78       __getcwd
+ 01BA:0D90       __getdcwd
+ 01BA:2590       __getdrive
+ 01BA:2112       __getstream
+ 01BA:2DF0       __growseg
+ 01BA:2E7F       __incseg
+ 01BA:3314       __initseg
+ 01BA:23BC       __intdosx
+ 09C2:0772       __intno
+ 09C2:0782       __iob
+ 09C2:0872       __iob2
+ 09C2:0DBE       __iomode
+ 01BA:30EE       __isindst
+ 01BA:23A0       __itoa
+ 09C2:0962       __lastiob
+ 01BA:3348       __linkseg
+ 09C2:0D34       __lpdays
+ 01BA:3292       __lseek
+ 09C2:0DC0       __lseekchk
+ 01BA:1626       __maperror
+ 01BA:0D38       __mkdir
+ 01BA:2936       __myalloc
+ 01BA:2EF0       __newseg
+ 09C2:074A       __nfile
+ 09C2:0706       __nheap_desc
+ 01BA:15A2       __NMSG_TEXT
+ 01BA:15CD       __NMSG_WRITE
+ 01BA:1336       __nullcheck
+ 01BA:2AC4       __open
+ 01BA:18C8       __openfile
+ 09C2:0748       __oserr
+ 09C2:074C       __osfile
+ 09C2:0744       __osmajor
+ 09C2:0745       __osminor
+ 09C2:0746       __osmode
+ 09C2:0744       __osversion
+ 01BA:1C28       __output
+ 09C2:0771       __ovlflag
+ 09C2:0773       __ovlvec
+ 09C2:076A       __pgmptr
+ 09C2:0B2A       __pnhFarHeap
+ 09C2:0742       __psp
+ 09C2:0740       __pspadr
+ 01BA:2C76       __read
+ 01BA:0D4E       __rmdir
+ 01BA:2D74       __searchseg
+ 01BA:135A       __setargv
+ 01BA:1502       __setenvp
+ 01BA:0C36       __sigentry
+ 09C2:0B4C       __sigintoff
+ 09C2:0B4A       __sigintseg
+ 01BA:2AAA       __sopen
+ 01BA:22E0       __stackavail
+ 01BA:0FA0       __stat
+ 01BA:1A04       __stbuf
+ 01BA:2516       __strcmpi
+ 01BA:2516       __stricmp
+ 09C2:0B50       __sys_errlist
+ 09C2:0BE8       __sys_nerr
+ 09C2:0D6C       __timezone
+ 09C2:0D72       __tzname
+ 01BA:2FA2       __tzset
+ 09C2:073E       __umaskval
+ 01BA:1192       __unlink
+ 01BA:2180       __write
+ 09C2:0DCA       ___aDBexit
+ 09C2:0DC8       ___aDBrterr
+ 09C2:0DC6       ___aDBswpchk
+ 09C2:0DC4       ___aDBswpflg
+ 09C2:0760       ___argc
+ 09C2:0762       ___argv
+ 09C2:0D7A       ___dnames
+ 09C2:0D90       ___mnames
+ 09C2:0DC2       ___qczrinit
+ 01BA:2F90       ___tzset
+
+  Address         Publics by Value
+
+ 0000:0000       _main
+ 0000:000C  Abs  __AHSHIFT
+ 0000:0060       _JEinpchk
+ 0033:0006       _CHload
+ 0033:042C       _CHvalid
+ 0033:04BC       _CHlookup
+ 0083:000A       _JEvalinp
+ 0083:06A8       _getjdate
+ 0083:0794       _getdesc
+ 0000:1000  Abs  __AHINCR
+ 0083:0862       _getacct
+ 0083:0950       _getamt
+ 0138:000E       _JEglsort
+ 0138:03BC       _JEglscmp
+ 0180:0004       _GLenvsetup
+ 0180:0358       _JEinthand
+ 01BA:0014       __astart
+ 01BA:00E3       __cintDIV
+ 01BA:00F2       __amsg_exit
+ 01BA:011E       __dataseg
+ 01BA:0120       __cinit
+ 01BA:01E9       _exit
+ 01BA:01F0       __exit
+ 01BA:01F8       __cexit
+ 01BA:0202       __c_exit
+ 01BA:0270       __ctermsub
+ 01BA:029C       __aFchkstk
+ 01BA:029C       __chkstk
+ 01BA:02C0       _fclose
+ 01BA:038E       __fsopen
+ 01BA:03C2       _fopen
+ 01BA:03DE       _fprintf
+ 01BA:041E       _printf
+ 01BA:0462       _strcat
+ 01BA:04B6       _strcpy
+ 01BA:04F2       _strcmp
+ 01BA:051C       _strlen
+ 01BA:0536       _strncpy
+ 01BA:0560       _strncmp
+ 01BA:059C       _getenv
+ 01BA:0632       _perror
+ 01BA:06DE       _fgets
+ 01BA:0758       _fputs
+ 01BA:07BA       _strchr
+ 01BA:07EC       _strpbrk
+ 01BA:084A       _abs
+ 01BA:0858       _bsearch
+ 01BA:096C       _qsort
+ 01BA:0B88       _signal
+ 01BA:0C36       __sigentry
+ 01BA:0D16       __access
+ 01BA:0D38       __mkdir
+ 01BA:0D3F       __chdir
+ 01BA:0D4E       __rmdir
+ 01BA:0D78       __getcwd
+ 01BA:0D90       __getdcwd
+ 01BA:0FA0       __stat
+ 01BA:1192       __unlink
+ 01BA:1192       _remove
+ 01BA:11A2       __aFldiv
+ 01BA:123C       __aFulmul
+ 01BA:123C       __aFlmul
+ 01BA:126E       __aFlrem
+ 01BA:130E       __FF_MSGBANNER
+ 01BA:1330       __fptrap
+ 01BA:1336       __nullcheck
+ 01BA:135A       __setargv
+ 01BA:1502       __setenvp
+ 01BA:15A2       __NMSG_TEXT
+ 01BA:15CD       __NMSG_WRITE
+ 01BA:1604       __dosret0
+ 01BA:160C       __dosreturn
+ 01BA:1619       __dosretax
+ 01BA:1626       __maperror
+ 01BA:165A       __farstub
+ 01BA:165C       _fwrite
+ 01BA:17F4       __filbuf
+ 01BA:1890       __freebuf
+ 01BA:18C8       __openfile
+ 01BA:1A04       __stbuf
+ 01BA:1A85       __ftbuf
+ 01BA:1ACC       _fflush
+ 01BA:1B24       __flush
+ 01BA:1BA4       __flushall
+ 01BA:1C28       __output
+ 01BA:2112       __getstream
+ 01BA:2160       __close
+ 01BA:2180       __write
+ 01BA:22E0       __stackavail
+ 01BA:22F4       __ffree
+ 01BA:2307       __fmalloc
+ 01BA:23A0       __itoa
+ 01BA:23BC       __intdosx
+ 01BA:241E       __dtoxtime
+ 01BA:2516       __strcmpi
+ 01BA:2516       __stricmp
+ 01BA:255C       _strrchr
+ 01BA:2590       __getdrive
+ 01BA:2598       __chdrive
+ 01BA:25B4       __fullpath
+ 01BA:28F8       __dos_findnext
+ 01BA:2903       __dos_findfirst
+ 01BA:2936       __myalloc
+ 01BA:295C       __endstdio
+ 01BA:2972       __flsbuf
+ 01BA:2A5E       __getbuf
+ 01BA:2AAA       __sopen
+ 01BA:2AC4       __open
+ 01BA:2C65       __cXENIXtoDOSmode
+ 01BA:2C76       __read
+ 01BA:2D74       __searchseg
+ 01BA:2DF0       __growseg
+ 01BA:2E7F       __incseg
+ 01BA:2ED0       __findlast
+ 01BA:2EF0       __newseg
+ 01BA:2F34       __commit
+ 01BA:2F90       ___tzset
+ 01BA:2FA2       __tzset
+ 01BA:30EE       __isindst
+ 01BA:31D0       _memcpy
+ 01BA:322E       __cltoasub
+ 01BA:323B       __cxtoa
+ 01BA:3292       __lseek
+ 01BA:3314       __initseg
+ 01BA:3348       __linkseg
+ 01BA:337E       _atol
+ 01BA:3382       __fcloseall
+ 01BA:33A8       __dos_commit
+ 01BA:33B6       __catox
+ 04FB:0000       __EmDataSeg
+ 04FC:0000       _froot
+ 04FC:0004       _year
+ 04FC:0008       _recptr
+ 04FC:07D8       _chrec_cnt
+ 04FC:07DA       _charttab
+ 0000:9876  Abs  __acrtmsg
+ 0000:9876  Abs  __acrtused
+ 04FC:4C36       _totamt
+ 04FC:4C3A       _cwdstr
+ 09C2:0042       __anullsize
+ 09C2:06B4       _months
+ 09C2:0700       __atopsp
+ 09C2:0702       __aexit_rtn
+ 09C2:0704       __asizds
+ 09C2:0706       __nheap_desc
+ 09C2:071A       __aseghi
+ 09C2:071C       __aseglo
+ 09C2:071E       __fDosExt
+ 09C2:0720       __acfinfo
+ 09C2:072E       __aintdiv
+ 09C2:0732       __fac
+ 09C2:073C       _errno
+ 09C2:073E       __umaskval
+ 09C2:0740       __pspadr
+ 09C2:0742       __psp
+ 09C2:0744       __osversion
+ 09C2:0744       __osmajor
+ 09C2:0744       __dosvermajor
+ 09C2:0745       __osminor
+ 09C2:0745       __dosverminor
+ 09C2:0746       __osmode
+ 09C2:0747       __cpumode
+ 09C2:0748       __doserrno
+ 09C2:0748       __oserr
+ 09C2:074A       __nfile
+ 09C2:074C       __osfile
+ 09C2:0760       ___argc
+ 09C2:0762       ___argv
+ 09C2:0766       __environ
+ 09C2:076A       __pgmptr
+ 09C2:076F       __child
+ 09C2:0771       __ovlflag
+ 09C2:0772       __intno
+ 09C2:0773       __ovlvec
+ 09C2:0777       __exitflag
+ 09C2:0778       __aaltstkovr
+ 09C2:077C       _STKHQQ
+ 09C2:0782       __iob
+ 09C2:0872       __iob2
+ 09C2:0962       __lastiob
+ 09C2:0966       __ctype_
+ 09C2:0966       __ctype
+ 09C2:0A6E       __csigtab0
+ 09C2:0AA0       __adbgmsg
+ 09C2:0B2A       __pnhFarHeap
+ 09C2:0B2E       __cfltcvt_tab
+ 09C2:0B4A       __sigintseg
+ 09C2:0B4C       __sigintoff
+ 09C2:0B4E       __asizeC
+ 09C2:0B4F       __asizeD
+ 09C2:0B50       __sys_errlist
+ 09C2:0BE8       __sys_nerr
+ 09C2:0D20       __cflush
+ 09C2:0D22       __commode
+ 09C2:0D24       __fheap
+ 09C2:0D32       __amblksiz
+ 09C2:0D34       __lpdays
+ 09C2:0D4E       __days
+ 09C2:0D6C       __timezone
+ 09C2:0D70       __daylight
+ 09C2:0D72       __tzname
+ 09C2:0D7A       ___dnames
+ 09C2:0D90       ___mnames
+ 09C2:0DBE       __iomode
+ 09C2:0DBE       __fmode
+ 09C2:0DC0       __lseekchk
+ 09C2:0DC2       ___qczrinit
+ 09C2:0DC4       ___aDBswpflg
+ 09C2:0DC6       ___aDBswpchk
+ 09C2:0DC8       ___aDBrterr
+ 09C2:0DCA       ___aDBexit
+ 09C2:0DD2       __fpinit
+ 09C2:0ED2       __edata
+ 09C2:0ED2       _edata
+ 09C2:0EE0       _end
+ 09C2:0EE0       __end
+ 0000:D6D6  Abs  __aDBdoswp
+
+Program entry point at 01BA:0014

@@ -1,0 +1,22 @@
+gljefile.obj+
+jeglsort.obj+
+jmpregl.obj+
+jsedit.obj+
+jmyank.obj+
+jmfile.obj+
+chvalid.obj+
+glenv.obj+
+jevalinp.obj+
+jmedit.obj+
+jmfld.obj+
+jmlnedit.obj+
+jmacctfl.obj+
+gdreport.obj+
+jmanaldt.obj+
+jmreport.obj+
+jmglrpt.obj+
+jmaarpt.obj
+jsedit.exe /noi /segments:196 
+jsedit.map
+/CO mlcurses qcprogs
+

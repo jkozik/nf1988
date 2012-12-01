@@ -1,0 +1,428 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""res\\jev.rc2""  // non-App Studio edited resources\r\n"
+    "\r\n"
+    "#include ""afxres.rc""  \t// Standard components\r\n"
+    "#include ""afxprint.rc""\t// printing/print preview resources\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "RES\\JEV.ICO"
+IDR_JEVTYPE             ICON    DISCARDABLE     "RES\\JEVDOC.ICO"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "RES\\TOOLBAR.BMP"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM SEPARATOR
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "Test"
+    BEGIN
+        MENUITEM "Raw View",                    ID_TEST_RAWVIEW, CHECKED
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About Jev...",               ID_APP_ABOUT
+    END
+END
+
+IDR_JEVTYPE MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Close",                      ID_FILE_CLOSE
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM SEPARATOR
+        MENUITEM "&Find\tCtrl+F",               ID_EDIT_FIND
+        MENUITEM SEPARATOR
+        MENUITEM "Chang&e\tCtrl+E",             ID_EDIT_CHANGE
+        MENUITEM "&Insert\tCtrl+I",             ID_EDIT_INSERT
+        MENUITEM "&Append\tCtrl+A",             ID_EDIT_APPEND
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "&Reports"
+    BEGIN
+        MENUITEM "&Account Detail",             ID_REPORT_ACCTDTL
+    END
+    POPUP "&Test"
+    BEGIN
+        MENUITEM "Raw View",                    ID_TEST_RAWVIEW, CHECKED
+    END
+    POPUP "&Window"
+    BEGIN
+        MENUITEM "&New Window",                 ID_WINDOW_NEW
+        MENUITEM "&Cascade",                    ID_WINDOW_CASCADE
+        MENUITEM "&Tile",                       ID_WINDOW_TILE_HORZ
+        MENUITEM "&Arrange Icons",              ID_WINDOW_ARRANGE
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About Jev...",               ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "A",            ID_EDIT_APPEND,         VIRTKEY, CONTROL, NOINVERT
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "E",            ID_EDIT_CHANGE,         VIRTKEY, CONTROL, NOINVERT
+    "F",            ID_EDIT_FIND,           VIRTKEY, CONTROL, NOINVERT
+    "I",            ID_EDIT_INSERT,         VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  34, 22, 217, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Jev"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "Jev Application Version 1.0",IDC_STATIC,40,10,119,8
+    LTEXT           "Copyright © 1994",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,176,6,32,14,WS_GROUP
+END
+
+IDD_JE_DIALOG DIALOG DISCARDABLE  0, 0, 321, 40
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Edit Journal Entry"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "",IDC_STATIC_MM,0,0,8,8,NOT WS_GROUP
+    CTEXT           "/",IDC_STATIC,8,0,4,8
+    EDITTEXT        IDC_EDIT3_DD,12,0,9,8,NOT WS_BORDER | WS_GROUP
+    EDITTEXT        IDC_EDIT1_ACCT0,24,0,13,8,WS_DISABLED | NOT WS_BORDER | 
+                    WS_GROUP
+    LTEXT           "",IDC_STATIC_DESC0,40,0,80,8,NOT WS_GROUP
+    EDITTEXT        IDC_EDIT3_AMT0,124,0,40,8,ES_RIGHT | ES_MULTILINE | 
+                    ES_WANTRETURN | WS_DISABLED | NOT WS_BORDER | WS_GROUP
+    EDITTEXT        IDC_EDIT1_ACCT1,24,10,13,8,WS_DISABLED | NOT WS_BORDER | 
+                    WS_GROUP
+    LTEXT           "",IDC_STATIC_DESC1,40,10,80,8,NOT WS_GROUP
+    EDITTEXT        IDC_EDIT3_AMT1,124,10,40,8,ES_RIGHT | ES_MULTILINE | 
+                    ES_WANTRETURN | WS_DISABLED | NOT WS_BORDER | WS_GROUP
+    EDITTEXT        IDC_EDIT1_ACCT2,24,20,13,8,NOT WS_VISIBLE | WS_DISABLED | 
+                    NOT WS_BORDER | WS_GROUP
+    LTEXT           "",IDC_STATIC_DESC2,40,20,80,8,NOT WS_GROUP
+    EDITTEXT        IDC_EDIT3_AMT2,124,20,40,8,ES_RIGHT | ES_MULTILINE | 
+                    ES_WANTRETURN | NOT WS_VISIBLE | WS_DISABLED | NOT 
+                    WS_BORDER | WS_GROUP
+    EDITTEXT        IDC_EDIT1_ACCT3,24,30,13,8,NOT WS_VISIBLE | WS_DISABLED | 
+                    NOT WS_BORDER | WS_GROUP
+    LTEXT           "",IDC_STATIC_DESC3,40,30,80,8,NOT WS_GROUP
+    EDITTEXT        IDC_EDIT3_AMT3,124,30,40,8,ES_RIGHT | ES_MULTILINE | 
+                    ES_WANTRETURN | NOT WS_VISIBLE | WS_DISABLED | NOT 
+                    WS_BORDER | WS_GROUP
+    EDITTEXT        IDC_EDIT1_ACCT4,24,40,13,8,NOT WS_VISIBLE | WS_DISABLED | 
+                    NOT WS_BORDER | WS_GROUP
+    LTEXT           "",IDC_STATIC_DESC4,40,40,80,8,NOT WS_GROUP
+    EDITTEXT        IDC_EDIT3_AMT4,124,40,40,8,ES_RIGHT | ES_MULTILINE | 
+                    ES_WANTRETURN | NOT WS_VISIBLE | WS_DISABLED | NOT 
+                    WS_BORDER | WS_GROUP
+    EDITTEXT        IDC_EDIT2_JE_DESC0,168,0,120,8,NOT WS_VISIBLE | 
+                    WS_DISABLED | NOT WS_BORDER
+    EDITTEXT        IDC_EDIT2_JE_DESC1,168,10,120,8,WS_DISABLED | NOT 
+                    WS_BORDER | WS_GROUP
+    EDITTEXT        IDC_EDIT2_JE_DESC2,168,20,120,8,NOT WS_VISIBLE | 
+                    WS_DISABLED | NOT WS_BORDER
+    EDITTEXT        IDC_EDIT2_JE_DESC3,168,30,120,8,NOT WS_VISIBLE | 
+                    WS_DISABLED | NOT WS_BORDER
+    EDITTEXT        IDC_EDIT2_JE_DESC4,168,40,120,8,NOT WS_VISIBLE | 
+                    WS_DISABLED | NOT WS_BORDER
+END
+
+IDD_CH_DIALOG DIALOG DISCARDABLE  200, 0, 131, 98
+STYLE DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "Chart of Accounts"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LISTBOX         IDC_LIST1,8,8,112,81,LBS_SORT | LBS_USETABSTOPS | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_ACCT_DLGBAR DIALOG DISCARDABLE  0, 0, 186, 18
+STYLE DS_3DLOOK | DS_CENTER | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Generate Report",IDOK,110,3,69,12
+    EDITTEXT        IDC_ACCT,78,3,17,12,WS_GROUP
+    RTEXT           "Account Number:",IDC_STATIC,21,5,56,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ACCT_DLGBAR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 15
+        HORZGUIDE, 9
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "Jev Windows Application"
+    IDR_JEVTYPE             "\nJev\nJev Document\n\n\nJev.Document\nJev Document"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "Jev Windows Application"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document"
+    ID_FILE_OPEN            "Open an existing document"
+    ID_FILE_CLOSE           "Close the active document"
+    ID_FILE_SAVE            "Save the active document"
+    ID_FILE_SAVE_AS         "Save the active document with a new name"
+    ID_FILE_PAGE_SETUP      "Change the printing options"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options"
+    ID_FILE_PRINT           "Print the active document"
+    ID_FILE_PRINT_PREVIEW   "Display full pages"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright"
+    ID_APP_EXIT             "Quit the application; prompts to save documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane"
+    ID_PREV_PANE            "Switch back to the previous window pane"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_NEW           "Open another window for the active document"
+    ID_WINDOW_ARRANGE       "Arrange icons at the bottom of the window"
+    ID_WINDOW_CASCADE       "Arrange windows so they overlap"
+    ID_WINDOW_TILE_HORZ     "Arrange windows as non-overlapping tiles"
+    ID_WINDOW_TILE_VERT     "Arrange windows as non-overlapping tiles"
+    ID_WINDOW_SPLIT         "Split the active window into panes"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection"
+    ID_EDIT_CLEAR_ALL       "Erase everything"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard"
+    ID_EDIT_FIND            "Find the specified text"
+    ID_EDIT_PASTE           "Insert Clipboard contents"
+    ID_EDIT_REPEAT          "Repeat the last action"
+    ID_EDIT_REPLACE         "Replace specific text with different text"
+    ID_EDIT_SELECT_ALL      "Select the entire document"
+    ID_EDIT_UNDO            "Undo the last action"
+    ID_EDIT_REDO            "Redo the previously undone action"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+    AFX_IDS_MDICHILD        "Activate this window"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_TEST_RAWVIEW         "Display Journal Entry View Unformatted"
+    ID_EDIT_CHANGE          "Update Contents of Active Record"
+    ID_EDIT_INSERT          "Insert New Journal Entry Before Current Record"
+    ID_EDIT_APPEND          "Append New Journal Entry After Current Record"
+    ID_REPORT_ACCTDTL       "Account Detail"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "res\jev.rc2"  // non-App Studio edited resources
+
+#include "afxres.rc"  	// Standard components
+#include "afxprint.rc"	// printing/print preview resources
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

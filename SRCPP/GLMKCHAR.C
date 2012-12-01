@@ -1,0 +1,90 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#ifndef turboc
+#include <search.h>
+#include <direct.h>
+#include <sys/types.h>
+#endif
+#include <stdlib.h>
+#include <time.h>
+#include <io.h>
+#include <errno.h>
+
+#include <sys/stat.h>
+
+#include "GLdefs.h"
+#include "GLstruct.h"
+#include "GLextern.h"
+
+
+void
+main() 
+{
+	int chrec_idx;
+	struct stat sbuf1;
+	char path[SZPATH+1];
+	char newchart[SZPATH+1];
+	char nextyear[SZDATE+1];
+	FILE *chart_fp;
+
+/* Setup GL environment */
+(void)GLenvsetup();
+
+fprintf(stderr, "This script assumes that a chart file for the current year\n");
+fprintf(stderr, "exists. Mkchart creates a chart from the current year\n");
+fprintf(stderr, "and stores it in the next year's directory.\n");
+
+/* Load chart file */
+(void)CHload();
+
+strcpy(nextyear,year);
+/* increment the nextyear string */
+if (nextyear[1] == '9') {
+	nextyear[0]++;
+	nextyear[1] = '0';
+} else {
+	nextyear[1]++;
+}
+
+/* build path to new directory */
+strcpy(path,"\\");
+strcat(path,froot);
+strcat(path,"\\");
+strcat(path,nextyear);
+
+/* does the new directory exist? */
+if ((stat(path,&sbuf1) == 0 && sbuf1.st_mode&S_IFDIR != S_IFDIR) || stat(path,&sbuf1) == -1) {
+	fprintf(stderr,"GLmkchart: The directory %s does not exists\n",path);
+	JEinthand(1);
+}
+
+/* does the chart file exist for the new year? */
+strcpy(newchart,path);
+strcat(newchart,"\\chart");
+if (access(newchart,0) == 0 ) {
+	fprintf(stderr,"GLclose: The file '%s' already exists\n",newchart);
+	JEinthand(1);
+}
+
+
+/* open new chart file output file 'chart' */
+fprintf (stderr, "The new chart file will be written to:\n %s\n",newchart);
+if ((chart_fp=fopen(newchart,"w")) == NULL) {
+	perror("could not open newchart");
+	JEinthand(1);
+}
+
+
+/* copy out to new chart file */
+for (chrec_idx=0; chrec_idx<chrec_cnt; chrec_idx++) {
+	fprintf(chart_fp,"a,%s,%s,%s\n",charttab[chrec_idx].acct, charttab[chrec_idx].text,charttab[chrec_idx].acct);
+}
+
+if (fclose(chart_fp) == EOF) 
+	perror("GLmkchart: cannot close newchart");
+
+/* Restore working directory */
+chdir(cwdstr);
+
+} /* end of main */

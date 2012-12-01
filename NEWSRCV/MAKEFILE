@@ -1,0 +1,53 @@
+CFLAGS          = -AL -Zi -Od -c -W3
+DEST		= .
+EXTHDRS		=
+FFLAGS		=
+HDRS		=
+LDFLAGS         = /noi /segments:196 /CO
+LDMAP		= $(@R)
+LIBS            = mlcurses qcprogs
+LINKER		= link
+MAKEFILE	= Makefile
+MODEL           = L
+OBJS		= chvalid.obj gdreport.obj glenv.obj gljefile.obj \
+		  jeglsort.obj jevalinp.obj jmaarpt.obj jmacctfl.obj \
+		  jmanaldt.obj jmedit.obj jmfile.obj jmfld.obj jmglrpt.obj \
+		  jmlnedit.obj jmpregl.obj jmreport.obj jmyank.obj \
+                  jsedit.obj \
+                  entry.obj qwindow.obj ibmpc.obj qhelp.obj vpeek.obj
+PRINT		= print
+PROGRAM         = jsedit.exe
+SETARGV		= \lib\${MODEL}setargv
+SRCS		= chvalid.c gdreport.c glenv.c gljefile.c jeglsort.c \
+		  jevalinp.c jmaarpt.c jmacctfl.c jmanaldt.c jmedit.c \
+		  jmfile.c jmfld.c jmglrpt.c jmlnedit.c jmpregl.c jmreport.c \
+		  jmyank.c jsedit.c
+
+all:		$(PROGRAM)
+
+$(PROGRAM):     $(OBJS) $(LIBS)
+		@echo "Loading $(PROGRAM) ... "
+		@$(LINKER) $(OBJS), $(PROGRAM), $(LDMAP), $(LIBS) $(LDFLAGS);
+		@echo "done"
+
+clean:;		@rm -f $(OBJS)
+
+depend:; 	@mkmf -f $(MAKEFILE) PROGRAM=$(PROGRAM) DEST=$(DEST)
+
+index:;		@ctags -wx $(HDRS) $(SRCS)
+
+install:	$(PROGRAM)
+		@echo Installing $(PROGRAM) in $(DEST)
+		@if not $(DEST)x==.x copy $(PROGRAM) $(DEST)
+
+print:;		@$(PRINT) $(HDRS) $(SRCS)
+
+program:        $(PROGRAM)
+
+tags:           $(HDRS) $(SRCS); @ctags $(HDRS) $(SRCS)
+
+update:		$(DEST)/$(PROGRAM)
+
+$(DEST)/$(PROGRAM): $(SRCS) $(LIBS) $(HDRS) $(EXTHDRS)
+		@make -f $(MAKEFILE) DEST=$(DEST) install
+###

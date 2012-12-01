@@ -1,0 +1,459 @@
+
+ Start  Stop   Length Name                   Class
+ 00000H 00502H 00503H CHVALID_TEXT           CODE
+ 00504H 007D8H 002D5H GLMKCHAR_TEXT          CODE
+ 007DAH 00B79H 003A0H GLENV_TEXT             CODE
+ 00B7AH 039F5H 02E7CH _TEXT                  CODE
+ 03A00H 03A01H 00002H EMULATOR_TEXT          CODE
+ 03A02H 03A02H 00000H C_ETEXT                ENDCODE
+ 03A10H 03A10H 00000H EMULATOR_DATA          FAR_DATA
+ 03A10H 07E94H 04485H FAR_BSS                FAR_BSS
+ 07EA0H 07EE1H 00042H NULL                   BEGDATA
+ 07EE2H 08A01H 00B20H _DATA                  DATA
+ 08A02H 08A03H 00002H XIQC                   DATA
+ 08A04H 08A0FH 0000CH DBDATA                 DATA
+ 08A10H 08A1DH 0000EH CDATA                  DATA
+ 08A1EH 08A1EH 00000H XIFB                   DATA
+ 08A1EH 08A1EH 00000H XIF                    DATA
+ 08A1EH 08A1EH 00000H XIFE                   DATA
+ 08A1EH 08A1EH 00000H XIB                    DATA
+ 08A1EH 08A1EH 00000H XI                     DATA
+ 08A1EH 08A1EH 00000H XIE                    DATA
+ 08A1EH 08A1EH 00000H XPB                    DATA
+ 08A1EH 08A21H 00004H XP                     DATA
+ 08A22H 08A22H 00000H XPE                    DATA
+ 08A22H 08A22H 00000H XCB                    DATA
+ 08A22H 08A22H 00000H XC                     DATA
+ 08A22H 08A22H 00000H XCE                    DATA
+ 08A22H 08A22H 00000H XCFB                   DATA
+ 08A22H 08A22H 00000H XCFCRT                 DATA
+ 08A22H 08A22H 00000H XCF                    DATA
+ 08A22H 08A22H 00000H XCFE                   DATA
+ 08A22H 08A22H 00000H XIFCB                  DATA
+ 08A22H 08A22H 00000H XIFU                   DATA
+ 08A22H 08A22H 00000H XIFL                   DATA
+ 08A22H 08A22H 00000H XIFM                   DATA
+ 08A22H 08A22H 00000H XIFCE                  DATA
+ 08A22H 08A2FH 0000EH CONST                  CONST
+ 08A30H 08A37H 00008H HDR                    MSG
+ 08A38H 08B0DH 000D6H MSG                    MSG
+ 08B0EH 08B0FH 00002H PAD                    MSG
+ 08B10H 08B10H 00001H EPAD                   MSG
+ 08B12H 08B13H 00002H _BSS                   BSS
+ 08B14H 08B14H 00000H XOB                    BSS
+ 08B14H 08B14H 00000H XO                     BSS
+ 08B14H 08B14H 00000H XOE                    BSS
+ 08B14H 08B14H 00000H XOFB                   BSS
+ 08B14H 08B14H 00000H XOF                    BSS
+ 08B14H 08B14H 00000H XOFE                   BSS
+ 08B20H 08B20H 00000H c_common               BSS
+ 08B20H 0931FH 00800H STACK                  STACK
+
+ Origin   Group
+ 07EA:0   DGROUP
+
+  Address         Publics by Name
+
+ 00B7:2CEE       _atol
+ 00B7:0778       _bsearch
+ 03A1:000A       _charttab
+ 0000:0000       _CHload
+ 0000:04B6       _CHlookup
+ 03A1:0008       _chrec_cnt
+ 0000:0426       _CHvalid
+ 03A1:4466       _cwdstr
+ 07EA:0C72       _edata
+ 07EA:0C80       _end
+ 07EA:04DC       _errno
+ 00B7:01EF       _exit
+ 00B7:02C6       _fclose
+ 00B7:14C2       _fflush
+ 00B7:06A0       _fgets
+ 00B7:03C8       _fopen
+ 00B7:03E4       _fprintf
+ 03A1:0000       _froot
+ 00B7:055E       _getenv
+ 007D:000A       _GLenvsetup
+ 007D:035E       _JEinthand
+ 0050:0004       _main
+ 07EA:0454       _months
+ 00B7:05F4       _perror
+ 00B7:222E       _remove
+ 00B7:0892       _signal
+ 07EA:051C       _STKHQQ
+ 00B7:0424       _strcat
+ 00B7:04B4       _strcmp
+ 00B7:0478       _strcpy
+ 00B7:04DE       _strlen
+ 00B7:0522       _strncmp
+ 00B7:04F8       _strncpy
+ 00B7:071A       _strpbrk
+ 00B7:1E92       _strrchr
+ 03A1:0004       _year
+ 07EA:0518       __aaltstkovr
+ 00B7:0A20       __access
+ 07EA:04C0       __acfinfo
+ 0000:9876  Abs  __acrtmsg
+ 0000:9876  Abs  __acrtused
+ 0000:D6D6  Abs  __aDBdoswp
+ 07EA:0840       __adbgmsg
+ 07EA:04A2       __aexit_rtn
+ 00B7:02A2       __aFchkstk
+ 00B7:227C       __aFlmul
+ 00B7:2D26       __aFlrem
+ 00B7:227C       __aFulmul
+ 0000:1000  Abs  __AHINCR
+ 0000:000C  Abs  __AHSHIFT
+ 07EA:04CE       __aintdiv
+ 07EA:0B5E       __amblksiz
+ 00B7:00F8       __amsg_exit
+ 07EA:0042       __anullsize
+ 07EA:04BA       __aseghi
+ 07EA:04BC       __aseglo
+ 07EA:04A4       __asizds
+ 07EA:08EA       __asizeC
+ 07EA:08EB       __asizeD
+ 00B7:001A       __astart
+ 07EA:04A0       __atopsp
+ 00B7:2E30       __catox
+ 00B7:01FE       __cexit
+ 07EA:08CA       __cfltcvt_tab
+ 07EA:0ABC       __cflush
+ 00B7:0A49       __chdir
+ 00B7:1ECE       __chdrive
+ 07EA:050F       __child
+ 00B7:02A2       __chkstk
+ 00B7:0126       __cinit
+ 00B7:00E9       __cintDIV
+ 00B7:1B56       __close
+ 00B7:2A48       __cltoasub
+ 00B7:27AC       __commit
+ 07EA:0ABE       __commode
+ 07EA:04E7       __cpumode
+ 07EA:080E       __csigtab0
+ 00B7:0276       __ctermsub
+ 07EA:0706       __ctype
+ 07EA:0706       __ctype_
+ 00B7:25DD       __cXENIXtoDOSmode
+ 00B7:2A55       __cxtoa
+ 00B7:0208       __c_exit
+ 00B7:0124       __dataseg
+ 07EA:0B00       __daylight
+ 07EA:0ADE       __days
+ 07EA:04E8       __doserrno
+ 00B7:1192       __dosret0
+ 00B7:11A7       __dosretax
+ 00B7:119A       __dosreturn
+ 07EA:04E4       __dosvermajor
+ 07EA:04E5       __dosverminor
+ 00B7:2D18       __dos_commit
+ 00B7:2249       __dos_findfirst
+ 00B7:223E       __dos_findnext
+ 00B7:1D54       __dtoxtime
+ 07EA:0C72       __edata
+ 03A0:0000       __EmDataSeg
+ 07EA:0C80       __end
+ 00B7:22D4       __endstdio
+ 07EA:0506       __environ
+ 00B7:01F6       __exit
+ 07EA:0517       __exitflag
+ 07EA:04D2       __fac
+ 00B7:11E8       __farstub
+ 00B7:2CF2       __fcloseall
+ 07EA:04BE       __fDosExt
+ 00B7:2700       __ffree
+ 00B7:0E9C       __FF_MSGBANNER
+ 07EA:0B50       __fheap
+ 00B7:11EA       __filbuf
+ 00B7:2C8A       __findlast
+ 00B7:22EA       __flsbuf
+ 00B7:151A       __flush
+ 00B7:159A       __flushall
+ 00B7:2713       __fmalloc
+ 07EA:0B4E       __fmode
+ 07EA:0B72       __fpinit
+ 00B7:0EBE       __fptrap
+ 00B7:1286       __freebuf
+ 00B7:0394       __fsopen
+ 00B7:147B       __ftbuf
+ 00B7:1EEA       __fullpath
+ 00B7:23D6       __getbuf
+ 00B7:0A82       __getcwd
+ 00B7:0A9A       __getdcwd
+ 00B7:1EC6       __getdrive
+ 00B7:1B08       __getstream
+ 00B7:2BAA       __growseg
+ 00B7:2C39       __incseg
+ 00B7:2DC6       __initseg
+ 00B7:1CF2       __intdosx
+ 07EA:0512       __intno
+ 07EA:0522       __iob
+ 07EA:0612       __iob2
+ 07EA:0B4E       __iomode
+ 00B7:2966       __isindst
+ 00B7:1CD6       __itoa
+ 07EA:0702       __lastiob
+ 00B7:2DFA       __linkseg
+ 07EA:0AC4       __lpdays
+ 00B7:2AAC       __lseek
+ 07EA:0B60       __lseekchk
+ 00B7:11B4       __maperror
+ 00B7:0A42       __mkdir
+ 00B7:22AE       __myalloc
+ 00B7:2CAA       __newseg
+ 07EA:04EA       __nfile
+ 07EA:04A6       __nheap_desc
+ 00B7:1130       __NMSG_TEXT
+ 00B7:115B       __NMSG_WRITE
+ 00B7:0EC4       __nullcheck
+ 00B7:243C       __open
+ 00B7:12BE       __openfile
+ 07EA:04E8       __oserr
+ 07EA:04EC       __osfile
+ 07EA:04E4       __osmajor
+ 07EA:04E5       __osminor
+ 07EA:04E6       __osmode
+ 07EA:04E4       __osversion
+ 00B7:161E       __output
+ 07EA:0511       __ovlflag
+ 07EA:0513       __ovlvec
+ 07EA:050A       __pgmptr
+ 07EA:0AC0       __pnhFarHeap
+ 07EA:04E2       __psp
+ 07EA:04E0       __pspadr
+ 00B7:25EE       __read
+ 00B7:0A58       __rmdir
+ 00B7:2B2E       __searchseg
+ 00B7:0EE8       __setargv
+ 00B7:1090       __setenvp
+ 00B7:0940       __sigentry
+ 07EA:08E8       __sigintoff
+ 07EA:08E6       __sigintseg
+ 00B7:2422       __sopen
+ 00B7:26EC       __stackavail
+ 00B7:0CAA       __stat
+ 00B7:13FA       __stbuf
+ 00B7:1E4C       __strcmpi
+ 00B7:1E4C       __stricmp
+ 07EA:08EC       __sys_errlist
+ 07EA:0984       __sys_nerr
+ 07EA:0AFC       __timezone
+ 07EA:0B02       __tzname
+ 00B7:281A       __tzset
+ 07EA:04DE       __umaskval
+ 00B7:222E       __unlink
+ 00B7:1B76       __write
+ 07EA:0B6A       ___aDBexit
+ 07EA:0B68       ___aDBrterr
+ 07EA:0B66       ___aDBswpchk
+ 07EA:0B64       ___aDBswpflg
+ 07EA:0500       ___argc
+ 07EA:0502       ___argv
+ 07EA:0B0A       ___dnames
+ 07EA:0B20       ___mnames
+ 07EA:0B62       ___qczrinit
+ 00B7:2808       ___tzset
+
+  Address         Publics by Value
+
+ 0000:0000       _CHload
+ 0000:000C  Abs  __AHSHIFT
+ 0000:0426       _CHvalid
+ 0000:04B6       _CHlookup
+ 0050:0004       _main
+ 007D:000A       _GLenvsetup
+ 007D:035E       _JEinthand
+ 00B7:001A       __astart
+ 00B7:00E9       __cintDIV
+ 00B7:00F8       __amsg_exit
+ 00B7:0124       __dataseg
+ 00B7:0126       __cinit
+ 00B7:01EF       _exit
+ 00B7:01F6       __exit
+ 00B7:01FE       __cexit
+ 00B7:0208       __c_exit
+ 00B7:0276       __ctermsub
+ 00B7:02A2       __aFchkstk
+ 00B7:02A2       __chkstk
+ 00B7:02C6       _fclose
+ 00B7:0394       __fsopen
+ 00B7:03C8       _fopen
+ 00B7:03E4       _fprintf
+ 00B7:0424       _strcat
+ 00B7:0478       _strcpy
+ 0000:1000  Abs  __AHINCR
+ 00B7:04B4       _strcmp
+ 00B7:04DE       _strlen
+ 00B7:04F8       _strncpy
+ 00B7:0522       _strncmp
+ 00B7:055E       _getenv
+ 00B7:05F4       _perror
+ 00B7:06A0       _fgets
+ 00B7:071A       _strpbrk
+ 00B7:0778       _bsearch
+ 00B7:0892       _signal
+ 00B7:0940       __sigentry
+ 00B7:0A20       __access
+ 00B7:0A42       __mkdir
+ 00B7:0A49       __chdir
+ 00B7:0A58       __rmdir
+ 00B7:0A82       __getcwd
+ 00B7:0A9A       __getdcwd
+ 00B7:0CAA       __stat
+ 00B7:0E9C       __FF_MSGBANNER
+ 00B7:0EBE       __fptrap
+ 00B7:0EC4       __nullcheck
+ 00B7:0EE8       __setargv
+ 00B7:1090       __setenvp
+ 00B7:1130       __NMSG_TEXT
+ 00B7:115B       __NMSG_WRITE
+ 00B7:1192       __dosret0
+ 00B7:119A       __dosreturn
+ 00B7:11A7       __dosretax
+ 00B7:11B4       __maperror
+ 00B7:11E8       __farstub
+ 00B7:11EA       __filbuf
+ 00B7:1286       __freebuf
+ 00B7:12BE       __openfile
+ 00B7:13FA       __stbuf
+ 00B7:147B       __ftbuf
+ 00B7:14C2       _fflush
+ 00B7:151A       __flush
+ 00B7:159A       __flushall
+ 00B7:161E       __output
+ 00B7:1B08       __getstream
+ 00B7:1B56       __close
+ 00B7:1B76       __write
+ 00B7:1CD6       __itoa
+ 00B7:1CF2       __intdosx
+ 00B7:1D54       __dtoxtime
+ 00B7:1E4C       __strcmpi
+ 00B7:1E4C       __stricmp
+ 00B7:1E92       _strrchr
+ 00B7:1EC6       __getdrive
+ 00B7:1ECE       __chdrive
+ 00B7:1EEA       __fullpath
+ 00B7:222E       _remove
+ 00B7:222E       __unlink
+ 00B7:223E       __dos_findnext
+ 00B7:2249       __dos_findfirst
+ 00B7:227C       __aFulmul
+ 00B7:227C       __aFlmul
+ 00B7:22AE       __myalloc
+ 00B7:22D4       __endstdio
+ 00B7:22EA       __flsbuf
+ 00B7:23D6       __getbuf
+ 00B7:2422       __sopen
+ 00B7:243C       __open
+ 00B7:25DD       __cXENIXtoDOSmode
+ 00B7:25EE       __read
+ 00B7:26EC       __stackavail
+ 00B7:2700       __ffree
+ 00B7:2713       __fmalloc
+ 00B7:27AC       __commit
+ 00B7:2808       ___tzset
+ 00B7:281A       __tzset
+ 00B7:2966       __isindst
+ 00B7:2A48       __cltoasub
+ 00B7:2A55       __cxtoa
+ 00B7:2AAC       __lseek
+ 00B7:2B2E       __searchseg
+ 00B7:2BAA       __growseg
+ 00B7:2C39       __incseg
+ 00B7:2C8A       __findlast
+ 00B7:2CAA       __newseg
+ 00B7:2CEE       _atol
+ 00B7:2CF2       __fcloseall
+ 00B7:2D18       __dos_commit
+ 00B7:2D26       __aFlrem
+ 00B7:2DC6       __initseg
+ 00B7:2DFA       __linkseg
+ 00B7:2E30       __catox
+ 03A0:0000       __EmDataSeg
+ 03A1:0000       _froot
+ 03A1:0004       _year
+ 03A1:0008       _chrec_cnt
+ 03A1:000A       _charttab
+ 03A1:4466       _cwdstr
+ 07EA:0042       __anullsize
+ 07EA:0454       _months
+ 07EA:04A0       __atopsp
+ 07EA:04A2       __aexit_rtn
+ 07EA:04A4       __asizds
+ 07EA:04A6       __nheap_desc
+ 07EA:04BA       __aseghi
+ 07EA:04BC       __aseglo
+ 07EA:04BE       __fDosExt
+ 07EA:04C0       __acfinfo
+ 07EA:04CE       __aintdiv
+ 07EA:04D2       __fac
+ 07EA:04DC       _errno
+ 07EA:04DE       __umaskval
+ 07EA:04E0       __pspadr
+ 07EA:04E2       __psp
+ 07EA:04E4       __dosvermajor
+ 07EA:04E4       __osmajor
+ 07EA:04E4       __osversion
+ 07EA:04E5       __dosverminor
+ 07EA:04E5       __osminor
+ 07EA:04E6       __osmode
+ 07EA:04E7       __cpumode
+ 07EA:04E8       __oserr
+ 07EA:04E8       __doserrno
+ 07EA:04EA       __nfile
+ 07EA:04EC       __osfile
+ 07EA:0500       ___argc
+ 07EA:0502       ___argv
+ 07EA:0506       __environ
+ 07EA:050A       __pgmptr
+ 07EA:050F       __child
+ 07EA:0511       __ovlflag
+ 07EA:0512       __intno
+ 07EA:0513       __ovlvec
+ 07EA:0517       __exitflag
+ 07EA:0518       __aaltstkovr
+ 07EA:051C       _STKHQQ
+ 07EA:0522       __iob
+ 07EA:0612       __iob2
+ 07EA:0702       __lastiob
+ 07EA:0706       __ctype_
+ 07EA:0706       __ctype
+ 07EA:080E       __csigtab0
+ 07EA:0840       __adbgmsg
+ 07EA:08CA       __cfltcvt_tab
+ 07EA:08E6       __sigintseg
+ 07EA:08E8       __sigintoff
+ 07EA:08EA       __asizeC
+ 07EA:08EB       __asizeD
+ 07EA:08EC       __sys_errlist
+ 07EA:0984       __sys_nerr
+ 07EA:0ABC       __cflush
+ 07EA:0ABE       __commode
+ 07EA:0AC0       __pnhFarHeap
+ 07EA:0AC4       __lpdays
+ 07EA:0ADE       __days
+ 07EA:0AFC       __timezone
+ 07EA:0B00       __daylight
+ 07EA:0B02       __tzname
+ 07EA:0B0A       ___dnames
+ 07EA:0B20       ___mnames
+ 07EA:0B4E       __iomode
+ 07EA:0B4E       __fmode
+ 07EA:0B50       __fheap
+ 07EA:0B5E       __amblksiz
+ 07EA:0B60       __lseekchk
+ 07EA:0B62       ___qczrinit
+ 07EA:0B64       ___aDBswpflg
+ 07EA:0B66       ___aDBswpchk
+ 07EA:0B68       ___aDBrterr
+ 07EA:0B6A       ___aDBexit
+ 07EA:0B72       __fpinit
+ 07EA:0C72       __edata
+ 07EA:0C72       _edata
+ 07EA:0C80       _end
+ 07EA:0C80       __end
+ 0000:9876  Abs  __acrtused
+ 0000:9876  Abs  __acrtmsg
+ 0000:D6D6  Abs  __aDBdoswp
+
+Program entry point at 00B7:001A

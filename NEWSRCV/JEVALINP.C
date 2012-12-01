@@ -1,0 +1,295 @@
+#include "curses.h"
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#ifndef turboc
+#include <search.h>
+#endif
+#include <stdlib.h>
+
+#include "GLdefs.h"
+#include "GLstruct.h"
+#include "GLextern.h"
+
+#include "JSdefs.h"
+#include "JSstruct.h"
+#include "JSextern.h"
+
+/* define global variable */
+long totamt;
+
+/* function templates */
+char *getjdate(char *);
+char *getdesc(char *);
+char *getamt(char *, long *);
+
+int
+JEvalinp(ifp,ofp)
+FILE *ifp,*ofp;
+{
+
+
+int inperrcnt;
+char line[SZLINE];
+char *cptr,*descptr,*dateptr,*acctptr;
+char prtstr[80];
+
+int rec_cnt;
+long amt;
+
+inperrcnt=0;
+rec_cnt=0;
+
+while ( fgets(line,SZLINE,ifp) != (char *)NULL ) {
+	rec_cnt++;
+	totamt = 0;
+
+
+	/* Get description found after '-,' characters */
+	descptr = getdesc(line);
+	if ( descptr == NULL )
+		descptr = "";
+
+
+	/* Get date */
+	dateptr = line;
+	cptr = getjdate(line);
+	if ( cptr == NULL ) {
+		JMERROR ("DATE");
+		continue;
+	}
+
+	/* Get account / amount pair(s)
+	** Two possible syntaxes:
+	**  0131,101,123.45,desc      -or-
+	**  0131,-123,123.45;124,-12.34;101-,desc
+	*/
+	if (*cptr != '-' ) {
+		acctptr = cptr;
+		if ((cptr=getacct(cptr)) == NULL) {
+			JMERROR ("ACCOUNT");
+			continue;
+		}
+		if (*cptr != ',') {
+			JMERROR ("SYNTAX");
+			continue;
+		}
+		if ((cptr=getamt(++cptr,&amt)) == NULL) {
+			JMERROR("AMOUNT");
+			continue;
+		}
+		descptr="\n";
+		if (*cptr == ',') {
+			descptr=cptr;
+		}else if (*cptr != NULL) {
+			JMERROR ("SYNTAX");
+			continue;
+		}
+		fprintf(ofp,"%.4s,%.3s,%ld%s",dateptr,acctptr,amt,descptr);
+	} else {
+		cptr++;
+		acctptr=cptr;
+		if ((cptr=getacct(cptr)) == NULL || *cptr != ',') {
+			JMERROR ("ACCOUNT");
+			continue;
+		}
+		
+		while ( *cptr == ',') {
+			
+			cptr++;
+			if ((cptr=getamt(cptr,&amt)) == NULL || *cptr != ';') {
+				JMERROR("AMOUNT");
+				break;
+			}
+			
+			fprintf(ofp,"%.4s,%.3s,%-ld%s\n",dateptr,acctptr,amt,descptr);
+
+			cptr++;
+			acctptr=cptr;
+			if ((cptr=getacct(cptr)) == NULL ) {
+				JMERROR ("ACCOUNT");
+				break;
+			}
+		}
+		if ( cptr == NULL )
+			continue;
+		
+		/* Crediting account */
+		if ( *cptr != '-' ) {
+			JMERROR ("SYNTAX");
+			continue;
+		}
+
+		/* Print CR amount: totamt */
+		fprintf(ofp,"%.4s,%.3s,%-ld%s\n",dateptr,acctptr,-totamt,descptr);
+	} /* Big if */
+} /* while */
+return(inperrcnt);
+} /* JEvalinp */
+
+char * 
+getjdate(line)
+char *line;
+{
+	/* Validate date: MMDD, 
+	**  - MM: 01 - 12
+	**  - DD: 01 - 31
+	**  - check for required , in this routine
+	**  - 0000 is valid for beginning balances
+	*/
+
+	/* Check length of line */
+	/* Must be 4 digits plus one comma */
+	if (strlen(line) <= SZDATE+1)
+		return(NULL);
+
+	/* Check for 0000 */
+	if (strncmp(line,"0000,",5) == 0)
+		return ( line + SZDATE + 1 );
+
+
+	/* Validate Day 01-31 */
+	if (strncmp(line+2,"01",2) < 0 )
+		return (NULL);
+	if ( strncmp(line+2,"31",2) > 0 )
+		return (NULL);
+
+	/* Check for required comma */
+	if ( line[4] != ',' )
+		return (NULL);
+
+	/* Date Validated, point to character after comma */
+	return ( line + SZDATE + 1 );
+}
+
+char *
+getdesc(line)
+char *line;
+{
+	char *cptr;
+	char *eos;
+	/* Get description */
+	/* Look for a '-,' */
+	cptr = strchr(line,'-');
+	while ( cptr != NULL && *(cptr+1) != ',' )
+		cptr = strchr(cptr+1,'-');
+
+	if ( cptr != NULL ) {
+		/* Thfollowing looks for a trailing newline character
+		** and changes it to a EOS
+		*/
+		eos = line + strlen(line) - 1;
+		if ( *eos == '\n' ) *eos = '\0';
+		return (cptr + 1);
+	}
+	else 
+		return (NULL);
+}
+
+char *
+getacct(line)
+char * line;
+{
+	char c;
+
+	/* Get and validate account 
+	**  - 3 digits: ABC[,-]
+	**  - A [1-8]
+	**  - B [0-9]
+	**  - C [0-9,a-f]
+	** Future: do lookup in chart
+	*/
+	/* Check length of line */
+	if (strlen(line) < SZACCT)
+		return(NULL);
+
+	/* Validate First Digit '0' - '8' */
+	if ( line[0] > '8' || line[0] < '0' )
+		return (NULL);
+
+	/* Validate Second Digit: Numeric */
+	if ( ! isdigit(line[1]) )
+		return (NULL);
+
+	/* Validate Last Digit: Numeric or 'a' thru 'f' */
+	c=line[2];
+	if ( ! ( ( c >= 'a' && c < 'g' ) || isdigit(c)  ) )
+		return ( NULL );
+
+	/* lookup account in charttab */
+	if (CHvalid(line) == NULL )
+		return (NULL);
+
+	/* Account Validated !! */
+	/* Point to character after account */
+	return (line + SZACCT);
+}
+
+char *
+getamt(line,amt)
+char *line;
+long *amt;
+{
+	char *cptr;
+	int sign;
+	long lamt;
+
+	/* Validate Amount: [-]999999.99 
+	** 10 characters max
+	** Compute totamt as the sum of each valid amount;
+	** totamt is initialized globally
+	** Minimum length is 9.99 (4 characters )
+	*/
+	lamt=0;
+	cptr=line;
+	if (strlen(line) <  4 )
+		return (NULL);
+
+	if (*cptr == '-'){
+		cptr++;
+		sign = -1;
+	}else
+		sign = 1;
+
+	/* At least one digit before decimal point */
+	if ( ! isdigit(*cptr) )
+		return (NULL);
+	
+	/* Get digits to left of decimal point
+	** Do not bother count number of digits!
+	*/
+	while ( isdigit(*cptr) ) {
+		lamt=lamt*10+(*cptr-'0');
+		cptr++;
+	}
+	if (*cptr != '.') 
+		return (NULL);
+
+	/* Get two digits after decimal place */
+	cptr++;
+
+	if ( isdigit(*cptr) )
+		lamt=lamt*10+(*cptr-'0');
+	else
+		return (NULL);
+
+	cptr++;
+
+	if ( isdigit(*cptr) )
+		lamt=lamt*10+(*cptr-'0');
+	else
+		return (NULL);
+
+	/* Add sign */
+	lamt = lamt * sign;
+
+	/* Copy amount characters to amt */
+	*amt=lamt;
+	
+	/* Accumulate amounts in totamt */
+	totamt = totamt + lamt;
+
+	/* Amount validiated */
+	/* return pointer to character after last amount charater */
+	return ( cptr + 1);
+}

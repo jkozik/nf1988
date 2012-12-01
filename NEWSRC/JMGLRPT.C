@@ -1,0 +1,424 @@
+#include "curses.h"
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#ifndef turboc
+#include <search.h>
+#include <direct.h>
+#include <sys/types.h>
+#endif
+#include <stdlib.h>
+#include <time.h>
+
+#include <sys/stat.h>
+
+#include "GLdefs.h"
+#include "GLstruct.h"
+#include "GLextern.h"
+
+#include "JSdefs.h"
+#include "JSstruct.h"
+#include "JSextern.h"
+
+
+/* Current Report Level Data */
+char curmon[SZDATE];
+char curacct[SZACCT+1];
+char cura12[SZACCT];
+char cura11[SZACCT];
+
+/* Total accumulators */
+long totmon;
+long totmondr;
+long totmoncr;
+long totacct;
+long totacctdr;
+long totacctcr;
+long tota12;
+long tota12dr;
+long tota12cr;
+long tota11;
+long tota11dr;
+long tota11cr;
+long grand;
+long granddr;
+long grandcr;
+
+/* Report Level Changed Flags */
+jebool head_prt;
+jebool mon_chgd;
+jebool acct_chgd;
+jebool a12_chgd;
+jebool a11_chgd;
+
+jebool subacct;
+
+/* page and line counters */
+int monlincnt;
+int linecnt;
+int linesperpg;
+int pagecnt;
+
+FILE *glfp;
+struct jefileinp *jefld_ptr;
+char line[SZLINE];
+
+/* Function Templates */
+jebool GLctrlbrk(struct jefileinp *);
+void GLinit(void);
+void GLsubtotals(struct jefileinp *);
+void GLprtdtl(struct jefileinp *);
+void GLnewheads(void);
+void GLheadchk(void);
+void GLfinals(void);
+
+
+int
+JMglrpt(void)
+{
+
+(void)GLinit();
+
+/* Detail Record Processing */
+while ( (jefld_ptr=GLjegetnxt(line)) != NULL) {
+
+	(void)GLheadchk();
+
+	if (GLctrlbrk(jefld_ptr) == JETRUE) {
+		(void)GLsubtotals(jefld_ptr);
+
+		(void)GLheadchk();
+
+		(void)GLnewheads();
+	}
+	
+	(void)GLprtdtl(jefld_ptr);
+}
+
+(void) GLfinals();
+
+return (JESUCCESS);
+} /* end of main */
+
+void
+GLheadchk()
+{
+	struct tm *newtime;
+	long ltime;
+
+	/* are headings turned on? */
+	if (JMheadon == JEFALSE) {
+		linecnt=0;
+		return;
+	}
+
+	/* if the linecnt is greater than 56, */
+	if (linecnt < linesperpg - 10) 
+		return;
+
+	/* go to top of form */
+	for (; linecnt < linesperpg; linecnt++ ) fputc('\n',glfp);
+	linecnt = 0;
+	pagecnt++;
+
+	/* print heading */
+	time(&ltime);
+	newtime = localtime(&ltime);
+	fprintf(glfp,"\n%.24s     * * 19%s Account Detail * *  Page %d\n\n",asctime(newtime),year,pagecnt);
+	linecnt = linecnt + 3;
+}
+	
+jebool
+GLctrlbrk(jefld)
+struct jefileinp *jefld;
+{
+	/* Check for change in report level, generate subtotals */
+
+	mon_chgd = JEFALSE;
+	acct_chgd = JEFALSE;
+	a12_chgd = JEFALSE;
+	a11_chgd = JEFALSE;
+
+	/* Check for change in 1st acct digit */
+	if ( strcmp(jefld->a11,cura11) ) {
+		mon_chgd = JETRUE;
+		acct_chgd = JETRUE;
+		a12_chgd = JETRUE;
+		a11_chgd = JETRUE;
+
+	/* Check for change in 2nd acct digit */
+	} else if ( strcmp(jefld->a12,cura12) ) {
+		mon_chgd = JETRUE;
+		acct_chgd = JETRUE;
+		a12_chgd = JETRUE;
+
+	/* Check for change in acct */
+	} else if ( strcmp(jefld->acct,curacct) ) {
+		mon_chgd = JETRUE;
+		acct_chgd = JETRUE;
+
+	/* Check for change in month */
+	} else if ( strcmp(jefld->mon,curmon) ) {
+		mon_chgd = JETRUE;
+	}
+
+	/* If any level changes, mon_chgd = JETRUE */
+	return(mon_chgd);
+
+}
+
+void
+GLsubtotals(jefld)
+struct jefileinp *jefld;
+{
+   int i;
+
+	/* Process change in month */
+	if (mon_chgd == JETRUE) {
+		totacct = totacct + totmon;
+		totacctdr = totacctdr + totmondr;
+		totacctcr = totacctcr + totmoncr;
+		if (head_prt == JETRUE && monlincnt>0) {
+      	if (!strcmp(curacct,"101") || !strcmp(curacct,"104"))
+		      fprintf(glfp,"    TOT %s ",curmon);
+		   if (*curacct < EXPACCT) {
+         fprintf(glfp," %7ld.%02d*",totacct/100,abs((int)(totacct%100)));
+		 	fprintf(glfp," %7ld.%02d*",totmondr/100,abs((int)(totmondr%100)));
+		 	fprintf(glfp," %7ld.%02d*",totmoncr/100,abs((int)(totmoncr%100)));
+		   } else {
+			fprintf(glfp," %7ld.%02d*",totmon/100,abs((int)(totmon%100)));
+		   }
+      	if (!strcmp(curacct,"101") || !strcmp(curacct,"104")) {
+   		   fprintf(glfp,"\n");
+						linecnt++;
+			}
+		}
+		monlincnt = 0;
+		totmon = 0;
+		totmondr = 0;
+		totmoncr = 0;
+		strcpy(curmon,jefld->mon);
+	}
+
+	/* Process change in account number */
+	if (acct_chgd == JETRUE) {
+		if (head_prt == JETRUE) {
+         if (subacct) {
+            fprintf(glfp,"\n                   *Sub-Account Totals-");
+            linecnt++;
+            for (i=0; i<carcnt; i++) {
+               linecnt++;
+               fprintf(glfp,"\n                   *%-20.20s",cartab[i].idx);
+               fprintf(glfp," %7ld.%02d*",cartab[i].amt/100,abs((int)(cartab[i].amt%100)));
+            }
+            (void)car_init();
+         }
+
+		   fprintf(glfp,"\n%.3s TOTAL %-30.30s",curacct,CHlookup(curacct));
+		   fprintf(glfp," %7ld.%02d**",totacct/100,abs((int)(totacct%100)));
+		   fprintf(glfp," %7ld.%02d**",totacctdr/100,abs((int)(totacctdr%100)));
+		   fprintf(glfp," %7ld.%02d**",totacctcr/100,abs((int)(totacctcr%100)));
+		   fprintf(glfp,"\n");
+		   linecnt++;
+		}
+		tota12 = tota12 + totacct;
+		tota12dr = tota12dr + totacctdr;
+		tota12cr = tota12cr + totacctcr;
+
+		totacct = 0;
+		totacctdr = 0;
+		totacctcr = 0;
+
+		strcpy(curacct,jefld->acct);
+	}
+
+	/* Process change in first two digits in account number */
+	if (a12_chgd == JETRUE) {
+		if (head_prt == JETRUE) {
+		   fprintf(glfp,"%.2s  TOTAL %-30.30s",cura12,CHlookup(cura12));
+		   fprintf(glfp," %7ld.%02d***",tota12/100,abs((int)(tota12%100)));
+		   fprintf(glfp,"%7ld.%02d***",tota12dr/100,abs((int)(tota12dr%100)));
+		   fprintf(glfp,"%7ld.%02d***",tota12cr/100,abs((int)(tota12cr%100)));
+		   fprintf(glfp,"\n");
+		   linecnt++;
+		}
+		tota11 = tota11 + tota12;
+		tota11dr = tota11dr + tota12dr;
+		tota11cr = tota11cr + tota12cr;
+		tota12 = 0;
+		tota12dr = 0;
+		tota12cr = 0;
+		strcpy(cura12,jefld->a12);
+	}
+
+	/* Process change in first digit in account number */
+	if (a11_chgd == JETRUE) {
+		if (head_prt == JETRUE) {
+		   fprintf(glfp,"%.1s   TOTAL %-30.30s",cura11,CHlookup(cura11));
+		   fprintf(glfp," %7ld.%02d****",tota11/100,abs((int)(tota11%100)));
+		   fprintf(glfp," %7ld.%02d****",tota11dr/100,abs((int)(tota11dr%100)));
+		   fprintf(glfp," %7ld.%02d****",tota11cr/100,abs((int)(tota11cr%100)));
+		   fprintf(glfp,"\n");
+		   linecnt++;
+		}
+		grand = grand + tota11;
+		granddr = granddr + tota11dr;
+		grandcr = grandcr + tota11cr;
+		tota11 = 0;
+		tota11dr = 0;
+		tota11cr = 0;
+		strcpy(cura11,jefld->a11);
+	}
+
+	head_prt = JETRUE;
+}
+
+void
+GLnewheads()
+{
+	/* Print out heading for change in first digit in acct (a11) */
+	if (a11_chgd == JETRUE) {
+		a11_chgd = JEFALSE;
+		fprintf(glfp,"\n\n%.1s   %-30.30s\n",cura11,CHlookup(cura11));
+		linecnt = linecnt + 3;
+	}
+
+	/* Print out heading for change in first two digits in acct (a12) */
+	if (a12_chgd == JETRUE) {
+		a12_chgd = JEFALSE;
+		fprintf(glfp,"\n%.2s  %-30.30s\n",cura12,CHlookup(cura12));
+		linecnt = linecnt + 2;
+	}
+
+	/* Print out heading for change in account */
+	if (acct_chgd == JETRUE) {
+		acct_chgd = JEFALSE;
+		fprintf(glfp,"%.3s %-30.30s",curacct,CHlookup(curacct));
+      subacct = CHsubacct(curacct);
+		if (!strcmp(curacct,"101") || !strcmp(curacct,"104"))
+			fprintf(glfp,"\n");
+		linecnt++;
+	}
+} /* return GLnewheads */
+
+
+void
+GLinit()
+{
+/* Read in chart of accounts file into array, charttab.
+** This array will be queried to validate account numbers.
+*/
+
+	wclear(body);						   
+	wrefresh(body); 					   
+								   
+	JMprtbody("gldtl: Starting...\n\r");
+								   
+	/*							   
+	** All output goes to file anal.out.			   
+	*/							   
+	if ((glfp=fopen("gl.out","w")) == NULL) {
+		JMprtbody("gldtl: Output file cannot open\n\r");
+	}							   
+
+GLjeopen();
+linesperpg=JMlinespage;
+linecnt=linesperpg+1;
+pagecnt=0;
+head_prt = JEFALSE;
+mon_chgd = JETRUE;
+acct_chgd = JETRUE;
+a12_chgd = JETRUE;
+a11_chgd = JETRUE;
+monlincnt = 0;
+totmon = 0;
+totmondr = 0;
+totmoncr = 0;
+totacct = 0;
+totacctdr = 0;
+totacctcr = 0;
+tota12 = 0;
+tota12dr = 0;
+tota12cr = 0;
+tota11 = 0;
+tota11dr = 0;
+tota11cr = 0;
+grand = 0;
+granddr = 0;
+grandcr = 0;
+strcpy(curmon,"");
+strcpy(curacct,"");
+strcpy(cura12,"");
+strcpy(cura11,"");
+
+(void) car_init();      /* initialize Content Addressible Array */
+
+JMprtbody(JMpsetup);
+JMprtbody("\n\r");
+JMwrprtsu(glfp);
+}
+
+void
+GLprtdtl(jefld)
+struct jefileinp *jefld;
+{
+	char day[SZDATE];
+	char *desc,*eoa;
+	long lamt;
+
+	/* find and total detail amount */
+	lamt = jefld->amt;
+	monlincnt++;
+	totmon = totmon + lamt;
+	if (lamt>0) totmondr = totmondr + lamt;
+	else        totmoncr = totmoncr + lamt;
+
+	if (!strcmp(curacct,"101") || !strcmp(curacct,"104"))
+		return;
+
+
+	/* Get string with day */
+	strcpy(day,jefld->date+SZMON);
+
+	/* Get description */
+	desc = jefld->desc;
+
+	/* Print detail line */
+   fprintf(glfp,"\n    %s/%s%7ld.%02d %-20.20s",curmon,day,lamt/100,abs((int)(lamt%100)),desc);
+   if (subacct) {
+	    if ( *curacct < CAPACCT ) {	/* if Balance Sheet Account */
+		if( (eoa=strpbrk(desc," ")) != NULL ) *eoa='\0';
+	    }
+	 *car(desc) = *car(desc) + lamt;
+   }
+	linecnt++;
+
+}
+
+void
+GLfinals()
+{
+	void GLsubtotals();
+
+	/* force subtotals for all report levels */
+	strcpy(line,"9999,999,9999");
+	jefld_ptr = GLjeparse(line);
+	GLctrlbrk(jefld_ptr);
+	(void)GLsubtotals(jefld_ptr);
+
+	/* print grand total */
+	fprintf(glfp,"    %-30.30s      ","GRAND TOTAL");
+	fprintf(glfp," %7ld.%02d****",grand/100,abs((int)(grand%100)));
+	fprintf(glfp," %7ld.%02d****",granddr/100,abs((int)(granddr%100)));
+	fprintf(glfp," %7ld.%02d****",grandcr/100,abs((int)(grandcr%100)));
+	fprintf(glfp,"\n");
+
+	if (fclose(glfp) == EOF)
+		JMprtbody("gldtl: close failed\n\r");
+
+	JMprtbody("gldtl: Done.\n\r");
+
+
+
+
+}

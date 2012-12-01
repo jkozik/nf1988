@@ -1,0 +1,210 @@
+#include <stdio.h> 
+#include <string.h>
+#include <ctype.h>
+#ifndef turboc
+#include <search.h>
+#include <direct.h>
+#include <sys/types.h>
+#endif
+#include <stdlib.h>
+#include "io.h"
+#include "errno.h"
+
+#include <sys/stat.h>
+
+#include "GLdefs.h"
+#include "GLstruct.h"
+#include "GLextern.h"
+
+/* function templates */
+void JEpacct(char *), JEpmons(char *);
+long JEanalrpt(char *, char *);
+
+void
+main() 
+{
+	int i;
+	long monamt;
+
+	char acct[SZACCT+1],month[SZDATE];
+	char pglf[SZPATH+1];
+
+/* Setup GL environment */
+GLenvsetup();
+
+/* Read in chart of accounts file into array, charttab.
+** This array will be queried to validate account numbers.
+*/
+CHload();
+
+/* 
+** Get inputs:
+** - Account number to be analized, validate from chart
+** - Month(s) to be analyzed, verify valid month and 'month'.pgl exists
+*/
+JEpacct(acct);
+JEpmons(month);
+
+/* 
+** Generate report from 'month'.pgl
+** If month="", then report from all months that exist.
+*/
+if ( strcmp (month,"") != 0 ) {
+	/* Analyze only one month */
+	printf("analdtl: Analyzing account-%s in %s.pgl\n",acct,month);
+	JEanalrpt(month,acct);
+}
+else {
+	/* for each month 00 - 12 */
+	monamt = 0;
+	printf("analdtl: Analyzing account-%s in ??.pgl\n",acct);
+	for ( i=0; i<13; i++) {
+
+		/* pglf=00.pgl */
+		strcpy(pglf,months[i]);
+		strcat(pglf,".pgl");
+
+		/* if pglf exists, analyze month */
+		if ( access(pglf,0) == 0) {
+			monamt = monamt + JEanalrpt(months[i],acct);
+			printf ("*YTD TOTAL %s - %ld.%02d*\n",months[i],monamt/100,abs((int)(monamt%100)));
+		}
+
+	}
+	printf ("**GRAND TOTAL - %ld.%02d**\n",monamt/100,abs((int)(monamt%100)));
+}
+
+/* Restore working directory */
+chdir(cwdstr);
+
+} /* end of main */
+
+void
+JEpacct(acct)
+char *acct;
+{
+	char line[SZLINE];
+	int inpvalid;
+	/*
+	** Input and validate account number.
+	** Return acct with validated account.
+	*/
+	
+	
+	inpvalid = JEFALSE;
+
+	while ( ! inpvalid ) {
+		fprintf(stderr,"analdtl: Enter 3 Digit Account Number-");
+		gets(line);
+		if ( getacct(line) != NULL) 
+			inpvalid = JETRUE;
+		else
+			fprintf(stderr,"analdtl: Account number not valid\n");
+	}
+	strncpy(acct,line,SZACCT);
+	acct[SZACCT] = '\0';
+	return;
+}
+
+void
+JEpmons(month)
+char *month;
+{
+	int inpvalid;
+	char line[SZLINE];
+	
+	/*
+	** Get valid month from stdin and copy into 
+	** month string.
+	*/
+
+	inpvalid = JEFALSE;
+
+	while ( ! inpvalid ) {
+		fprintf(stderr,"analdtl: Enter month (00, ..., 12 or <cr> for all months-");
+		gets(line);
+		if (strlen(line) == 0) {
+			inpvalid = JETRUE;
+			continue;
+		}
+		
+		
+		/* Validate Month 00-12 */
+		if ( strlen(line) == 2 && strncmp(line,"00",2) >= 0 && strncmp(line,"12",2) <= 0 )
+			inpvalid = JETRUE;
+	}
+	strncpy(month,line,2);
+	month[2] = '\0';
+	return;
+}
+
+long
+JEanalrpt(month,acct)
+char *month,*acct;
+{
+	FILE *pglfp;
+	char pglf[SZPATH];
+	char line[SZLINE];
+	char *eoa, *cp;
+	long lamt,totamt;
+	int monrcnt;
+   char amtar[GLAMOUNT+1], *amtp, *amtarp;
+
+	/* Find all occurences of acct in the file month.pgl
+	** and print out those records.  Give a total for month.
+	*/
+
+
+	strcpy(pglf,month);
+	strcat(pglf,".pgl");
+
+	lamt = 0;
+	totamt = 0;
+	monrcnt = 0;
+
+	if ((pglfp=fopen(pglf,"r")) == NULL) {
+		perror("analdtl: Error opening file");
+		chdir(cwdstr);
+		exit(1);
+	}
+
+	while ( fgets(line,SZLINE,pglfp) != NULL ) {
+		if ( strncmp(acct,line+5,SZACCT) == 0) {
+			/* Bump record count */
+			monrcnt++;
+
+			/* Convert amount to long int and accumulate */
+         /* Convert amount to long int and accumulate */
+         /* Get amount */
+         amtarp = &amtar[0];
+         amtar[0] = '\0';
+         for( amtp=line+GLAMOUNT; *amtp!=',' && *amtp!='\n'; amtp++) {
+            if( *amtp != '.' ){ *amtarp = *amtp; amtarp++; }
+         }
+         *amtarp = '\0';
+
+         lamt = atol(amtar);
+			totamt = totamt + lamt;
+
+			/* Print input line, stick in decimal point
+			** in amount:  1100 prints as 11.00
+			*/
+			eoa = strpbrk(line+9,",\n"); /* assume success */
+			putchar(' ');
+			putchar(' ');
+			for (cp=&line[0]; *cp != '\n'; cp++) {
+            /*if ( cp == (char *)(eoa-2)) putchar('.');*/
+			   putchar(*cp);
+			}
+			putchar('\n');
+		}
+	}
+
+	if (monrcnt > 0 ) 
+		printf ("  *TOTAL - %ld.%02d*\n",totamt/100,abs((int)(totamt%100)));
+	if ( fclose(pglfp) == EOF) {
+		perror("analdtl: Error closing file");
+	}
+
+	return(totamt);
+}

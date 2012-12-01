@@ -1,0 +1,159 @@
+#include "curses.h"
+#include <signal.h>
+#include <io.h>
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+#ifndef turboc
+#include <direct.h>
+#include <sys/types.h>
+#else
+#include <dir.h>
+#include <dos.h>
+#endif
+#include <stdlib.h>
+#include <sys/stat.h>
+
+#include "GLdefs.h"
+#include "GLstruct.h"
+#include "GLextern.h"
+
+#include "JSdefs.h"
+#include "JSstruct.h"
+#include "JSextern.h"
+
+/* Define global string */
+char cwdstr[SZPATH+1];
+char *year;
+char *froot;
+char *months[MONTHS]= 
+		{ 
+		"00","01","02","03","04","05","06",
+		"07","08","09","10","11","12"
+		};
+
+
+
+void
+GLenvsetup()
+{
+	struct stat sbuf1;
+	struct stat sbuf2;
+	char path[SZPATH+1];
+	char sglf[SZPATH+1];
+	int i,srcm,srcp;
+
+/* Save current working directory
+*/
+if(getcwd(cwdstr,SZPATH) == NULL)
+	cwdstr[0] = '\0';  /* assumed current directory if error */
+
+/* Goto JEinthand on a ^C */
+#ifdef turboc
+ctrlbrk(JEinthand);
+#else
+signal(SIGINT,JEinthand);
+#endif
+
+/*
+**   $F\$YEAR\00.sgl must exist.
+*/
+
+
+froot=getenv("F");
+if (froot == NULL) froot="";
+year = getenv("YEAR");
+if (year == NULL) year="";
+fprintf(stderr,"Using environment variables: F='%s', YEAR='%s'\n",froot,year);
+strcpy(path,"\\");
+strcat(path,froot);
+strcat(path,"\\");
+strcat(path,year);
+if (chdir(path) == -1) {
+	fprintf(stderr,"GLenvsetup: The directory %s does not exists\n",path);
+	JEinthand(1);
+}
+
+
+if (stat("00.sgl",&sbuf1) != 0 ) {
+	fprintf(stderr,"GLenvsetup: WARNING: The file '00.sgl' does not exist\n");
+	fprintf(stderr,"GLenvsetup: pregl may need to be run\n");
+}
+if (stat("chart",&sbuf1) !=0 ) {
+	fprintf(stderr,"GLenvsetup: The file 'chart' does not exist\n");
+	JEinthand(1);
+}
+
+for (i=0; i<MONTHS; i++) {
+	/*
+	** Skip if '00' does not exist
+	*/
+	if (access(months[i],0)) {
+		continue;
+	}
+	/*
+	** Get modification times for 00 and 00.sgl
+	*/
+	srcm = stat(months[i],&sbuf1);
+	strcpy(sglf,months[i]);
+	strcat(sglf,".sgl");
+	srcp = stat(sglf,&sbuf2);
+
+	/*
+	** Print warning if 00 is newer than 00.sgl
+	** or if 00 exists and 00.sgl does not.
+	*/
+	if (srcp || srcm == 0 && sbuf1.st_mtime > sbuf2.st_mtime ) {
+		fprintf(stderr,"GLenv: WARNING: file-%s is newer than %s.sgl\n",months[i],months[i]);
+	}
+}
+}
+
+void
+JEinthand()
+{
+#if defined(PC_CURSES)
+	if (b1.fileopened == JETRUE)
+		JMsave("jtmp",b1.JShead);
+	endwin();
+#endif
+	fprintf(stderr,"\nTerminating Processing\n");
+	/* Restore working directory */
+	chdir(cwdstr);
+	exit(1);
+}
+jebool
+GLuptodate()
+{	
+	/* return true if 00.sgl is older than 00,
+	** if false, this means that pregl needs to be run
+	*/
+	struct stat sbuf1,sbuf2;
+	char sglf[SZPATH+1];
+	int i,srcm,srcp;
+	
+	for (i=0; i<MONTHS; i++) {
+		/*
+		** Skip if '00' does not exist
+		*/
+		if (access(months[i],0)) {
+			continue;
+		}
+		/*
+		** Get modification times for 00 and 00.sgl
+		*/
+		srcm = stat(months[i],&sbuf1);
+		strcpy(sglf,months[i]);
+		strcat(sglf,".sgl");
+		srcp = stat(sglf,&sbuf2);
+	
+		/*
+		** Print warning if 00 is newer than 00.sgl
+		** or if 00 exists and 00.sgl does not.
+		*/
+		if (srcp || srcm == 0 && sbuf1.st_mtime > sbuf2.st_mtime ) {
+			return(JEFALSE);
+		}
+	}
+	return(JETRUE);
+}

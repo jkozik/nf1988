@@ -1,0 +1,11 @@
+path=%path%;d:\lang\td
+set lib=d:\lang\msc5.1\lib;d:\lib\wfc;d:\lib\wfd
+set include=.;d:\lang\msc5.1\include;d:\lib\wfc;d:\lib\wfd
+
+echo off
+rem set lib=d:\lib\curses
+rem set LIB=E:\LANG\MSC5.1\LIB;%LIB%
+
+rem set include=d:\lib\curses
+rem set INCLUDE=D:\LANG\MSC5.1\INCLUDE;%INCLUDE%
+

@@ -1,0 +1,57 @@
+// jedialog.h : header file
+//
+
+/////////////////////////////////////////////////////////////////////////////
+// CJEDialog dialog
+
+class CJEDialog : public CDialog
+{
+// Construction
+public:
+	CJEDialog(CWnd* pParent = NULL);	// standard constructor
+    int m_LineCount;
+    CRect m_rectScreenActive;
+    CFont *hFont;
+    virtual void OnSetFont( CFont* hFont );
+    CString m_OldItemValue;
+    
+// Dialog Data
+	//{{AFX_DATA(CJEDialog)
+	enum { IDD = IDD_JE_DIALOG };
+	CString	m_acct0;
+	CString	m_acct1;
+	CString	m_acct2;
+	CString	m_acct3;
+	CString	m_acct4;
+	CString	m_amt0;
+	CString	m_amt1;
+	CString	m_amt2;
+	CString	m_amt3;
+	CString	m_amt4;
+	CString	m_dd;
+	CString	m_desc0;
+	CString	m_desc1;
+	CString	m_desc2;
+	CString	m_desc3;
+	CString	m_desc4;
+	CString	m_jedesc;
+	CString	m_mm;
+	CString	m_je_desc0;
+	CString	m_je_desc1;
+	CString	m_je_desc2;
+	CString	m_je_desc3;
+	CString	m_je_desc4;
+	//}}AFX_DATA
+
+// Implementation
+protected:
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV support
+
+	// Generated message map functions
+	//{{AFX_MSG(CJEDialog)
+	virtual BOOL OnInitDialog();
+	afx_msg void OnChangeEdit3DD();
+	afx_msg void OnChangeEdit1Acct();
+	//}}AFX_MSG
+	DECLARE_MESSAGE_MAP()
+};

@@ -1,0 +1,53 @@
+#
+# Program: Jsedit
+#
+ccopt=-AL -Zi -Od -c -W3
+
+.c.obj:
+	cl $(ccopt) $*.c
+
+all : jsedit.exe
+
+gljefile.obj : gljefile.c
+
+jmreport.obj : jmreport.c
+
+jmanaldt.obj : jmanaldt.c
+
+jeglsort.obj : jeglsort.c
+
+jmpregl.obj : jmpregl.c
+
+jsedit.obj : jsedit.c
+
+jmyank.obj : jmyank.c
+
+jmfile.obj : jmfile.c
+
+chvalid.obj : chvalid.c
+
+glenv.obj : glenv.c
+
+jevalinp.obj : jevalinp.c
+
+jmedit.obj : jmedit.c
+
+jmfld.obj : jmfld.c
+
+jmlnedit.obj : jmlnedit.c
+
+jmglrpt.obj : jmglrpt.c
+
+jmaarpt.obj : jmaarpt.c
+
+jmacctfl.obj : jmacctfl.c
+
+gdreport.obj : gdreport.c
+
+Jsedit.exe : chvalid.obj glenv.obj jevalinp.obj jmedit.obj jmfile.obj  \
+		jmfld.obj jmlnedit.obj jsedit.obj jmacctfl.obj jmyank.obj \
+		jmpregl.obj jeglsort.obj gdreport.obj jmanaldt.obj \
+		jmreport.obj jmglrpt.obj gljefile.obj jmaarpt.obj \
+		entry.obj qwindow.obj \
+		ibmpc.obj qhelp.obj vpeek.obj 
+	link @jslink

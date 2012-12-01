@@ -1,0 +1,66 @@
+#include "acct.h"
+#include "ctype.h"
+#ifdef _DEBUG
+#undef THIS_FILE
+static char BASED_CODE THIS_FILE[] = __FILE__ ;
+#endif
+
+// acct.cpp - Defines the class member functions for CAcct, a member
+// class of CString base class
+
+
+/////////////////////////////////////////////////////////////////////////
+// CAcct::CAcct
+// Default and Single argument constructors
+//
+CAcct::CAcct() {};
+
+CAcct::CAcct( const char* pszAcct ) : CString( pszAcct )  {};
+
+////////////////////////////////////////////////////////////////////////////
+// CAcct::SetAcct
+// If Account is valid, return TRUE, set m_Acct String
+//
+BOOL CAcct::Set( const char* pszAcct )
+{
+    *this = pszAcct;
+    if( Valid() ) return TRUE;
+
+    m_pchData = "";
+    return FALSE;
+
+}
+
+
+///////////////////////////////////////////////////////////////////////
+// CAcct::AcctValid
+// Validate an Account Number
+//  [1-8][0-9][0-9a-z]
+//
+BOOL CAcct::Valid()
+{
+
+    int len=m_nDataLength;
+
+    if( len>4 || len<1 || GetAt(0)<'1' || GetAt(0)>'8' )
+	return FALSE;
+
+    if( len>1 && !isdigit( GetAt(1) ) )
+	return FALSE;
+
+    if( len==3 && !( isdigit(GetAt(2)) || GetAt(2)>='a' && GetAt(2)<='z' ) )
+	return FALSE;
+
+    return TRUE;
+
+}
+
+////////////////////////////////////////////////////////////////////////
+// CAcct::Get
+// Return String for Acct
+//
+const CString& CAcct::Get()
+{
+    return   m_pchData;
+
+}

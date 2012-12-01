@@ -1,0 +1,4 @@
+rem path=%path%;d:\lang\td
+set lib=%lib%;d:\lib\views2
+set include=%include%;d:\lib\views2\include
+

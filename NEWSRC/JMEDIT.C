@@ -1,0 +1,807 @@
+#include "curses.h"
+#include "keys.h"
+#include <string.h>
+#include <ctype.h>
+#ifndef turboc
+#include <search.h>
+#include <direct.h>
+#include <sys/types.h>
+#endif
+#include <stdlib.h>
+#include <sys/stat.h>
+
+#include "GLdefs.h"
+#include "GLstruct.h"
+#include "GLextern.h"
+
+#include "JSdefs.h"
+#include "JSstruct.h"
+#include "JSextern.h"
+
+/* global definitions */
+char searchstr[10];   
+char tickerstr[10];
+char curcracct[SZACCT+1];
+
+menu
+JMedit(inp_ch,actbuf)
+CHTYPE inp_ch;
+struct bufinfo *actbuf;
+{
+	struct JSfilerec *nxtptr;
+	struct JSfilerec *top,*head,*tail,*cur;
+   int newy;
+   char *cp;
+	int linecnt;
+        char prmtstr[30];
+        CHTYPE ch;
+	struct bufinfo bufsave;
+
+	JMmsg("");
+
+
+	/* copy stuff into local variables */
+	head = actbuf->JShead;
+	tail = actbuf->JStail;
+	top  = actbuf->JStopptr;
+	cur  = actbuf->JScurptr;
+
+
+	scrollok(body,TRUE);
+
+	switch(inp_ch) {
+	case KEY_ESC:
+		if (actbuf->fileopened && actbuf->filechgd) {
+			/* Prompt: "Save filename? [(y)/n]"*/
+			sprintf(prmtstr,"Save %s? [(y)/n]",actbuf->filename);
+			ch = wprmtch(prompt,prmtstr);
+			switch(ch){
+			case 'n':
+			case 'N':
+				break;
+	
+			default:
+				/* Prompt: Save: filename-'...' */
+				wprmtfld(prompt,"Save: Enter Filename-",actbuf->filetmp);
+				if (actbuf->filetmp[0] == KEY_ESC) {
+					wclear(prompt);
+					wrefresh(prompt);
+					touchwin(body);
+					wrefresh(body);
+					return(start);
+				} 
+				strcpy(actbuf->filename,actbuf->filetmp);
+				JMsave(actbuf->filename,actbuf->JShead);
+				actbuf->filechgd=JEFALSE;
+				break;
+			}
+		
+		} /* end if (filechgd) */
+		return(start);
+
+   case 'q':
+      if (actbuf->fileopened && actbuf->filechgd) {
+         JMsave(actbuf->filename,actbuf->JShead);
+         actbuf->filechgd=JEFALSE;
+      }
+      cp=cur->line+strlen(cur->line)-1;
+      for (;curcracct!='\0' && cp >= cur->line; cp--) {
+         if (*cp == '-' && *(cp-SZACCT-1) == ';') {
+            strncpy(curcracct,cp-SZACCT,SZACCT);
+            curcracct[SZACCT] = '\0';
+         }
+      }
+      return(quikadtl);
+      /*break;*/
+
+	case 'f':
+   case 'F':
+		return(file);
+		/*break;*/
+
+	case 'Z':
+	case 'z':
+		/*
+		** Two ZZ's: save any open file, quit.
+		*/
+		return(editz);
+		/* break */
+
+	case 'S':
+	case 's':
+		if (cur == NULL)  {
+			beep();
+			break;
+		}
+		wprmtfld(prompt,"Search: ",searchstr);
+		nxtptr = JMsearch(searchstr,cur->next,tail);
+		if (nxtptr == NULL) {
+			JMmsg("Search: Wrapped Around Buffer");
+			nxtptr = JMsearch(searchstr,head,cur);
+		}
+		if (nxtptr == NULL) {
+			JMmsg("Search: Not found.");
+			touchwin(body);
+		} else {
+			cur = nxtptr;
+			top = JMposcur(cur,top);
+		}
+		break;
+
+	case 'A':
+	case 'a':
+		prevb1 = *actbuf;
+		JMudclr();
+		if (cur == NULL) {
+			top = JMinsert(actbuf,cur,top,&head,&tail);
+			cur = tail;
+			top=JMpgbk(tail);
+		} else {
+			JMudsave(cur->prev);
+			JMudsave(cur);
+			JMudsave(cur->next);
+			cur = cur->next;
+			top = JMposcur(cur,top);
+			top = JMinsert(actbuf,cur,top,&head,&tail);
+			if (cur == NULL) {
+				cur = tail;
+			} else {
+				cur = cur->prev;
+			}
+		}
+		top = JMposcur(cur,top);
+		JMmsg("");
+		JSdspmenu(edit,actbuf);
+		break;
+
+	case 'Y':
+	case 'y':
+		ch = wprmtch(prompt,"Enter: 1-9");
+		while (ch != KEY_ESC && ch < '0' && ch > '9') {
+			beep();
+			ch = wprmtch(prompt,"Enter: 1-9");
+		}
+		if (ch == KEY_ESC){
+			touchwin(body);
+			break;
+		}
+		linecnt = (int)ch - (int)'0';
+		JMyank(cur,linecnt);
+		touchwin(body);
+		break;
+
+	case 'P':
+		/* Undo */
+		prevb1 = *actbuf;
+		JMudclr();
+		JMudsave(cur->prev);
+		JMudsave(cur);
+
+		if (cur == NULL)
+			nxtptr = NULL;
+      else if (cur == head)
+         nxtptr=head;
+      else
+         nxtptr = cur;
+
+		top = JMput(actbuf,cur,top,&head,&tail);
+		if (cur == NULL) {
+			cur = head;
+			top=JMpgbk(tail);
+		} else {
+         cur = nxtptr;
+		}
+		top = JMposcur(cur,top);
+		JMmsg("");
+		break;
+
+   case 'p':
+      JMudclr();
+      if (cur == NULL) {
+         top = JMput(actbuf,cur,top,&head,&tail);
+         cur = tail;
+         top = JMpgbk(tail);
+      } else {
+         JMudsave(cur->prev);
+         JMudsave(cur);
+         JMudsave(cur->next);
+         cur = cur->next;
+         top = JMput(actbuf,cur,top,&head,&tail);
+         if (cur == NULL) {
+            cur = tail;
+         } else {
+            cur = cur->prev;
+         }
+      }
+      top = JMposcur(cur,top);
+      JMmsg("");
+      break;
+
+
+
+
+	case 'U':
+	case 'u':
+		if (JMundo() == JESUCCESS) {
+			bufsave = *actbuf;
+			*actbuf = prevb1;
+			prevb1 = bufsave;
+			actbuf->JStopptr = JMposcur(actbuf->JScurptr,actbuf->JStopptr);
+			JSdspmenu(edit,actbuf);
+			JMmsg("");
+			return(edit);
+		}
+		break;
+
+	case 'I':
+	case 'i':
+		prevb1 = *actbuf;
+		JMudclr();
+		JMudsave(cur->prev);
+		JMudsave(cur);
+		top = JMinsert(actbuf,cur,top,&head,&tail);
+		if (cur == NULL) {
+			cur = tail;
+			top=JMpgbk(tail);
+		}
+		top = JMposcur(cur,top);
+		JMmsg("");
+		JSdspmenu(edit,actbuf);
+		break;
+	
+	case 'C':
+	case 'c':
+		if (cur == NULL) {
+			beep();
+			break;
+		}
+		prevb1 = *actbuf;
+		JMudclr();
+		JMudsave(cur);
+		JMudsave(cur->next);
+		JSdspmenu(lnedit,actbuf);
+		switch (JMlnedit(cur,actbuf->filename)){
+		case ESCONLY:
+		case ENTRY_ESC:
+			/* save updates */
+			actbuf->filechgd = JETRUE;
+			strcpy(cur->line,JSlnedtab.line);
+			cur->prtlines = JSlnedtab.accts;
+			JSdspmenu(edit,actbuf);
+			break;
+		case ENTRY:
+			/* save updates */
+			strcpy(cur->line,JSlnedtab.line);
+			cur->prtlines = JSlnedtab.accts;
+
+			cur = cur->next;
+			top = JMinsert(actbuf,cur,top,&head,&tail);
+			if (cur == NULL) {
+			   cur = tail;
+			}
+			JSdspmenu(edit,actbuf);
+		}
+		top = JMposcur(cur,top);
+		JMmsg("");
+		break;
+
+	case 'd':
+	case 'D':
+		if (cur != NULL) {
+			prevb1 = *actbuf;
+			JMudclr();
+			JMudsave(cur->prev);
+			JMudsave(cur);
+			JMudsave(cur->next);
+			if (cur->next == NULL) {
+			   nxtptr = cur->prev;
+			   top=JMpgbk(nxtptr);
+			} else {
+			   nxtptr = cur->next;
+			}
+			if (cur == top) {
+			   top = nxtptr;
+			}
+			JMdelrec(cur,&head,&tail,&actbuf->JSrec_cnt,&actbuf->filechgd);
+			cur=nxtptr;
+			top = JMposcur(cur,top);
+			JSdspmenu(edit,actbuf);
+		} else {
+			beep();
+		}
+		break;
+
+	case KEY_HOME:
+		cur=head;
+		top = JMposcur(cur,top);
+		break;
+
+	case KEY_END:
+		cur=tail;
+		top = JMposcur(cur,top);
+		break;
+
+	case KEY_NPAGE:
+		cur=JMpgfwd(top);
+		top=cur;
+		top = JMposcur(cur,top);
+		break;
+
+	case KEY_PPAGE:
+		if (cur == head) {
+			beep();
+			break;
+		}
+		cur=JMpgbk(cur);
+		top=cur;
+		top = JMposcur(cur,top);
+		break;
+
+	case KEY_DOWN:
+		if (cur == NULL || cur->next == NULL) {
+			beep();
+		} else if(CURY(body)+cur->prtlines > LINES-3){
+			wclrtobot(body);
+			JMdsrec(cur,LINES-3);
+			waddstr(body,"\n\r");
+			JMdsrec(cur->next,LINES-3);
+			cur=cur->next;
+			top=JMpgbk(cur);
+			wmove(body,LINES-2-cur->prtlines,0);
+		} else {
+			wmove(body,CURY(body)+cur->prtlines,0);
+			cur=cur->next;
+				
+		}
+		break;
+
+	case KEY_UP:
+		if(cur == NULL || cur->prev == NULL) {
+			beep();
+			break;
+		}
+		newy = CURY(body)-cur->prev->prtlines;
+		/* can the cursor fit on the screen? */
+		if (newy >= 0) {
+			/* yes */
+			wmove(body,newy,0);
+			cur=cur->prev;
+			break;
+		}
+		/* the cursor is near the top of the screen */
+		cur=cur->prev;
+		top=cur;
+		linecnt = CURY(body);
+		wmove(body,0,0);
+
+		/* delete top lines on screen */
+		for (;linecnt>0;linecnt--)
+			wdeleteln(body);
+
+		/* insert blank lines on top */
+		for (linecnt=cur->prtlines;linecnt>0;linecnt--)
+			winsertln(body);
+
+		/* print next record on screen */
+		JMdsrec(cur,LINES-2);
+		wmove(body,0,0);
+		break;
+
+	default:
+		JMmsg("Valid Keys: Home, End, PgUp, PgDn, \x18, \x19, ESC");
+		beep();
+		break;
+	}
+	/* Update JSfiletab global pointers */
+	actbuf->JShead  = head;
+	actbuf->JStail  = tail;
+	actbuf->JStopptr= top;
+	actbuf->JScurptr= cur;
+
+	return(edit);
+}
+
+int
+JMlnsdwn(recptr,topptr)
+struct JSfilerec *recptr,*topptr;
+{
+	/* 
+	** Compute the lines from the top of the screen
+	** the cursor should be placed for 'recptr.'
+	** NOTE: this function could return a number greater than
+	** LINES; this means the recptr record is not on the screen.
+	*/
+	int linecnt;
+	struct JSfilerec *nxtptr;
+	linecnt=0;
+	nxtptr=topptr;
+	while(nxtptr != NULL && nxtptr!=recptr) {
+		linecnt=linecnt+nxtptr->prtlines;
+		nxtptr=nxtptr->next;
+	}
+	if (nxtptr == NULL && nxtptr != recptr)
+		return(LINES-2);
+	else
+		return(linecnt);
+}
+
+void
+JMdspg(recptr)
+struct JSfilerec *recptr;
+{
+	/*
+	** Starting at recptr, display journal
+	** entry records.  Put as many on the page as fully fit.
+	** Leave the bottom two lines blank.  Use the following
+	** format:
+	** DATE    ACCOUNT                AMOUNT DESC
+	** xx/xx   714 Recreation          12.00 
+	**         101 Cash                      Y-classes
+	**
+	*/
+	
+	int linesleft,used;
+
+	/*
+	** Clear window
+	*/
+	wclear(body);
+	if (recptr == NULL) {
+		return;
+	}
+
+	/*
+	** compute the total lines available for printing
+	** on the screen.
+	*/
+	linesleft=LINES-2;
+
+	/* 
+	** Main while loop: print journal entry records.
+	*/
+	used=JMdsrec(recptr,linesleft);
+	recptr = recptr->next;
+	linesleft=linesleft-used;
+	while ( recptr != NULL && linesleft > 0) {
+		waddstr(body,"\n\r");
+		used=JMdsrec(recptr,linesleft);
+		recptr=recptr->next;
+		linesleft=linesleft-used;
+	}
+}
+
+int
+JMdsrec(recptr,maxlines)
+struct JSfilerec *recptr;
+int maxlines;
+{
+	/*
+	** Parse and disply *recptr.  Return the
+	** count of lines used.  If the display requires more
+	** than maxlines, then display nothing and return zero.
+	*/
+	char acctstr[SZACCT+1];	
+	char *curline;
+	char *acctptr;
+	char *amtend;
+	int amtlen,i;
+	int linesused;
+	char *descptr;
+
+	/* if recptr == NULL, return 0 */
+	if (recptr == NULL)
+		return(0);
+
+	/* validate maxlines */
+	if (maxlines<1 || maxlines > LINES-2)
+		return(0);
+
+	linesused=0;
+	curline=recptr->line;
+	/*
+	** First, check if we are pointing at a valid record:
+	** e.g. 0101,-301,12.00;101-,description
+	** 1. check for valid date: 0101,
+	** 2. Check that first account number is valid
+	** 3. Exit from program on error!!!
+	*/
+	if (getjdate(curline)==NULL || getacct(curline+SZDATE+2)==NULL){
+		JMmsg("Display Storage Error...Exiting");
+		JEinthand(1);
+	}
+
+	/* 
+	** Print date.
+	*/
+	wprintw(body,"%.2s/%.2s ",curline,curline+SZMON);
+
+	/*
+	** Print each account/amount pair
+	*/
+	acctptr=curline+SZDATE+2;
+	while(*(acctptr+SZACCT) == ',' && linesused < maxlines) {
+		/* print account */
+		mvwaddch(body,CURY(body),6,*acctptr);
+		waddch(body,*(acctptr+1));
+		waddch(body,*(acctptr+2));
+		waddch(body,' ');
+
+		/* print account description */
+		strncpy(acctstr,acctptr,SZACCT);
+		acctstr[SZACCT]='\0';
+		wprintw(body,"%-25.25s ",CHlookup(acctstr));
+
+		/* print amount */
+      for (amtlen=0; acctptr[amtlen] != ';' && acctptr[amtlen] != '\0'; amtlen++)
+			;
+		amtend=&acctptr[amtlen];
+		amtlen=amtlen-SZACCT-1;
+		for(i=0;i<10-amtlen;i++) 
+			waddch(body,' '); /* right fill */
+		for(i=0;i<amtlen;i++)
+			waddch(body,*(acctptr+SZACCT+1+i));
+
+		/* print new line */
+		linesused++;
+		if (linesused < maxlines)
+			waddstr(body,"\n\r");
+		
+		/* point to next account/amount pair */
+		acctptr=amtend+1;
+	}
+	if(linesused<maxlines) {
+		/* print credit account */
+		mvwaddch(body,CURY(body),6,*acctptr);
+		waddch(body,*(acctptr+1));
+		waddch(body,*(acctptr+2));
+		waddch(body,' ');
+
+		/* print account description */
+		strncpy(acctstr,acctptr,SZACCT);
+		acctstr[SZACCT]='\0';
+		wprintw(body,"%-25.25s ",CHlookup(acctstr));
+		
+		/* print JE description */
+		descptr=getdesc(curline);
+		if(descptr == NULL)
+			descptr = "";
+		else
+			descptr++;
+		mvwprintw(body,CURY(body),CURX(body)+10+1,"%-30.30s",descptr);
+		linesused++;
+	
+	} else {
+		waddch(body,' ');
+		wattrset(body, A_COLOR(A_BLUE,A_WHITE) );
+		waddstr(body,"--MORE--");
+		wattrset(body, A_COLOR(A_GREEN,A_BLACK) );
+	}
+
+	return(linesused);
+}
+struct JSfilerec *
+JMpgfwd(curptr)
+struct JSfilerec *curptr;
+{
+	/*
+	** The function returns a pointer to the top of a
+	** page for the next page.  This function counts
+	** LINES-2 lines foward.
+	** If the operation is not possible, curptr is returned.
+	*/
+	int linesused;
+	struct JSfilerec *nxtptr,*tailptr;
+	nxtptr=curptr;
+	tailptr=curptr;
+	linesused=0;
+	while(nxtptr != NULL && linesused+nxtptr->prtlines < LINES-2) {
+		if (nxtptr->prtlines == 0)
+			JMmsg("JMlnsdwn: Found record with 0 prtlines.  NOT GOOD!!!");
+		linesused=linesused+nxtptr->prtlines;
+		tailptr=nxtptr;
+		nxtptr=nxtptr->next;
+	}
+	/*
+	** If you page foward to the end, point to the
+	** last page in the file.
+	*/
+	if (nxtptr == NULL)
+		return(JMpgbk(tailptr));
+	else
+		return(nxtptr);
+
+}
+struct JSfilerec *
+JMpgbk(curptr)
+struct JSfilerec *curptr;
+{
+	/*
+	** The function returns a pointer to the top of a
+	** page for the previous page.  This function counts
+	** LINES-2 lines Back.
+	** If the operation is not possible, curptr is returned.
+	*/
+	int linesused;
+	struct JSfilerec *nxtptr,*headptr;
+	nxtptr=curptr;
+	headptr=curptr;
+	linesused=0;
+	while(nxtptr != NULL && linesused+nxtptr->prtlines < LINES-2) {
+		linesused=linesused+nxtptr->prtlines;
+		headptr=nxtptr;
+		nxtptr=nxtptr->prev;
+	}
+	/*
+	** If you page back to the beginning, point to the
+	** first record in the file.
+	*/
+	if (nxtptr == NULL)
+		return(headptr);
+	else
+		return(nxtptr->next);
+
+}
+
+struct JSfilerec *
+JMinsert(b,cur,top,head,tail)
+struct bufinfo *b;
+struct JSfilerec *cur,*top;
+struct JSfilerec **head,**tail;
+{
+	LNEDRET lned;
+	struct JSfilerec *nxtptr,*savcurptr;
+
+	/*
+	** Insert one or more lines before the current line (JScurptr).
+	** If the current line is NULL, this implies append the lines
+	** to the end of the file.
+	*/
+	if (cur == NULL)
+		savcurptr = NULL;
+	else
+		savcurptr = cur->prev;
+
+	lned = ENTRY;
+	while (lned == ENTRY) {
+		/* Get memory */
+		nxtptr = JMgetfree();
+		if (nxtptr == NULL) {
+		   JMmsg("JMedit: No more space ");
+		   lned=ESCONLY;
+		   return(top);
+		}
+
+		/* Get input from user */
+		lned=JMlnedit(NULL,b->filename);
+		switch (lned) {
+		case ENTRY_ESC:
+			lned = ESCONLY;
+		case ENTRY:
+			/* insert record into JSfiletab structure */
+			if (cur != NULL) 
+				JMinsrec(cur,head,&b->JSrec_cnt,&b->filechgd,nxtptr,JSlnedtab.line,JSlnedtab.accts);
+			else
+				JMapdrec(head,tail,&b->JSrec_cnt,&b->filechgd,nxtptr,JSlnedtab.line,JSlnedtab.accts);
+			break;
+		case ESCONLY:
+			break;
+		}
+	}
+	/*
+	** If lines were inserted before the first line
+	** on the screen, JStopptr needs adjusting first.
+	*/
+	if (cur == top) {
+		/* if inserted before first line in file */
+		if (savcurptr == NULL) {
+			top = *head;
+		} else {
+			top = savcurptr->next;
+		}
+	}
+	return(top);
+}
+struct JSfilerec *
+JMposcur(curptr,topptr)
+struct JSfilerec *curptr,*topptr;
+{
+	int linesdown;
+	/*
+	** Place the cursor on the line corresponding to curptr.
+	** If the line is not currently on the screen,
+	** redraw the screen placing the line near the bottom.
+	*/
+	struct JSfilerec *newtop;
+
+	newtop = topptr;
+	linesdown=JMlnsdwn(curptr,topptr);
+	if (linesdown > LINES-2-1) {
+		newtop=JMpgbk(curptr);
+		linesdown=JMlnsdwn(curptr,newtop);
+	}
+	JMdspg(newtop);
+	wmove(body,linesdown,0);
+	return(newtop);
+}
+
+struct JSfilerec *
+JMput(b,cur,top,head,tail)
+struct bufinfo *b;
+struct JSfilerec *cur,*top;
+struct JSfilerec **head,**tail;
+{
+	struct JSfilerec *nxtptr,*savcurptr;
+	struct JSyankrec *putptr;
+	/*
+	** Insert one or more lines before the current line (JScurptr).
+	** If the current line is NULL, this implies append the lines
+	** to the end of the file.
+	*/
+	if (cur == NULL)
+		savcurptr = NULL;
+	else
+		savcurptr = cur->prev;
+
+	/* insert before current cursor */
+	putptr = JMygetbeg(b->filename);
+	while (putptr != NULL) {
+		/* Get memory */
+		nxtptr = JMgetfree();
+		if (nxtptr == NULL) {
+	   		JMmsg("JMedit: No more space ");
+	   		return(top);
+		}
+		if (cur != NULL) 
+			JMinsrec(cur,head,&b->JSrec_cnt,&b->filechgd,nxtptr,putptr->line,putptr->prtlines);
+		else
+			JMapdrec(head,tail,&b->JSrec_cnt,&b->filechgd,nxtptr,putptr->line,putptr->prtlines);
+		putptr = JMygetnxt(b->filename);
+	}
+
+	/*
+	** If lines were inserted before the first line
+	** on the screen, JStopptr needs adjusting first.
+	*/
+	if (cur == top) {
+		/* if inserted before first line in file */
+		if (savcurptr == NULL) {
+			top = *head;
+		} else {
+			top = savcurptr->next;
+		}
+	}
+	return(top);
+}
+struct JSfilerec *
+JMsearch(searchstr,start,end)
+char *searchstr;
+struct JSfilerec *start,*end;
+{
+	/*
+	** Search for an exact match for searchstr.
+	** Look from start to end.
+	** Return pointer to record that matches; NULL otherwise.
+	*/
+	int len;
+	char *sptr;
+	FILE *fp;
+	struct JSfilerec *nxtptr;
+     // fprintf(stderr,"JMedit: JMsearch entered\n");
+	if (start == NULL)
+		return(NULL);
+    // fp = fopen("\\search.tmp", "a");
+	len = strlen(searchstr) ;
+	/* For each record */
+	for (nxtptr=start; nxtptr != NULL && nxtptr<=end; nxtptr=nxtptr->next) {
+        // fprintf(fp,"JMedit: %s\n",nxtptr->line); 
+		/* compare searchstr with each string in line */
+		for (sptr = nxtptr->line; *sptr!='\0' && strncmp(sptr,searchstr,len) != 0; sptr++);
+
+		/* if no match sptr == '\0' */
+		if (*sptr != '\0') 
+			return(nxtptr);
+	}
+
+	/* return failure */
+	return(NULL);
+}

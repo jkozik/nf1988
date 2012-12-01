@@ -1,0 +1,473 @@
+#include "curses.h"
+#include <string.h>
+#include <ctype.h>
+#ifndef turboc
+#include <search.h>
+#include <direct.h>
+#include <sys/types.h>
+#endif
+#include <stdlib.h>
+#include <sys/stat.h>
+
+#include "GLdefs.h"
+#include "GLstruct.h"
+#include "GLextern.h"
+
+#include "JSdefs.h"
+#include "JSstruct.h"
+#include "JSextern.h"
+
+LNEDRET
+JMlnedit(curptr,filename)
+struct JSfilerec *curptr;
+char *filename;
+{
+	LE_STATE lnedstate;
+	CHTYPE exitch;
+	int cy,cx;
+	int i;
+	int linecnt;
+	LNEDRET retcode;
+	jebool acctvld,datevld;
+	jebool datefilled,acctfilled;
+	/* INSERT JOURNAL ENTRY */
+	/*
+	** Accept input in the following format:
+	** 01/DD AAA        DDDD.DD
+	**       AAA        DDDD.DD
+	**       AAA                DESCRIPTION
+	** where DD - date between 01 and 31
+	**       AAA - valid account number
+	**       DDDD.DD - amount
+	**       DESC - description can only be entered if amount blank.
+	*/
+
+	/*
+	** Initialize JSlnedtab structure
+	*/
+	JMlnedinit(curptr);
+
+	/*
+	** Main Loop
+	*/
+	getyx(body,cy,cx);
+	if (curptr == NULL) {
+		/* insert */
+		lnedstate = LE_STARTLN;
+	} else {
+		/* update */
+		linecnt=0;
+		lnedstate = LE_DATE;
+		wmove(body,cy,3);
+	}
+	while ( lnedstate != LE_DONE ) {
+	getyx(body,cy,cx);
+	wrefresh(message);
+	wrefresh(body);
+	switch ( lnedstate) {
+	case LE_STARTLN:
+		/*
+		** Start entering a new line:
+		** 1. insert a blank line
+		** 2. print current month
+		*/
+		winsertln(body);
+		mvwprintw(body,cy,0,"%.2s/",filename);
+		lnedstate = LE_DATE;
+		linecnt = 0;
+		break;
+
+	case LE_DATE:
+		/*
+		** Get date
+		*/
+		if (JSlnedtab.day[0] == '\0')
+			datefilled = JEFALSE;
+		else
+			datefilled = JETRUE;
+
+		datevld=JEFALSE;
+		while (datevld == JEFALSE) {
+		   waddstr(message,"Enter Day");
+		   wrefresh(message);
+		   exitch = wfixdfld(body,JSlnedtab.day,SZDAY);
+		   wclear(message);
+
+		   /* exit if ESC pressed */
+		   if (exitch == KEY_ESC && JSlnedtab.day[0] == '\0' && datefilled == JEFALSE) 
+			break;
+
+		   /* validate date */
+		   datevld = JETRUE;
+		   if (!isdigit(JSlnedtab.day[0]))
+			datevld = JEFALSE;
+		   if (!isdigit(JSlnedtab.day[1]))
+			datevld = JEFALSE;
+		   if (strncmp(JSlnedtab.day,"01",SZDAY) < 0)
+			datevld = JEFALSE;
+		   if (strncmp(JSlnedtab.day,"31",SZDAY) > 0)
+			datevld = JEFALSE;
+		   if (datevld == JEFALSE) {
+			waddstr(message,"Invalid Day, ");
+			wmove(body,cy,cx);
+			beep();
+		   }
+		}
+
+		switch ( exitch ) {
+		case KEY_RETURN:
+      case '\0':
+		case KEY_RIGHT:
+		   lnedstate = LE_ACCT;
+		   linecnt = 0;
+		   wmove(body,cy,6);
+		   break;
+
+		case KEY_ESC:
+		   wmove(body,cy-linecnt,0);
+		   lnedstate = LE_DONE;
+		   break;
+
+		case KEY_LEFT:
+		default:
+		   wmove(body,cy,cx);
+		   beep();
+		   break;
+		}
+		wrefresh(message);
+		break;
+
+	case LE_ACCT:
+		/*
+		** Get account  number
+		*/
+		if (JSlnedtab.ln[linecnt].acct[0] == '\0') 
+			acctfilled = JEFALSE;
+		else
+			acctfilled = JETRUE;
+
+		acctvld = JEFALSE;
+		while (acctvld == JEFALSE) {
+		   waddstr(message,"Enter Account Number");
+		   wrefresh(message);
+		   exitch = wacctfld(body,JSlnedtab.ln[linecnt].acct,SZACCT);
+		   wclear(message);
+
+		   /* exit if acct is NULL and ESC is pressed */
+		   if (JSlnedtab.ln[linecnt].acct[0] == '\0' && exitch == KEY_ESC && acctfilled == JEFALSE)
+			break;
+
+		   /* exit if acct is NULL and left arrow is pressed */
+		   if (JSlnedtab.ln[linecnt].acct[0] == '\0' && exitch == KEY_LEFT && acctfilled == JEFALSE)
+			break;
+
+		   /* validate account number */
+		   acctvld=JETRUE;
+		   if (strlen(JSlnedtab.ln[linecnt].acct) != SZACCT) {
+			waddstr(message,"Invalid Account: Must be three digits, ");
+			acctvld=JEFALSE;
+		   } else if (CHvalid(JSlnedtab.ln[linecnt].acct) == NULL) {
+			waddstr(message,"Invalid Account Number, ");
+			acctvld=JEFALSE;
+		   }
+		   if (acctvld == JEFALSE) {
+			wmove(body,cy,10);
+			for (i=0;i < 25;i++) waddch(body,' ');
+			wmove(body,cy,cx);
+			beep();
+		   }
+		} /* End of Validation Loop */
+
+		switch ( exitch ) {
+		case KEY_RETURN:
+      case '\0':
+		case KEY_RIGHT:
+		   lnedstate = LE_AMT;
+		   wmove(body,cy,10);
+		   for (i=0;i < 25;i++) waddch(body,' ');
+		   mvwaddstr(body,cy,10,CHlookup(JSlnedtab.ln[linecnt].acct));
+		   wmove(body,cy,35);
+		   break;
+
+		case KEY_ESC:
+		   wmove(body,cy-linecnt,0);
+		   lnedstate = LE_DONE;
+		   break;
+
+		case KEY_LEFT:
+		   if (linecnt == 0) {
+			lnedstate = LE_DATE;
+			wmove(body,cy,3);
+		   } else {
+			lnedstate = LE_AMT;
+			linecnt--;
+			wmove(body,cy-1,35);
+		   }
+		   break;
+
+		default:
+		   wmove(body,cy,cx);
+		   beep();
+		   break;
+		}
+		wrefresh(message);
+		break;
+
+	case LE_AMT:
+		/*
+		** Get amount  
+		*/
+		waddstr(message,"Enter Amount");
+		wrefresh(message);
+		exitch = wamtfld(body,JSlnedtab.ln[linecnt].amt,SZAMTFLD);
+		wclear(message);
+		switch ( exitch ) {
+		case KEY_RIGHT:
+		case KEY_RETURN:
+		   if (JSlnedtab.ln[linecnt].amt[0] == '\0') {
+			lnedstate = LE_DESC;
+			wmove(body,cy,47);
+			break;
+		   }
+
+      case '\0':
+		   linecnt++;
+		   lnedstate = LE_ACCT;
+		   waddstr(body,"\n\r");
+		   wrefresh(body);
+		   wmove(body,CURY(body),6);
+		   wrefresh(body);
+		   if (JSlnedtab.ln[linecnt].acct[0] == '\0')
+		   	winsertln(body);
+		   	wrefresh(body);
+		   break;
+
+		case KEY_ESC:
+		   wmove(body,cy-linecnt,0);
+		   lnedstate = LE_DONE;
+		   break;
+
+		case KEY_LEFT:
+		   lnedstate = LE_ACCT;
+		   wmove(body,cy,6);
+		   break;
+
+		default:
+		   wmove(body,cy,cx);
+		   beep();
+		   break;
+		}
+		break;
+	case LE_DESC:
+		/*
+		** Get description  
+		*/
+		waddstr(message,"Enter Description");
+		wrefresh(message);
+
+      if (strcmp(JSlnedtab.ln[0].acct,"104") == 0)
+         if (strlen(JSlnedtab.desc) == 0)
+            strcpy(JSlnedtab.desc,"ATM");
+
+		exitch = wfixdfld(body,JSlnedtab.desc,SZDESC);
+		wclear(message);
+		switch ( exitch ) {
+		case KEY_RETURN:
+      case '\0':
+		case KEY_RIGHT:
+		   /* end of current line edit, start new */
+		   waddstr(body,"\n\r");
+		   lnedstate = LE_DONE;
+		   break;
+
+		case KEY_ESC:
+		   wmove(body,cy-linecnt,0);
+		   lnedstate = LE_DONE;
+		   break;
+
+		case KEY_LEFT:
+		   lnedstate = LE_AMT;
+		   wmove(body,cy,35);
+		   break;
+
+		default:
+		   wmove(body,cy,cx);
+		   beep();
+		   break;
+		}
+		break;
+
+	case LE_ENDLN:
+	case LE_DONE:
+	default:
+		fprintf(stderr,"JMinsert: Unexpected line editing state\n");
+		JEinthand(1);
+		break;
+	}
+	}
+
+	/*
+	** Convert the contents of the JMlnedtab structure
+	** into a string like - '0101,-302,12.00;101-,desc...'
+	*/
+	if (JMlnedcvt(filename) == JESUCCESS) {
+		if (exitch == KEY_ESC) {
+			retcode = ENTRY_ESC;
+		} else {
+			retcode = ENTRY;
+		}
+	} else {
+		retcode = ESCONLY;
+	}
+	return(retcode);
+}
+
+int
+JMlnedcvt(filename)
+char *filename;
+{
+	/*
+	** Convert JSlnedtab structure into string format - 0101,-101,12.00;302-
+	** Return JESUCCESS or JEFAIL.
+	** On failure, JSlnedtab.line[0]='\0'
+	*/
+	int i;
+	char line[SZLINE];
+	line[0]='\0';
+	JSlnedtab.line[0]='\0';
+
+	/* copy date */
+	strncpy(line,filename,SZMON);
+	line[SZMON] = '\0';
+	strcat(line,JSlnedtab.day);
+	strcat(line,",-");
+
+	/*
+	** Loop: copy account/amount pairs
+	*/
+	for (i=0; JSlnedtab.ln[i].amt[0] != '\0'; i++) {
+		if (JSlnedtab.ln[i].acct[0] == '\0')
+			return (JEFAIL);
+		strcat(line,JSlnedtab.ln[i].acct);
+		strcat(line,",");
+		strcat(line,JSlnedtab.ln[i].amt);
+		strcat(line,";");
+	}
+	strcat(line,JSlnedtab.ln[i].acct);
+	strcat(line,"-");
+
+	/*
+	** Save count of account numbers
+	*/
+	JSlnedtab.accts = i+1;
+	if (JSlnedtab.accts < 2)
+		return(JEFAIL);
+	
+	/*
+	** Copy descripiton
+	*/
+	if (JSlnedtab.desc[0] != '\0') {
+		strcat(line,",");
+		strcat(line,JSlnedtab.desc);
+	}
+
+	/*
+	** Print 'line' on screen for debugging purposes.
+	winsertln(body);
+	waddstr(body,line);
+	waddstr(body,"\n\r");
+	*/
+
+	strncpy(JSlnedtab.line,line,SZLINE);
+	JSlnedtab.line[SZLINE]='\0';
+	return(JESUCCESS);
+}
+void
+JMlnedinit(curptr)
+struct JSfilerec *curptr;
+{
+	int i,linecnt,amtlen;
+	char *amtend;
+	char *acctptr;
+	char *curline;
+	char *descptr;
+	/* 
+	** Initialize the JSlnedtab structure:
+	** 1. NULL if doing an insert
+	** 2. Update initializes JSlnedtab to the data at curptr.
+	*/
+	/*
+	** Initialize input line working storage area
+	*/
+	*JSlnedtab.day = '\0';
+	*JSlnedtab.desc = '\0';
+	*JSlnedtab.line = '\0';
+	JSlnedtab.accts = 0;
+	for (i=0; i<=MAXACCTS; i++) {
+		*JSlnedtab.ln[i].acct = '\0';
+		*JSlnedtab.ln[i].amt = '\0';
+	}
+	if (curptr == NULL) {
+		return;
+	}
+	/*
+	** First, check if we are pointing at a valid record:
+	** e.g. 0101,-301,12.00;101-,description
+	** 1. check for valid date: 0101,
+	** 2. Check that first account number is valid
+	** 3. Exit from program on error!!!
+	*/
+	curline=curptr->line;
+	if (getjdate(curline)==NULL || getacct(curline+SZDATE+2)==NULL){
+		JMmsg("Display Storage Error...Exiting");
+		JEinthand(1);
+	}
+
+	/*
+	** Find day
+	*/
+	strncpy(JSlnedtab.day,curline+2,SZDAY);
+	JSlnedtab.day[SZDAY] = '\0';
+	
+	/*
+	** Find description
+	*/
+	descptr = getdesc(curline);
+	if (descptr == NULL) {
+		*JSlnedtab.desc='\0';
+	} else {
+		strcpy(JSlnedtab.desc,descptr+1);
+	}
+
+	/*
+	** set number of valid accounts.
+	*/
+	JSlnedtab.accts = curptr->prtlines;
+
+	/*
+	** Loop: find account number/amount pairs
+	*/
+	acctptr=curline+6;
+	linecnt=0;
+	while (*(acctptr+3)==',') {
+		/* Account */
+		strncpy(JSlnedtab.ln[linecnt].acct,acctptr,SZACCT);
+		JSlnedtab.ln[linecnt].acct[SZACCT] = '\0';
+		
+		/* Amount */
+      for (amtlen=0; acctptr[amtlen] != ';' && acctptr[amtlen] != '\0'; amtlen++)
+			;
+		amtend=&acctptr[amtlen];
+		amtlen=amtlen-SZACCT-1;
+		strncpy(JSlnedtab.ln[linecnt].amt,acctptr+SZACCT+1,amtlen);
+		JSlnedtab.ln[linecnt].amt[amtlen] = '\0';
+
+		acctptr=amtend+1;
+		linecnt++;
+	}
+	/* Credit Account */
+	strncpy(JSlnedtab.ln[linecnt].acct,acctptr,SZACCT);
+	JSlnedtab.ln[linecnt].acct[SZACCT] = '\0';
+	JSlnedtab.ln[linecnt].amt[0] = '\0';
+		
+}

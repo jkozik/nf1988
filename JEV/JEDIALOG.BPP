@@ -1,0 +1,355 @@
+// jedialog.cpp : implementation file
+//
+
+#include "stdafx.h"
+#include "jev.h"
+#include "jedialog.h" 
+
+#include "jevdoc.h"
+#include "jevview.h"
+
+#ifdef _DEBUG
+#undef THIS_FILE
+static char BASED_CODE THIS_FILE[] = __FILE__;
+#endif
+
+const MaxStringLen = 30;
+
+/////////////////////////////////////////////////////////////////////////////
+// CJEDialog dialog
+
+
+CJEDialog::CJEDialog(CWnd* pParent /*=NULL*/)
+	: CDialog(CJEDialog::IDD, pParent)
+{   
+	m_LineCount = 0;
+	//{{AFX_DATA_INIT(CJEDialog)
+	m_acct0 = "";
+	m_acct1 = "";
+	m_acct2 = "";
+	m_acct3 = "";
+	m_acct4 = "";
+	m_amt0 = "";
+	m_amt1 = "";
+	m_amt2 = "";
+	m_amt3 = "";
+	m_amt4 = "";
+	m_dd = "";
+	m_desc0 = "";
+	m_desc1 = "";
+	m_desc2 = "";
+	m_desc3 = "";
+	m_desc4 = "";
+	m_jedesc = "";
+	m_mm = "";
+	m_je_desc0 = "";
+	m_je_desc1 = "";
+	m_je_desc2 = "";
+	m_je_desc3 = "";
+	m_je_desc4 = "";
+	//}}AFX_DATA_INIT
+}
+
+void CJEDialog::DoDataExchange(CDataExchange* pDX)
+{
+	CDialog::DoDataExchange(pDX);
+	//{{AFX_DATA_MAP(CJEDialog)
+	DDX_Text(pDX, IDC_EDIT1_ACCT0, m_acct0);
+	DDV_MaxChars(pDX, m_acct0, 3);
+	DDX_Text(pDX, IDC_EDIT1_ACCT1, m_acct1);
+	DDV_MaxChars(pDX, m_acct1, 3);
+	DDX_Text(pDX, IDC_EDIT1_ACCT2, m_acct2);
+	DDV_MaxChars(pDX, m_acct2, 3);
+	DDX_Text(pDX, IDC_EDIT1_ACCT3, m_acct3);
+	DDV_MaxChars(pDX, m_acct3, 3);
+	DDX_Text(pDX, IDC_EDIT1_ACCT4, m_acct4);
+	DDV_MaxChars(pDX, m_acct4, 3);
+	DDX_Text(pDX, IDC_EDIT3_AMT0, m_amt0);
+	DDV_MaxChars(pDX, m_amt0, 10);
+	DDX_Text(pDX, IDC_EDIT3_AMT1, m_amt1);
+	DDV_MaxChars(pDX, m_amt1, 10);
+	DDX_Text(pDX, IDC_EDIT3_AMT2, m_amt2);
+	DDV_MaxChars(pDX, m_amt2, 10);
+	DDX_Text(pDX, IDC_EDIT3_AMT3, m_amt3);
+	DDV_MaxChars(pDX, m_amt3, 10);
+	DDX_Text(pDX, IDC_EDIT3_AMT4, m_amt4);
+	DDV_MaxChars(pDX, m_amt4, 10);
+	DDX_Text(pDX, IDC_EDIT3_DD, m_dd);
+	DDV_MaxChars(pDX, m_dd, 2);
+	DDX_Text(pDX, IDC_STATIC_DESC0, m_desc0);
+	DDV_MaxChars(pDX, m_desc0, 20);
+	DDX_Text(pDX, IDC_STATIC_DESC1, m_desc1);
+	DDV_MaxChars(pDX, m_desc1, 20);
+	DDX_Text(pDX, IDC_STATIC_DESC2, m_desc2);
+	DDV_MaxChars(pDX, m_desc2, 20);
+	DDX_Text(pDX, IDC_STATIC_DESC3, m_desc3);
+	DDV_MaxChars(pDX, m_desc3, 20);
+	DDX_Text(pDX, IDC_STATIC_DESC4, m_desc4);
+	DDV_MaxChars(pDX, m_desc4, 20);
+	DDX_Text(pDX, IDC_STATIC_MM, m_mm);
+	DDV_MaxChars(pDX, m_mm, 2);
+	DDX_Text(pDX, IDC_EDIT2_JE_DESC0, m_je_desc0);
+	DDV_MaxChars(pDX, m_je_desc0, 30);
+	DDX_Text(pDX, IDC_EDIT2_JE_DESC1, m_je_desc1);
+	DDV_MaxChars(pDX, m_je_desc1, 30);
+	DDX_Text(pDX, IDC_EDIT2_JE_DESC2, m_je_desc2);
+	DDV_MaxChars(pDX, m_je_desc2, 30);
+	DDX_Text(pDX, IDC_EDIT2_JE_DESC3, m_je_desc3);
+	DDV_MaxChars(pDX, m_je_desc3, 30);
+	DDX_Text(pDX, IDC_EDIT2_JE_DESC4, m_je_desc4);
+	DDV_MaxChars(pDX, m_je_desc4, 30);
+	//}}AFX_DATA_MAP
+}
+
+BEGIN_MESSAGE_MAP(CJEDialog, CDialog)
+	//{{AFX_MSG_MAP(CJEDialog)
+	ON_EN_CHANGE(IDC_EDIT3_DD, OnChangeEdit3DD)
+	ON_EN_CHANGE(IDC_EDIT1_ACCT0, OnChangeEdit1Acct)
+	ON_EN_CHANGE(IDC_EDIT1_ACCT1, OnChangeEdit1Acct)
+	ON_EN_CHANGE(IDC_EDIT1_ACCT2, OnChangeEdit1Acct)
+	ON_EN_CHANGE(IDC_EDIT1_ACCT3, OnChangeEdit1Acct)
+	ON_EN_CHANGE(IDC_EDIT1_ACCT4, OnChangeEdit1Acct)
+	ON_EN_SETFOCUS(IDC_EDIT1_ACCT0, OnSetfocusEdit1Acct)
+	ON_EN_SETFOCUS(IDC_EDIT1_ACCT1, OnSetfocusEdit1Acct)
+	ON_EN_SETFOCUS(IDC_EDIT1_ACCT2, OnSetfocusEdit1Acct)
+	ON_EN_SETFOCUS(IDC_EDIT1_ACCT3, OnSetfocusEdit1Acct)
+	ON_EN_SETFOCUS(IDC_EDIT1_ACCT4, OnSetfocusEdit1Acct)
+	ON_EN_KILLFOCUS(IDC_EDIT1_ACCT0, OnKillfocusEdit1Acct)
+	ON_EN_KILLFOCUS(IDC_EDIT1_ACCT1, OnKillfocusEdit1Acct)
+	ON_EN_KILLFOCUS(IDC_EDIT1_ACCT2, OnKillfocusEdit1Acct)
+	ON_EN_KILLFOCUS(IDC_EDIT1_ACCT3, OnKillfocusEdit1Acct)
+	ON_EN_KILLFOCUS(IDC_EDIT1_ACCT4, OnKillfocusEdit1Acct)
+	ON_EN_CHANGE(IDC_EDIT3_AMT0, OnChangeEdit3Amt)
+	ON_EN_CHANGE(IDC_EDIT3_AMT1, OnChangeEdit3Amt)
+	ON_EN_CHANGE(IDC_EDIT3_AMT2, OnChangeEdit3Amt)
+	ON_EN_CHANGE(IDC_EDIT3_AMT3, OnChangeEdit3Amt)
+	ON_EN_CHANGE(IDC_EDIT3_AMT4, OnChangeEdit3Amt)
+	ON_EN_SETFOCUS(IDC_EDIT3_AMT0, OnSetfocusEdit3Amt)
+	ON_EN_SETFOCUS(IDC_EDIT3_AMT1, OnSetfocusEdit3Amt)
+	ON_EN_SETFOCUS(IDC_EDIT3_AMT2, OnSetfocusEdit3Amt)
+	ON_EN_SETFOCUS(IDC_EDIT3_AMT3, OnSetfocusEdit3Amt)
+	ON_EN_SETFOCUS(IDC_EDIT3_AMT4, OnSetfocusEdit3Amt)
+	ON_EN_KILLFOCUS(IDC_EDIT3_AMT0, OnKillfocusEdit3Amt)
+	ON_EN_KILLFOCUS(IDC_EDIT3_AMT1, OnKillfocusEdit3Amt)
+	ON_EN_KILLFOCUS(IDC_EDIT3_AMT2, OnKillfocusEdit3Amt)
+	ON_EN_KILLFOCUS(IDC_EDIT3_AMT3, OnKillfocusEdit3Amt)
+	ON_EN_KILLFOCUS(IDC_EDIT3_AMT4, OnKillfocusEdit3Amt)
+	ON_EN_SETFOCUS(IDC_EDIT3_DD, OnSetfocusEdit3Dd)
+	ON_EN_KILLFOCUS(IDC_EDIT3_DD, OnKillfocusEdit3Dd)
+	//}}AFX_MSG_MAP
+END_MESSAGE_MAP()
+
+
+/////////////////////////////////////////////////////////////////////////////
+// CJEDialog message handlers 
+#define GETACCT( index, acct ) \
+		TRACE("GETACCT\n" ); \
+		acct = m_acct##index;
+				
+#define ENABLESHOW( index ) \
+		TRACE("ENABLESHOW: index\n"); \
+		TRACE("ENABLESHOW: acct\n"); \
+		GetDlgItem( IDC_EDIT1_ACCT##index ) -> EnableWindow(); \
+		GetDlgItem( IDC_EDIT1_ACCT##index ) -> ShowWindow(SW_SHOW); \
+		TRACE("ENABLESHOW: desc\n"); \
+		GetDlgItem( IDC_STATIC_DESC##index ) -> EnableWindow(); \
+		GetDlgItem( IDC_STATIC_DESC##index ) -> ShowWindow(SW_SHOW); \
+		TRACE("ENABLESHOW: amt\n"); \
+		GetDlgItem( IDC_EDIT3_AMT##index ) -> EnableWindow(); \
+		GetDlgItem( IDC_EDIT3_AMT##index ) -> ShowWindow(SW_SHOW); 
+		
+#define BOTTOMENABLESHOW( index ) \
+		GetDlgItem( IDC_EDIT1_ACCT##index ) -> EnableWindow(); \
+		GetDlgItem( IDC_EDIT1_ACCT##index ) -> ShowWindow(SW_SHOW); \
+		GetDlgItem( IDC_EDIT2_JE_DESC##index ) -> EnableWindow(); \
+		GetDlgItem( IDC_EDIT2_JE_DESC##index ) -> ShowWindow( SW_SHOW ); \
+		GetDlgItem( IDC_STATIC_DESC##index ) -> EnableWindow( FALSE ); \
+		GetDlgItem( IDC_STATIC_DESC##index ) -> ShowWindow( SW_SHOW ); \
+		GetDlgItem( IDC_EDIT3_AMT##index ) -> EnableWindow( FALSE ); \
+		GetDlgItem( IDC_EDIT3_AMT##index ) -> ShowWindow( SW_HIDE ); 
+
+BOOL CJEDialog::OnInitDialog()
+{
+	
+	
+	TRACE( "CJEDialog::OnInitDialog() Entered\n");
+	
+	CString sText,acct;
+//	char s[ MaxStringLen + 1 ];
+	int i;
+	
+	GetDlgItem( IDC_EDIT3_DD)->SetFocus( );
+	GetDlgItem( IDC_EDIT3_DD)->EnableWindow();
+	GetDlgItem( IDC_EDIT3_DD)->ShowWindow( SW_SHOWNA );
+	if( m_dd == "" ) return CDialog::OnInitDialog();
+	
+	GETACCT( 0, acct);
+	for( i=0; acct !=""; i++ ) {
+		switch (i) {
+		case 0: ENABLESHOW( 0 ); GETACCT( 1, acct); break;
+		case 1: ENABLESHOW( 1 ); GETACCT( 2, acct); break;
+		case 2: ENABLESHOW( 2 ); GETACCT( 3, acct); break;
+		case 3: ENABLESHOW( 3 ); GETACCT( 4, acct); break;
+		case 4: ENABLESHOW( 4 ); acct = ""; break; 
+		default: break;
+		}
+	}
+	switch ( i-1 ) {
+		case 1: BOTTOMENABLESHOW( 1 ); break;	
+		case 2: BOTTOMENABLESHOW( 2 ); break;	
+		case 3: BOTTOMENABLESHOW( 3 ); break;	
+		case 4: BOTTOMENABLESHOW( 4 ); break;	
+		default: break;
+	}		
+	
+	CRect rectDial;
+	CWindowDC dc( this );
+	dc.SelectObject( hFont );
+	
+    char szFaceName[30];
+    dc.GetTextFace( sizeof szFaceName, szFaceName );
+    TRACE("OnInitDialog: FaceName='%s'\n", szFaceName );
+                     
+
+	TEXTMETRIC tm;
+	dc.GetTextMetrics( &tm );
+    TRACE("OnInitDialog: tmHeight=%d, tmAveCharWidth=%d\n",
+    	tm.tmHeight, tm.tmAveCharWidth);
+
+
+	CRect rectWin, rectClient;
+	int cyBorder;
+	GetWindowRect( rectWin );
+	GetClientRect( rectClient );
+	cyBorder = rectWin.bottom-rectWin.top - ( rectClient.bottom-rectClient.top);
+    TRACE( "OnInitDialog: cyBorder=%d\n", cyBorder );                     
+    
+    DWORD lDlgBaseUnits;                             
+    int cyHeight;
+    lDlgBaseUnits = GetDialogBaseUnits();
+    cyHeight = HIWORD( lDlgBaseUnits );
+    TRACE( "OnInitDialog: cyHeight=%d\n", cyHeight );
+	
+	WINDOWPLACEMENT FAR WndPl;
+	WndPl.length = sizeof WndPl;
+	GetWindowPlacement( &WndPl );    
+	rectDial = WndPl.rcNormalPosition;
+	TRACE( "OnInitDialog: rcNormalPosition rectDial.left=%d, .right=%d, top=%d, bottom=%d\n",
+			rectDial.left,rectDial.right, rectDial.top, rectDial.bottom );
+    WndPl.rcNormalPosition.bottom = m_LineCount*tm.tmHeight+
+    								WndPl.rcNormalPosition.top + cyBorder;
+	TRACE( "OnInitDialog: WndPl.rcNormalPosition .left=%d, .right=%d, top=%d, bottom=%d\n",
+			WndPl.rcNormalPosition.left,WndPl.rcNormalPosition.right, WndPl.rcNormalPosition.top, WndPl.rcNormalPosition.bottom );
+	SetWindowPlacement( &WndPl );
+	    
+	GetWindowRect( rectDial );
+	TRACE( "OnInitDialog: GetWindowRect rectDial.left=%d, .right=%d, top=%d, bottom=%d\n",
+			rectDial.left,rectDial.right, rectDial.top, rectDial.bottom );
+
+	GetClientRect( rectDial );
+	TRACE( "OnInitDialog: GetClientRect rectDial.left=%d, .right=%d, top=%d, bottom=%d\n",
+			rectDial.left,rectDial.right, rectDial.top, rectDial.bottom );
+	
+	TRACE( "CJEDialog::OnInitDialog() Leaving\n");
+	
+	return CDialog::OnInitDialog();  // return TRUE  unless you set the focus to a control
+}  
+
+void CJEDialog::OnSetFont( CFont* pFont )
+{    
+	TRACE("OnSetFont: Entering\n");
+              
+	TRACE("OnSetFont: Leaving\n");
+}
+
+
+
+void CJEDialog::OnChangeEdit3DD()
+{   
+	CString sDD;
+	const MSG* pMsg;
+	CWnd* pDlgItem;
+	
+	pDlgItem = GetDlgItem( IDC_EDIT3_DD);
+	pDlgItem->GetWindowText( sDD );
+	TRACE("OnChangeEdit3DD:  sDD='%s'\n", sDD );  
+	pMsg = GetCurrentMessage();
+	TRACE("OnChangeEdit3DD: wParam='%d'\n", pMsg->wParam );
+
+    switch( sDD.GetLength() ) {
+      case 1:
+    	if( sDD[0] != '0' && sDD[0] != '1' ) {
+    		MessageBeep( -1 );
+    		pDlgItem->SetWindowText( "" );
+    	}
+      case 2:
+    	NextDlgCtrl();
+    }		
+    		
+}	
+
+
+void CJEDialog::OnChangeEdit1Acct()
+{
+	// TODO: Add your control notification handler code here 
+	TRACE("OnChangeEdit1Acct: Entering\n");
+	
+	const MSG* pMsg;
+	WPARAM wCurrentId;
+	CString sAcct;
+	
+	pMsg = GetCurrentMessage();
+	wCurrentId = pMsg->wParam; 
+	GetDlgItem( wCurrentId ) -> GetWindowText( sAcct );
+	TRACE("OnChangeEdit1Acct: sAcct='%s'\n", sAcct );
+	if( sAcct.GetLength() == 3) NextDlgCtrl();
+	
+	
+	
+	
+	TRACE("OnChangeEdit1Acct: Leaving\n");
+	
+}
+
+void CJEDialog::OnChangeEdit3Amt()
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CJEDialog::OnSetfocusEdit1Acct()
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CJEDialog::OnKillfocusEdit1Acct()
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+
+void CJEDialog::OnSetfocusEdit3Amt()
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CJEDialog::OnKillfocusEdit3Amt()
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CJEDialog::OnSetfocusEdit3Dd()
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CJEDialog::OnKillfocusEdit3Dd()
+{
+	// TODO: Add your control notification handler code here
+	
+}

@@ -1,0 +1,2330 @@
+Stack Allocation = 2048 bytes
+
+ Start  Stop   Length Name                   Class
+ 00000H 01076H 01077H JSEDIT_TEXT            CODE
+ 01078H 0175FH 006E8H CHVALID_TEXT           CODE
+ 01760H 02552H 00DF3H GDREPORT_TEXT          CODE
+ 02554H 029A8H 00455H GLENV_TEXT             CODE
+ 029AAH 03303H 0095AH GLJEFILE_TEXT          CODE
+ 03304H 037C9H 004C6H JEGLSORT_TEXT          CODE
+ 037CAH 04433H 00C6AH JEVALINP_TEXT          CODE
+ 04434H 092B2H 04E7FH JMAARPT_TEXT           CODE
+ 092B4H 09DC7H 00B14H JMACCTFL_TEXT          CODE
+ 09DC8H 0A5EAH 00823H JMANALDT_TEXT          CODE
+ 0A5ECH 0CD37H 0274CH JMEDIT_TEXT            CODE
+ 0CD38H 0F08DH 02356H JMFILE_TEXT            CODE
+ 0F08EH 10D67H 01CDAH JMFLD_TEXT             CODE
+ 10D68H 11F8DH 01226H JMGLRPT_TEXT           CODE
+ 11F8EH 12FB9H 0102CH JMLNEDIT_TEXT          CODE
+ 12FBAH 1331FH 00366H JMPREGL_TEXT           CODE
+ 13320H 147D1H 014B2H JMREPORT_TEXT          CODE
+ 147D2H 14A70H 0029FH JMYANK_TEXT            CODE
+ 14A72H 14F9FH 0052EH JMSTKDTL_TEXT          CODE
+ 14FA0H 15162H 001C3H ADDCH_TEXT             CODE
+ 15163H 15232H 000D0H BEEP_TEXT              CODE
+ 15233H 15260H 0002EH BOX_TEXT               CODE
+ 15261H 1529DH 0003DH CLEAR_TEXT             CODE
+ 1529EH 15321H 00084H CLRTOBOT_TEXT          CODE
+ 15322H 15417H 000F6H DELETELN_TEXT          CODE
+ 15418H 1543BH 00024H ENDWIN_TEXT            CODE
+ 1543CH 15576H 0013BH GETCH_TEXT             CODE
+ 15577H 15606H 00090H INITSCR_TEXT           CODE
+ 15607H 156E2H 000DCH INSERTLN_TEXT          CODE
+ 156E4H 1A014H 04931H _TEXT                  CODE
+ 1A015H 1A055H 00041H MOVE_TEXT              CODE
+ 1A056H 1A269H 00214H NEWWIN_TEXT            CODE
+ 1A26AH 1A3E3H 0017AH PRINTW_TEXT            CODE
+ 1A3E4H 1A6CFH 002ECH REFRESH_TEXT           CODE
+ 1A6D0H 1A709H 0003AH TOUCHWIN_TEXT          CODE
+ 1A70AH 1A738H 0002FH WINFLAG_TEXT           CODE
+ 1A739H 1A79DH 00065H CLRTOEOL_TEXT          CODE
+ 1A79EH 1AB2DH 00390H DOUPDATE_TEXT          CODE
+ 1AB2EH 1AB96H 00069H ERASE_TEXT             CODE
+ 1AB97H 1AED7H 00341H NEWLIB_TEXT            CODE
+ 1AED8H 1AF84H 000ADH REWRITE_TEXT           CODE
+ 1AF85H 1B0F6H 00172H SCROLL_TEXT            CODE
+ 1B0F7H 1B0F7H 00000H VERSION_TEXT           CODE
+ 1B100H 1B101H 00002H EMULATOR_TEXT          CODE
+ 1B102H 1C18FH 0108EH ENTRY_TEXT             CODE
+ 1C190H 1C5D5H 00446H IBMPC_TEXT             CODE
+ 1C5D6H 1C9BEH 003E9H QHELP_TEXT             CODE
+ 1C9C0H 1E2F5H 01936H QWINDOW_TEXT           CODE
+ 1E2F6H 1E2F6H 00000H C_ETEXT                ENDCODE
+ 1E300H 1E300H 00000H EMULATOR_DATA          FAR_DATA
+ 1E300H 1E317H 00018H ENTRY_DATA             FAR_DATA
+ 1E318H 1E318H 00000H ENTRY_CONST            FAR_DATA
+ 1E318H 1E318H 00000H ENTRY_BSS              FAR_DATA
+ 1E318H 1E318H 00000H IBMPC_DATA             FAR_DATA
+ 1E318H 1E318H 00000H IBMPC_CONST            FAR_DATA
+ 1E318H 1E318H 00000H IBMPC_BSS              FAR_DATA
+ 1E318H 1E318H 00000H QHELP_DATA             FAR_DATA
+ 1E318H 1E318H 00000H QHELP_CONST            FAR_DATA
+ 1E318H 1E318H 00000H QHELP_BSS              FAR_DATA
+ 1E318H 1E353H 0003CH QWINDOW_DATA           FAR_DATA
+ 1E354H 1E354H 00000H QWINDOW_CONST          FAR_DATA
+ 1E354H 1E354H 00000H QWINDOW_BSS            FAR_DATA
+ 1E354H 1E354H 00000H $$LIN                  DEBLIN
+ 1E354H 1E354H 00000H $$LIN                  DEBLIN
+ 1E354H 1E354H 00000H $$LIN                  DEBLIN
+ 1E354H 1E354H 00000H $$LIN                  DEBLIN
+ 1E360H 29729H 0B3CAH FAR_BSS                FAR_BSS
+ 29730H 3972FH 10000H HUGE_BSS               HUGE_BSS
+ 39730H 3CF4BH 0381CH HUGE_BSS               HUGE_BSS
+ 3CF50H 3CF91H 00042H NULL                   BEGDATA
+ 3CF92H 408E9H 03958H _DATA                  DATA
+ 408EAH 408EBH 00002H XIQC                   DATA
+ 408ECH 408F7H 0000CH DBDATA                 DATA
+ 408F8H 40905H 0000EH CDATA                  DATA
+ 40906H 40906H 00000H XIFB                   DATA
+ 40906H 40906H 00000H XIF                    DATA
+ 40906H 40906H 00000H XIFE                   DATA
+ 40906H 40906H 00000H XIB                    DATA
+ 40906H 40906H 00000H XI                     DATA
+ 40906H 40906H 00000H XIE                    DATA
+ 40906H 40906H 00000H XPB                    DATA
+ 40906H 40909H 00004H XP                     DATA
+ 4090AH 4090AH 00000H XPE                    DATA
+ 4090AH 4090AH 00000H XCB                    DATA
+ 4090AH 4090AH 00000H XC                     DATA
+ 4090AH 4090AH 00000H XCE                    DATA
+ 4090AH 4090AH 00000H XCFB                   DATA
+ 4090AH 4090AH 00000H XCFCRT                 DATA
+ 4090AH 4090AH 00000H XCF                    DATA
+ 4090AH 4090AH 00000H XCFE                   DATA
+ 4090AH 4090AH 00000H XIFCB                  DATA
+ 4090AH 4090AH 00000H XIFU                   DATA
+ 4090AH 4090AH 00000H XIFL                   DATA
+ 4090AH 4090AH 00000H XIFM                   DATA
+ 4090AH 4090AH 00000H XIFCE                  DATA
+ 4090AH 4090DH 00004H EXEC                   DATA
+ 4090EH 409E7H 000DAH CONST                  CONST
+ 409E8H 409EFH 00008H HDR                    MSG
+ 409F0H 40AC5H 000D6H MSG                    MSG
+ 40AC6H 40AC7H 00002H PAD                    MSG
+ 40AC8H 40AC8H 00001H EPAD                   MSG
+ 40ACAH 40D53H 0028AH _BSS                   BSS
+ 40D54H 40D54H 00000H XOB                    BSS
+ 40D54H 40D54H 00000H XO                     BSS
+ 40D54H 40D54H 00000H XOE                    BSS
+ 40D54H 40D54H 00000H XOFB                   BSS
+ 40D54H 40D54H 00000H XOF                    BSS
+ 40D54H 40D54H 00000H XOFE                   BSS
+ 40D60H 4110BH 003ACH c_common               BSS
+ 41110H 4190FH 00800H STACK                  STACK
+
+ Origin   Group
+ 3CF5:0   DGROUP
+
+  Address         Publics by Name
+
+ 3CF5:3F20       _a11_chgd
+ 3CF5:3F22       _a12_chgd
+ 3CF5:4146       _aafp
+ 156E:2956       _abs
+ 029A:030A       _acctcmp
+ 3CF5:3ECE       _acct_chgd
+ 1C9C:1432       _acline
+ 3CF5:414E       _analfp
+ 156E:2078       _asctime
+ 156E:1B4A       _atoi
+ 156E:1B4E       _atol
+ 3CF5:397C       _attrib
+ 3CF5:3E62       _b1
+ 1516:0003       _beep
+ 3CF5:40D4       _body
+ 1523:0003       _box
+ 156E:2964       _bsearch
+ 0443:4892       _car
+ 3CF5:3E46       _carcnt
+ 1E36:2B56       _cartab
+ 0443:4DC6       _car_init
+ 3CF5:40EE       _chartbord
+ 1E36:6B02       _charttab
+ 3CF5:411E       _charttext
+ 3CF5:40EC       _chcuridx
+ 3CF5:3EDE       _chcursubacct
+ 0107:0654       _CHgetfst
+ 0107:0672       _CHgetnxt
+ 0107:0008       _CHload
+ 0107:0612       _CHlookup
+ 3CF5:410E       _chrec_cnt
+ 0107:06BE       _CHsubacct
+ 0107:056A       _CHvalid
+ 156E:1D90       _clearerr
+ 1C9C:18F7       _clear_message
+ 1C19:00D2       _clear_screen
+ 1B10:033C       _clear_template
+ 1C9C:05A3       _clear_window
+ 1C9C:049A       _close_all
+ 3CF5:312A       _COLS
+ 3CF5:3E3B       _cura11
+ 3CF5:3E38       _cura12
+ 3CF5:3EC6       _curacct
+ 3CF5:40DE       _curcracct
+ 3CF5:3EB8       _curmon
+ 3CF5:4082       _curmonidx
+ 1C19:0048       _curr_cursor
+ 3CF5:3132       _curscr
+ 1C19:0000       _cursor
+ 3CF5:4126       _cwdstr
+ 1B10:0D46       _data_entry
+ 3CF5:40FA       _DEheadon
+ 1C9C:04F7       _delete_window
+ 3CF5:3EC0       _DElinespage
+ 1C9C:0417       _display_window
+ 1A79:018C       _doupdate
+ 1AB9:0121       _drawbox
+ 3CF5:3B7A       _edata
+ 3CF5:41C0       _end
+ 1541:0008       _endwin
+ 3CF5:326E       _errno
+ 1C9C:17FE       _error_message
+ 1B10:0082       _establish_field
+ 1C9C:0000       _establish_window
+ 3CF5:3996       _ewnd
+ 156E:0365       _exit
+ 156E:07B0       _fclose
+ 156E:0ECC       _fflush
+ 156E:1DCE       _fgets
+ 1B10:02B0       _field_tally
+ 1B10:0308       _field_window
+ 1516:0021       _flash
+ 156E:08B2       _fopen
+ 3CF5:398C       _force_mono
+ 156E:08CE       _fprintf
+ 156E:1568       _fputc
+ 156E:1E48       _fputs
+ 3CF5:4100       _froot
+ 156E:4522       _fseek
+ 156E:45A2       _ftell
+ 156E:090E       _fwrite
+ 3CF5:4116       _GDaarpt
+ 3CF5:3EE0       _GDanal
+ 0176:0964       _GDcurdn
+ 0176:08DE       _GDcurup
+ 0176:0D3C       _GDdefine
+ 0176:04A6       _GDdspg
+ 0176:0664       _GDend
+ 3CF5:3ECA       _GDglrpt
+ 0176:0624       _GDhome
+ 0176:0000       _GDload
+ 0176:06EC       _GDpgdn
+ 0176:07FA       _GDpgup
+ 0176:09F0       _GDsearch
+ 3CF5:4152       _GDstkdtl
+ 0176:0DB8       _GDundef
+ 0176:03A4       _GDunload
+ 037C:0948       _getacct
+ 037C:0A44       _getamt
+ 037C:0824       _getdesc
+ 1C19:034D       _getdta
+ 156E:1BC4       _getenv
+ 037C:0714       _getjdate
+ 1C19:025F       _get_char
+ 1C9C:0D80       _get_selection
+ 10D6:014A       _GLctrlbrk
+ 0255:0004       _GLenvsetup
+ 10D6:1088       _GLfinals
+ 3CF5:3ED2       _glfp
+ 10D6:008C       _GLheadchk
+ 10D6:0CB0       _GLinit
+ 029A:0388       _GLjedel
+ 029A:0516       _GLjegetnxt
+ 029A:01A2       _GLjeins
+ 029A:000A       _GLjeopen
+ 029A:0736       _GLjeparse
+ 10D6:0B74       _GLnewheads
+ 10D6:0EA0       _GLprtdtl
+ 10D6:026C       _GLsubtotals
+ 0255:036A       _GLuptodate
+ 156E:214C       _gmtime
+ 3CF5:40FC       _grand
+ 3CF5:41AE       _grandcr
+ 3CF5:41AA       _granddr
+ 3CF5:3E34       _headje
+ 3CF5:3F1A       _head_prt
+ 1C5D:02A6       _help
+ 3CF5:3988       _helpfp
+ 3CF5:3EB4       _helpfunc
+ 3CF5:3982       _helping
+ 3CF5:3980       _helpkey
+ 3CF5:4156       _helpname
+ 1C9C:0556       _hide_window
+ 1557:0007       _initscr
+ 1B10:0002       _init_template
+ 3CF5:397A       _insert_mode
+ 09DC:02C6       _JEanalrpt
+ 3CF5:3EE4       _jefields
+ 1E36:A662       _jefiletab
+ 3CF5:414A       _jefld_ptr
+ 0330:03F0       _JEglscmp
+ 0330:0004       _JEglsort
+ 12FB:0088       _JEinpchk
+ 0255:0300       _JEinthand
+ 09DC:0770       _JEsfix2s
+ 14A7:008C       _JEstkdtl
+ 037C:000A       _JEvalinp
+ 0443:0004       _JMaarpt
+ 09DC:0008       _JManaldtl
+ 0CD3:14E2       _JMapdrec
+ 092B:0996       _JMchhelp
+ 0CD3:12A0       _JMdelrec
+ 0A5E:18AC       _JMdspg
+ 0A5E:19A2       _JMdsrec
+ 0A5E:000C       _JMedit
+ 0CD3:0008       _JMfile
+ 0CD3:148E       _JMgetfree
+ 10D6:0008       _JMglrpt
+ 3CF5:3F80       _JMheadon
+ 0A5E:2174       _JMinsert
+ 0CD3:165E       _JMinsrec
+ 3CF5:3E52       _JMlinespage
+ 11F8:0AA8       _JMlnedcvt
+ 11F8:0CAE       _JMlnedinit
+ 11F8:000E       _JMlnedit
+ 0A5E:17EC       _JMlnsdwn
+ 0CD3:077A       _JMload
+ 0000:1030       _JMmsg
+ 0CD3:108E       _JMnew
+ 0A5E:2074       _JMpgbk
+ 0A5E:1F58       _JMpgfwd
+ 0A5E:2388       _JMposcur
+ 12FB:000A       _JMpregl
+ 0000:0FF8       _JMprtbody
+ 3CF5:3E16       _JMpsetup
+ 0A5E:241C       _JMput
+ 1332:0C82       _JMrepdisp
+ 1332:0000       _JMreport
+ 1332:03CC       _JMreprd
+ 0CD3:1918       _JMsave
+ 0A5E:2656       _JMsearch
+ 1332:1072       _JMsettings
+ 0000:08A2       _JMstart
+ 14A7:0002       _JMstkdtl
+ 0CD3:1D08       _JMudclr
+ 0CD3:1B44       _JMudsave
+ 0CD3:1EE4       _JMundo
+ 1332:1196       _JMwrprtsu
+ 147D:0002       _JMyank
+ 147D:0128       _JMygetbeg
+ 147D:01A6       _JMygetnxt
+ 0000:0B4C       _JSdspmenu
+ 2973:0064       _JSfiletab
+ 1E36:1518       _JSlnedtab
+ 0000:0F22       _JSnotyet
+ 3CF5:3F24       _JSpregluptodate
+ 3CF5:3EBE       _JSrecend
+ 3CF5:40E2       _JSubot
+ 1E36:0000       _JSundotab
+ 3CF5:4122       _JSutop
+ 1E36:172E       _JSyanktab
+ 3CF5:40D8       _JSycnt
+ 3CF5:40F6       _JSynxt
+ 3CF5:40F8       _lastidx
+ 3CF5:3F82       _line
+ 3CF5:41A8       _linecnt
+ 3CF5:312C       _LINES
+ 3CF5:40EA       _linesperpg
+ 3CF5:398E       _listhead
+ 3CF5:3992       _listtail
+ 1C5D:0006       _load_help
+ 156E:22EC       _localtime
+ 0000:0000       _main
+ 3CF5:3EBC       _maxmon
+ 156E:2894       _memcpy
+ 156E:481C       _memmove
+ 3CF5:4108       _menuline
+ 3CF5:4110       _message
+ 3CF5:3E48       _monlincnt
+ 3CF5:0724       _months
+ 3CF5:3E14       _mon_chgd
+ 1A26:00A0       _mvprintw
+ 1A26:011A       _mvwprintw
+ 1A05:0006       _newwin
+ 3CF5:4114       _pagecnt
+ 156E:012F       _pc_uptype
+ 1C19:03AA       _peek
+ 1C19:03DE       _peekb
+ 156E:1C5A       _perror
+ 1C19:0412       _poke
+ 3CF5:3F26       _prevb1
+ 1A26:000A       _printw
+ 3CF5:4196       _prompt
+ 3CF5:4084       _prtstr
+ 156E:1568       _putc
+ 156E:1560       _putchar
+ 1C9C:0F96       _qscroll
+ 156E:2AF2       _qsort
+ 1E36:6076       _recptr
+ 156E:4018       _remove
+ 156E:39F8       _rename
+ 3CF5:3E54       _rg
+ 3CF5:3E4E       _runamt
+ 1AF8:0005       _scroll
+ 1C19:0223       _scroll_lock
+ 3CF5:419E       _searchstr
+ 156E:0089       _setcursor
+ 1C19:02FB       _setdta
+ 1C9C:0232       _set_border
+ 1C9C:026C       _set_colors
+ 1C19:0096       _set_cursor_type
+ 1C5D:0241       _set_help
+ 1C9C:0345       _set_intensity
+ 1C9C:03B9       _set_title
+ 1AB9:0007       _shadowwin
+ 156E:2D0E       _signal
+ 3CF5:397E       _snowing
+ 1B10:0C13       _spaces
+ 156E:1EAA       _sprintf
+ 3CF5:410C       _state
+ 3CF5:312E       _stdscr
+ 3CF5:419A       _stkdtlfp
+ 3CF5:32B4       _STKHQQ
+ 156E:1A10       _strcat
+ 156E:278A       _strchr
+ 156E:1AA0       _strcmp
+ 156E:1A64       _strcpy
+ 156E:1ACA       _strlen
+ 156E:1B0E       _strncmp
+ 156E:1AE4       _strncpy
+ 156E:2836       _strpbrk
+ 156E:2802       _strrchr
+ 3CF5:3EC4       _subacct
+ 156E:3764       _system
+ 3CF5:41B2       _tickerstr
+ 156E:2412       _time
+ 3CF5:3F7C       _tota11
+ 3CF5:40E6       _tota11cr
+ 3CF5:3EDA       _tota11dr
+ 3CF5:3F78       _tota12
+ 3CF5:40DA       _tota12cr
+ 3CF5:3ED6       _tota12dr
+ 3CF5:3F1C       _totacct
+ 3CF5:3E42       _totacctcr
+ 3CF5:3E3E       _totacctdr
+ 3CF5:40F2       _totamt
+ 3CF5:4104       _totmon
+ 3CF5:3E10       _totmoncr
+ 3CF5:411A       _totmondr
+ 1A6D:0000       _touchwin
+ 1332:10BE       _validate_headon
+ 1332:112E       _validate_lines
+ 1332:1176       _validate_psetup
+ 1C19:015C       _video_address
+ 1C19:0124       _vmode
+ 3CF5:3ED0       _VSG
+ 156E:1F14       _vsprintf
+ 092B:0004       _wacctfld
+ 14FA:003A       _waddch
+ 14FA:0000       _waddstr
+ 0F08:1240       _wamtfld
+ 1526:0001       _wclear
+ 1529:000E       _wclrtobot
+ 1A73:0009       _wclrtoeol
+ 1E31:0008       _wcs
+ 1C9C:0D00       _wcursor
+ 1532:0002       _wdeleteln
+ 1AB2:000E       _werase
+ 0F08:0956       _wfixdfld
+ 1543:000C       _wgetch
+ 0F08:000E       _wgetfld
+ 1560:0007       _winsertln
+ 1A01:0005       _wmove
+ 1A79:000E       _wnoutrefresh
+ 1C9C:0AED       _wprintf
+ 1A26:0059       _wprintw
+ 1332:0FFA       _wprmtafld
+ 0CD3:1810       _wprmtch
+ 0CD3:18A0       _wprmtfld
+ 1B10:1059       _wprompt
+ 1C9C:0B7E       _wputchar
+ 1A3E:0004       _wrefresh
+ 1AB9:02FE       _wrelmove
+ 3CF5:3E4A       _year
+ 3CF5:32B0       __aaltstkovr
+ 156E:3836       __access
+ 3CF5:3252       __acfinfo
+ 0000:9876  Abs  __acrtmsg
+ 0000:9876  Abs  __acrtused
+ 0000:D6D6  Abs  __aDBdoswp
+ 3CF5:32AC       __adbgmsg
+ 3CF5:3234       __aexit_rtn
+ 156E:490A       __aFahdiff
+ 156E:0440       __aFchkstk
+ 156E:4074       __aFldiv
+ 156E:410E       __aFlmul
+ 156E:4140       __aFlrem
+ 156E:41E0       __aFlshl
+ 156E:410E       __aFulmul
+ 0000:1000  Abs  __AHINCR
+ 0000:000C  Abs  __AHSHIFT
+ 3CF5:3260       __aintdiv
+ 1A05:00A0       __allocwin
+ 3CF5:352C       __amblksiz
+ 156E:026E       __amsg_exit
+ 3CF5:0042       __anullsize
+ 3CF5:324C       __aseghi
+ 3CF5:324E       __aseglo
+ 3CF5:3236       __asizds
+ 3CF5:354E       __asizeC
+ 3CF5:354F       __asizeD
+ 156E:018A       __astart
+ 3CF5:3232       __atopsp
+ 156E:1FD6       __bdos
+ 156E:48E6       __bios_keybrd
+ 156E:1B52       __catox
+ 156E:2E9C       __cenvarg
+ 156E:0374       __cexit
+ 3CF5:352E       __cfltcvt_tab
+ 3CF5:32D2       __cflush
+ 156E:385F       __chdir
+ 156E:38A0       __chdrive
+ 3CF5:32A3       __child
+ 156E:0440       __chkstk
+ 156E:029C       __cinit
+ 156E:025F       __cintDIV
+ 156E:0106       __clearscr
+ 156E:1590       __close
+ 156E:28F2       __cltoasub
+ 156E:1F7C       __commit
+ 3CF5:3528       __commode
+ 3CF5:327B       __cpumode
+ 3CF5:36F4       __csigtab0
+ 156E:03EC       __ctermsub
+ 3CF5:3550       __ctype
+ 3CF5:3550       __ctype_
+ 156E:17ED       __cXENIXtoDOSmode
+ 156E:28FF       __cxtoa
+ 156E:037E       __c_exit
+ 156E:029A       __dataseg
+ 3CF5:36E2       __daylight
+ 3CF5:36AE       __days
+ 3CF5:327C       __doserrno
+ 156E:3204       __dospawn
+ 156E:0758       __dosret0
+ 156E:076D       __dosretax
+ 156E:0760       __dosreturn
+ 156E:2692       __dostotime_t
+ 156E:4028       __dos_commit
+ 156E:4041       __dos_findfirst
+ 156E:4036       __dos_findnext
+ 3CF5:3B7A       __edata
+ 1B10:0000       __EmDataSeg
+ 3CF5:41C0       __end
+ 156E:0AA6       __endstdio
+ 3CF5:329A       __environ
+ 156E:3820       __execload
+ 156E:036C       __exit
+ 3CF5:32AB       __exitflag
+ 3CF5:3264       __fac
+ 156E:07AE       __farstub
+ 156E:1DA8       __fcloseall
+ 3CF5:3250       __fDosExt
+ 156E:434C       __ffree
+ 156E:0418       __FF_MSGBANNER
+ 3CF5:379C       __fheap
+ 156E:0ABC       __filbuf
+ 3CF5:3714       __fileinfo
+ 156E:19F0       __findlast
+ 156E:0B58       __flsbuf
+ 156E:0F24       __flush
+ 156E:0FA4       __flushall
+ 156E:435F       __fmalloc
+ 3CF5:3526       __fmode
+ 3CF5:39AA       __fpinit
+ 156E:043A       __fptrap
+ 156E:1560       __fputchar
+ 156E:0C44       __freebuf
+ 156E:087E       __fsopen
+ 156E:0E85       __ftbuf
+ 156E:3CDA       __fullpath
+ 156E:0C7C       __getbuf
+ 156E:38BC       __getcwd
+ 156E:38D4       __getdcwd
+ 156E:3898       __getdrive
+ 156E:2A78       __getpath
+ 156E:1512       __getstream
+ 156E:1910       __growseg
+ 156E:199F       __incseg
+ 156E:43F8       __initseg
+ 156E:1D06       __int86
+ 156E:4742       __int86x
+ 156E:1FE8       __intdosx
+ 3CF5:32A6       __intno
+ 3CF5:32D4       __iob
+ 3CF5:33C4       __iob2
+ 3CF5:3526       __iomode
+ 156E:25C4       __isindst
+ 156E:1BA8       __itoa
+ 3CF5:34B4       __lastiob
+ 3CF5:313A       __lastwin
+ 156E:442C       __linkseg
+ 3CF5:3694       __lpdays
+ 156E:15B0       __lseek
+ 3CF5:352A       __lseekchk
+ 156E:077A       __maperror
+ 156E:3858       __mkdir
+ 156E:47DE       __movedata
+ 156E:0732       __myalloc
+ 156E:44DE       __newseg
+ 3CF5:327E       __nfile
+ 3CF5:3238       __nheap_desc
+ 156E:06D0       __NMSG_TEXT
+ 156E:06FB       __NMSG_WRITE
+ 156E:0464       __nullcheck
+ 156E:164C       __open
+ 156E:0CC8       __openfile
+ 3CF5:327C       __oserr
+ 3CF5:3280       __osfile
+ 3CF5:3277       __osmajor
+ 3CF5:3276       __osminor
+ 3CF5:327A       __osmode
+ 3CF5:3276       __osver
+ 3CF5:3278       __osversion
+ 156E:1028       __output
+ 3CF5:32A5       __ovlflag
+ 3CF5:32A7       __ovlvec
+ 3CF5:3216       __pc_curses
+ 156E:0180       __pending
+ 3CF5:329E       __pgmptr
+ 3CF5:3798       __pnhFarHeap
+ 156E:00DA       __pscrlup
+ 3CF5:3274       __psp
+ 3CF5:3272       __pspadr
+ 156E:0159       __rawread
+ 156E:17FE       __read
+ 1AED:0008       __rewrite
+ 156E:386E       __rmdir
+ 156E:4462       __searchseg
+ 156E:47FC       __segread
+ 156E:0488       __setargv
+ 156E:001D       __setcols
+ 156E:0630       __setenvp
+ 156E:2DBC       __sigentry
+ 3CF5:354C       __sigintoff
+ 3CF5:354A       __sigintseg
+ 156E:1632       __sopen
+ 156E:33C6       __spawnve
+ 156E:35A2       __spawnvpe
+ 156E:18FC       __stackavail
+ 156E:3AF0       __stat
+ 156E:0E04       __stbuf
+ 156E:27BC       __strcmpi
+ 156E:27BC       __stricmp
+ 3CF5:38E0       __sys_errlist
+ 3CF5:3978       __sys_nerr
+ 3CF5:36DE       __timezone
+ 3CF5:313E       __ttyflags
+ 3CF5:36EC       __tzname
+ 156E:247A       __tzset
+ 3CF5:3270       __umaskval
+ 156E:4018       __unlink
+ 3CF5:3136       __virtscr
+ 1532:005D       __wdltln
+ 1A70:000A       __winflag
+ 156E:41EC       __write
+ 156E:002B       __writechar
+ 1A3E:0134       __writelines
+ 3CF5:39A2       ___aDBexit
+ 3CF5:39A0       ___aDBrterr
+ 3CF5:399E       ___aDBswpchk
+ 3CF5:399C       ___aDBswpflg
+ 3CF5:3294       ___argc
+ 3CF5:3296       ___argv
+ 3CF5:399A       ___qczrinit
+ 156E:2468       ___tzset
+
+  Address         Publics by Value
+
+ 0000:0000       _main
+ 0000:000C  Abs  __AHSHIFT
+ 0000:08A2       _JMstart
+ 0000:0B4C       _JSdspmenu
+ 0000:0F22       _JSnotyet
+ 0000:0FF8       _JMprtbody
+ 0000:1000  Abs  __AHINCR
+ 0000:1030       _JMmsg
+ 0107:0008       _CHload
+ 0107:056A       _CHvalid
+ 0107:0612       _CHlookup
+ 0107:0654       _CHgetfst
+ 0107:0672       _CHgetnxt
+ 0107:06BE       _CHsubacct
+ 0176:0000       _GDload
+ 0176:03A4       _GDunload
+ 0176:04A6       _GDdspg
+ 0176:0624       _GDhome
+ 0176:0664       _GDend
+ 0176:06EC       _GDpgdn
+ 0176:07FA       _GDpgup
+ 0176:08DE       _GDcurup
+ 0176:0964       _GDcurdn
+ 0176:09F0       _GDsearch
+ 0176:0D3C       _GDdefine
+ 0176:0DB8       _GDundef
+ 0255:0004       _GLenvsetup
+ 0255:0300       _JEinthand
+ 0255:036A       _GLuptodate
+ 029A:000A       _GLjeopen
+ 029A:01A2       _GLjeins
+ 029A:030A       _acctcmp
+ 029A:0388       _GLjedel
+ 029A:0516       _GLjegetnxt
+ 029A:0736       _GLjeparse
+ 0330:0004       _JEglsort
+ 0330:03F0       _JEglscmp
+ 037C:000A       _JEvalinp
+ 037C:0714       _getjdate
+ 037C:0824       _getdesc
+ 037C:0948       _getacct
+ 037C:0A44       _getamt
+ 0443:0004       _JMaarpt
+ 0443:4892       _car
+ 0443:4DC6       _car_init
+ 092B:0004       _wacctfld
+ 0000:9876  Abs  __acrtmsg
+ 0000:9876  Abs  __acrtused
+ 092B:0996       _JMchhelp
+ 09DC:0008       _JManaldtl
+ 09DC:02C6       _JEanalrpt
+ 09DC:0770       _JEsfix2s
+ 0A5E:000C       _JMedit
+ 0A5E:17EC       _JMlnsdwn
+ 0A5E:18AC       _JMdspg
+ 0A5E:19A2       _JMdsrec
+ 0A5E:1F58       _JMpgfwd
+ 0A5E:2074       _JMpgbk
+ 0A5E:2174       _JMinsert
+ 0A5E:2388       _JMposcur
+ 0A5E:241C       _JMput
+ 0A5E:2656       _JMsearch
+ 0CD3:0008       _JMfile
+ 0CD3:077A       _JMload
+ 0000:D6D6  Abs  __aDBdoswp
+ 0CD3:108E       _JMnew
+ 0CD3:12A0       _JMdelrec
+ 0CD3:148E       _JMgetfree
+ 0CD3:14E2       _JMapdrec
+ 0CD3:165E       _JMinsrec
+ 0CD3:1810       _wprmtch
+ 0CD3:18A0       _wprmtfld
+ 0CD3:1918       _JMsave
+ 0CD3:1B44       _JMudsave
+ 0CD3:1D08       _JMudclr
+ 0CD3:1EE4       _JMundo
+ 0F08:000E       _wgetfld
+ 0F08:0956       _wfixdfld
+ 0F08:1240       _wamtfld
+ 10D6:0008       _JMglrpt
+ 10D6:008C       _GLheadchk
+ 10D6:014A       _GLctrlbrk
+ 10D6:026C       _GLsubtotals
+ 10D6:0B74       _GLnewheads
+ 10D6:0CB0       _GLinit
+ 10D6:0EA0       _GLprtdtl
+ 10D6:1088       _GLfinals
+ 11F8:000E       _JMlnedit
+ 11F8:0AA8       _JMlnedcvt
+ 11F8:0CAE       _JMlnedinit
+ 12FB:000A       _JMpregl
+ 12FB:0088       _JEinpchk
+ 1332:0000       _JMreport
+ 1332:03CC       _JMreprd
+ 1332:0C82       _JMrepdisp
+ 1332:0FFA       _wprmtafld
+ 1332:1072       _JMsettings
+ 1332:10BE       _validate_headon
+ 1332:112E       _validate_lines
+ 1332:1176       _validate_psetup
+ 1332:1196       _JMwrprtsu
+ 147D:0002       _JMyank
+ 147D:0128       _JMygetbeg
+ 147D:01A6       _JMygetnxt
+ 14A7:0002       _JMstkdtl
+ 14A7:008C       _JEstkdtl
+ 14FA:0000       _waddstr
+ 14FA:003A       _waddch
+ 1516:0003       _beep
+ 1516:0021       _flash
+ 1523:0003       _box
+ 1526:0001       _wclear
+ 1529:000E       _wclrtobot
+ 1532:0002       _wdeleteln
+ 1532:005D       __wdltln
+ 1541:0008       _endwin
+ 1543:000C       _wgetch
+ 1557:0007       _initscr
+ 1560:0007       _winsertln
+ 156E:001D       __setcols
+ 156E:002B       __writechar
+ 156E:0089       _setcursor
+ 156E:00DA       __pscrlup
+ 156E:0106       __clearscr
+ 156E:012F       _pc_uptype
+ 156E:0159       __rawread
+ 156E:0180       __pending
+ 156E:018A       __astart
+ 156E:025F       __cintDIV
+ 156E:026E       __amsg_exit
+ 156E:029A       __dataseg
+ 156E:029C       __cinit
+ 156E:0365       _exit
+ 156E:036C       __exit
+ 156E:0374       __cexit
+ 156E:037E       __c_exit
+ 156E:03EC       __ctermsub
+ 156E:0418       __FF_MSGBANNER
+ 156E:043A       __fptrap
+ 156E:0440       __aFchkstk
+ 156E:0440       __chkstk
+ 156E:0464       __nullcheck
+ 156E:0488       __setargv
+ 156E:0630       __setenvp
+ 156E:06D0       __NMSG_TEXT
+ 156E:06FB       __NMSG_WRITE
+ 156E:0732       __myalloc
+ 156E:0758       __dosret0
+ 156E:0760       __dosreturn
+ 156E:076D       __dosretax
+ 156E:077A       __maperror
+ 156E:07AE       __farstub
+ 156E:07B0       _fclose
+ 156E:087E       __fsopen
+ 156E:08B2       _fopen
+ 156E:08CE       _fprintf
+ 156E:090E       _fwrite
+ 156E:0AA6       __endstdio
+ 156E:0ABC       __filbuf
+ 156E:0B58       __flsbuf
+ 156E:0C44       __freebuf
+ 156E:0C7C       __getbuf
+ 156E:0CC8       __openfile
+ 156E:0E04       __stbuf
+ 156E:0E85       __ftbuf
+ 156E:0ECC       _fflush
+ 156E:0F24       __flush
+ 156E:0FA4       __flushall
+ 156E:1028       __output
+ 156E:1512       __getstream
+ 156E:1560       __fputchar
+ 156E:1560       _putchar
+ 156E:1568       _fputc
+ 156E:1568       _putc
+ 156E:1590       __close
+ 156E:15B0       __lseek
+ 156E:1632       __sopen
+ 156E:164C       __open
+ 156E:17ED       __cXENIXtoDOSmode
+ 156E:17FE       __read
+ 156E:18FC       __stackavail
+ 156E:1910       __growseg
+ 156E:199F       __incseg
+ 156E:19F0       __findlast
+ 156E:1A10       _strcat
+ 156E:1A64       _strcpy
+ 156E:1AA0       _strcmp
+ 156E:1ACA       _strlen
+ 156E:1AE4       _strncpy
+ 156E:1B0E       _strncmp
+ 156E:1B4A       _atoi
+ 156E:1B4E       _atol
+ 156E:1B52       __catox
+ 156E:1BA8       __itoa
+ 156E:1BC4       _getenv
+ 156E:1C5A       _perror
+ 156E:1D06       __int86
+ 156E:1D90       _clearerr
+ 156E:1DA8       __fcloseall
+ 156E:1DCE       _fgets
+ 156E:1E48       _fputs
+ 156E:1EAA       _sprintf
+ 156E:1F14       _vsprintf
+ 156E:1F7C       __commit
+ 156E:1FD6       __bdos
+ 156E:1FE8       __intdosx
+ 156E:2078       _asctime
+ 156E:214C       _gmtime
+ 156E:22EC       _localtime
+ 156E:2412       _time
+ 156E:2468       ___tzset
+ 156E:247A       __tzset
+ 156E:25C4       __isindst
+ 156E:2692       __dostotime_t
+ 156E:278A       _strchr
+ 156E:27BC       __stricmp
+ 156E:27BC       __strcmpi
+ 156E:2802       _strrchr
+ 156E:2836       _strpbrk
+ 156E:2894       _memcpy
+ 156E:28F2       __cltoasub
+ 156E:28FF       __cxtoa
+ 156E:2956       _abs
+ 156E:2964       _bsearch
+ 156E:2A78       __getpath
+ 156E:2AF2       _qsort
+ 156E:2D0E       _signal
+ 156E:2DBC       __sigentry
+ 156E:2E9C       __cenvarg
+ 156E:3204       __dospawn
+ 156E:33C6       __spawnve
+ 156E:35A2       __spawnvpe
+ 156E:3764       _system
+ 156E:3820       __execload
+ 156E:3836       __access
+ 156E:3858       __mkdir
+ 156E:385F       __chdir
+ 156E:386E       __rmdir
+ 156E:3898       __getdrive
+ 156E:38A0       __chdrive
+ 156E:38BC       __getcwd
+ 156E:38D4       __getdcwd
+ 156E:39F8       _rename
+ 156E:3AF0       __stat
+ 156E:3CDA       __fullpath
+ 156E:4018       _remove
+ 156E:4018       __unlink
+ 156E:4028       __dos_commit
+ 156E:4036       __dos_findnext
+ 156E:4041       __dos_findfirst
+ 156E:4074       __aFldiv
+ 156E:410E       __aFulmul
+ 156E:410E       __aFlmul
+ 156E:4140       __aFlrem
+ 156E:41E0       __aFlshl
+ 156E:41EC       __write
+ 156E:434C       __ffree
+ 156E:435F       __fmalloc
+ 156E:43F8       __initseg
+ 156E:442C       __linkseg
+ 156E:4462       __searchseg
+ 156E:44DE       __newseg
+ 156E:4522       _fseek
+ 156E:45A2       _ftell
+ 156E:4742       __int86x
+ 156E:47DE       __movedata
+ 156E:47FC       __segread
+ 156E:481C       _memmove
+ 156E:48E6       __bios_keybrd
+ 156E:490A       __aFahdiff
+ 1A01:0005       _wmove
+ 1A05:0006       _newwin
+ 1A05:00A0       __allocwin
+ 1A26:000A       _printw
+ 1A26:0059       _wprintw
+ 1A26:00A0       _mvprintw
+ 1A26:011A       _mvwprintw
+ 1A3E:0004       _wrefresh
+ 1A3E:0134       __writelines
+ 1A6D:0000       _touchwin
+ 1A70:000A       __winflag
+ 1A73:0009       _wclrtoeol
+ 1A79:000E       _wnoutrefresh
+ 1A79:018C       _doupdate
+ 1AB2:000E       _werase
+ 1AB9:0007       _shadowwin
+ 1AB9:0121       _drawbox
+ 1AB9:02FE       _wrelmove
+ 1AED:0008       __rewrite
+ 1AF8:0005       _scroll
+ 1B10:0000       __EmDataSeg
+ 1B10:0002       _init_template
+ 1B10:0082       _establish_field
+ 1B10:02B0       _field_tally
+ 1B10:0308       _field_window
+ 1B10:033C       _clear_template
+ 1B10:0C13       _spaces
+ 1B10:0D46       _data_entry
+ 1B10:1059       _wprompt
+ 1C19:0000       _cursor
+ 1C19:0048       _curr_cursor
+ 1C19:0096       _set_cursor_type
+ 1C19:00D2       _clear_screen
+ 1C19:0124       _vmode
+ 1C19:015C       _video_address
+ 1C19:0223       _scroll_lock
+ 1C19:025F       _get_char
+ 1C19:02FB       _setdta
+ 1C19:034D       _getdta
+ 1C19:03AA       _peek
+ 1C19:03DE       _peekb
+ 1C19:0412       _poke
+ 1C5D:0006       _load_help
+ 1C5D:0241       _set_help
+ 1C5D:02A6       _help
+ 1C9C:0000       _establish_window
+ 1C9C:0232       _set_border
+ 1C9C:026C       _set_colors
+ 1C9C:0345       _set_intensity
+ 1C9C:03B9       _set_title
+ 1C9C:0417       _display_window
+ 1C9C:049A       _close_all
+ 1C9C:04F7       _delete_window
+ 1C9C:0556       _hide_window
+ 1C9C:05A3       _clear_window
+ 1C9C:0AED       _wprintf
+ 1C9C:0B7E       _wputchar
+ 1C9C:0D00       _wcursor
+ 1C9C:0D80       _get_selection
+ 1C9C:0F96       _qscroll
+ 1C9C:1432       _acline
+ 1C9C:17FE       _error_message
+ 1C9C:18F7       _clear_message
+ 1E31:0008       _wcs
+ 1E36:0000       _JSundotab
+ 1E36:1518       _JSlnedtab
+ 1E36:172E       _JSyanktab
+ 1E36:2B56       _cartab
+ 1E36:6076       _recptr
+ 1E36:6B02       _charttab
+ 1E36:A662       _jefiletab
+ 2973:0064       _JSfiletab
+ 3CF5:0042       __anullsize
+ 3CF5:0724       _months
+ 3CF5:312A       _COLS
+ 3CF5:312C       _LINES
+ 3CF5:312E       _stdscr
+ 3CF5:3132       _curscr
+ 3CF5:3136       __virtscr
+ 3CF5:313A       __lastwin
+ 3CF5:313E       __ttyflags
+ 3CF5:3216       __pc_curses
+ 3CF5:3232       __atopsp
+ 3CF5:3234       __aexit_rtn
+ 3CF5:3236       __asizds
+ 3CF5:3238       __nheap_desc
+ 3CF5:324C       __aseghi
+ 3CF5:324E       __aseglo
+ 3CF5:3250       __fDosExt
+ 3CF5:3252       __acfinfo
+ 3CF5:3260       __aintdiv
+ 3CF5:3264       __fac
+ 3CF5:326E       _errno
+ 3CF5:3270       __umaskval
+ 3CF5:3272       __pspadr
+ 3CF5:3274       __psp
+ 3CF5:3276       __osver
+ 3CF5:3276       __osminor
+ 3CF5:3277       __osmajor
+ 3CF5:3278       __osversion
+ 3CF5:327A       __osmode
+ 3CF5:327B       __cpumode
+ 3CF5:327C       __doserrno
+ 3CF5:327C       __oserr
+ 3CF5:327E       __nfile
+ 3CF5:3280       __osfile
+ 3CF5:3294       ___argc
+ 3CF5:3296       ___argv
+ 3CF5:329A       __environ
+ 3CF5:329E       __pgmptr
+ 3CF5:32A3       __child
+ 3CF5:32A5       __ovlflag
+ 3CF5:32A6       __intno
+ 3CF5:32A7       __ovlvec
+ 3CF5:32AB       __exitflag
+ 3CF5:32AC       __adbgmsg
+ 3CF5:32B0       __aaltstkovr
+ 3CF5:32B4       _STKHQQ
+ 3CF5:32D2       __cflush
+ 3CF5:32D4       __iob
+ 3CF5:33C4       __iob2
+ 3CF5:34B4       __lastiob
+ 3CF5:3526       __fmode
+ 3CF5:3526       __iomode
+ 3CF5:3528       __commode
+ 3CF5:352A       __lseekchk
+ 3CF5:352C       __amblksiz
+ 3CF5:352E       __cfltcvt_tab
+ 3CF5:354A       __sigintseg
+ 3CF5:354C       __sigintoff
+ 3CF5:354E       __asizeC
+ 3CF5:354F       __asizeD
+ 3CF5:3550       __ctype
+ 3CF5:3550       __ctype_
+ 3CF5:3694       __lpdays
+ 3CF5:36AE       __days
+ 3CF5:36DE       __timezone
+ 3CF5:36E2       __daylight
+ 3CF5:36EC       __tzname
+ 3CF5:36F4       __csigtab0
+ 3CF5:3714       __fileinfo
+ 3CF5:3798       __pnhFarHeap
+ 3CF5:379C       __fheap
+ 3CF5:38E0       __sys_errlist
+ 3CF5:3978       __sys_nerr
+ 3CF5:397A       _insert_mode
+ 3CF5:397C       _attrib
+ 3CF5:397E       _snowing
+ 3CF5:3980       _helpkey
+ 3CF5:3982       _helping
+ 3CF5:3988       _helpfp
+ 3CF5:398C       _force_mono
+ 3CF5:398E       _listhead
+ 3CF5:3992       _listtail
+ 3CF5:3996       _ewnd
+ 3CF5:399A       ___qczrinit
+ 3CF5:399C       ___aDBswpflg
+ 3CF5:399E       ___aDBswpchk
+ 3CF5:39A0       ___aDBrterr
+ 3CF5:39A2       ___aDBexit
+ 3CF5:39AA       __fpinit
+ 3CF5:3B7A       _edata
+ 3CF5:3B7A       __edata
+ 3CF5:3E10       _totmoncr
+ 3CF5:3E14       _mon_chgd
+ 3CF5:3E16       _JMpsetup
+ 3CF5:3E34       _headje
+ 3CF5:3E38       _cura12
+ 3CF5:3E3B       _cura11
+ 3CF5:3E3E       _totacctdr
+ 3CF5:3E42       _totacctcr
+ 3CF5:3E46       _carcnt
+ 3CF5:3E48       _monlincnt
+ 3CF5:3E4A       _year
+ 3CF5:3E4E       _runamt
+ 3CF5:3E52       _JMlinespage
+ 3CF5:3E54       _rg
+ 3CF5:3E62       _b1
+ 3CF5:3EB4       _helpfunc
+ 3CF5:3EB8       _curmon
+ 3CF5:3EBC       _maxmon
+ 3CF5:3EBE       _JSrecend
+ 3CF5:3EC0       _DElinespage
+ 3CF5:3EC4       _subacct
+ 3CF5:3EC6       _curacct
+ 3CF5:3ECA       _GDglrpt
+ 3CF5:3ECE       _acct_chgd
+ 3CF5:3ED0       _VSG
+ 3CF5:3ED2       _glfp
+ 3CF5:3ED6       _tota12dr
+ 3CF5:3EDA       _tota11dr
+ 3CF5:3EDE       _chcursubacct
+ 3CF5:3EE0       _GDanal
+ 3CF5:3EE4       _jefields
+ 3CF5:3F1A       _head_prt
+ 3CF5:3F1C       _totacct
+ 3CF5:3F20       _a11_chgd
+ 3CF5:3F22       _a12_chgd
+ 3CF5:3F24       _JSpregluptodate
+ 3CF5:3F26       _prevb1
+ 3CF5:3F78       _tota12
+ 3CF5:3F7C       _tota11
+ 3CF5:3F80       _JMheadon
+ 3CF5:3F82       _line
+ 3CF5:4082       _curmonidx
+ 3CF5:4084       _prtstr
+ 3CF5:40D4       _body
+ 3CF5:40D8       _JSycnt
+ 3CF5:40DA       _tota12cr
+ 3CF5:40DE       _curcracct
+ 3CF5:40E2       _JSubot
+ 3CF5:40E6       _tota11cr
+ 3CF5:40EA       _linesperpg
+ 3CF5:40EC       _chcuridx
+ 3CF5:40EE       _chartbord
+ 3CF5:40F2       _totamt
+ 3CF5:40F6       _JSynxt
+ 3CF5:40F8       _lastidx
+ 3CF5:40FA       _DEheadon
+ 3CF5:40FC       _grand
+ 3CF5:4100       _froot
+ 3CF5:4104       _totmon
+ 3CF5:4108       _menuline
+ 3CF5:410C       _state
+ 3CF5:410E       _chrec_cnt
+ 3CF5:4110       _message
+ 3CF5:4114       _pagecnt
+ 3CF5:4116       _GDaarpt
+ 3CF5:411A       _totmondr
+ 3CF5:411E       _charttext
+ 3CF5:4122       _JSutop
+ 3CF5:4126       _cwdstr
+ 3CF5:4146       _aafp
+ 3CF5:414A       _jefld_ptr
+ 3CF5:414E       _analfp
+ 3CF5:4152       _GDstkdtl
+ 3CF5:4156       _helpname
+ 3CF5:4196       _prompt
+ 3CF5:419A       _stkdtlfp
+ 3CF5:419E       _searchstr
+ 3CF5:41A8       _linecnt
+ 3CF5:41AA       _granddr
+ 3CF5:41AE       _grandcr
+ 3CF5:41B2       _tickerstr
+ 3CF5:41C0       __end
+ 3CF5:41C0       _end
+
+Line numbers for JSEDIT.OBJ(c:\nf\newsrc\jsedit.c) segment JSEDIT_TEXT
+
+    39 0000:0000    45 0000:000d    46 0000:0012    47 0000:001a
+    48 0000:0026    49 0000:0032    51 0000:003e    52 0000:0044
+    53 0000:004a    58 0000:0060    63 0000:0065    64 0000:0072
+    65 0000:0088    71 0000:0092    73 0000:009d    75 0000:00b1
+    77 0000:00b6    85 0000:00bb    86 0000:00d4    87 0000:00e2
+    88 0000:00f8    90 0000:0102    91 0000:0117    92 0000:0139
+    97 0000:0149    98 0000:0167    99 0000:0175   100 0000:018b
+   102 0000:0195   103 0000:01aa   104 0000:01be   105 0000:01e0
+   110 0000:01f0   111 0000:020c   112 0000:021a   113 0000:0230
+   115 0000:023a   116 0000:024f   121 0000:025f   122 0000:027b
+   123 0000:0289   124 0000:029f   126 0000:02a9   127 0000:02be
+   134 0000:02ce   135 0000:02e5   136 0000:02f3   137 0000:0309
+   139 0000:0313   140 0000:0328   141 0000:033c   142 0000:035e
+   143 0000:036e   144 0000:0373   145 0000:0391   147 0000:03c5
+   148 0000:03dc   149 0000:03ea   150 0000:0400   152 0000:040a
+   153 0000:041f   154 0000:0433   155 0000:0455   157 0000:0465
+   163 0000:0475   164 0000:047a   165 0000:0480   166 0000:0496
+   167 0000:04ac   168 0000:04b2   174 0000:04b8   175 0000:04c1
+   176 0000:04f2   177 0000:0523   178 0000:0534   179 0000:0547
+   183 0000:054d   185 0000:0550   186 0000:055b   187 0000:056e
+   188 0000:0589   190 0000:05a0   191 0000:05b4   193 0000:05d3
+   194 0000:05e7   197 0000:05f6   198 0000:05fc   201 0000:0612
+   202 0000:0622   203 0000:0635   205 0000:063c   206 0000:0651
+   209 0000:0654   210 0000:0662   213 0000:0666   214 0000:0674
+   220 0000:0678   221 0000:0686   227 0000:068a   228 0000:0698
+   231 0000:069c   232 0000:06b1   235 0000:06b4   241 0000:06c9
+   243 0000:06d3   244 0000:06da   245 0000:06df   246 0000:06e5
+   250 0000:06f4   251 0000:0703   252 0000:0711   253 0000:0721
+   255 0000:072d   256 0000:073c   257 0000:0748   258 0000:0756
+   259 0000:0765   260 0000:076b   261 0000:078a   262 0000:0799
+   263 0000:079f   264 0000:07a2   265 0000:07b2   266 0000:07c1
+   269 0000:07c7   273 0000:07ca   274 0000:07d0   275 0000:07d5
+   276 0000:07db   278 0000:07de   279 0000:07e5   282 0000:07fc
+   284 0000:0801   285 0000:0810   287 0000:081a   289 0000:081e
+   290 0000:0834   291 0000:0843   292 0000:084d   293 0000:0850
+   294 0000:0880   296 0000:088a   298 0000:088f   299 0000:089e
+     0 0000:08a1   304 0000:08a2   308 0000:08af   311 0000:08b6
+   313 0000:08fe   314 0000:092d   315 0000:0947   318 0000:094e
+   322 0000:0952   323 0000:0982   324 0000:09a6   325 0000:09b6
+   326 0000:09c6   327 0000:09d6   328 0000:09e6   330 0000:09ec
+   331 0000:0a26   332 0000:0a51   333 0000:0a71   334 0000:0a74
+   338 0000:0a8a   339 0000:0aa4   340 0000:0aaa   341 0000:0ab0
+   342 0000:0ab2   343 0000:0ac2   344 0000:0ad2   345 0000:0ae2
+   346 0000:0af2   352 0000:0af8   357 0000:0afe   362 0000:0b04
+   366 0000:0b0a   367 0000:0b0f   368 0000:0b12   369 0000:0b44
+   370 0000:0b47     0 0000:0b4a   376 0000:0b4c   377 0000:0b59
+   378 0000:0b69   380 0000:0b70   381 0000:0ba3   384 0000:0ba6
+   385 0000:0bd9   388 0000:0bdc   389 0000:0c0f   392 0000:0c12
+   393 0000:0c45   396 0000:0c48   397 0000:0c7b   401 0000:0c7e
+   402 0000:0cb1   405 0000:0cb4   406 0000:0ce7   409 0000:0cea
+   410 0000:0d1d   413 0000:0d20   414 0000:0d53   418 0000:0d56
+   419 0000:0d89   422 0000:0d8c   423 0000:0dbf   426 0000:0dc2
+   427 0000:0df5   430 0000:0df8   431 0000:0e2b   436 0000:0e2e
+   437 0000:0e61   438 0000:0e87   439 0000:0e9b   441 0000:0ed7
+   443 0000:0eda   444 0000:0f0d   445 0000:0f1d     0 0000:0f20
+   450 0000:0f22   451 0000:0f2f   452 0000:0f3f   453 0000:0f73
+   454 0000:0f95   455 0000:0fab   456 0000:0fcd   457 0000:0fe4
+   458 0000:0ff4     0 0000:0ff7   463 0000:0ff8   468 0000:1005
+   469 0000:101b   470 0000:102b     0 0000:102e   474 0000:1030
+   479 0000:103d   480 0000:104d   481 0000:1063   482 0000:1073
+     0 0000:1076
+
+Line numbers for CHVALID.OBJ(c:\nf\newsrc\chvalid.c) segment CHVALID_TEXT
+
+    26 0107:0008    41 0107:0015    42 0107:003b    43 0107:004a
+    44 0107:0059    46 0107:0063    49 0107:0069    61 0107:008f
+    63 0107:00d8    64 0107:00ee    65 0107:010c    66 0107:011b
+    70 0107:0125    71 0107:012f    72 0107:0134    75 0107:0142
+    76 0107:0153    77 0107:0167    78 0107:017d    79 0107:019b
+    80 0107:01aa    83 0107:01b4    84 0107:01b9    87 0107:01c7
+    88 0107:01d7    89 0107:0205    90 0107:021b    91 0107:0239
+    92 0107:0248    94 0107:0252    95 0107:0257    98 0107:0265
+    99 0107:0268   100 0107:027e   101 0107:029c   102 0107:02ab
+   112 0107:02b5   113 0107:02d4   117 0107:0303   118 0107:031c
+   119 0107:0322   120 0107:0324   122 0107:032a   125 0107:0332
+   127 0107:037a   128 0107:0390   129 0107:03ae   130 0107:03bd
+   134 0107:03c7   135 0107:03d2   136 0107:03e8   137 0107:0406
+   138 0107:0415   141 0107:041f   142 0107:0455   143 0107:04be
+   144 0107:0520   146 0107:0524   148 0107:0528   149 0107:053d
+   150 0107:054c   151 0107:055b   154 0107:0565     0 0107:0568
+   159 0107:056a   169 0107:0577   170 0107:058e   171 0107:0592
+   173 0107:05b9   174 0107:05c5   175 0107:05cb   176 0107:05d2
+   177 0107:05d4   178 0107:05f5   180 0107:060e     0 0107:0611
+   185 0107:0612   191 0107:061f   192 0107:0633   193 0107:063f
+   194 0107:0646   195 0107:0648   196 0107:0650     0 0107:0653
+   201 0107:0654   206 0107:0661   207 0107:0667   208 0107:066d
+     0 0107:0670   212 0107:0672   218 0107:067f   219 0107:0688
+   220 0107:068e   221 0107:0690   222 0107:06ba     0 0107:06bd
+   227 0107:06be   228 0107:06cb   229 0107:06e1   230 0107:06e6
+   231 0107:06e8   233 0107:06ec     0 0107:06ef
+
+Line numbers for GDREPORT.OBJ(c:\nf\newsrc\gdreport.c) segment GDREPORT_TEXT
+
+    38 0176:0000    50 0176:000d    51 0176:0026    52 0176:0035
+    57 0176:003c    58 0176:0046    61 0176:004b    62 0176:006e
+    63 0176:007d    65 0176:0084    66 0176:00a1    68 0176:00b1
+    69 0176:00d5    70 0176:00e8    71 0176:00f8    73 0176:00fb
+    74 0176:0102    75 0176:011c    77 0176:012c    78 0176:013b
+    82 0176:0142    83 0176:01ad    84 0176:01fb    85 0176:020a
+    86 0176:0219    87 0176:0229    91 0176:0230    92 0176:0256
+    95 0176:0266    96 0176:02ae    97 0176:0306    98 0176:0324
+   100 0176:0342   103 0176:0346   104 0176:0358   107 0176:0367
+   108 0176:038d   110 0176:039d   111 0176:039f     0 0176:03a2
+   116 0176:03a4   123 0176:03b1   125 0176:03c0   126 0176:03e4
+   127 0176:041a   128 0176:0448   129 0176:0454   130 0176:0474
+   131 0176:0494   132 0176:04a2     0 0176:04a5   136 0176:04a6
+   143 0176:04b3   144 0176:04c7   146 0176:04d7   147 0176:052f
+   148 0176:05aa   149 0176:05bc   150 0176:05f9   151 0176:05fc
+   152 0176:060c   154 0176:0620     0 0176:0623   159 0176:0624
+   164 0176:0631   166 0176:0651   168 0176:065f     0 0176:0662
+   173 0176:0664   180 0176:0671   182 0176:0696   184 0176:06da
+   186 0176:06e8     0 0176:06eb   191 0176:06ec   197 0176:06f9
+   199 0176:0721   200 0176:0747   201 0176:076a   202 0176:076f
+   204 0176:0772   205 0176:07b6   206 0176:07c4   207 0176:07c6
+   208 0176:07e7   211 0176:07f5     0 0176:07f8   215 0176:07fa
+   221 0176:0807   222 0176:0828   223 0176:0848   224 0176:084d
+   227 0176:0850   229 0176:0881   230 0176:0887   231 0176:08a7
+   232 0176:08aa   234 0176:08cb   236 0176:08d9     0 0176:08dc
+   242 0176:08de   246 0176:08eb   247 0176:090c   248 0176:092c
+   249 0176:0931   252 0176:0934   253 0176:0952   255 0176:0960
+     0 0176:0963   259 0176:0964   263 0176:0971   264 0176:09b8
+   265 0176:09bd   266 0176:09c0   267 0176:09de   270 0176:09ec
+     0 0176:09ef   276 0176:09f0   288 0176:09fd   289 0176:0a02
+   290 0176:0a11   291 0176:0a60   292 0176:0a82   297 0176:0a93
+   298 0176:0ac0   299 0176:0adf   300 0176:0ae4   302 0176:0ae9
+   303 0176:0b2e   304 0176:0b3f   305 0176:0b42   306 0176:0b75
+   307 0176:0b78   309 0176:0b92   310 0176:0b96   311 0176:0bb2
+   312 0176:0bd3   313 0176:0be1   314 0176:0bf0   317 0176:0bf4
+   319 0176:0c03   320 0176:0c16   321 0176:0c1b   322 0176:0c60
+   323 0176:0c71   324 0176:0c74   325 0176:0ca7   326 0176:0caa
+   328 0176:0cc4   329 0176:0cc8   330 0176:0ce4   331 0176:0d05
+   332 0176:0d13   333 0176:0d22   334 0176:0d24   335 0176:0d26
+   336 0176:0d35   339 0176:0d38     0 0176:0d3b   342 0176:0d3c
+   347 0176:0d49   348 0176:0d59   349 0176:0d6e   350 0176:0d8e
+   351 0176:0dae   353 0176:0db4     0 0176:0db7   356 0176:0db8
+   360 0176:0dc5   361 0176:0dd7   362 0176:0de5   364 0176:0def
+     0 0176:0df2
+
+Line numbers for GLENV.OBJ(c:\nf\newsrc\glenv.c) segment GLENV_TEXT
+
+    39 0255:0004    48 0255:0011    49 0255:002a    55 0255:002f
+    63 0255:003f    64 0255:0055    65 0255:006f    66 0255:0085
+    67 0255:009f    68 0255:00c5    69 0255:00db    70 0255:00f2
+    71 0255:0108    72 0255:011f    73 0255:0133    74 0255:0150
+    78 0255:015a    79 0255:0174    80 0255:018a    82 0255:01a0
+    83 0255:01ba    84 0255:01d0    87 0255:01da    91 0255:01e2
+    92 0255:0206    97 0255:020a    98 0255:0232    99 0255:0257
+   100 0255:026d   106 0255:0287   107 0255:02ae   109 0255:02f0
+   110 0255:02fc     0 0255:02ff   114 0255:0300   116 0255:030d
+   117 0255:0314   118 0255:032b   120 0255:0330   121 0255:0336
+   123 0255:034c   124 0255:035b   125 0255:0365     0 0255:0368
+   128 0255:036a   136 0255:0377   140 0255:0380   141 0255:03a4
+   146 0255:03a8   147 0255:03d0   148 0255:03f5   149 0255:040b
+   155 0255:0424   156 0255:0442   158 0255:0446   159 0255:0452
+   160 0255:0455     0 0255:0458
+
+Line numbers for GLJEFILE.OBJ(c:\nf\newsrc\gljefile.c) segment GLJEFILE_TEXT
+
+    30 029a:000a    36 029a:0017    38 029a:0026    41 029a:002e
+    42 029a:0058    43 029a:0066    44 029a:0085    47 029a:00ab
+    48 029a:00d0    51 029a:00e6    52 029a:0111    53 029a:012f
+    54 029a:013e    56 029a:0174    60 029a:0182    62 029a:018e
+    64 029a:019d     0 029a:01a0    69 029a:01a2    82 029a:01af
+    83 029a:01bd    84 029a:01ca    85 029a:01f2    89 029a:01f6
+    90 029a:0210    91 029a:0239    92 029a:0246    96 029a:024a
+    97 029a:0257    98 029a:027e    99 029a:028a   100 029a:02b2
+   101 029a:02b6   102 029a:02de   104 029a:0306     0 029a:0309
+   110 029a:030a   113 029a:0317   118 029a:0356   119 029a:035c
+   120 029a:036e   121 029a:0374   122 029a:0376   123 029a:037c
+   124 029a:0384     0 029a:0387   130 029a:0388   136 029a:0395
+   137 029a:03a3   140 029a:03a6   141 029a:03bd   142 029a:03e8
+   143 029a:040e   147 029a:0412   148 029a:041f   149 029a:042c
+   150 029a:044b   151 029a:0457   152 029a:047f   155 029a:0482
+   156 029a:0498   157 029a:04ec   159 029a:0512     0 029a:0515
+   164 029a:0516   176 029a:0523   177 029a:0537   178 029a:0540
+   179 029a:056a   180 029a:05cb   181 029a:05f7   183 029a:0606
+   184 029a:0612   188 029a:061a   189 029a:0643   192 029a:066d
+   193 029a:067a   194 029a:068a   195 029a:06c0   196 029a:06ce
+   197 029a:06d2   198 029a:06e9   199 029a:0705   200 029a:0714
+   201 029a:0716   206 029a:0724   207 029a:0732     0 029a:0735
+   212 029a:0736   225 029a:0743   226 029a:075a   227 029a:075f
+   228 029a:0776   231 029a:077b   232 029a:07a5   235 029a:07aa
+   236 029a:07d4   237 029a:07d9   238 029a:0803   241 029a:0808
+   242 029a:0813   243 029a:0817   244 029a:086b   245 029a:089d
+   246 029a:08a0   248 029a:08a7   251 029a:08bd   252 029a:08eb
+   253 029a:08f7   254 029a:08fc   256 029a:0900   257 029a:091d
+   258 029a:0938   259 029a:093f   260 029a:0956   264 029a:095b
+   265 029a:0960     0 029a:0963
+
+Line numbers for JEGLSORT.OBJ(c:\nf\newsrc\jeglsort.c) segment JEGLSORT_TEXT
+
+    42 0330:0004    53 0330:0011    54 0330:0017    55 0330:001c
+    58 0330:0021    59 0330:003a    60 0330:0049    64 0330:0050
+    65 0330:0067    66 0330:0075    67 0330:0092    68 0330:00a2
+    70 0330:00aa    74 0330:00ba    75 0330:00df    76 0330:00ee
+    77 0330:00fe    80 0330:0106    81 0330:012c    82 0330:013f
+    83 0330:0152    84 0330:0160    86 0330:0163    87 0330:016e
+    88 0330:0185    89 0330:0194    90 0330:01b5    91 0330:01c5
+    92 0330:01d5    94 0330:01dc    95 0330:01e5    96 0330:01ff
+    97 0330:020f    98 0330:021f   101 0330:0226   102 0330:025a
+   103 0330:0272   104 0330:02c5   107 0330:02c8   108 0330:02dc
+   114 0330:02eb   118 0330:0305   119 0330:0328   120 0330:0337
+   121 0330:0347   124 0330:034e   125 0330:0358   126 0330:0390
+   127 0330:03a5   130 0330:03b5   131 0330:03c7   133 0330:03d6
+   134 0330:03e6   135 0330:03ec     0 0330:03ef   140 0330:03f0
+   144 0330:03fd   146 0330:0444   147 0330:044a   149 0330:0450
+   150 0330:0471   151 0330:0477   154 0330:047e   155 0330:0498
+   156 0330:049e   157 0330:04ba   158 0330:04c0   159 0330:04c2
+   160 0330:04c6     0 0330:04c9
+
+Line numbers for JEVALINP.OBJ(c:\nf\newsrc\jevalinp.c) segment JEVALINP_TEXT
+
+    29 037c:000a    41 037c:0017    42 037c:001c    44 037c:0022
+    45 037c:0046    46 037c:004a    50 037c:0056    51 037c:006e
+    52 037c:007c    56 037c:0089    57 037c:0097    58 037c:00ad
+    59 037c:00b9    60 037c:00f4    68 037c:00f8    69 037c:0107
+    70 037c:0113    71 037c:012f    72 037c:016a    74 037c:016e
+    75 037c:017a    76 037c:01b5    78 037c:01b8    79 037c:01f6
+    80 037c:0231    82 037c:0234    83 037c:0241    84 037c:024d
+    85 037c:025b    86 037c:0269    87 037c:02a4    89 037c:02a8
+    90 037c:0301    91 037c:0364    92 037c:0368    93 037c:0382
+    94 037c:038e    95 037c:03b6    96 037c:03f1    99 037c:03f4
+   101 037c:0403   102 037c:041d   103 037c:044c   104 037c:0487
+   107 037c:048a   108 037c:04e3   110 037c:0546   111 037c:0560
+   112 037c:056c   113 037c:0588   114 037c:05c3   116 037c:05c6
+   117 037c:05ca   118 037c:05d6   121 037c:05da   122 037c:05e6
+   123 037c:0621   127 037c:0624   128 037c:0691   130 037c:0708
+   131 037c:070c   132 037c:070f     0 037c:0712   137 037c:0714
+   147 037c:0721   148 037c:0734   151 037c:073c   152 037c:0757
+   156 037c:0772   157 037c:07a0   158 037c:07a8   159 037c:07d6
+   162 037c:07de   163 037c:0802   166 037c:0808   167 037c:081f
+     0 037c:0822   172 037c:0824   177 037c:0831   178 037c:0847
+   179 037c:087a   181 037c:08a6   185 037c:08b5   186 037c:090f
+   187 037c:0922   189 037c:093c   190 037c:093e   191 037c:0944
+     0 037c:0947   196 037c:0948   207 037c:0955   208 037c:0968
+   211 037c:0970   212 037c:0988   215 037c:0990   216 037c:09bb
+   219 037c:09c2   220 037c:09e3   221 037c:0a05   224 037c:0a0c
+   225 037c:0a22   229 037c:0a28   230 037c:0a3f     0 037c:0a42
+   236 037c:0a44   247 037c:0a51   248 037c:0a5b   249 037c:0a67
+   250 037c:0a7a   252 037c:0a82   253 037c:0a8e   254 037c:0aa8
+   255 037c:0aad   256 037c:0ab0   259 037c:0ab5   260 037c:0ac8
+   265 037c:0ad0   266 037c:0ae6   267 037c:0b19   268 037c:0b33
+   269 037c:0b36   270 037c:0b42   273 037c:0b4a   275 037c:0b64
+   276 037c:0b77   277 037c:0baa   278 037c:0bac   280 037c:0bb4
+   282 037c:0bce   283 037c:0be1   284 037c:0c14   285 037c:0c16
+   288 037c:0c1e   291 037c:0c35   294 037c:0c45   298 037c:0c59
+   299 037c:0c70     0 037c:0c73
+
+Line numbers for JMAARPT.OBJ(c:\nf\newsrc\jmaarpt.c) segment JMAARPT_TEXT
+
+    85 0443:0004    87 0443:0011    90 0443:0016    92 0443:0034
+    94 0443:0039    95 0443:004e    97 0443:005e    99 0443:0063
+   102 0443:0068   103 0443:0078   105 0443:007c   107 0443:0081
+   108 0443:0083     0 0443:0086   112 0443:0088   117 0443:0095
+   118 0443:00a1   121 0443:00a4   122 0443:00c5   123 0443:00cb
+   126 0443:00cf   127 0443:00de   128 0443:00f3   129 0443:0126
+   130 0443:012f     0 0443:0132   135 0443:0134   138 0443:0141
+   139 0443:0147   140 0443:014d   141 0443:0153   144 0443:0159
+   145 0443:0185   146 0443:018b   147 0443:0191   148 0443:0197
+   151 0443:019d   152 0443:01cc   153 0443:01d2   154 0443:01d8
+   157 0443:01de   158 0443:020e   159 0443:0214   162 0443:021a
+   163 0443:0248   167 0443:024e   169 0443:0251     0 0443:0254
+   174 0443:0256   176 0443:0263   177 0443:026d   178 0443:02c1
+   179 0443:02cf   180 0443:02de   183 0443:02ed   184 0443:02f6
+   186 0443:02fc   187 0443:0312   188 0443:0328   190 0443:033e
+   191 0443:037f   193 0443:03a0   194 0443:03a6   195 0443:03b2
+   196 0443:03be   197 0443:03ca   201 0443:03f2   203 0443:03fc
+   204 0443:0412   205 0443:0428   207 0443:043e   209 0443:0486
+   210 0443:0492   211 0443:049e   213 0443:04aa   217 0443:04d2
+   219 0443:04dc   220 0443:04f2   221 0443:0508   223 0443:051e
+   225 0443:0566   226 0443:0572   227 0443:057e   228 0443:058a
+   232 0443:05b2   234 0443:05bc   235 0443:05d2   236 0443:05e8
+   238 0443:05fe   240 0443:0646   241 0443:0652   242 0443:065e
+   243 0443:066a   246 0443:0692   247 0443:0698     0 0443:069b
+   251 0443:069c   252 0443:06a9     0 0443:06ac   256 0443:06ae
+   261 0443:06bb   262 0443:06cb   264 0443:06db   269 0443:06ea
+   270 0443:070f   273 0443:071e   274 0443:0723   275 0443:0729
+   276 0443:072f   277 0443:0735   278 0443:073b   279 0443:0741
+   280 0443:0747   281 0443:074d   282 0443:0753   283 0443:0759
+   284 0443:0765   285 0443:0771   286 0443:077d   287 0443:0789
+   288 0443:0795   289 0443:07a1   290 0443:07ad   291 0443:07b9
+   292 0443:07c5   293 0443:07d1   294 0443:07dd   295 0443:07e9
+   296 0443:07f5   297 0443:0801   298 0443:080d   299 0443:0823
+   300 0443:0839   301 0443:084f   302 0443:0865   304 0443:0875
+   305 0443:087b   307 0443:0881   309 0443:0886     0 0443:0889
+   314 0443:088a   319 0443:0897   320 0443:08bf   321 0443:08d3
+   322 0443:08f5   325 0443:090c     0 0443:090f   349 0443:0910
+   355 0443:091d   356 0443:0933   357 0443:0949   358 0443:0959
+   360 0443:0969   361 0443:0980   364 0443:099e   365 0443:0ac7
+   366 0443:0bf0   367 0443:0d19   368 0443:0e42   369 0443:0f6b
+   370 0443:1094   371 0443:11bd   372 0443:1223   374 0443:12ff
+   377 0443:13e5   378 0443:13fc   380 0443:1413   381 0443:153c
+   382 0443:1665   383 0443:178e   384 0443:18b7   386 0443:18ce
+   387 0443:196e   388 0443:1a0e   389 0443:1aae   392 0443:1b4e
+   393 0443:1b6c   394 0443:1c48   395 0443:1d24   397 0443:1d3b
+   398 0443:1d52   399 0443:1d70   400 0443:1e99   401 0443:1fc2
+   402 0443:20eb   403 0443:2214   404 0443:233d   405 0443:2466
+   406 0443:258f   407 0443:26b8   408 0443:27e1   409 0443:290a
+   410 0443:2a33   411 0443:2b5c   412 0443:2c85   413 0443:2c9c
+   414 0443:2dc5   415 0443:2eee   416 0443:3017   417 0443:3140
+   420 0443:3157   421 0443:3280   422 0443:335c   423 0443:3442
+   426 0443:3459   427 0443:3470   428 0443:348e   429 0443:3574
+   430 0443:365a   431 0443:3740   432 0443:3826   433 0443:390c
+   435 0443:3923   436 0443:393a   438 0443:3958   440 0443:39ca
+   441 0443:3ab0   442 0443:3afa   443 0443:3bde   444 0443:3c50
+   445 0443:3c70   446 0443:3ce2   448 0443:3d2e   449 0443:3d4e
+   451 0443:3daa   452 0443:3dca   453 0443:3df0   454 0443:3e16
+   455 0443:3e3c   456 0443:3e5c   458 0443:3e73   459 0443:3e8a
+   461 0443:3ea8   463 0443:3f1a   465 0443:3f8c   466 0443:3ffe
+   467 0443:4048   468 0443:407c   469 0443:409c   470 0443:40c2
+   471 0443:40e8   472 0443:410e   473 0443:4134   474 0443:415a
+   475 0443:4180   476 0443:41b6   478 0443:41ea   479 0443:420a
+   480 0443:4230   481 0443:4256   482 0443:427c   483 0443:42a2
+   484 0443:42c8   485 0443:42ee   486 0443:4314   488 0443:4334
+   489 0443:4368   490 0443:43c4   491 0443:4420   492 0443:4492
+   493 0443:44b2   494 0443:44d8   495 0443:44fe   496 0443:4524
+   497 0443:454a   498 0443:4570   499 0443:45c8   500 0443:461a
+   501 0443:464e   502 0443:4698   503 0443:46cc   504 0443:4700
+   505 0443:4734   506 0443:4754   507 0443:477a   508 0443:479a
+   509 0443:47ce   510 0443:47ee   511 0443:4814   512 0443:483a
+   514 0443:485a   515 0443:486f   517 0443:487e   522 0443:488d
+     0 0443:4890   527 0443:4892   539 0443:489f   540 0443:48a9
+   541 0443:48af   542 0443:48b3   543 0443:48e9   544 0443:4940
+   545 0443:499e   549 0443:49f0   550 0443:4a2b   554 0443:4a7e
+   555 0443:4a86   556 0443:4ac1   557 0443:4ac7   559 0443:4b1a
+   562 0443:4b28   563 0443:4b32   564 0443:4b3a   565 0443:4b56
+   566 0443:4b6c   568 0443:4b76   569 0443:4bac   570 0443:4c03
+   571 0443:4c61   572 0443:4cb0     0 0443:4cb3   577 0443:4cb4
+   586 0443:4cc1   587 0443:4ce1   589 0443:4d01   590 0443:4d1e
+   591 0443:4d2a   593 0443:4d47   594 0443:4d4a   597 0443:4d61
+   598 0443:4d7e   599 0443:4d8a   601 0443:4da7   602 0443:4daa
+   604 0443:4dc1     0 0443:4dc4   610 0443:4dc6   614 0443:4dd3
+   615 0443:4dd9   616 0443:4ddf   617 0443:4de8   618 0443:4e46
+   619 0443:4e72   620 0443:4e7f     0 0443:4e82
+
+Line numbers for JMACCTFL.OBJ(c:\nf\newsrc\jmacctfl.c) segment JMACCTFL_TEXT
+
+    26 092b:0004    48 092b:0011    51 092b:0016    54 092b:0058
+    55 092b:0079    56 092b:0099    57 092b:00a0    58 092b:00b0
+    61 092b:00bb    62 092b:00d0    64 092b:00d7    65 092b:0108
+    66 092b:011c    67 092b:012c    68 092b:013c    69 092b:014c
+    70 092b:0162    71 092b:0172    74 092b:0180    75 092b:0193
+    76 092b:0198    77 092b:019d    78 092b:01a0    79 092b:01e2
+    81 092b:01e8    82 092b:01f1    83 092b:0222    84 092b:0263
+    85 092b:0266    86 092b:02de    87 092b:02ee    88 092b:0304
+    89 092b:0312    90 092b:0315    91 092b:0318    93 092b:031d
+    96 092b:0320    97 092b:0345    98 092b:0376    99 092b:03b7
+   100 092b:03ba   101 092b:03e0   102 092b:03f0   103 092b:0404
+   104 092b:0412   105 092b:0414   107 092b:0419   111 092b:041c
+   112 092b:0421   115 092b:0424   116 092b:042a   117 092b:042d
+   118 092b:0443   119 092b:0451   120 092b:0454   122 092b:0459
+   125 092b:045c   126 092b:0487   127 092b:048a   128 092b:04a0
+   129 092b:04ae   130 092b:04b0   132 092b:04b5   135 092b:04b8
+   136 092b:04bd   137 092b:04d1   138 092b:04df   141 092b:04e2
+   142 092b:050a   143 092b:0522   144 092b:0530   148 092b:0534
+   149 092b:0561   150 092b:0571   151 092b:0574   152 092b:0592
+   153 092b:05a6   154 092b:05b4   157 092b:05b8   158 092b:05be
+   159 092b:05c3   160 092b:05c6   161 092b:05cb   162 092b:05d9
+   165 092b:05dc   166 092b:05e1   167 092b:05e8   169 092b:05fc
+   170 092b:0604   171 092b:0614   172 092b:061f   173 092b:0633
+   174 092b:0641   177 092b:0644   178 092b:065b   179 092b:0660
+   180 092b:0664   181 092b:066d   182 092b:069e   183 092b:06a2
+   184 092b:06ae   185 092b:06f1   186 092b:06ff   187 092b:0725
+   188 092b:074b   189 092b:074e   190 092b:0764   191 092b:0772
+   192 092b:0776   193 092b:0798   195 092b:07b7   196 092b:07dd
+   197 092b:07e0   198 092b:07ed   199 092b:07fe   202 092b:080c
+   203 092b:080e   204 092b:0874   205 092b:0884   206 092b:089a
+   207 092b:08aa   208 092b:08b8   209 092b:08be   210 092b:08d1
+   211 092b:08da   212 092b:08fb   213 092b:090f   214 092b:0916
+   215 092b:0926   216 092b:0931   217 092b:0962   218 092b:0970
+   219 092b:097e   220 092b:0986   221 092b:098a   222 092b:098c
+   223 092b:0992     0 092b:0995   228 092b:0996   253 092b:09a3
+   254 092b:09ca   255 092b:09d6   257 092b:09e8   258 092b:09fb
+   260 092b:0a2f   262 092b:0a32   263 092b:0a62   265 092b:0a96
+   268 092b:0a9a   269 092b:0ab4   271 092b:0ae8   273 092b:0aea
+   274 092b:0aec   275 092b:0b10   276 092b:0b14     0 092b:0b17
+
+Line numbers for JMANALDT.OBJ(c:\nf\newsrc\jmanaldt.c) segment JMANALDT_TEXT
+
+    36 09dc:0008    43 09dc:0015    44 09dc:0025    46 09dc:0035
+    51 09dc:0044    52 09dc:0069    53 09dc:0078    55 09dc:007c
+    57 09dc:008c    58 09dc:0091    60 09dc:00a2    66 09dc:00ae
+    67 09dc:00b8    70 09dc:00c0    71 09dc:00e5    74 09dc:00fb
+    75 09dc:0113    76 09dc:0143    79 09dc:0187    80 09dc:0193
+    81 09dc:019d    82 09dc:01b4    83 09dc:01bc    84 09dc:01ef
+    85 09dc:023b    86 09dc:0252    88 09dc:0260    89 09dc:028e
+    90 09dc:02a3    92 09dc:02b2    94 09dc:02c1     0 09dc:02c4
+   101 09dc:02c6   116 09dc:02d3   117 09dc:02e9   119 09dc:0300
+   120 09dc:030c   121 09dc:0316   123 09dc:031c   124 09dc:0343
+   125 09dc:0361   126 09dc:0370   129 09dc:0378   130 09dc:039e
+   132 09dc:03bd   137 09dc:03c1   138 09dc:03cd   139 09dc:03d2
+   140 09dc:041a   141 09dc:044e   142 09dc:0452   144 09dc:0459
+   145 09dc:0471   148 09dc:0487   153 09dc:049b   154 09dc:04ba
+   155 09dc:04cc   161 09dc:04de   162 09dc:04e8   163 09dc:0501
+   164 09dc:051c   165 09dc:053b   167 09dc:0549   168 09dc:057a
+   169 09dc:05ab   170 09dc:05bb   171 09dc:05cd   172 09dc:05ee
+   173 09dc:0652   174 09dc:0659   175 09dc:065c   177 09dc:0664
+   178 09dc:066e   179 09dc:067a   181 09dc:06a9   184 09dc:06f7
+   188 09dc:0709   190 09dc:070c   191 09dc:0713   193 09dc:0742
+   194 09dc:0757   197 09dc:0766   198 09dc:076c     0 09dc:076f
+   203 09dc:0770   205 09dc:077d   206 09dc:0789   207 09dc:07a8
+   208 09dc:07d9   209 09dc:07dc   211 09dc:0821   212 09dc:0827
+     0 09dc:082a
+
+Line numbers for JMEDIT.OBJ(c:\nf\newsrc\jmedit.c) segment JMEDIT_TEXT
+
+    30 0a5e:000c    40 0a5e:0019    44 0a5e:0028    45 0a5e:0038
+    46 0a5e:0060    47 0a5e:0088    50 0a5e:00b2    52 0a5e:00c6
+    54 0a5e:00cc    56 0a5e:0114    57 0a5e:0143    58 0a5e:015d
+    61 0a5e:0164    65 0a5e:0168    66 0a5e:0198    67 0a5e:01bc
+    68 0a5e:01cc    69 0a5e:01dc    70 0a5e:01ec    71 0a5e:01fc
+    73 0a5e:0202    74 0a5e:023c    75 0a5e:0267    76 0a5e:0287
+    77 0a5e:028a    80 0a5e:02a0    83 0a5e:02a6    84 0a5e:02ee
+    85 0a5e:0319    87 0a5e:0339    88 0a5e:039f    89 0a5e:03e6
+    90 0a5e:045e    91 0a5e:048f    93 0a5e:0494    94 0a5e:0498
+    99 0a5e:049e   107 0a5e:04a4   112 0a5e:04aa   113 0a5e:04b8
+   114 0a5e:04bd   116 0a5e:04c0   117 0a5e:04de   118 0a5e:051d
+   119 0a5e:0529   120 0a5e:0538   122 0a5e:055b   123 0a5e:0567
+   124 0a5e:0576   125 0a5e:0586   126 0a5e:0588   127 0a5e:0596
+   129 0a5e:05b2   133 0a5e:05b6   134 0a5e:05cd   135 0a5e:05d2
+   136 0a5e:05e6   137 0a5e:0616   138 0a5e:0624   139 0a5e:0638
+   140 0a5e:063c   141 0a5e:0668   142 0a5e:0678   143 0a5e:06a4
+   144 0a5e:06d0   145 0a5e:06ec   146 0a5e:071c   147 0a5e:072a
+   148 0a5e:0738   149 0a5e:073a   152 0a5e:0766   153 0a5e:0782
+   154 0a5e:0791   155 0a5e:07a1   159 0a5e:07a4   160 0a5e:07be
+   161 0a5e:07d0   162 0a5e:07d5   163 0a5e:07ef   164 0a5e:07f2
+   165 0a5e:07f8   166 0a5e:0808   168 0a5e:080c   169 0a5e:0815
+   170 0a5e:0828   171 0a5e:0838   175 0a5e:083c   176 0a5e:0853
+   177 0a5e:0858   178 0a5e:0884   180 0a5e:0894   181 0a5e:08a2
+   182 0a5e:08ac   183 0a5e:08c0   184 0a5e:08cc   185 0a5e:08ce
+   187 0a5e:08dc   188 0a5e:090c   189 0a5e:091a   190 0a5e:0928
+   191 0a5e:093c   192 0a5e:093e   194 0a5e:094c   195 0a5e:0968
+   196 0a5e:0977   199 0a5e:097a   200 0a5e:097f   201 0a5e:0993
+   202 0a5e:09c3   203 0a5e:09d1   204 0a5e:09e5   205 0a5e:09e8
+   206 0a5e:0a14   207 0a5e:0a24   208 0a5e:0a50   209 0a5e:0a7c
+   210 0a5e:0aac   211 0a5e:0aba   212 0a5e:0ac8   213 0a5e:0aca
+   216 0a5e:0af6   217 0a5e:0b12   218 0a5e:0b21   225 0a5e:0b24
+   226 0a5e:0b30   227 0a5e:0b49   228 0a5e:0b5a   229 0a5e:0b68
+   230 0a5e:0bea   231 0a5e:0bfa   232 0a5e:0c09   234 0a5e:0c10
+   238 0a5e:0c14   239 0a5e:0c2b   240 0a5e:0c30   241 0a5e:0c5c
+   242 0a5e:0c6c   243 0a5e:0c9c   244 0a5e:0caa   245 0a5e:0cb8
+   247 0a5e:0ccc   248 0a5e:0ce8   249 0a5e:0cf7   250 0a5e:0d07
+   254 0a5e:0d0a   255 0a5e:0d18   256 0a5e:0d1d   258 0a5e:0d20
+   259 0a5e:0d37   260 0a5e:0d3c   261 0a5e:0d4c   262 0a5e:0d78
+   263 0a5e:0d88   267 0a5e:0db4   268 0a5e:0dd4   269 0a5e:0dec
+   270 0a5e:0e20   271 0a5e:0e30   274 0a5e:0e34   275 0a5e:0e4c
+   277 0a5e:0e80   278 0a5e:0eac   279 0a5e:0edc   280 0a5e:0eea
+   282 0a5e:0ef8   283 0a5e:0f08   284 0a5e:0f21   285 0a5e:0f3d
+   286 0a5e:0f4c   290 0a5e:0f50   291 0a5e:0f61   292 0a5e:0f78
+   293 0a5e:0f7d   294 0a5e:0fa9   295 0a5e:0fb9   296 0a5e:0fe5
+   297 0a5e:1012   298 0a5e:103c   299 0a5e:1050   300 0a5e:1052
+   302 0a5e:107c   303 0a5e:108e   305 0a5e:109a   306 0a5e:10ea
+   307 0a5e:10f8   308 0a5e:1114   309 0a5e:1124   310 0a5e:1126
+   312 0a5e:112b   315 0a5e:112e   316 0a5e:113c   317 0a5e:1158
+   320 0a5e:115c   321 0a5e:116a   322 0a5e:1186   325 0a5e:118a
+   326 0a5e:11a0   327 0a5e:11ae   328 0a5e:11ca   331 0a5e:11ce
+   332 0a5e:11e0   333 0a5e:11e5   335 0a5e:11e8   336 0a5e:1200
+   337 0a5e:120e   338 0a5e:122a   341 0a5e:122e   342 0a5e:1266
+   343 0a5e:126b   344 0a5e:12c5   345 0a5e:12d5   346 0a5e:12ec
+   347 0a5e:1303   348 0a5e:1336   349 0a5e:1362   350 0a5e:1378
+   351 0a5e:13bb   352 0a5e:13be   353 0a5e:141b   356 0a5e:1447
+   359 0a5e:144a   360 0a5e:1482   361 0a5e:1487   363 0a5e:148a
+   365 0a5e:1515   367 0a5e:151b   368 0a5e:1530   369 0a5e:155c
+   372 0a5e:1560   373 0a5e:158c   374 0a5e:159a   375 0a5e:15bd
+   378 0a5e:15d1   379 0a5e:15d4   382 0a5e:15ed   383 0a5e:1612
+   386 0a5e:162b   387 0a5e:1642   388 0a5e:1656   391 0a5e:165a
+   392 0a5e:1669   393 0a5e:166e   394 0a5e:1672   396 0a5e:175a
+   397 0a5e:176a   398 0a5e:1792   399 0a5e:17ba   401 0a5e:17e4
+   402 0a5e:17e7     0 0a5e:17ea   407 0a5e:17ec   416 0a5e:17f9
+   417 0a5e:17fe   418 0a5e:180a   419 0a5e:182c   420 0a5e:1850
+   421 0a5e:1878   422 0a5e:187c   423 0a5e:1898   424 0a5e:18a0
+   425 0a5e:18a2   426 0a5e:18a8     0 0a5e:18ab   431 0a5e:18ac
+   448 0a5e:18b9   449 0a5e:18c9   450 0a5e:18d5   457 0a5e:18d8
+   462 0a5e:18e1   463 0a5e:18f5   464 0a5e:191d   465 0a5e:1926
+   466 0a5e:193e   467 0a5e:1955   468 0a5e:1969   469 0a5e:1991
+   470 0a5e:199a   471 0a5e:199e     0 0a5e:19a1   477 0a5e:19a2
+   492 0a5e:19af   493 0a5e:19bb   496 0a5e:19c0   497 0a5e:19d1
+   499 0a5e:19d6   500 0a5e:19db   508 0a5e:19e7   509 0a5e:1a26
+   510 0a5e:1a35   516 0a5e:1a3f   521 0a5e:1a75   522 0a5e:1a92
+   524 0a5e:1ac4   525 0a5e:1b16   526 0a5e:1b46   527 0a5e:1b76
+   530 0a5e:1b88   531 0a5e:1b9f   532 0a5e:1ba3   535 0a5e:1bcb
+   536 0a5e:1c1a   537 0a5e:1c1e   538 0a5e:1c3a   539 0a5e:1c43
+   540 0a5e:1c58   541 0a5e:1c6c   542 0a5e:1c74   545 0a5e:1ce0
+   546 0a5e:1ce3   547 0a5e:1ceb   550 0a5e:1d02   551 0a5e:1d1f
+   552 0a5e:1d22   554 0a5e:1d2d   555 0a5e:1d80   556 0a5e:1db0
+   557 0a5e:1de0   560 0a5e:1df2   561 0a5e:1e09   562 0a5e:1e0d
+   565 0a5e:1e35   566 0a5e:1e49   567 0a5e:1e55   568 0a5e:1e60
+   569 0a5e:1e62   570 0a5e:1e7c   571 0a5e:1edd   573 0a5e:1ee0
+   574 0a5e:1ee4   575 0a5e:1ef6   576 0a5e:1f18   577 0a5e:1f2f
+   580 0a5e:1f51   581 0a5e:1f54     0 0a5e:1f57   585 0a5e:1f58
+   594 0a5e:1f65   595 0a5e:1f71   596 0a5e:1f7d   597 0a5e:1f82
+   598 0a5e:1fbf   599 0a5e:1fe0   600 0a5e:1fef   601 0a5e:2013
+   602 0a5e:201f   603 0a5e:2047   608 0a5e:204a   609 0a5e:2056
+   610 0a5e:2066   611 0a5e:2068   613 0a5e:2070     0 0a5e:2073
+   617 0a5e:2074   626 0a5e:2081   627 0a5e:208d   628 0a5e:2099
+   629 0a5e:209e   630 0a5e:20db   631 0a5e:20ff   632 0a5e:210b
+   633 0a5e:2133   638 0a5e:2136   639 0a5e:2142   640 0a5e:214a
+   641 0a5e:214c   643 0a5e:2170     0 0a5e:2173   650 0a5e:2174
+   659 0a5e:2181   660 0a5e:218d   661 0a5e:2197   662 0a5e:219a
+   664 0a5e:21c2   665 0a5e:21c7   667 0a5e:21ca   668 0a5e:21d5
+   669 0a5e:21e1   670 0a5e:21f0   671 0a5e:21f5   675 0a5e:21fe
+   676 0a5e:2226   678 0a5e:222c   681 0a5e:2231   682 0a5e:2240
+   683 0a5e:229d   684 0a5e:22a0   685 0a5e:22fd   687 0a5e:2300
+   688 0a5e:2302   689 0a5e:2318   694 0a5e:2321   696 0a5e:2337
+   697 0a5e:2343   698 0a5e:2353   699 0a5e:2356   702 0a5e:237e
+   703 0a5e:2384     0 0a5e:2387   707 0a5e:2388   716 0a5e:2395
+   717 0a5e:23a1   718 0a5e:23b8   719 0a5e:23c3   720 0a5e:23d7
+   722 0a5e:23ee   723 0a5e:23fc   724 0a5e:2411   725 0a5e:2417
+     0 0a5e:241a   732 0a5e:241c   740 0a5e:2429   741 0a5e:2435
+   742 0a5e:243f   743 0a5e:2442   746 0a5e:246a   747 0a5e:2491
+   749 0a5e:2494   750 0a5e:249f   751 0a5e:24ab   752 0a5e:24ba
+   754 0a5e:24c4   755 0a5e:24d3   756 0a5e:2543   757 0a5e:2546
+   758 0a5e:25b6   759 0a5e:25dd   765 0a5e:25ef   767 0a5e:2605
+   768 0a5e:2611   769 0a5e:2621   770 0a5e:2624   773 0a5e:264c
+   774 0a5e:2652     0 0a5e:2655   779 0a5e:2656   790 0a5e:2663
+   791 0a5e:266f   793 0a5e:2676   795 0a5e:2687   798 0a5e:26e5
+   801 0a5e:2738   802 0a5e:2743   803 0a5e:274c   806 0a5e:2750
+   807 0a5e:2754     0 0a5e:2757
+
+Line numbers for JMFILE.OBJ(c:\nf\newsrc\jmfile.c) segment JMFILE_TEXT
+
+    33 0cd3:0008    42 0cd3:0015    46 0cd3:001c    48 0cd3:0064
+    49 0cd3:0093    50 0cd3:00ad    53 0cd3:00b4    57 0cd3:00b8
+    58 0cd3:00e8    59 0cd3:010c    60 0cd3:011c    61 0cd3:012c
+    62 0cd3:013c    63 0cd3:014c    65 0cd3:0152    66 0cd3:018c
+    67 0cd3:01b7    68 0cd3:01d7    69 0cd3:01da    72 0cd3:01f0
+    74 0cd3:0202    76 0cd3:0208    77 0cd3:0217    81 0cd3:021e
+    82 0cd3:0266    83 0cd3:0291    85 0cd3:02b1    86 0cd3:02e1
+    87 0cd3:0305    88 0cd3:0315    89 0cd3:0325    90 0cd3:0335
+    91 0cd3:0345    92 0cd3:034c    93 0cd3:0350    94 0cd3:037a
+    95 0cd3:038a    96 0cd3:039a    97 0cd3:03d4    98 0cd3:03e2
+    99 0cd3:0402   100 0cd3:0422   101 0cd3:045e   102 0cd3:049a
+   104 0cd3:04ac   105 0cd3:04c1   106 0cd3:04d5   107 0cd3:04e5
+   108 0cd3:04ec   109 0cd3:04ee   110 0cd3:04fd   111 0cd3:050f
+   112 0cd3:0516   113 0cd3:0518   122 0cd3:051e   123 0cd3:054e
+   124 0cd3:0572   125 0cd3:0582   126 0cd3:0592   127 0cd3:05a2
+   128 0cd3:05b2   129 0cd3:05b8   130 0cd3:05ba   131 0cd3:05c9
+   132 0cd3:05db   133 0cd3:05e2   134 0cd3:05e4   141 0cd3:05ea
+   142 0cd3:061a   143 0cd3:063e   144 0cd3:064e   145 0cd3:065e
+   146 0cd3:066e   147 0cd3:067e   149 0cd3:0684   150 0cd3:06be
+   151 0cd3:06e9   152 0cd3:0709   153 0cd3:0719   154 0cd3:0729
+   158 0cd3:072e   159 0cd3:0733   160 0cd3:0736   161 0cd3:0772
+   162 0cd3:0775     0 0cd3:0778   166 0cd3:077a   182 0cd3:0787
+   183 0cd3:07ad   184 0cd3:07bc   186 0cd3:07c2   187 0cd3:081e
+   188 0cd3:082d   194 0cd3:0834   195 0cd3:086a   196 0cd3:0879
+   202 0cd3:0880   203 0cd3:0888   204 0cd3:08b4   205 0cd3:091a
+   206 0cd3:0980   207 0cd3:09e0   208 0cd3:09ed   211 0cd3:09f3
+   212 0cd3:0a01   213 0cd3:0a27   214 0cd3:0a4d   216 0cd3:0a6d
+   217 0cd3:0a7c   222 0cd3:0a82   231 0cd3:0aa6   232 0cd3:0adc
+   233 0cd3:0aeb   234 0cd3:0b22   235 0cd3:0b32   236 0cd3:0b40
+   237 0cd3:0b60   238 0cd3:0b80   244 0cd3:0b86   245 0cd3:0ba7
+   246 0cd3:0bb3   251 0cd3:0bba   252 0cd3:0bbf   253 0cd3:0bcd
+   254 0cd3:0bf3   255 0cd3:0bf6   257 0cd3:0c13   258 0cd3:0c32
+   263 0cd3:0c36   264 0cd3:0c4f   265 0cd3:0c5e   266 0cd3:0c95
+   267 0cd3:0ca5   268 0cd3:0cb3   269 0cd3:0cd3   270 0cd3:0cf3
+   276 0cd3:0cfa   277 0cd3:0d14   278 0cd3:0d65   283 0cd3:0d74
+   285 0cd3:0de0   287 0cd3:0de4   288 0cd3:0e5e   289 0cd3:0e74
+   291 0cd3:0e7e   292 0cd3:0e90   293 0cd3:0ea6   297 0cd3:0eb0
+   298 0cd3:0ebe   299 0cd3:0f0f   302 0cd3:0f1e   303 0cd3:0f23
+   304 0cd3:0f33   305 0cd3:0f43   306 0cd3:0f7d   307 0cd3:0f9d
+   308 0cd3:0fbd   309 0cd3:0ffd   310 0cd3:103d   312 0cd3:104f
+   313 0cd3:1064   314 0cd3:1078   315 0cd3:1088   316 0cd3:108a
+     0 0cd3:108d   320 0cd3:108e   326 0cd3:109b   327 0cd3:10a4
+   328 0cd3:10d0   329 0cd3:112e   330 0cd3:118c   331 0cd3:11e4
+   332 0cd3:11f1   334 0cd3:11f7   335 0cd3:1205   336 0cd3:122b
+   337 0cd3:1251   338 0cd3:1277   341 0cd3:1297   342 0cd3:129c
+     0 0cd3:129f   348 0cd3:12a0   353 0cd3:12ad   354 0cd3:12b9
+   356 0cd3:12bc   357 0cd3:12e4   358 0cd3:1310   359 0cd3:1314
+   361 0cd3:139c   362 0cd3:13c4   363 0cd3:13f0   364 0cd3:13f4
+   366 0cd3:147c   367 0cd3:1484   368 0cd3:148a     0 0cd3:148d
+   371 0cd3:148e   378 0cd3:149b   379 0cd3:14a3   381 0cd3:14aa
+   382 0cd3:14d4   383 0cd3:14d8   384 0cd3:14de     0 0cd3:14e1
+   392 0cd3:14e2   397 0cd3:14ef   398 0cd3:1503   399 0cd3:1524
+   401 0cd3:153a   402 0cd3:1560   403 0cd3:1586   404 0cd3:1596
+   405 0cd3:15aa   406 0cd3:15ae   407 0cd3:15d4   408 0cd3:1610
+   409 0cd3:163c   411 0cd3:164c   412 0cd3:1654   413 0cd3:165a
+     0 0cd3:165d   420 0cd3:165e   426 0cd3:166b   427 0cd3:167f
+   428 0cd3:16a0   429 0cd3:16ac   430 0cd3:16bb   431 0cd3:16be
+   432 0cd3:16e6   433 0cd3:173a   434 0cd3:1762   435 0cd3:1772
+   436 0cd3:1776   438 0cd3:17d6   440 0cd3:17fe   441 0cd3:1804
+   443 0cd3:180c     0 0cd3:180f   448 0cd3:1810   449 0cd3:181d
+   450 0cd3:182b   451 0cd3:183f   452 0cd3:186e   453 0cd3:187c
+   454 0cd3:188b   455 0cd3:189b     0 0cd3:189e   461 0cd3:18a0
+   462 0cd3:18ad   463 0cd3:18bb   464 0cd3:18cf   465 0cd3:18fe
+   466 0cd3:1914     0 0cd3:1917   471 0cd3:1918   483 0cd3:1925
+   485 0cd3:193c   486 0cd3:194b   487 0cd3:1962   490 0cd3:1966
+   491 0cd3:1985   492 0cd3:198c   495 0cd3:19a2   497 0cd3:19b1
+   498 0cd3:19ca   499 0cd3:19d9   506 0cd3:19dc   507 0cd3:19ff
+   508 0cd3:1a0e   514 0cd3:1a12   515 0cd3:1a17   516 0cd3:1a1c
+   517 0cd3:1a28   518 0cd3:1a2d   519 0cd3:1a30   520 0cd3:1a44
+   521 0cd3:1a5a   522 0cd3:1a6a   523 0cd3:1a92   524 0cd3:1a95
+   529 0cd3:1aa7   530 0cd3:1acb   531 0cd3:1ad0   537 0cd3:1ade
+   538 0cd3:1af7   539 0cd3:1b06   540 0cd3:1b08   541 0cd3:1b2a
+   543 0cd3:1b39   544 0cd3:1b3f     0 0cd3:1b42   548 0cd3:1b44
+   558 0cd3:1b51   559 0cd3:1b5d   564 0cd3:1b60   565 0cd3:1b8a
+   566 0cd3:1be0   567 0cd3:1c36   568 0cd3:1c7c   573 0cd3:1c92
+   574 0cd3:1cac   575 0cd3:1cd1   576 0cd3:1ce0   577 0cd3:1ce5
+   579 0cd3:1d03     0 0cd3:1d06   583 0cd3:1d08   588 0cd3:1d15
+   589 0cd3:1d1e   590 0cd3:1d7c   591 0cd3:1dda   592 0cd3:1e38
+   593 0cd3:1e90   594 0cd3:1ebc   595 0cd3:1ec8   596 0cd3:1ed4
+   597 0cd3:1ee0     0 0cd3:1ee3   601 0cd3:1ee4   611 0cd3:1ef1
+   612 0cd3:1f04   614 0cd3:1f0a   617 0cd3:1f32   619 0cd3:1f36
+   620 0cd3:1fa0   621 0cd3:200a   622 0cd3:206d   625 0cd3:20a1
+   626 0cd3:2139   627 0cd3:21d1   628 0cd3:2259   631 0cd3:228d
+   632 0cd3:22b7   633 0cd3:22e1   634 0cd3:2304   637 0cd3:231c
+   638 0cd3:233d   639 0cd3:2358   640 0cd3:235a     0 0cd3:235d
+
+Line numbers for JMFLD.OBJ(c:\nf\newsrc\jmfld.c) segment JMFLD_TEXT
+
+    25 0f08:000e    44 0f08:001b    47 0f08:0020    50 0f08:0062
+    51 0f08:0083    52 0f08:00a3    53 0f08:00aa    54 0f08:00ba
+    57 0f08:00c5    58 0f08:00da    60 0f08:00e1    63 0f08:0112
+    64 0f08:0125    65 0f08:0139    68 0f08:0147    69 0f08:015a
+    70 0f08:015f    71 0f08:0171    72 0f08:01b3    74 0f08:01ba
+    75 0f08:01c3    76 0f08:01f4    77 0f08:0235    78 0f08:0238
+    79 0f08:02b0    80 0f08:02c0    81 0f08:02d6    82 0f08:02e4
+    83 0f08:02e7    84 0f08:02ea    86 0f08:02ef    89 0f08:02f2
+    90 0f08:0317    91 0f08:0348    92 0f08:0389    93 0f08:038c
+    94 0f08:03b2    95 0f08:03c2    96 0f08:03d6    97 0f08:03e4
+    98 0f08:03e6   100 0f08:03eb   104 0f08:03ee   105 0f08:03f4
+   106 0f08:03f7   107 0f08:040d   108 0f08:041b   109 0f08:041e
+   111 0f08:0423   114 0f08:0426   115 0f08:0448   116 0f08:044b
+   117 0f08:0461   118 0f08:046f   119 0f08:0472   121 0f08:0477
+   124 0f08:047a   125 0f08:047f   126 0f08:0493   127 0f08:04a1
+   130 0f08:04a4   131 0f08:04cc   132 0f08:04e4   133 0f08:04f2
+   137 0f08:04f6   138 0f08:0523   139 0f08:0533   140 0f08:0536
+   141 0f08:0554   142 0f08:0568   143 0f08:0576   146 0f08:057a
+   147 0f08:0580   148 0f08:0585   149 0f08:0588   150 0f08:058d
+   151 0f08:059b   154 0f08:059e   155 0f08:05a3   156 0f08:05aa
+   158 0f08:05be   159 0f08:05c6   160 0f08:05d6   161 0f08:05e1
+   162 0f08:05f5   163 0f08:0603   166 0f08:0606   167 0f08:061d
+   168 0f08:0622   169 0f08:0626   170 0f08:062f   171 0f08:0660
+   172 0f08:0664   173 0f08:0670   174 0f08:06b3   175 0f08:06c1
+   176 0f08:06e7   177 0f08:070d   178 0f08:0710   179 0f08:0726
+   180 0f08:0734   181 0f08:0738   182 0f08:075a   184 0f08:0779
+   185 0f08:079f   186 0f08:07a2   187 0f08:07b3   190 0f08:07c1
+   191 0f08:07c4   192 0f08:081a   193 0f08:082d   195 0f08:0830
+   196 0f08:0839   197 0f08:0840   198 0f08:085f   200 0f08:0873
+   201 0f08:087a   202 0f08:088a   203 0f08:0895   205 0f08:08a9
+   206 0f08:08bc   207 0f08:08dd   208 0f08:08f1   209 0f08:08f8
+   210 0f08:0908   211 0f08:0913   212 0f08:0944   213 0f08:0952
+     0 0f08:0955   219 0f08:0956   241 0f08:0963   244 0f08:0968
+   247 0f08:09aa   248 0f08:09cb   249 0f08:09eb   250 0f08:09f2
+   251 0f08:0a02   254 0f08:0a0d   255 0f08:0a22   257 0f08:0a29
+   258 0f08:0a5a   259 0f08:0a6e   262 0f08:0a7c   263 0f08:0a8f
+   264 0f08:0a94   265 0f08:0a99   266 0f08:0a9c   267 0f08:0ade
+   269 0f08:0ae4   270 0f08:0aed   271 0f08:0b1e   272 0f08:0b5f
+   273 0f08:0b62   274 0f08:0bda   275 0f08:0bea   276 0f08:0c00
+   277 0f08:0c0e   278 0f08:0c11   279 0f08:0c14   281 0f08:0c19
+   284 0f08:0c1c   285 0f08:0c41   286 0f08:0c72   287 0f08:0cb3
+   288 0f08:0cb6   289 0f08:0cdc   290 0f08:0cec   291 0f08:0d00
+   292 0f08:0d0e   293 0f08:0d10   295 0f08:0d15   299 0f08:0d18
+   300 0f08:0d1d   303 0f08:0d20   304 0f08:0d26   305 0f08:0d29
+   306 0f08:0d3f   307 0f08:0d4d   308 0f08:0d50   310 0f08:0d55
+   313 0f08:0d58   314 0f08:0d83   315 0f08:0d86   316 0f08:0d9c
+   317 0f08:0daa   318 0f08:0dac   320 0f08:0db1   323 0f08:0db4
+   324 0f08:0db9   325 0f08:0dcd   326 0f08:0ddb   329 0f08:0dde
+   330 0f08:0e06   331 0f08:0e1e   332 0f08:0e2c   336 0f08:0e30
+   337 0f08:0e5d   338 0f08:0e6d   339 0f08:0e70   340 0f08:0e8e
+   341 0f08:0ea2   342 0f08:0eb0   345 0f08:0eb4   346 0f08:0eba
+   347 0f08:0ebf   348 0f08:0ec2   349 0f08:0ec7   350 0f08:0ed5
+   353 0f08:0ed8   354 0f08:0edd   355 0f08:0ee4   357 0f08:0ef8
+   358 0f08:0f00   359 0f08:0f10   360 0f08:0f1b   361 0f08:0f2f
+   362 0f08:0f3d   365 0f08:0f40   366 0f08:0f57   367 0f08:0f5c
+   368 0f08:0f60   369 0f08:0f69   370 0f08:0f9a   371 0f08:0f9e
+   372 0f08:0faa   373 0f08:0fed   374 0f08:0ffb   375 0f08:1021
+   376 0f08:1047   377 0f08:104a   378 0f08:1060   379 0f08:106e
+   380 0f08:1072   381 0f08:1094   383 0f08:10b3   384 0f08:10d9
+   385 0f08:10dc   386 0f08:10e9   387 0f08:10fa   390 0f08:1108
+   391 0f08:110a   392 0f08:1170   393 0f08:1176   394 0f08:1189
+   395 0f08:1192   396 0f08:11b3   397 0f08:11c7   398 0f08:11ce
+   399 0f08:11de   400 0f08:11e9   401 0f08:121a   402 0f08:1228
+   403 0f08:1230   404 0f08:1234   405 0f08:1236   406 0f08:123c
+     0 0f08:123f   412 0f08:1240   434 0f08:124d   437 0f08:1252
+   440 0f08:1294   441 0f08:12b5   442 0f08:12d5   443 0f08:12dc
+   444 0f08:12ec   447 0f08:12f7   448 0f08:130c   450 0f08:1313
+   451 0f08:1344   452 0f08:1358   455 0f08:1366   456 0f08:136b
+   457 0f08:1370   458 0f08:1374   459 0f08:13b6   460 0f08:13c9
+   462 0f08:13d0   463 0f08:13d9   464 0f08:140a   465 0f08:144b
+   466 0f08:144e   467 0f08:14c6   468 0f08:14d6   469 0f08:14ec
+   470 0f08:14fa   471 0f08:14fd   472 0f08:1500   474 0f08:1505
+   477 0f08:1508   478 0f08:152d   479 0f08:155e   480 0f08:159f
+   481 0f08:15a2   482 0f08:15c8   483 0f08:15d8   484 0f08:15ec
+   485 0f08:15fa   486 0f08:15fc   488 0f08:1601   492 0f08:1604
+   493 0f08:1632   495 0f08:1647   496 0f08:164c   499 0f08:1650
+   500 0f08:1656   501 0f08:1659   502 0f08:166f   503 0f08:167d
+   504 0f08:1680   506 0f08:1685   509 0f08:1688   510 0f08:16aa
+   511 0f08:16ad   512 0f08:16c3   513 0f08:16d1   514 0f08:16d4
+   516 0f08:16d9   519 0f08:16dc   520 0f08:16e1   521 0f08:16f5
+   522 0f08:1703   525 0f08:1706   526 0f08:172e   527 0f08:1746
+   528 0f08:1754   532 0f08:1758   533 0f08:1785   534 0f08:1795
+   535 0f08:1798   536 0f08:17b6   537 0f08:17ca   538 0f08:17d8
+   541 0f08:17dc   542 0f08:17e2   543 0f08:17e7   544 0f08:17ea
+   545 0f08:17ef   546 0f08:17fd   549 0f08:1800   550 0f08:1805
+   551 0f08:180c   553 0f08:1820   554 0f08:1828   555 0f08:1838
+   556 0f08:1843   557 0f08:1857   558 0f08:1865   561 0f08:1868
+   562 0f08:189a   563 0f08:189f   564 0f08:18a2   565 0f08:18ab
+   566 0f08:18dc   567 0f08:18e0   568 0f08:18ec   569 0f08:192f
+   570 0f08:193d   571 0f08:1963   572 0f08:1989   573 0f08:198c
+   574 0f08:19a2   575 0f08:19b0   576 0f08:19b4   577 0f08:19d6
+   579 0f08:19f5   580 0f08:1a1b   581 0f08:1a1e   582 0f08:1a4a
+   583 0f08:1a4f   584 0f08:1a60   587 0f08:1a6e   588 0f08:1a70
+   589 0f08:1ad6   591 0f08:1af4   592 0f08:1b11   593 0f08:1b16
+   594 0f08:1b25   597 0f08:1b33   598 0f08:1b6b   599 0f08:1b94
+   600 0f08:1b99   601 0f08:1ba8   603 0f08:1bb6   604 0f08:1c01
+   605 0f08:1c06   606 0f08:1c15   608 0f08:1c23   611 0f08:1c26
+   612 0f08:1c2f   613 0f08:1c50   614 0f08:1c64   615 0f08:1c87
+   616 0f08:1c97   617 0f08:1c9a   618 0f08:1cae   621 0f08:1cbc
+   626 0f08:1cc2   629 0f08:1cc8   630 0f08:1cca   631 0f08:1ce2
+   632 0f08:1ce4     0 0f08:1ce7
+
+Line numbers for JMGLRPT.OBJ(c:\nf\newsrc\jmglrpt.c) segment JMGLRPT_TEXT
+
+    78 10d6:0008    80 10d6:0015    83 10d6:001a    85 10d6:0038
+    87 10d6:003d    88 10d6:0052    90 10d6:0062    92 10d6:0067
+    95 10d6:006c    96 10d6:007c    98 10d6:0080   100 10d6:0085
+   101 10d6:0087     0 10d6:008a   105 10d6:008c   110 10d6:0099
+   111 10d6:00a0   112 10d6:00a6   116 10d6:00aa   117 10d6:00b6
+   120 10d6:00ba   121 10d6:00db   122 10d6:00e1   125 10d6:00e5
+   126 10d6:00f4   127 10d6:0109   128 10d6:013c   129 10d6:0145
+     0 10d6:0148   134 10d6:014a   137 10d6:0157   138 10d6:015d
+   139 10d6:0163   140 10d6:0169   143 10d6:016f   144 10d6:019b
+   145 10d6:01a1   146 10d6:01a7   147 10d6:01ad   150 10d6:01b3
+   151 10d6:01e2   152 10d6:01e8   153 10d6:01ee   156 10d6:01f4
+   157 10d6:0224   158 10d6:022a   161 10d6:0230   162 10d6:025e
+   166 10d6:0264   168 10d6:0267     0 10d6:026a   173 10d6:026c
+   177 10d6:0279   178 10d6:0283   179 10d6:0299   180 10d6:02af
+   181 10d6:02c5   182 10d6:02d9   183 10d6:030d   184 10d6:032b
+   185 10d6:0337   186 10d6:0382   187 10d6:03cd   188 10d6:0418
+   189 10d6:041c   191 10d6:0467   192 10d6:049b   193 10d6:04b2
+   196 10d6:04b6   197 10d6:04bc   198 10d6:04c8   199 10d6:04d4
+   200 10d6:04e0   204 10d6:0508   205 10d6:0512   206 10d6:051c
+   207 10d6:0526   208 10d6:053d   209 10d6:0541   210 10d6:054a
+   211 10d6:054e   212 10d6:0581   213 10d6:0604   214 10d6:0612
+   217 10d6:0617   218 10d6:0646   219 10d6:0691   220 10d6:06dc
+   221 10d6:0727   222 10d6:073e   224 10d6:0742   225 10d6:0758
+   226 10d6:076e   228 10d6:0784   229 10d6:0790   230 10d6:079c
+   232 10d6:07a8   236 10d6:07d0   237 10d6:07da   238 10d6:07e4
+   239 10d6:0813   240 10d6:085e   241 10d6:08a9   242 10d6:08f4
+   243 10d6:090b   245 10d6:090f   246 10d6:0925   247 10d6:093b
+   248 10d6:0951   249 10d6:095d   250 10d6:0969   251 10d6:0975
+   255 10d6:099d   256 10d6:09a7   257 10d6:09b1   258 10d6:09e0
+   259 10d6:0a2b   260 10d6:0a76   261 10d6:0ac1   262 10d6:0ad8
+   264 10d6:0adc   265 10d6:0af2   266 10d6:0b08   267 10d6:0b1e
+   268 10d6:0b2a   269 10d6:0b36   270 10d6:0b42   273 10d6:0b6a
+   274 10d6:0b70     0 10d6:0b73   278 10d6:0b74   280 10d6:0b81
+   281 10d6:0b88   282 10d6:0b8e   283 10d6:0bbd   287 10d6:0bc6
+   288 10d6:0bcd   289 10d6:0bd3   290 10d6:0c02   294 10d6:0c0b
+   295 10d6:0c15   296 10d6:0c1b   297 10d6:0c4a   298 10d6:0c5c
+   299 10d6:0c90   300 10d6:0ca7   302 10d6:0cab     0 10d6:0cae
+   307 10d6:0cb0   312 10d6:0cbd   313 10d6:0ccd   315 10d6:0cdd
+   320 10d6:0cec   321 10d6:0d11   324 10d6:0d20   325 10d6:0d25
+   326 10d6:0d2b   327 10d6:0d32   328 10d6:0d38   329 10d6:0d3e
+   330 10d6:0d44   331 10d6:0d4a   332 10d6:0d50   333 10d6:0d56
+   334 10d6:0d5c   335 10d6:0d68   336 10d6:0d74   337 10d6:0d80
+   338 10d6:0d8c   339 10d6:0d98   340 10d6:0da4   341 10d6:0db0
+   342 10d6:0dbc   343 10d6:0dc8   344 10d6:0dd4   345 10d6:0de0
+   346 10d6:0dec   347 10d6:0df8   348 10d6:0e04   349 10d6:0e10
+   350 10d6:0e26   351 10d6:0e3c   352 10d6:0e52   354 10d6:0e68
+   356 10d6:0e6d   357 10d6:0e7c   358 10d6:0e8b   359 10d6:0e9b
+     0 10d6:0e9e   364 10d6:0ea0   370 10d6:0ead   371 10d6:0ed5
+   372 10d6:0ed9   373 10d6:0eed   374 10d6:0f0f   376 10d6:0f26
+   377 10d6:0f5a   381 10d6:0f5e   384 10d6:0f86   387 10d6:0fa3
+   388 10d6:0ffe   389 10d6:1008   390 10d6:1011   392 10d6:103b
+   394 10d6:107f   396 10d6:1083     0 10d6:1086   400 10d6:1088
+   404 10d6:1095   405 10d6:10ab   406 10d6:10c1   407 10d6:10d1
+   410 10d6:10e1   411 10d6:10ff   412 10d6:114a   413 10d6:1195
+   414 10d6:11e0   416 10d6:11f7   417 10d6:120c   419 10d6:121b
+   424 10d6:122a     0 10d6:122d
+
+Line numbers for JMLNEDIT.OBJ(c:\nf\newsrc\jmlnedit.c) segment JMLNEDIT_TEXT
+
+    24 11f8:000e    48 11f8:001b    53 11f8:0029    54 11f8:006f
+    56 11f8:007b    57 11f8:0080    59 11f8:0082    60 11f8:0087
+    61 11f8:008c    63 11f8:00a1    64 11f8:00a4    65 11f8:00ea
+    66 11f8:00fa    67 11f8:010a    74 11f8:0110    75 11f8:0120
+    76 11f8:0142    77 11f8:0147    78 11f8:014c    84 11f8:0150
+    85 11f8:015d    86 11f8:0162    87 11f8:0164    89 11f8:0169
+    90 11f8:016e    91 11f8:0172    92 11f8:0189    93 11f8:0199
+    94 11f8:01b6    97 11f8:01c6    98 11f8:01df   101 11f8:01e2
+   102 11f8:01e7   103 11f8:01fc   104 11f8:0201   105 11f8:0216
+   106 11f8:021b   107 11f8:0238   108 11f8:023d   109 11f8:025a
+   110 11f8:025f   111 11f8:0265   112 11f8:027c   113 11f8:0292
+   115 11f8:0297   117 11f8:02a0   121 11f8:02a6   122 11f8:02ab
+   123 11f8:02b0   124 11f8:02c5   127 11f8:02c8   128 11f8:02e1
+   129 11f8:02e6   133 11f8:02e8   134 11f8:02fe   135 11f8:0303
+   136 11f8:0306   137 11f8:032e   138 11f8:033e   144 11f8:0342
+   145 11f8:0360   146 11f8:0365   147 11f8:0368   149 11f8:036d
+   150 11f8:0372   151 11f8:0376   152 11f8:038d   153 11f8:039d
+   154 11f8:03c8   157 11f8:03d8   158 11f8:0402   161 11f8:0406
+   162 11f8:0431   165 11f8:0434   166 11f8:0439   167 11f8:045c
+   168 11f8:0473   169 11f8:0478   170 11f8:04a2   171 11f8:04b9
+   173 11f8:04be   174 11f8:04c7   175 11f8:04dc   176 11f8:04ff
+   177 11f8:0515   179 11f8:051a   181 11f8:0523   185 11f8:052a
+   186 11f8:052f   187 11f8:0544   188 11f8:0567   189 11f8:05b4
+   190 11f8:05c9   193 11f8:05cc   194 11f8:05e5   195 11f8:05ea
+   198 11f8:05ee   199 11f8:05f4   200 11f8:05f9   201 11f8:060e
+   202 11f8:0610   203 11f8:0615   204 11f8:0618   206 11f8:062f
+   209 11f8:0632   210 11f8:0648   211 11f8:064d   212 11f8:0650
+   213 11f8:067c   214 11f8:068c   220 11f8:0690   221 11f8:06a7
+   222 11f8:06b7   223 11f8:06e7   224 11f8:06f7   227 11f8:06fe
+   228 11f8:071d   229 11f8:0722   230 11f8:0737   234 11f8:073a
+   235 11f8:073d   236 11f8:0742   237 11f8:0759   238 11f8:0769
+   239 11f8:079b   240 11f8:07ab   241 11f8:07c9   242 11f8:07d9
+   243 11f8:07e9   246 11f8:07ec   247 11f8:0805   248 11f8:080a
+   251 11f8:080e   252 11f8:0813   253 11f8:0828   256 11f8:082a
+   257 11f8:0840   258 11f8:0845   259 11f8:0848   260 11f8:0874
+   265 11f8:0878   266 11f8:088f   268 11f8:089f   269 11f8:08ba
+   270 11f8:08ce   271 11f8:08e5   272 11f8:091e   273 11f8:0932
+   275 11f8:0949   276 11f8:0966   277 11f8:0976   282 11f8:097c
+   283 11f8:0993   284 11f8:0998   287 11f8:099c   288 11f8:09b5
+   289 11f8:09ba   292 11f8:09be   293 11f8:09c3   294 11f8:09d8
+   297 11f8:09da   298 11f8:09f0   299 11f8:09f5   300 11f8:09f8
+   301 11f8:0a24   306 11f8:0a28   307 11f8:0a3e   308 11f8:0a48
+   309 11f8:0a4c   310 11f8:0a6c   316 11f8:0a75   317 11f8:0a87
+   318 11f8:0a8d   319 11f8:0a92   320 11f8:0a94   322 11f8:0a99
+   323 11f8:0a9c   325 11f8:0aa1   326 11f8:0aa4     0 11f8:0aa7
+   331 11f8:0aa8   339 11f8:0ab5   340 11f8:0aba   343 11f8:0ac4
+   344 11f8:0adc   345 11f8:0ae1   346 11f8:0af9   351 11f8:0b10
+   352 11f8:0b3f   353 11f8:0b5e   354 11f8:0b64   355 11f8:0b8b
+   356 11f8:0ba2   357 11f8:0bce   358 11f8:0be5   359 11f8:0be8
+   360 11f8:0c0f   365 11f8:0c26   366 11f8:0c33   367 11f8:0c3f
+   372 11f8:0c46   373 11f8:0c53   374 11f8:0c6a   384 11f8:0c82
+   385 11f8:0c9d   386 11f8:0ca7   387 11f8:0ca9     0 11f8:0cac
+   391 11f8:0cae   405 11f8:0cbb   406 11f8:0cc5   407 11f8:0ccf
+   408 11f8:0cd9   409 11f8:0ce4   410 11f8:0cec   411 11f8:0d06
+   412 11f8:0d21   413 11f8:0d2a   414 11f8:0d36   423 11f8:0d3a
+   424 11f8:0d46   425 11f8:0d85   426 11f8:0d94   432 11f8:0d9e
+   433 11f8:0dc9   438 11f8:0dd3   439 11f8:0de7   440 11f8:0df3
+   441 11f8:0dfd   442 11f8:0e00   448 11f8:0e29   453 11f8:0e4f
+   454 11f8:0e6c   455 11f8:0e71   457 11f8:0e98   458 11f8:0ebe
+   461 11f8:0ed9   462 11f8:0f28   463 11f8:0f2c   464 11f8:0f48
+   465 11f8:0f51   466 11f8:0f91   468 11f8:0fb6   469 11f8:0fd3
+   470 11f8:0fd6   472 11f8:0fda   473 11f8:1000   474 11f8:101b
+   476 11f8:1036     0 11f8:1039
+
+Line numbers for JMPREGL.OBJ(c:\nf\newsrc\jmpregl.c) segment JMPREGL_TEXT
+
+    28 12fb:000a    34 12fb:0017    35 12fb:0027    40 12fb:0037
+    41 12fb:0046    42 12fb:004e    43 12fb:006c    44 12fb:0075
+    45 12fb:0084     0 12fb:0087    50 12fb:0088    65 12fb:0095
+    66 12fb:00af    71 12fb:00b2    72 12fb:00c7    73 12fb:00dd
+    74 12fb:00f6    75 12fb:010b    80 12fb:0121    81 12fb:0137
+    82 12fb:014e    83 12fb:016a    84 12fb:0180    92 12fb:0197
+    94 12fb:01c1    95 12fb:01d0    96 12fb:01de   101 12fb:01ed
+   102 12fb:01f2   103 12fb:0217   105 12fb:0226   106 12fb:0250
+   108 12fb:025f   112 12fb:027d   113 12fb:0292   114 12fb:02a1
+   115 12fb:02b6   120 12fb:02c5   121 12fb:02cb   122 12fb:02ec
+   123 12fb:02fc   124 12fb:030b   125 12fb:030e   126 12fb:032d
+   127 12fb:034c   128 12fb:035c   133 12fb:036c     0 12fb:036f
+
+Line numbers for JMREPORT.OBJ(c:\nf\newsrc\jmreport.c) segment JMREPORT_TEXT
+
+    41 1332:0000    45 1332:000d    47 1332:0014    53 1332:001a
+    54 1332:001f    55 1332:0025    57 1332:0034    58 1332:0044
+    60 1332:0050    61 1332:0060    63 1332:006c    64 1332:007c
+    66 1332:0088    67 1332:008e    72 1332:0092    73 1332:00a2
+    74 1332:00b7    77 1332:00c7    78 1332:00e1    79 1332:00fe
+    82 1332:0116    83 1332:012c    84 1332:0141    85 1332:0157
+    86 1332:016d    87 1332:017b    88 1332:0194    89 1332:01ad
+    91 1332:01c6    92 1332:01d4    93 1332:01fc    94 1332:0222
+    95 1332:024a    96 1332:0270    97 1332:0298    99 1332:02be
+   100 1332:02d4   102 1332:02e2   103 1332:02f7   106 1332:0307
+   107 1332:0319   108 1332:0328   109 1332:0330   110 1332:0336
+   115 1332:033a   116 1332:0340   121 1332:0344   122 1332:034a
+   127 1332:034e   128 1332:0354   133 1332:0358   134 1332:035e
+   137 1332:0362   138 1332:0367   139 1332:036a   140 1332:03c4
+   141 1332:03c7     0 1332:03ca   145 1332:03cc   152 1332:03d9
+   153 1332:03de   155 1332:03e4   161 1332:03ea   162 1332:03f4
+   163 1332:0408   164 1332:0414   165 1332:0422   166 1332:0431
+   168 1332:0438   169 1332:0454   170 1332:0463   173 1332:046a
+   174 1332:047a   175 1332:0480   176 1332:048e   177 1332:04a2
+   178 1332:04ae   179 1332:04bc   180 1332:04cb   182 1332:04d2
+   183 1332:04ee   184 1332:04fd   187 1332:0504   188 1332:0514
+   189 1332:051a   190 1332:0528   191 1332:053c   192 1332:0548
+   193 1332:0556   194 1332:0565   196 1332:056c   197 1332:0588
+   198 1332:0597   201 1332:059e   202 1332:05ae   204 1332:05b4
+   205 1332:05c2   206 1332:05d6   207 1332:05e2   208 1332:05f0
+   209 1332:05ff   211 1332:0606   212 1332:0622   213 1332:0631
+   216 1332:0638   217 1332:0648   218 1332:064e   219 1332:0650
+   221 1332:0656   226 1332:065a   229 1332:0660   230 1332:0675
+   231 1332:067a   232 1332:067e   233 1332:069f   237 1332:06a5
+   238 1332:06b5   240 1332:06c5   241 1332:06da   242 1332:06e0
+   246 1332:06e4   247 1332:06e9   248 1332:06fd   249 1332:070c
+   250 1332:0711   251 1332:0716   252 1332:072f   253 1332:073e
+   254 1332:0743   256 1332:0748   257 1332:0751   260 1332:0766
+   261 1332:076d   262 1332:0772   263 1332:0778   267 1332:0787
+   268 1332:0796   269 1332:07a4   270 1332:07b4   272 1332:07c0
+   273 1332:07cf   274 1332:07db   275 1332:07e9   276 1332:07f8
+   278 1332:07fe   279 1332:081a   280 1332:0829   282 1332:0830
+   283 1332:0840   284 1332:084f   285 1332:0856   289 1332:085a
+   291 1332:086f   292 1332:088d   296 1332:0896   297 1332:08a6
+   299 1332:08b6   300 1332:08cb   301 1332:08d2   307 1332:08d6
+   310 1332:08eb   311 1332:08f2   312 1332:08f7   313 1332:08fd
+   317 1332:090c   318 1332:091b   319 1332:0929   320 1332:0939
+   322 1332:0945   323 1332:0954   324 1332:0960   325 1332:096e
+   326 1332:097d   328 1332:0984   329 1332:09a0   330 1332:09af
+   332 1332:09b6   333 1332:09c6   334 1332:09d5   335 1332:09dc
+   340 1332:09e0   341 1332:09e7   342 1332:09ec   343 1332:09f2
+   346 1332:0a01   347 1332:0a10   348 1332:0a19   349 1332:0a28
+   350 1332:0a2a   352 1332:0a39   353 1332:0a47   354 1332:0a57
+   356 1332:0a63   357 1332:0a72   358 1332:0a7e   359 1332:0a8c
+   360 1332:0a9b   362 1332:0aa2   363 1332:0abe   364 1332:0acd
+   366 1332:0ad4   367 1332:0ae4   368 1332:0af3   370 1332:0afa
+   374 1332:0afe   375 1332:0b05   376 1332:0b0a   377 1332:0b10
+   381 1332:0b1f   382 1332:0b2e   383 1332:0b37   384 1332:0b46
+   385 1332:0b48   388 1332:0b57   389 1332:0b65   390 1332:0b75
+   392 1332:0b81   393 1332:0b90   394 1332:0b9c   395 1332:0baa
+   396 1332:0bb9   398 1332:0bc0   399 1332:0bdc   400 1332:0beb
+   402 1332:0bf2   403 1332:0c02   404 1332:0c11   406 1332:0c18
+   408 1332:0c1a   409 1332:0c20   410 1332:0c22   412 1332:0c46
+   413 1332:0c4b   414 1332:0c50   415 1332:0c52   416 1332:0c7e
+     0 1332:0c81   421 1332:0c82   439 1332:0c8f   440 1332:0c96
+   441 1332:0ca3   442 1332:0cad   443 1332:0cba   444 1332:0cc3
+   445 1332:0cd0   446 1332:0cd9   448 1332:0ce6   449 1332:0cf5
+   451 1332:0cfc   452 1332:0d03   453 1332:0d0a   454 1332:0d13
+   455 1332:0d1a   456 1332:0d23   457 1332:0d2a   458 1332:0d33
+   462 1332:0d3a   463 1332:0d48   466 1332:0d4c   467 1332:0d5a
+   470 1332:0d5e   471 1332:0d6c   474 1332:0d70   475 1332:0d7e
+   478 1332:0d82   479 1332:0d90   482 1332:0d94   483 1332:0da2
+   489 1332:0da6   490 1332:0dbb   491 1332:0dc0   492 1332:0dc4
+   493 1332:0de5   497 1332:0deb   498 1332:0dfb   500 1332:0e0b
+   501 1332:0e20   502 1332:0e26   506 1332:0e2a   507 1332:0e2f
+   508 1332:0e43   509 1332:0e52   510 1332:0e57   511 1332:0e5c
+   512 1332:0e75   513 1332:0e84   514 1332:0e89   516 1332:0e8e
+   517 1332:0e97   518 1332:0eac   523 1332:0ec2   524 1332:0ed2
+   526 1332:0ee2   527 1332:0ef7   532 1332:0efa   533 1332:0f18
+   534 1332:0f21   535 1332:0f31   536 1332:0f41   537 1332:0f51
+   538 1332:0f61   540 1332:0f68   542 1332:0f7d   544 1332:0f80
+   545 1332:0f8f   546 1332:0f94   547 1332:0ff2   548 1332:0ff5
+     0 1332:0ff8   554 1332:0ffa   555 1332:1007   556 1332:1015
+   557 1332:1029   558 1332:1058   559 1332:106e     0 1332:1071
+   563 1332:1072   565 1332:107f   567 1332:1084   568 1332:108a
+   574 1332:108c   580 1332:108e   583 1332:1090   584 1332:1095
+   585 1332:1098   586 1332:10b6   587 1332:10b9     0 1332:10bc
+   591 1332:10be   593 1332:10cb   595 1332:1102   596 1332:1118
+   597 1332:1127   598 1332:112a     0 1332:112d   602 1332:112e
+   604 1332:113b   605 1332:114c   606 1332:1158   607 1332:115c
+   608 1332:115e   609 1332:116d   611 1332:1172     0 1332:1175
+   615 1332:1176   616 1332:1183   618 1332:118f   619 1332:1191
+     0 1332:1194   624 1332:1196   634 1332:11a3   635 1332:11d8
+   636 1332:11e4   637 1332:11fa   641 1332:11fe   642 1332:121b
+   643 1332:1238   645 1332:1255   648 1332:1260   649 1332:128c
+   650 1332:12cb   652 1332:12db   653 1332:12e9   654 1332:132c
+   656 1332:133e   657 1332:1351   659 1332:136e   660 1332:1370
+   661 1332:1386   663 1332:13a0   666 1332:13a4   667 1332:13d0
+   668 1332:13f4   669 1332:1407   670 1332:1424   671 1332:1426
+   672 1332:143c   674 1332:1456   677 1332:145a   678 1332:1470
+   679 1332:148a   680 1332:148c   682 1332:14aa   686 1332:14ae
+     0 1332:14b1
+
+Line numbers for JMYANK.OBJ(c:\nf\newsrc\jmyank.c) segment JMYANK_TEXT
+
+    32 147d:0002    38 147d:000f    39 147d:0015    40 147d:0021
+    41 147d:0046    42 147d:007a    43 147d:00f4    44 147d:00f8
+    45 147d:0120    46 147d:0124     0 147d:0127    51 147d:0128
+    58 147d:0135    59 147d:013c    61 147d:0144    63 147d:014a
+    64 147d:0158    65 147d:019c    66 147d:01a2     0 147d:01a5
+    71 147d:01a6    77 147d:01b3    78 147d:01bc    81 147d:01c4
+    82 147d:01fb    83 147d:0275    84 147d:029d     0 147d:02a0
+
+Line numbers for JMSTKDTL.OBJ(c:\nf\newsrc\jmstkdtl.c) segment JMSTKDTL_TEXT
+
+    36 14a7:0002    43 14a7:000f    44 14a7:001f    46 14a7:002f
+    64 14a7:003e    65 14a7:0054    66 14a7:0069    68 14a7:0078
+    70 14a7:0087     0 14a7:008a    77 14a7:008c    92 14a7:0099
+    93 14a7:00ae    95 14a7:00c4    96 14a7:00d0    97 14a7:00dc
+    99 14a7:00e1   100 14a7:0107   101 14a7:0124   102 14a7:0133
+   105 14a7:013a   106 14a7:0160   108 14a7:017f   113 14a7:0182
+   114 14a7:0190   115 14a7:0195   116 14a7:01d9   117 14a7:020d
+   118 14a7:0210   120 14a7:0218   121 14a7:0230   124 14a7:0246
+   129 14a7:025e   130 14a7:027d   131 14a7:028f   137 14a7:02a1
+   138 14a7:02aa   139 14a7:02c2   140 14a7:02dc   141 14a7:02fa
+   143 14a7:0306   144 14a7:0336   145 14a7:0366   146 14a7:0376
+   147 14a7:0388   148 14a7:03a9   149 14a7:0410   150 14a7:0418
+   151 14a7:041a   153 14a7:0422   154 14a7:042c   155 14a7:0438
+   157 14a7:0467   160 14a7:04b5   164 14a7:04c7   166 14a7:04ca
+   167 14a7:04d0   169 14a7:0500   170 14a7:0515   173 14a7:0524
+   174 14a7:052c     0 14a7:052f
+
+Program entry point at 156E:018A
+
+Line numbers for qcprogs.lib(entry.c) segment ENTRY_TEXT
+
+    28 1b10:0002    31 1b10:000b    32 1b10:001c    33 1b10:001f
+    34 1b10:0030    35 1b10:003e    36 1b10:004a    37 1b10:005c
+    38 1b10:007c    43 1b10:0082    52 1b10:008b    53 1b10:00ad
+    54 1b10:00b6    55 1b10:00c6    56 1b10:00d0    57 1b10:00da
+    58 1b10:00eb    59 1b10:00f5    60 1b10:00fe    61 1b10:011e
+    62 1b10:012d    63 1b10:013c    64 1b10:014b    65 1b10:015e
+    66 1b10:0170    67 1b10:0179    71 1b10:017f    72 1b10:0188
+    73 1b10:019f    74 1b10:01b5    76 1b10:01ca    77 1b10:01db
+    78 1b10:01f2    79 1b10:0203    83 1b10:0209    84 1b10:0212
+    85 1b10:0221    86 1b10:0257    87 1b10:025b    88 1b10:025e
+    92 1b10:0264    93 1b10:026d    94 1b10:0289    95 1b10:02aa
+    99 1b10:02b0   102 1b10:02b9   103 1b10:02ca   104 1b10:02cd
+   105 1b10:02df   106 1b10:02f0   107 1b10:0302   111 1b10:0308
+   112 1b10:0311   113 1b10:0322   114 1b10:032c   115 1b10:0336
+   119 1b10:033c   123 1b10:0345   124 1b10:0356   125 1b10:0359
+   126 1b10:036a   127 1b10:037a   128 1b10:0389   129 1b10:0398
+   130 1b10:03a6   131 1b10:03aa   132 1b10:03ad   133 1b10:03be
+   134 1b10:03d0   135 1b10:03de   139 1b10:03e4   140 1b10:03ed
+   141 1b10:0409   145 1b10:040f   146 1b10:0418   147 1b10:0439
+   149 1b10:043e   150 1b10:0448   151 1b10:0457   152 1b10:045b
+   153 1b10:045f   154 1b10:0462   155 1b10:0465   156 1b10:047d
+   157 1b10:0485   158 1b10:0492   159 1b10:04b7   160 1b10:04bc
+   163 1b10:04c2   164 1b10:04dd   165 1b10:04f3   167 1b10:04f6
+   169 1b10:04fa   170 1b10:04fe   171 1b10:0502   172 1b10:0511
+   173 1b10:051b   175 1b10:051e   176 1b10:0546   177 1b10:0562
+   178 1b10:057a   179 1b10:0592   182 1b10:0595   183 1b10:0599
+   184 1b10:059d   185 1b10:05bb   186 1b10:05bf   188 1b10:05c2
+   189 1b10:05c8   190 1b10:05cb   192 1b10:05ce   193 1b10:05db
+   194 1b10:0600   195 1b10:060e   196 1b10:0633   198 1b10:0641
+   199 1b10:0652   200 1b10:066e   201 1b10:068f   202 1b10:06b6
+   203 1b10:06e9   204 1b10:071e   207 1b10:0721   208 1b10:0732
+   209 1b10:0737   211 1b10:073a   212 1b10:0786   213 1b10:0795
+   215 1b10:0798   216 1b10:07a2   217 1b10:07cd   218 1b10:07e5
+   220 1b10:07fd   221 1b10:080d   223 1b10:081e   224 1b10:0822
+   225 1b10:0826   226 1b10:0844   227 1b10:0853   228 1b10:0858
+   229 1b10:085b   230 1b10:0891   231 1b10:08a0   232 1b10:08a5
+   235 1b10:08ae   236 1b10:08dd   237 1b10:08e3   239 1b10:08e6
+   240 1b10:08e9   241 1b10:0928   242 1b10:0935   243 1b10:095a
+   244 1b10:0968   245 1b10:098d   248 1b10:099b   249 1b10:09b5
+   251 1b10:09c9   252 1b10:09da   253 1b10:09f6   255 1b10:0a17
+   256 1b10:0a1d   260 1b10:0a23   261 1b10:0a2c   282 1b10:0a32
+   284 1b10:0a38   285 1b10:0a3e   286 1b10:0ae4   290 1b10:0aea
+   293 1b10:0af3   294 1b10:0b04   295 1b10:0b2b   296 1b10:0b2f
+   297 1b10:0b3d   298 1b10:0b41   299 1b10:0b4a   300 1b10:0b66
+   301 1b10:0b86   302 1b10:0b8d   303 1b10:0b91   307 1b10:0b97
+   310 1b10:0ba0   311 1b10:0bb6   312 1b10:0bb9   313 1b10:0bca
+   314 1b10:0be2   315 1b10:0c02   316 1b10:0c09   317 1b10:0c0d
+   321 1b10:0c13   322 1b10:0c1c   323 1b10:0c2b   324 1b10:0c32
+   325 1b10:0c4d   329 1b10:0c53   335 1b10:0c5c   336 1b10:0c71
+   337 1b10:0c88   338 1b10:0c8e   339 1b10:0cbd   340 1b10:0cc1
+   341 1b10:0cd3   342 1b10:0cd7   343 1b10:0d25   344 1b10:0d2b
+   345 1b10:0d3a   346 1b10:0d40   350 1b10:0d46   353 1b10:0d4f
+   354 1b10:0d60   355 1b10:0d6e   356 1b10:0d7f   358 1b10:0d99
+   359 1b10:0db4   360 1b10:0dd5   361 1b10:0dfe   362 1b10:0e1a
+   363 1b10:0e27   364 1b10:0e35   365 1b10:0e47   366 1b10:0e63
+   372 1b10:0e78   373 1b10:0ead   374 1b10:0ebf   375 1b10:0ed9
+   376 1b10:0ede   380 1b10:0ee6   381 1b10:0eeb   383 1b10:0ef0
+   384 1b10:0ef9   385 1b10:0f07   386 1b10:0f19   387 1b10:0f1f
+   388 1b10:0f36   389 1b10:0f4b   391 1b10:0f5d   395 1b10:0f60
+   396 1b10:0f71   397 1b10:0f83   398 1b10:0f94   400 1b10:0f97
+   401 1b10:0fa8   402 1b10:0fba   403 1b10:0fcb   404 1b10:0fce
+   405 1b10:0fda   406 1b10:0fdd   407 1b10:101b   409 1b10:103e
+   410 1b10:1041   411 1b10:104d   412 1b10:1053   415 1b10:1059
+   416 1b10:1062   417 1b10:1076   418 1b10:108a
+
+Line numbers for qcprogs.lib(ibmpc.c) segment IBMPC_TEXT
+
+    16 1c19:0000    17 1c19:0009    18 1c19:000e    19 1c19:0014
+    20 1c19:0028    21 1c19:0042    25 1c19:0048    26 1c19:0051
+    27 1c19:0056    28 1c19:005c    29 1c19:0076    30 1c19:0083
+    31 1c19:0090    35 1c19:0096    36 1c19:009f    37 1c19:00a5
+    38 1c19:00ab    39 1c19:00b2    40 1c19:00cc    45 1c19:00d2
+    46 1c19:00db    47 1c19:00eb    48 1c19:00f0    49 1c19:00f5
+    50 1c19:00fe    51 1c19:0104    52 1c19:011e    56 1c19:0124
+    57 1c19:012d    58 1c19:0132    59 1c19:014c    60 1c19:0156
+    66 1c19:015c    69 1c19:0165    71 1c19:016b    72 1c19:0178
+    74 1c19:017e    75 1c19:0184    76 1c19:0189    77 1c19:018e
+    78 1c19:01a8    79 1c19:01b7    81 1c19:01bc    82 1c19:01cb
+    83 1c19:01e7    84 1c19:01ec    85 1c19:0206    86 1c19:020b
+    87 1c19:021d    91 1c19:0223    92 1c19:022c    93 1c19:0232
+    94 1c19:024c    95 1c19:0259   104 1c19:025f   107 1c19:0268
+   112 1c19:026b   113 1c19:027a   114 1c19:0288   116 1c19:029c
+   117 1c19:02a1   118 1c19:02c7   119 1c19:02d1   120 1c19:02d7
+   121 1c19:02e0   122 1c19:02e6   125 1c19:02e9   126 1c19:02ec
+   127 1c19:02ef   128 1c19:02f5   131 1c19:02fb   132 1c19:0304
+   133 1c19:0309   134 1c19:0317   135 1c19:0326   136 1c19:0347
+   138 1c19:034d   141 1c19:0356   142 1c19:035b   143 1c19:037c
+   144 1c19:038b   145 1c19:0399   146 1c19:03a4   150 1c19:03aa
+   153 1c19:03b3   154 1c19:03c1   155 1c19:03ce   156 1c19:03d8
+   159 1c19:03de   162 1c19:03e7   163 1c19:03f5   164 1c19:0402
+   165 1c19:040c   168 1c19:0412   171 1c19:041b   172 1c19:0429
+   173 1c19:0436   174 1c19:0440
+
+Line numbers for qcprogs.lib(qhelp.c) segment QHELP_TEXT
+
+    34 1c5d:0006    38 1c5d:000f    39 1c5d:002d    40 1c5d:0030
+    41 1c5d:0042    42 1c5d:004d    43 1c5d:0053    44 1c5d:0069
+    45 1c5d:0098    46 1c5d:009b    47 1c5d:009e    48 1c5d:00a1
+    49 1c5d:00ab    50 1c5d:00ae    51 1c5d:00d0    52 1c5d:00d3
+    53 1c5d:00e0    54 1c5d:00e3    55 1c5d:00f4    56 1c5d:0105
+    57 1c5d:0128    58 1c5d:0156    59 1c5d:0159    60 1c5d:0166
+    61 1c5d:0176    62 1c5d:01dd    63 1c5d:01e0    64 1c5d:01e3
+    65 1c5d:01e8    66 1c5d:01eb    70 1c5d:01f1    71 1c5d:01fa
+    72 1c5d:0225    73 1c5d:023b    76 1c5d:0241    77 1c5d:024a
+    78 1c5d:0253    79 1c5d:027d    80 1c5d:0280    81 1c5d:0299
+    82 1c5d:02a0    85 1c5d:02a6    89 1c5d:02af    90 1c5d:02c6
+    91 1c5d:02dc    92 1c5d:02ec    93 1c5d:0320    94 1c5d:033e
+    95 1c5d:034c    96 1c5d:0372    97 1c5d:0398    98 1c5d:039b
+    99 1c5d:03b0   100 1c5d:03b3   101 1c5d:03c8   102 1c5d:03cd
+   103 1c5d:03db   105 1c5d:03e9
+
+Line numbers for qcprogs.lib(qwindow.c) segment QWINDOW_TEXT
+
+    60 1c9c:0000    63 1c9c:0009    64 1c9c:0017    65 1c9c:0039
+    67 1c9c:0042    68 1c9c:0052    69 1c9c:006b    70 1c9c:0084
+    71 1c9c:00df    72 1c9c:013a    73 1c9c:0143    74 1c9c:014c
+    75 1c9c:0155    76 1c9c:015e    77 1c9c:0170    78 1c9c:0190
+    80 1c9c:01b0    81 1c9c:01d1    82 1c9c:01da    83 1c9c:020e
+    84 1c9c:0217    89 1c9c:0223    90 1c9c:022c    95 1c9c:0232
+    96 1c9c:023b    97 1c9c:0250    98 1c9c:025a   100 1c9c:0266
+   104 1c9c:026c   105 1c9c:0275   106 1c9c:028c   107 1c9c:029e
+   108 1c9c:02a1   109 1c9c:02b3   111 1c9c:02b6   112 1c9c:02cb
+   113 1c9c:02d4   114 1c9c:02d7   116 1c9c:030d   117 1c9c:0333
+   119 1c9c:033f   123 1c9c:0345   124 1c9c:034e   126 1c9c:0353
+   127 1c9c:0368   128 1c9c:036b   129 1c9c:0386   130 1c9c:039e
+   131 1c9c:03a7   133 1c9c:03b3   136 1c9c:03b9   137 1c9c:03c2
+   138 1c9c:03d7   139 1c9c:03e8   141 1c9c:03f4   145 1c9c:03fa
+   158 1c9c:0403   159 1c9c:0411   163 1c9c:0417   164 1c9c:0420
+   165 1c9c:0441   167 1c9c:0449   168 1c9c:0456   169 1c9c:045f
+   172 1c9c:046e   173 1c9c:047a   174 1c9c:0488   180 1c9c:0494
+   187 1c9c:049a   188 1c9c:04a3   190 1c9c:04b1   191 1c9c:04b4
+   192 1c9c:04c5   193 1c9c:04d3   194 1c9c:04df   195 1c9c:04f1
+   203 1c9c:04f7   204 1c9c:0500   205 1c9c:0515   206 1c9c:0523
+   207 1c9c:0536   208 1c9c:0542   210 1c9c:0550   214 1c9c:0556
+   215 1c9c:055f   219 1c9c:0580   221 1c9c:058c   222 1c9c:0595
+   224 1c9c:059d   269 1c9c:05a3   272 1c9c:05ac   273 1c9c:05c1
+   274 1c9c:05db   275 1c9c:05f5   276 1c9c:0638   280 1c9c:063e
+   283 1c9c:0647   284 1c9c:065c   286 1c9c:065f   287 1c9c:06ad
+   288 1c9c:06b9   290 1c9c:0714   291 1c9c:072e   292 1c9c:0783
+   293 1c9c:07e2   295 1c9c:07e5   296 1c9c:083a   297 1c9c:0854
+   298 1c9c:08ae   299 1c9c:0905   303 1c9c:090b   304 1c9c:0914
+   305 1c9c:0919   307 1c9c:092a   308 1c9c:093f   309 1c9c:0942
+   310 1c9c:0954   311 1c9c:0965   312 1c9c:0977   314 1c9c:097f
+   315 1c9c:0995   316 1c9c:099e   317 1c9c:09ad   318 1c9c:0a08
+   319 1c9c:0a29   321 1c9c:0a7a   322 1c9c:0a8c   323 1c9c:0ae7
+   328 1c9c:0aed   329 1c9c:0af6   331 1c9c:0b01   333 1c9c:0b16
+   334 1c9c:0b24   335 1c9c:0b3f   336 1c9c:0b49   337 1c9c:0b58
+   339 1c9c:0b78   343 1c9c:0b7e   344 1c9c:0b87   345 1c9c:0b9c
+   346 1c9c:0b9f   348 1c9c:0ba5   349 1c9c:0bbb   351 1c9c:0bd0
+   352 1c9c:0bd8   353 1c9c:0be1   355 1c9c:0be5   356 1c9c:0c37
+   357 1c9c:0c67   359 1c9c:0c6a   360 1c9c:0c85   361 1c9c:0cd7
+   363 1c9c:0cdf   364 1c9c:0ce3   365 1c9c:0cfa   369 1c9c:0d00
+   370 1c9c:0d09   371 1c9c:0d42   372 1c9c:0d4c   373 1c9c:0d56
+   375 1c9c:0d7a   383 1c9c:0d80   384 1c9c:0d89   385 1c9c:0d8e
+   386 1c9c:0da3   387 1c9c:0da9   388 1c9c:0db3   389 1c9c:0dd9
+   390 1c9c:0dee   391 1c9c:0df6   392 1c9c:0e0b   393 1c9c:0e11
+   394 1c9c:0e1e   396 1c9c:0e2a   397 1c9c:0e3b   398 1c9c:0e3f
+   399 1c9c:0e55   401 1c9c:0e61   402 1c9c:0e6a   406 1c9c:0e6e
+   407 1c9c:0e72   408 1c9c:0e84   409 1c9c:0e89   411 1c9c:0ea0
+   412 1c9c:0f1c   413 1c9c:0f25   414 1c9c:0f29   416 1c9c:0f2c
+   417 1c9c:0f2f   418 1c9c:0f65   419 1c9c:0f68   420 1c9c:0f90
+   426 1c9c:0f96   427 1c9c:0f9f   429 1c9c:0fac   430 1c9c:0fc1
+   431 1c9c:0fc4   432 1c9c:0ff4   433 1c9c:1010   434 1c9c:101a
+   435 1c9c:102a   436 1c9c:103e   437 1c9c:1052   438 1c9c:106d
+   439 1c9c:1088   440 1c9c:10a4   442 1c9c:10a7   443 1c9c:10b1
+   444 1c9c:10cf   445 1c9c:10ed   446 1c9c:111f   447 1c9c:1171
+   448 1c9c:1174   449 1c9c:1192   452 1c9c:11da   453 1c9c:11ea
+   454 1c9c:1208   455 1c9c:123d   456 1c9c:128c   457 1c9c:1299
+   458 1c9c:12b7   460 1c9c:12f9   531 1c9c:12ff   533 1c9c:1308
+   535 1c9c:1319   536 1c9c:1334   537 1c9c:134f   538 1c9c:1393
+   543 1c9c:1399   545 1c9c:13a2   547 1c9c:13b3   548 1c9c:13ce
+   549 1c9c:13e9   550 1c9c:142c   555 1c9c:1432   558 1c9c:143b
+   559 1c9c:1450   560 1c9c:1453   561 1c9c:1471   562 1c9c:14aa
+   563 1c9c:14ee   564 1c9c:14f1   572 1c9c:14f7   573 1c9c:1500
+   574 1c9c:1514   575 1c9c:1527   577 1c9c:1539   578 1c9c:1547
+   579 1c9c:155b   580 1c9c:1569   584 1c9c:156f   585 1c9c:1578
+   586 1c9c:158c   587 1c9c:159f   589 1c9c:15b1   590 1c9c:15bf
+   591 1c9c:15d3   592 1c9c:15e1   596 1c9c:15e7   597 1c9c:15f0
+   598 1c9c:1607   599 1c9c:1621   600 1c9c:1638   601 1c9c:1652
+   602 1c9c:166a   603 1c9c:167d   604 1c9c:1695   605 1c9c:16a8
+   606 1c9c:16c8   610 1c9c:16ce   611 1c9c:16d7   612 1c9c:16e8
+   613 1c9c:16fe   614 1c9c:170f   615 1c9c:1726   617 1c9c:1737
+   618 1c9c:174c   623 1c9c:1752   626 1c9c:175b   627 1c9c:1769
+   628 1c9c:177f   630 1c9c:1795   631 1c9c:1799   632 1c9c:17b3
+   633 1c9c:17b7   634 1c9c:17c8   636 1c9c:17da   637 1c9c:17f8
+   645 1c9c:17fe   646 1c9c:1807   647 1c9c:1856   648 1c9c:1876
+   649 1c9c:188d   650 1c9c:189d   651 1c9c:18b3   652 1c9c:18f1
+   655 1c9c:18f7   656 1c9c:1900   657 1c9c:1914   658 1c9c:1924
+   659 1c9c:1930

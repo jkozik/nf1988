@@ -1,0 +1,593 @@
+ORIGIN = PWB
+ORIGIN_VER = 2.0
+PROJ = JSEDIT
+PROJFILE = JSEDIT.MAK
+DEBUG = 1
+
+NMAKEBSC1  = set
+NMAKEBSC2  = nmake
+CC  = cl
+CFLAGS_G  = /AL /W2 /BATCH /FR$*.sbr
+CFLAGS_D  = /f /Od /Zi
+CFLAGS_R  = /f- /Ot /Ol /Og /Oe /Oi /Gs
+CXX  = cl
+CXXFLAGS_G  = /W2 /BATCH /FR$*.sbr
+CXXFLAGS_D  = /f /Zi /Od
+CXXFLAGS_R  = /f- /Ot /Oi /Ol /Oe /Og /Gs
+MAPFILE_D  = NUL
+MAPFILE_R  = NUL
+LFLAGS_G  = /NOI /BATCH /ONERROR:NOEXE /segments:196
+LFLAGS_D  = /CO /FAR /PACKC
+LFLAGS_R  = /EXE /FAR /PACKC
+LINKER	= link
+ILINK  = ilink
+LRF  = echo > NUL
+ILFLAGS  = /a /e
+BRFLAGS  =  /o $(PROJ).bsc
+BSCMAKE  = bscmake
+SBRPACK  = sbrpack
+BROWSE	= 1
+PACK_SBRS  = 1
+LLIBS_G  = mlcurses qcprogs
+
+FILES  = JSEDIT.C CHVALID.C GDREPORT.C GLENV.C GLJEFILE.C JEGLSORT.C\
+	JEVALINP.C JMAARPT.C JMACCTFL.C JMANALDT.C JMEDIT.C JMFILE.C JMFLD.C\
+	JMGLRPT.C JMLNEDIT.C JMPREGL.C JMREPORT.C JMYANK.C
+OBJS  = JSEDIT.obj CHVALID.obj GDREPORT.obj GLENV.obj GLJEFILE.obj\
+	JEGLSORT.obj JEVALINP.obj JMAARPT.obj JMACCTFL.obj JMANALDT.obj\
+	JMEDIT.obj JMFILE.obj JMFLD.obj JMGLRPT.obj JMLNEDIT.obj JMPREGL.obj\
+	JMREPORT.obj JMYANK.obj
+SBRS  = JSEDIT.sbr CHVALID.sbr GDREPORT.sbr GLENV.sbr GLJEFILE.sbr\
+	JEGLSORT.sbr JEVALINP.sbr JMAARPT.sbr JMACCTFL.sbr JMANALDT.sbr\
+	JMEDIT.sbr JMFILE.sbr JMFLD.sbr JMGLRPT.sbr JMLNEDIT.sbr JMPREGL.sbr\
+	JMREPORT.sbr JMYANK.sbr
+
+all: $(PROJ).exe
+
+.SUFFIXES:
+.SUFFIXES:
+.SUFFIXES: .obj .sbr .c
+
+JSEDIT.obj : JSEDIT.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_D) /FoJSEDIT.obj JSEDIT.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_R) /FoJSEDIT.obj JSEDIT.C
+<<
+!ENDIF
+
+JSEDIT.sbr : JSEDIT.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_D) /FRJSEDIT.sbr JSEDIT.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_R) /FRJSEDIT.sbr JSEDIT.C
+<<
+!ENDIF
+
+CHVALID.obj : CHVALID.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_D) /FoCHVALID.obj CHVALID.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_R) /FoCHVALID.obj CHVALID.C
+<<
+!ENDIF
+
+CHVALID.sbr : CHVALID.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_D) /FRCHVALID.sbr CHVALID.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_R) /FRCHVALID.sbr CHVALID.C
+<<
+!ENDIF
+
+GDREPORT.obj : GDREPORT.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_D) /FoGDREPORT.obj GDREPORT.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_R) /FoGDREPORT.obj GDREPORT.C
+<<
+!ENDIF
+
+GDREPORT.sbr : GDREPORT.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_D) /FRGDREPORT.sbr GDREPORT.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_R) /FRGDREPORT.sbr GDREPORT.C
+<<
+!ENDIF
+
+GLENV.obj : GLENV.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_D) /FoGLENV.obj GLENV.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_R) /FoGLENV.obj GLENV.C
+<<
+!ENDIF
+
+GLENV.sbr : GLENV.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_D) /FRGLENV.sbr GLENV.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_R) /FRGLENV.sbr GLENV.C
+<<
+!ENDIF
+
+GLJEFILE.obj : GLJEFILE.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_D) /FoGLJEFILE.obj GLJEFILE.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_R) /FoGLJEFILE.obj GLJEFILE.C
+<<
+!ENDIF
+
+GLJEFILE.sbr : GLJEFILE.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_D) /FRGLJEFILE.sbr GLJEFILE.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_R) /FRGLJEFILE.sbr GLJEFILE.C
+<<
+!ENDIF
+
+JEGLSORT.obj : JEGLSORT.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_D) /FoJEGLSORT.obj JEGLSORT.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_R) /FoJEGLSORT.obj JEGLSORT.C
+<<
+!ENDIF
+
+JEGLSORT.sbr : JEGLSORT.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_D) /FRJEGLSORT.sbr JEGLSORT.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_R) /FRJEGLSORT.sbr JEGLSORT.C
+<<
+!ENDIF
+
+JEVALINP.obj : JEVALINP.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_D) /FoJEVALINP.obj JEVALINP.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_R) /FoJEVALINP.obj JEVALINP.C
+<<
+!ENDIF
+
+JEVALINP.sbr : JEVALINP.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_D) /FRJEVALINP.sbr JEVALINP.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_R) /FRJEVALINP.sbr JEVALINP.C
+<<
+!ENDIF
+
+JMAARPT.obj : JMAARPT.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_D) /FoJMAARPT.obj JMAARPT.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_R) /FoJMAARPT.obj JMAARPT.C
+<<
+!ENDIF
+
+JMAARPT.sbr : JMAARPT.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_D) /FRJMAARPT.sbr JMAARPT.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_R) /FRJMAARPT.sbr JMAARPT.C
+<<
+!ENDIF
+
+JMACCTFL.obj : JMACCTFL.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_D) /FoJMACCTFL.obj JMACCTFL.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_R) /FoJMACCTFL.obj JMACCTFL.C
+<<
+!ENDIF
+
+JMACCTFL.sbr : JMACCTFL.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_D) /FRJMACCTFL.sbr JMACCTFL.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_R) /FRJMACCTFL.sbr JMACCTFL.C
+<<
+!ENDIF
+
+JMANALDT.obj : JMANALDT.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_D) /FoJMANALDT.obj JMANALDT.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_R) /FoJMANALDT.obj JMANALDT.C
+<<
+!ENDIF
+
+JMANALDT.sbr : JMANALDT.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_D) /FRJMANALDT.sbr JMANALDT.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_R) /FRJMANALDT.sbr JMANALDT.C
+<<
+!ENDIF
+
+JMEDIT.obj : JMEDIT.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_D) /FoJMEDIT.obj JMEDIT.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_R) /FoJMEDIT.obj JMEDIT.C
+<<
+!ENDIF
+
+JMEDIT.sbr : JMEDIT.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_D) /FRJMEDIT.sbr JMEDIT.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_R) /FRJMEDIT.sbr JMEDIT.C
+<<
+!ENDIF
+
+JMFILE.obj : JMFILE.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_D) /FoJMFILE.obj JMFILE.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_R) /FoJMFILE.obj JMFILE.C
+<<
+!ENDIF
+
+JMFILE.sbr : JMFILE.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_D) /FRJMFILE.sbr JMFILE.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_R) /FRJMFILE.sbr JMFILE.C
+<<
+!ENDIF
+
+JMFLD.obj : JMFLD.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_D) /FoJMFLD.obj JMFLD.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_R) /FoJMFLD.obj JMFLD.C
+<<
+!ENDIF
+
+JMFLD.sbr : JMFLD.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_D) /FRJMFLD.sbr JMFLD.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_R) /FRJMFLD.sbr JMFLD.C
+<<
+!ENDIF
+
+JMGLRPT.obj : JMGLRPT.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_D) /FoJMGLRPT.obj JMGLRPT.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_R) /FoJMGLRPT.obj JMGLRPT.C
+<<
+!ENDIF
+
+JMGLRPT.sbr : JMGLRPT.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_D) /FRJMGLRPT.sbr JMGLRPT.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_R) /FRJMGLRPT.sbr JMGLRPT.C
+<<
+!ENDIF
+
+JMLNEDIT.obj : JMLNEDIT.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_D) /FoJMLNEDIT.obj JMLNEDIT.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_R) /FoJMLNEDIT.obj JMLNEDIT.C
+<<
+!ENDIF
+
+JMLNEDIT.sbr : JMLNEDIT.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_D) /FRJMLNEDIT.sbr JMLNEDIT.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_R) /FRJMLNEDIT.sbr JMLNEDIT.C
+<<
+!ENDIF
+
+JMPREGL.obj : JMPREGL.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_D) /FoJMPREGL.obj JMPREGL.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_R) /FoJMPREGL.obj JMPREGL.C
+<<
+!ENDIF
+
+JMPREGL.sbr : JMPREGL.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_D) /FRJMPREGL.sbr JMPREGL.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_R) /FRJMPREGL.sbr JMPREGL.C
+<<
+!ENDIF
+
+JMREPORT.obj : JMREPORT.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_D) /FoJMREPORT.obj JMREPORT.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_R) /FoJMREPORT.obj JMREPORT.C
+<<
+!ENDIF
+
+JMREPORT.sbr : JMREPORT.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_D) /FRJMREPORT.sbr JMREPORT.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_R) /FRJMREPORT.sbr JMREPORT.C
+<<
+!ENDIF
+
+JMYANK.obj : JMYANK.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_D) /FoJMYANK.obj JMYANK.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_R) /FoJMYANK.obj JMYANK.C
+<<
+!ENDIF
+
+JMYANK.sbr : JMYANK.C
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_D) /FRJMYANK.sbr JMYANK.C
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_R) /FRJMYANK.sbr JMYANK.C
+<<
+!ENDIF
+
+
+$(PROJ).bsc : $(SBRS)
+	$(BSCMAKE) @<<
+$(BRFLAGS) $(SBRS)
+<<
+
+$(PROJ).exe : $(OBJS)
+	-$(NMAKEBSC1) MAKEFLAGS=
+	-$(NMAKEBSC2) $(NMFLAGS) -f $(PROJFILE) $(PROJ).bsc
+!IF $(DEBUG)
+	$(LRF) @<<$(PROJ).lrf
+$(RT_OBJS: = +^
+) $(OBJS: = +^
+)
+$@
+$(MAPFILE_D)
+$(LIBS: = +^
+) +
+$(LLIBS_G: = +^
+) +
+$(LLIBS_D: = +^
+)
+$(DEF_FILE) $(LFLAGS_G) $(LFLAGS_D);
+<<
+!ELSE
+	$(LRF) @<<$(PROJ).lrf
+$(RT_OBJS: = +^
+) $(OBJS: = +^
+)
+$@
+$(MAPFILE_R)
+$(LIBS: = +^
+) +
+$(LLIBS_G: = +^
+) +
+$(LLIBS_R: = +^
+)
+$(DEF_FILE) $(LFLAGS_G) $(LFLAGS_R);
+<<
+!ENDIF
+	$(LINKER) @$(PROJ).lrf
+
+
+.c.obj :
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_D) /Fo$@ $<
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/c $(CFLAGS_G)
+$(CFLAGS_R) /Fo$@ $<
+<<
+!ENDIF
+
+.c.sbr :
+!IF $(DEBUG)
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_D) /FR$@ $<
+<<
+!ELSE
+	@$(CC) @<<$(PROJ).rsp
+/Zs $(CFLAGS_G)
+$(CFLAGS_R) /FR$@ $<
+<<
+!ENDIF
+
+
+run: $(PROJ).exe
+	$(PROJ).exe $(RUNFLAGS)
+
+debug: $(PROJ).exe
+	CV $(CVFLAGS) $(PROJ).exe $(RUNFLAGS)

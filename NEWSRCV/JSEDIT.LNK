@@ -1,0 +1,11 @@
+chvalid.obj+
+glenv.obj+
+jevalinp.obj+
+jmedit.obj+
+jmfile.obj+
+jmfld.obj+
+jmlnedit.obj+
+jsedit.obj
+Jsedit.exe
+Jsedit.map
+lcurses.lib

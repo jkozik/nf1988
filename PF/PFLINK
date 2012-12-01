@@ -1,0 +1,8 @@
+pfmain.obj+
+pfdb.obj+
+pfmenu.obj+
+pfvued.obj+
+pferrh.obj
+pfmain.exe /noi /noe
+pfmain.map
+/CO wfcl wfdl

@@ -1,0 +1,57 @@
+CFLAGS		= -AL -Zi -Od -c -W3
+DEST		= .
+EXTHDRS		=
+FFLAGS		=
+HDRS		= att_glob.h def_att.h pfdefs.h pfextern.h pfstruct.h
+LDFLAGS		= /noi /noe /CO
+LDMAP		= $(@R)
+LIBS		= wfcl wfdl
+LINKER		= link
+MAKEFILE	= Makefile
+MODEL		= L
+OBJS		= pfdb.obj pferrh.obj pfmain.obj pfmenu.obj pfvued.obj
+PRINT		= print
+PROGRAM		= pfmain.exe
+
+SETARGV		= \lib\${MODEL}setargv
+SRCS		= pfdb.c pferrh.c pfmain.c pfmenu.c pfvued.c
+
+all:		$(PROGRAM)
+
+$(PROGRAM):     $(OBJS) $(LIBS)
+		@echo "Loading $(PROGRAM) ... "
+		@$(LINKER) $(LDFLAGS) $(OBJS), $(PROGRAM), $(LDMAP), $(LIBS);
+		@echo "done"
+
+clean:;		@rm -f $(OBJS)
+
+depend:; 	@mkmf -f $(MAKEFILE) PROGRAM=$(PROGRAM) DEST=$(DEST)
+
+index:;		@ctags -wx $(HDRS) $(SRCS)
+
+install:	$(PROGRAM)
+		@echo Installing $(PROGRAM) in $(DEST)
+		@if not $(DEST)x==.x copy $(PROGRAM) $(DEST)
+
+print:;		@$(PRINT) $(HDRS) $(SRCS)
+
+program:        $(PROGRAM)
+
+tags:           $(HDRS) $(SRCS); @ctags $(HDRS) $(SRCS)
+
+update:		$(DEST)/$(PROGRAM)
+
+$(DEST)/$(PROGRAM): $(SRCS) $(LIBS) $(HDRS) $(EXTHDRS)
+		@make -f $(MAKEFILE) DEST=$(DEST) install
+###
+### OPUS MKMF:  Do not remove this line!  Automatic dependencies follow.
+
+pfdb.obj: PFdefs.h PFextern.h PFstruct.h
+
+pferrh.obj: PFdefs.h PFextern.h PFstruct.h
+
+pfmain.obj: PFdefs.h PFextern.h PFstruct.h
+
+pfmenu.obj: PFdefs.h PFextern.h PFstruct.h
+
+pfvued.obj: PFdefs.h PFextern.h PFstruct.h

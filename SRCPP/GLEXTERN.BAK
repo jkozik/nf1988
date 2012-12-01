@@ -1,0 +1,13 @@
+extern int JEinthand();
+extern void GLenvsetup();
+extern void GLjeopen();
+extern void GLjeins(struct jefilerec *);
+extern void GLjedel(struct jefilerec *);
+extern char *getacct(char *);
+extern char *CHvalid(char *);
+extern void CHload();
+extern char *CHlookup(char *);
+extern int JEvalinp(FILE *, FILE *);
+extern char *JEglsort(char *, char *);
+extern struct jefileinp *GLjeparse(char *);
+extern struct jefileinp *GLjegetnxt(char *);

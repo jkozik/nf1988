@@ -1,0 +1,2 @@
+/c /AL /W2 /D_DOS /BATCH
+/f /Od /Zi /D_DEBUG /FoAMT.obj AMT.CPP

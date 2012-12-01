@@ -1,0 +1,20 @@
+#
+# Program: jfmain
+#
+ccopt=-AL -Zi -Od -c -W3
+
+.c.obj:
+	cl $(ccopt) $*.c
+
+pfdb.obj : pfdb.c
+
+pfmenu.obj : pfmenu.c
+
+pfvued.obj : pfvued.c
+
+pfmain.obj : pfmain.c
+
+pferrh.obj : pferrh.c
+
+pfmain.exe : pfdb.obj pfmenu.obj pfmain.obj pferrh.obj pfvued.c
+	link @pflink

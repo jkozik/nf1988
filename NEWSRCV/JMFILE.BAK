@@ -1,0 +1,641 @@
+#include "vv_sys.h"
+#include <dos.h>
+#include <io.h>
+#include <string.h>
+#include <ctype.h>
+#ifndef turboc
+#include <search.h>
+#include <direct.h>
+#include <sys/types.h>
+#endif
+#include <stdlib.h>
+#include <sys/stat.h>
+
+#include "GLdefs.h"
+#include "GLstruct.h"
+#include "GLextern.h"
+
+#include "JSdefs.h"
+#include "JSstruct.h"
+#include "JSextern.h"
+
+/* Global Definitions */
+struct JSundorec JSundotab[MAXUNDO];
+struct JSundorec *JSubot,*JSutop;
+
+/* Function Templates */
+
+
+menu
+JMfile(inp_ch,actbuf)
+CHTYPE inp_ch;
+struct bufinfo *actbuf;
+{
+	CHTYPE ch;
+	char prmtstr[40];
+
+	/*
+	** If a file is opened and modified, the 
+	** following code saves
+	** the currently open file and prompts for a new file.
+	*/
+	switch(inp_ch) {
+	case 'l':
+	case 'L':
+
+		if (actbuf->fileopened && actbuf->filechgd) {
+			/* Prompt: "Save filename? [(y)/n]"*/
+			sprintf(prmtstr,"Save %s? [(y)/n]",actbuf->filename);
+			ch = wprmtch(prompt,prmtstr);
+			switch(ch){
+			case 'n':
+			case 'N':
+				break;
+	
+			default:
+				/* Prompt: Save: filename-'...' */
+				wprmtfld(prompt,"Save: Enter Filename-",actbuf->filetmp);
+				if (actbuf->filetmp[0] == KEY_ESC) {
+					wclear(prompt);
+					wrefresh(prompt);
+					touchwin(body);
+					wrefresh(body);
+					return(edit);
+				} 
+				strcpy(actbuf->filename,actbuf->filetmp);
+				JMsave(actbuf->filename,actbuf->JShead);
+				actbuf->filechgd=JEFALSE;
+				break;
+			}
+		
+		} /* end if (filechgd) */
+	} /* end switch */
+
+	switch(inp_ch) {
+	case KEY_ESC:
+		JMmsg("");
+		return(edit);
+
+	case 'N':
+	case 'n':
+		if (actbuf->fileopened && actbuf->filechgd) {
+			JMsave(actbuf->filename,actbuf->JShead);
+			actbuf->filechgd=JEFALSE;
+		}
+		wprmtfld(prompt,"New: Enter Filename-",actbuf->filetmp);
+		if (actbuf->filetmp[0] == KEY_ESC) {
+			wclear(prompt);
+			wrefresh(prompt);
+			touchwin(body);
+			wrefresh(body);
+			return(edit);
+		} else {
+			if (access(actbuf->filetmp,0) != 0) {
+				wclear(prompt);
+				wrefresh(prompt);
+				strcpy(actbuf->filename,actbuf->filetmp);
+				JMnew(actbuf);
+				actbuf->fileopened=JETRUE;
+				actbuf->filechgd=JEFALSE;
+				actbuf->JScurptr=actbuf->JShead;
+				actbuf->JStopptr=actbuf->JShead;
+				JMdspg(actbuf->JShead);
+				/* turn-on cursor */
+				leaveok(body,FALSE);
+				wmove(body,0,0);
+				wrefresh(body);
+				return(edit);
+			} else {
+				JMmsg("");
+				if (JMload(actbuf) == JESUCCESS) {
+					return(edit);
+				} else {
+					return(file);
+				} /* access */
+			}
+		}
+		/*break;*/
+
+	case 'L':
+	case 'l':
+		
+		wprmtfld(prompt,"Load: Enter Filename-",actbuf->filetmp);
+		if (actbuf->filetmp[0] == KEY_ESC) {
+			wclear(prompt);
+			wrefresh(prompt);
+			touchwin(body);
+			wrefresh(body);
+			return(edit);
+		} else {
+			JMmsg("");
+			if (JMload(actbuf) == JESUCCESS) {
+				return(edit);
+			} else {
+				return(file);
+			} /* access */
+		} /* KEY_ESC test */
+		/*break;*/
+
+	case 'S':
+	case 's':
+		wprmtfld(prompt,"Save: Enter Filename-",actbuf->filetmp);
+		if (actbuf->filetmp[0] == KEY_ESC) {
+			wclear(prompt);
+			wrefresh(prompt);
+			touchwin(body);
+			wrefresh(body);
+			return(edit);
+		} 
+		strcpy(actbuf->filename,actbuf->filetmp);
+		JMsave(actbuf->filename,actbuf->JShead);
+		actbuf->filechgd=JEFALSE;
+		touchwin(body);
+		wrefresh(body);
+		return(edit);
+		/*break;*/
+
+	default:
+		beep();
+		break;
+	}
+	return(file);
+}
+int
+JMload(actbuf)
+struct bufinfo *actbuf;
+{
+	FILE *fp;
+
+	char line[SZLINE];
+	char *acctptr,*amtend;
+	char *eosptr;
+	int linesused;
+	struct JSfilerec *nxtptr;
+	int charcnt;
+	char msgbuf[80];
+
+	int i;
+
+	/*
+	** Validate file: the first two digits must be a valid month.
+	*/
+	if (strlen(actbuf->filetmp) < 2) {
+		JMmsg("File Name Must Be At Least 2 Characters.");
+		return(JEFAIL);
+	}
+	if (strncmp(actbuf->filetmp,"01",2) < 0 || strncmp(actbuf->filetmp,"12",2) > 0) {
+		JMmsg("First Two Characters Not Valid Month: 00, 01, ..., 12");
+		return(JEFAIL);
+	}
+
+	/*
+	** Open file for read only.
+	*/
+	if ((fp = fopen(actbuf->filetmp,"r")) == NULL ) {
+		JMmsg("File Not Found");
+		return(JEFAIL);
+	}
+	
+	/* 
+	** Initialize data structure JSfiletab[]
+	*/
+	for (i=0; i<MAXJEFILE; i++) {
+		JSfiletab[i].line[0] = '\0';
+		JSfiletab[i].next = NULL;
+		JSfiletab[i].prev = NULL;
+		JSfiletab[i].prtlines = 0;
+	}
+	JSrecend = 0;
+
+	/* Globals that control JSfiletab: */
+	actbuf->JShead = NULL;
+	actbuf->JStail = NULL;
+	actbuf->JScurptr = NULL;
+	actbuf->JSrec_cnt = 0;
+
+	JMmsg("Load: Reading in file...");
+	charcnt = 0;
+
+	/*
+	** Read input, validate, and store into data structure
+	*/
+	while ( fgets(line,sizeof(line),fp) != (char *)NULL) {
+		/*
+		** Validate input:
+		** 1. Check for valid date: 0131,
+		** 2. Check that first account number is valid: 101
+		** 3. Support only one format:
+		**    - 0131,-101,...
+		** 4. If this much is okay, then the file must be okay!?
+		*/
+		if (getjdate(line)==NULL || getacct(line+SZDATE+2)==NULL) {
+			JMmsg("File Does Not Conform to 0131,-101 format.");
+			wprintw(message," Rec-%d.",actbuf->JSrec_cnt+1);
+			wrefresh(message);
+			fclose(fp);
+			actbuf->fileopened=JEFALSE;
+			actbuf->filechgd=JEFALSE;
+			return(JEFAIL);
+		}
+
+		/*
+		** Strip off the trailing newline character.
+		*/
+		eosptr = &line[strlen(line)-1];
+		if (*eosptr == '\n')
+			*eosptr = '\0';
+
+		/*
+		** Count the number lines that will be displayed
+		*/
+		linesused=0;
+		acctptr=line+SZDATE+2;
+		while(*(acctptr+SZACCT) == ',') {
+			linesused++;
+			amtend=strpbrk(acctptr,";"); /* assume success */
+			/* point to next account/amount pair */
+			acctptr=amtend+1;
+		}
+
+		/*
+		** Get storage. Stop loading if not enough space.
+		*/
+		if ((nxtptr=JMgetfree()) == NULL) {
+			JMmsg("File Does Not Fit In Memory.");
+			wprintw(message," Rec-%d.",actbuf->JSrec_cnt+1);
+			wrefresh(message);
+			fclose(fp);
+			actbuf->fileopened=JEFALSE;
+			actbuf->filechgd=JEFALSE;
+			return(JEFAIL);
+		}
+
+		/*
+		** Count characters read
+		*/
+		charcnt = charcnt + strlen(line);
+		sprintf(msgbuf,"Load: File-%s, Records-%d, Characters-%d",actbuf->filetmp,actbuf->JSrec_cnt,charcnt);
+		JMmsg(msgbuf);
+
+		/*
+		** Put input at end of JSfiletab.
+		*/
+		JMapdrec(&actbuf->JShead,&actbuf->JStail,&actbuf->JSrec_cnt,&actbuf->filechgd,nxtptr,line,linesused+1);
+
+	}
+	/* consistency checks */
+	if (actbuf->JStail != &JSfiletab[actbuf->JSrec_cnt-1]) {
+		fprintf(stderr,"JMload: JStail not consistent\n");
+		JEinthand();
+	}
+	if (actbuf->JShead != &JSfiletab[0]) {
+		fprintf(stderr,"JMload: JShead not consistent\n");
+		JEinthand();
+	}
+
+	/* close file */
+	fclose(fp);
+	sprintf(msgbuf,"Load: Completed. File-%s, Records-%d, Characters-%d",actbuf->filetmp,actbuf->JSrec_cnt,charcnt);
+	JMmsg(msgbuf);
+
+	/* clear undo buffer */
+	JMudclr();
+	wclear(prompt);
+	wrefresh(prompt);
+	strcpy(actbuf->filename,actbuf->filetmp);
+	actbuf->fileopened=JETRUE;
+	actbuf->filechgd=JEFALSE;
+	actbuf->JScurptr=actbuf->JShead;
+	actbuf->JStopptr=actbuf->JShead;
+	JMdspg(actbuf->JShead);
+	/* turn-on cursor */
+	leaveok(body,FALSE);
+	wmove(body,0,0);
+	wrefresh(body);
+	return (JESUCCESS);
+}
+void
+JMnew(actbuf)
+struct bufinfo *actbuf;
+{
+
+	int i;
+	/* 
+	** Initialize data structure JSfiletab[]
+	*/
+	for (i=0; i<MAXJEFILE; i++) {
+		JSfiletab[i].line[0] = '\0';
+		JSfiletab[i].next = NULL;
+		JSfiletab[i].prev = NULL;
+		JSfiletab[i].prtlines = 0;
+	}
+	JSrecend = 0;
+
+	actbuf->JShead = NULL;
+	actbuf->JScurptr=NULL;
+	actbuf->JStopptr=NULL;
+	actbuf->JStail = NULL;
+	actbuf->JSrec_cnt = 0;
+
+	/* clear undo buffer */
+	JMudclr();
+}
+void
+JMdelrec(cur,head,tail,cnt,filechgd)
+struct JSfilerec *cur,**head,**tail;
+int *cnt;
+jebool *filechgd;
+{
+	/*
+	** Delete record from JSfiletab.
+	** NOTE: No attempt is made reuse memory.
+	*/
+	if (cur == NULL) 
+		return;
+
+	if (cur->prev == NULL) {
+		*head = cur->next;
+	} else {
+		cur->prev->next = cur->next;
+	}
+	if (cur->next == NULL) {
+		*tail = cur->prev;
+	} else {
+		cur->next->prev = cur->prev;
+	}
+	*filechgd=JETRUE;
+	(*cnt)--;
+}
+struct JSfilerec *
+JMgetfree()
+{
+	/* 
+	** Get next available record from JSfiletab structure.
+	** Return NULL if no more space.
+	*/
+	struct JSfilerec *nxtptr;
+
+	if (JSrecend > MAXJEFILE)
+		return(NULL);/* no more space!! */
+
+	nxtptr = &JSfiletab[JSrecend];
+	JSrecend++;
+	return(nxtptr);
+}
+void
+JMapdrec(head,tail,cnt,filechgd,nxtptr,line,prtlines)
+struct JSfilerec **head,**tail;
+struct JSfilerec *nxtptr;
+char *line;
+int prtlines,*cnt;
+jebool *filechgd;
+{
+
+	/*
+	** Append JSlnedtab record to tail of JSfiletab structure.
+	*/
+	strcpy(nxtptr->line,line);
+	nxtptr->prtlines = prtlines;
+	if (*tail == NULL) {
+		/* empty data structure */
+		nxtptr->prev = NULL;
+		nxtptr->next = NULL;
+		*head = nxtptr;
+		*tail = *head;
+	} else {
+		nxtptr->next = NULL;
+		nxtptr->prev = *tail;
+		(*tail)->next = nxtptr;
+		*tail = nxtptr;
+	}
+	*filechgd=JETRUE;
+	(*cnt)++;
+}
+void
+JMinsrec(curptr,head,cnt,filechgd,nxtptr,line,prtlines)
+struct JSfilerec *nxtptr,**head,*curptr;
+char *line;
+int prtlines,*cnt;
+jebool *filechgd;
+{
+
+	/*
+	** Link journal entry record, 'line', into JSfiletab
+	** linked list.
+	*/
+	strcpy(nxtptr->line,line);
+	nxtptr->prtlines = prtlines;
+	if (curptr == NULL) {
+		JMmsg("JMinsrec: Called when JScurptr == NULL!!!!");
+	} else {
+		nxtptr->next = curptr;
+		nxtptr->prev = curptr->prev;
+		if (nxtptr->prev == NULL) {
+			*head=nxtptr;
+		} else {
+			curptr->prev->next = nxtptr;
+		}
+		curptr->prev = nxtptr;
+	}
+	(*cnt)++;
+	*filechgd=JETRUE;
+
+}
+UCHAR
+wprmtch(win,text)
+WINDOWPTR win;
+char *text;
+{
+   int ch;
+   wn_up(win);
+   v_st(text,win);
+   ch = ki();
+   wn_dn(win);
+   return(ch);
+}
+void
+wprmtfld(win,prmttext,input)
+WINDOW *win;
+char *prmttext;
+char *input;
+{
+   wn_up(win);
+   v_st(text,win);
+	(void)wgetfld(win,input,10);
+   wn_dn(win);
+   return;
+}
+void
+JMsave(file,head)
+char *file;
+struct JSfilerec *head;
+{
+	FILE *fp;
+	struct JSfilerec *nxtptr;
+	char *dotptr;
+	char filebck[10];
+	jebool errorsfd;
+	int charcnt, rec_cnt;
+	char msgbuf[80];
+
+	/*
+	** if file exists, rename it file.bck
+	*/
+	if (access(file,0) == 0) {
+		/* file exists */
+		JMmsg("Save: Backing Up Existing File By Renaming");
+		strncpy(filebck,file,6);
+		filebck[6]='\0';
+	
+		/* force extention to .bck */
+		if ((dotptr=strchr(filebck,'.')) != NULL) 
+			*dotptr = '\0';
+		strcat(filebck,".bck");
+
+		/* zap old backup file */
+		remove(filebck);
+
+		if (rename(file,filebck) != 0) {
+			JMmsg("Save: FAILED. Unable to Rename File");
+			return;
+		}
+	}
+
+	/*
+	** Open file for writing.
+	*/
+	if ( (fp = fopen(file,"w")) == NULL) {
+		JMmsg("Save: FAILED.  Unable to open file");
+		return;
+	}
+
+	/*
+	** Main Writing Loop.
+	*/
+	rec_cnt = 0;
+	charcnt = 0;
+	nxtptr = head;
+	errorsfd = JEFALSE;
+	while (nxtptr != NULL) {
+		fputs(nxtptr->line,fp);
+		charcnt = charcnt + strlen(nxtptr->line);
+		fputc('\n',fp);
+		nxtptr = nxtptr->next;
+		rec_cnt++;
+	}
+
+	/*
+	** Check for errors writing to file.
+	*/
+	if (ferror(fp)) {
+		errorsfd = JETRUE;
+		clearerr(fp);
+	}
+
+	/*
+	** Close file and print error messages (if any)
+	*/
+	if (fclose(fp)==EOF || errorsfd == JETRUE) {
+		JMmsg("Save: Completed. Errors detected while writing or closing file.");
+	} else {
+		sprintf(msgbuf,"Save: Completed. File-%s, Records-%d, Characters-%d",file,rec_cnt,charcnt);
+		JMmsg(msgbuf);
+	}
+	JSpregluptodate=JEFALSE;
+}
+void 
+JMudsave(curptr)
+struct JSfilerec *curptr;
+{
+	/*
+	** This function saves the JE file record pointed to
+	** by curptr in the undo data structure.  
+	** This data structure holds twenty records and should
+	** never get full.
+	** This undo list gets zapped by JMedit().
+	*/
+
+	/* ignore calls with NULL curptr */
+	if (curptr == NULL)
+		return;
+
+	/*
+	** *JSutop points to next record from JSundotab[]. 
+	*/
+	JSutop->rec = curptr;
+	JSutop->next = curptr->next;
+	JSutop->prev = curptr->prev;
+	JSutop->prtlines = curptr->prtlines;
+	strcpy(JSutop->line,curptr->line);
+
+	/* 
+	** Bump JSutop
+	*/
+	JSutop++;
+	if (JSutop >= &JSundotab[MAXUNDO]) {
+		JMmsg("Undo Buffer FULL!!!!");
+		beep();
+		JSutop=&JSundotab[MAXUNDO-1];
+	}
+}
+
+void
+JMudclr()
+{
+	/*
+	** Clear JSundotab[] structure.
+	*/
+	int i;
+	for (i=0; i<MAXUNDO; i++) {
+		JSundotab[i].rec = NULL;
+		JSundotab[i].next = NULL;
+		JSundotab[i].prev = NULL;
+		JSundotab[i].prtlines = 0;
+		*JSundotab[i].line = '\0';
+	}
+	JSutop = &JSundotab[0];
+	JSubot = &JSundotab[0];
+}
+
+int 
+JMundo()
+{
+	/* 
+	** Read from JSutop till JSubot, restoring JSfiletab[]
+	** Save what was in JSfiletab in JSundotab so that an undo
+	** can be undone.
+	*/
+	struct JSfilerec save;
+	struct JSundorec *undoptr;
+
+	/* Undo possible ? */
+	if (JSutop == JSubot)
+		return(JEFAIL);
+
+	undoptr = JSutop - 1;
+
+	/* loop through undo data structure, JSundotab, in reverse order */
+	while (undoptr >= JSubot) {
+		/* put contents of undoptr->rec into save */
+		save.next = undoptr->rec->next;
+		save.prev = undoptr->rec->prev;
+		save.prtlines = undoptr->rec->prtlines;
+		strcpy(save.line,undoptr->rec->line);
+
+		/* copy JSutop into undoptr->rec */
+		undoptr->rec->next = undoptr->next;
+		undoptr->rec->prev = undoptr->prev;
+		undoptr->rec->prtlines = undoptr->prtlines;
+		strcpy(undoptr->rec->line,undoptr->line);
+
+		/* replace undoptr with save */
+		undoptr->next = save.next;
+		undoptr->prev = save.prev;
+		undoptr->prtlines = save.prtlines;
+		strcpy(undoptr->line,save.line);
+
+		/* Bump undoptr */
+		undoptr--;
+	}
+	return(JESUCCESS);
+}

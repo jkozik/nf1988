@@ -1,0 +1,18 @@
+void JEinthand(void);
+jebool GLuptodate(void);
+struct chartrec *CHgetfst(void);
+struct chartrec *CHgetnxt(void);
+char *getjdate(char *);
+extern void GLenvsetup(void);
+extern void GLjeopen(void);
+extern void GLjeins(struct jefilerec *);
+extern void GLjedel(struct jefilerec *);
+extern char *getacct(char *);
+extern jebool CHsubacct(char *);
+extern char *CHvalid(char *);
+extern void CHload(void);
+extern char *CHlookup(char *);
+extern int JEvalinp(FILE *, FILE *);
+extern char *JEglsort(char *, char *);
+extern struct jefileinp *GLjeparse(char *);
+extern struct jefileinp *GLjegetnxt(char *);

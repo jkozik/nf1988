@@ -1,0 +1,25 @@
+TODAY=`/bin/date +%m%d%y%H`
+cd c:/nf
+if [ ! -d e:/bkup/$TODAY ]
+then
+   mkdir  e:/bkup/$TODAY
+fi
+# xcopy '*.*'  '\nfbkup\'$TODAY'\'  /m /s
+echo "Source Directory - c:\\\nf"
+echo "Target Directory - e:\\\bkup"
+echo Backup Changed ...
+echo "\n   Files matching-'??'"
+xcopy '??' 'e:\bkup\'$TODAY /s/m
+echo "\n   Files matching-'chart'"
+xcopy chart 'e:\bkup\'$TODAY /s/m
+echo "\n   Files matching-'wk?'"
+xcopy '*.wk?' 'e:\bkup\'$TODAY /s/m
+echo "\n   Files matching-'*.c'"
+xcopy '*.c' 'e:\bkup\'$TODAY /s/m
+echo "\n   Files matching-'*.cpp'"
+xcopy '*.cpp' 'e:\bkup\'$TODAY /s/m
+echo "\n   Files matching-'*.h'"
+xcopy '*.h' 'e:\bkup\'$TODAY /s/m
+
+#BYTES=$(command.com /c dir /s 'e:\bkup\'$TODAY | tail -2 | head -1 | cut -f3- -d' '  )
+#echo $BYTES

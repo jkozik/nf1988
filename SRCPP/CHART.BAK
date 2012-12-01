@@ -1,0 +1,323 @@
+#include "chart.h"
+#include "ctype.h"
+#include "iostream.h"
+//#include "iomanip.h"
+#ifdef _DEBUG
+#undef THIS_FILE
+static char BASED_CODE THIS_FILE[] = __FILE__ ;
+#endif
+
+// chart.cpp : Defines the class behaviors for CChart, CChartList
+
+IMPLEMENT_DYNAMIC( CChart, CObject );
+IMPLEMENT_DYNAMIC( CChartList, CObList );
+
+
+//////////////////////////////////////////////////////////////////
+// CChart::CChart
+// Copy Constructor for CChart class
+//
+CChart::CChart( const CChart& a )
+{
+    ASSERT_VALID( this );
+    ASSERT_VALID( &a );
+    m_ChartAcct = a.m_ChartAcct;
+    m_Desc = a.m_Desc;
+    m_OldAcct = a.m_OldAcct;
+    m_SummaryAcct = a.m_SummaryAcct;
+
+}
+
+///////////////////////////////////////////////////////////////////
+// CChart::CChart
+// Memberwise Constructor for CChart
+//
+CChart::CChart( const char* pszChartAcct,
+	    const char* pszDesc,
+	    const char* pszOldAcct,
+	    const BOOL SummaryAcct)
+{
+    ASSERT_VALID( this );
+    m_ChartAcct = pszChartAcct;
+    m_Desc = pszDesc;
+    m_OldAcct = pszOldAcct;
+    m_SummaryAcct = SummaryAcct;
+
+}
+
+////////////////////////////////////////////////////////////////////
+// CChart::operator=
+// Overloaded operator= to perform assignments
+//
+CChart& CChart::operator=( const CChart& b )
+{
+    ASSERT_VALID( this );
+    ASSERT_VALID( &b );
+    m_ChartAcct = b.m_ChartAcct;
+    m_Desc = b.m_Desc;
+    m_OldAcct = b.m_OldAcct;
+    m_SummaryAcct = b.m_SummaryAcct;
+    return( *this );
+}
+
+
+///////////////////////////////////////////////////////////////////////
+// CChart::Dump
+// Write the contents of the object
+//
+#ifdef _DEBUG
+void CChart::Dump( CDumpContext& dc ) const
+{
+    ASSERT_VALID( this );
+
+    CObject::Dump( dc );
+
+    cerr << "\n"
+	<< "Account: " << setw(3) <<  GetChartAcct()
+	<< " Description: " << setw(25) << GetDesc()
+	<< " Old: " << setw(3) << GetOldAcct()
+	<< " Summary: " << m_SummaryAcct << "\n" ;
+
+}
+
+void CChart::AssertValid() const
+{
+    CObject::AssertValid();
+    if( m_ChartAcct != "" ) ASSERT( m_ChartAcct.Valid() );
+    if( m_Desc != "" ) ASSERT( m_Desc.Valid() );
+    ASSERT( OldAcctValid() );
+
+}
+
+#endif
+
+///////////////////////////////////////////////////////////////////
+// CChartList
+//
+
+
+////////////////////////////////////////////////////////////////////
+// CChartList::Close
+// This will delete the objects in the list
+//
+void CChartList::Close()
+{
+    ASSERT_VALID( this );
+    POSITION pos = GetHeadPosition();
+    while( pos != NULL )
+    {
+	delete GetNext(pos);
+
+    }
+    RemoveAll();
+
+}
+
+///////////////////////////////////////////////////////////////////
+// CChartList::Open
+// This reads in records from the file YY\chart
+//
+BOOL CChartList::Open(const char* pszChartFileName)
+{
+
+    const int SZCHARTLINE = 80;
+    char ChartInputRecord[SZCHARTLINE+1];
+    CChart c;
+
+    BOOL bGOOD_INPUT;
+    ASSERT_VALID( this );
+    int rec_cnt = 0;
+
+    CStdioFile cf( pszChartFileName, CFile::modeRead );
+
+    while ( cf.ReadString( ChartInputRecord, SZCHARTLINE ) )
+    {
+	bGOOD_INPUT = c.Convert( ChartInputRecord );
+	if( bGOOD_INPUT  ) {
+	    AddTail( new CChart( c ) );
+	}
+    }
+    cf.Close();
+
+    return TRUE;
+
+}
+
+//////////////////////////////////////////////////////////////////////
+// CChartList::FindChartAcct
+// Search for ChartAcct == "string"
+//
+CChartList* CChartList::FindChartAcct( const char* ChartAcct )
+{
+    ASSERT_VALID( this );
+    CChart* pNext = NULL;
+
+    POSITION pos = GetHeadPosition();
+    while( pos != NULL )
+    {
+	pNext = (CChart *) GetNext( pos );
+	if( ChartAcct == pNext->GetChartAcct() )
+	    return (CChartList*) pNext;
+	else if ( ChartAcct > pNext->GetChartAcct() ) //ordered list
+	    return NULL;  // not found
+    } //while
+    return NULL;
+
+} // FindChartAcct
+
+///////////////////////////////////////////////////////////////////////
+// CChart::Convert
+// Create CChart with input record string; Return NULL if invalid
+//
+BOOL CChart::Convert( const char* pszChartFileRecord )
+{
+    ASSERT_VALID( this );
+    BOOL match, done;
+    int field, sidx, slen;
+
+    CString s = CString( pszChartFileRecord );
+    slen = s.GetLength();
+    done = FALSE;
+    sidx = 0;
+
+    for( field=0; done == FALSE; field++ )
+    {
+	match = FALSE;
+	switch( field )
+	{
+	case 0: /* "a," */
+	    if ( s.Left(2) == "a," ) match = TRUE;
+	    sidx += 2;
+	    break;
+
+	case 1: /* account no. - X, XX, or XXX, */
+	    match = SetChartAcct( (s.Mid( sidx )).SpanExcluding(","));
+	    sidx += m_ChartAcct.GetLength() + 1;
+	    break;
+
+	case 2: /* description - XX...X, or XX...X\n */
+	    match = SetDesc( (s.Mid( sidx )).SpanExcluding(",\n") );
+	    sidx += GetDesc().GetLength() + 1;
+	    if ( sidx-1 >= slen || s[sidx-1] == '\n' ) done = TRUE;
+	    break;
+
+	case 3: /* Old account - NULL X XX XXX followed by , or \n */
+	    match = SetOldAcct( (s.Mid( sidx )).SpanExcluding(",\n") );
+	    sidx += m_OldAcct.GetLength() + 1;
+	    if( sidx-1 >= slen || s[sidx-1] == '\n' ) done = TRUE;
+	    break;
+
+	case 4: /* Summary Account Flag - NULL\n or s\n */
+	    //cerr << "\"" << (s.Mid( sidx )).SpanExcluding("\n") "\"\n";
+	    match = SetSummaryAcct( (s.Mid( sidx )).SpanExcluding("\n") );
+	    if ( sidx >= slen || s[sidx] == '\n' || s[sidx+1] == '\n' ) done = TRUE;
+	    break;
+
+	} // switch
+	if( match == FALSE ) {
+	    cerr << pszChartFileRecord
+		 << "Invalid Chart Record\n";
+	    done = TRUE;
+	}
+    } // for
+    return match;
+} // function
+
+
+#ifdef _DEBUG
+///////////////////////////////////////////////////////////////////////////
+// CChartList::AssertValid
+// Assert if invalid condition detected in object
+//
+
+void
+CChartList::AssertValid() const
+{
+    CObList::AssertValid();
+
+    //POSITION pos = GetHeadPosition();
+    //while( pos != NULL ) {
+    //	((CChart*) GetNext( pos )) -> AssertValid();
+    //}
+}
+
+//////////////////////////////////////////////////////////////////////
+// CChartList::Test()
+//
+static BOOL
+CChartList::Test()
+{
+    TRACE( "\nEntering CChartList::Test()\n");
+
+    CMemoryState point, endpoint, diff;
+    point.Checkpoint();
+
+    {
+    const char* pszChartFileName = "c:\\nf\\92\\chart";
+    TRY
+    {
+	chart.Open( pszChartFileName );
+
+    }
+    CATCH ( CFileException, e )
+    {
+	#ifdef _DEBUG
+	afxDump << "File could not be opened " << e->m_cause << "\\n";
+	#endif
+
+    }
+    END_CATCH
+
+    afxDump << chart;
+
+    chart.Close();
+    goto endTest;
+endTest: ;
+    TRACE( "\nLeaving CChartList::Test()\n" );
+    }
+    endpoint.Checkpoint();
+    if( diff.Difference( point, endpoint ) ) {
+	afxDump << "\n";
+	diff.DumpStatistics();
+	diff.DumpAllObjectsSince();
+    }
+
+    return TRUE;
+}
+#endif
+/*************************************************************************
+** C-Functions
+**************************************************************************/
+
+extern "C" {
+
+/*
+** CHlookup - lookup account number, return description
+*/
+const char* CHlookup( char* acct )
+{
+    CChart *c;
+    c = ( CChart* ) chart.FindChartAcct( acct );
+    if ( c == NULL )
+	return "** Invalid Account **";
+    else
+	return ( const char* ) c->GetDesc();
+
+}
+
+/*
+** CHvalid - lookup account number, return NULL if invalid
+*/
+const char* CHvalid( char* acct )
+{
+    CChart* c;
+    c = ( CChart* ) chart.FindChartAcct( acct );
+    if ( c==NULL )
+	return NULL;
+    else
+	return ( const char* ) c->GetDesc();
+}
+} // extern "C" {}
+
+
+CChartList chart;

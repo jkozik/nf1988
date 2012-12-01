@@ -1,0 +1,113 @@
+# MSC compile/link options
+cc=cl
+ccopt=-AL -Zi -Od -c -W3
+#ccopt=/Zi /Od -c
+link=$(cc)
+linkopt=/Fm /Fe
+msclinkopt=/link /CO /MAP /segments:196
+
+# Turbo C compile/link options
+#cc=tcc
+#ccopt=-Dturboc -I\lang\turbo_c\include -c
+#link=$(cc)
+#linkopt=-L\lang\turbo_c\lib -ms -e
+#msclinkopt=
+
+# ccheck flags
+#ccheck=ccheck 
+ccheck=echo
+
+JEanaldtlexe=analdtl.exe
+JEpreglobj=JEpregl.obj
+JEpreglexe=pregl.exe
+GLrptobj=GLrpt.obj
+GLrptexe=glrpt.exe
+GLmonsumobj=GLmonsum.obj
+GLmonsumexe=monsum.exe
+GLcloseobj=GLclose.obj
+GLcloseexe=close.exe
+GLmkchartobj=GLmkchar.obj
+GLmkchartexe=mkchart.exe
+
+
+GLjefileobj=GLjefile.obj
+CHvalidobj=CHvalid.obj
+JEvalinpobj=JEvalinp.obj
+JEglsortobj=JEglsort.obj
+GLenvobj=GLenv.obj
+
+all: $(JEpreglexe) $(JEanaldtlexe) $(GLrptexe) $(GLmonsumexe) $(GLcloseexe) $(GLmkchartexe)
+
+$(CHvalidobj): CHvalid.c GLextern.h GLdefs.h GLstruct.h
+	rem 2
+	$(ccheck) CHvalid.c
+	$(cc) $(ccopt) -oCHvalid CHvalid.c
+
+JEpregl.obj: JEpregl.c GLextern.h GLdefs.h GLstruct.h
+	rem 3
+	$(ccheck) JEpregl.c
+	$(cc) $(ccopt) -oJEpregl JEpregl.c
+
+$(JEvalinpobj): JEvalinp.c GLextern.h GLdefs.h GLstruct.h
+	rem 4
+	$(ccheck) JEvalinp.c
+	$(cc) $(ccopt) -oJEvalinp JEvalinp.c
+
+$(JEglsortobj): JEglsort.c GLextern.h GLdefs.h GLstruct.h
+	rem 5
+	$(ccheck) JEglsort.c
+	$(cc) $(ccopt) -oJEglsort JEglsort.c
+
+JEanaldt.obj: JEanaldt.c GLextern.h GLdefs.h GLstruct.h
+	rem 6
+	$(ccheck) JEanaldt.c
+	$(cc) $(ccopt) -oJEanaldtl JEanaldt.c
+
+$(GLrptobj): GLrpt.c GLextern.h GLdefs.h GLstruct.h
+	rem 7
+	$(ccheck) GLrpt.c
+	$(cc) $(ccopt) -oGLrpt GLrpt.c
+
+$(GLjefileobj): GLjefile.c GLextern.h GLdefs.h GLstruct.h
+	rem 8
+	$(ccheck) GLjefile.c
+	$(cc) $(ccopt) -oGLjefile GLjefile.c
+
+$(GLmonsumobj): GLmonsum.c GLextern.h GLdefs.h GLstruct.h
+	rem 9
+	$(ccheck) GLmonsum.c
+	$(cc) $(ccopt) -oGLmonsum GLmonsum.c
+
+$(GLenvobj): GLenv.c GLextern.h GLdefs.h GLstruct.h
+	rem 10
+	$(ccheck) GLenv.c
+	$(cc) $(ccopt) -oGLenv GLenv.c
+
+$(GLcloseobj): GLclose.c GLextern.h GLdefs.h GLstruct.h
+	rem 11
+	$(ccheck) GLclose.c
+	$(cc) $(ccopt) -oGLclose GLclose.c
+
+$(GLmkchartobj): GLmkchar.c GLextern.h GLdefs.h GLstruct.h
+	rem 11
+	$(ccheck) GLmkchar.c
+	$(cc) $(ccopt) -oGLmkchart GLmkchar.c
+
+$(JEpreglexe): JEpregl.obj $(CHvalidobj) $(JEvalinpobj) $(JEglsortobj) $(GLenvobj)
+	$(link) $(linkopt)pregl JEpregl.obj CHvalid.obj JEvalinp.obj JEglsort.obj GLenv.obj $(msclinkopt)
+
+$(JEanaldtlexe): $(CHvalidobj) $(JEvalinpobj) JEanaldt.obj $(GLenvobj)
+	$(link) $(linkopt)analdtl CHvalid.obj JEvalinp.obj JEanaldt.obj GLenv.obj $(msclinkopt)
+
+$(GLrptexe): $(CHvalidobj) $(GLrptobj) $(GLjefileobj) $(GLenvobj)
+	$(link) $(linkopt)glrpt GLjefile.obj CHvalid.obj GLrpt.obj GLenv.obj $(msclinkopt)
+
+$(GLmonsumexe): $(CHvalidobj) $(GLmonsumobj) $(GLjefileobj) $(GLenvobj)
+	$(link) $(linkopt)monsum GLjefile.obj CHvalid.obj GLmonsum.obj GLenv.obj $(msclinkopt)
+
+$(GLcloseexe): $(CHvalidobj) $(GLcloseobj) $(GLjefileobj) $(GLenvobj)
+	$(link) $(linkopt)close GLjefile.obj CHvalid.obj GLclose.obj GLenv.obj $(msclinkopt)
+
+$(GLmkchartexe): $(CHvalidobj) $(GLmkchartobj) $(GLenvobj)
+	$(link) $(linkopt)mkchart CHvalid.obj GLmkchar.obj GLenv.obj $(msclinkopt)
+
